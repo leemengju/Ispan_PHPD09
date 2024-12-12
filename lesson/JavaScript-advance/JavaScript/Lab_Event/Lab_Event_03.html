@@ -45,6 +45,7 @@ a.boxclose {
 	margin-top: -30px;
 	margin-right: -30px;
 	cursor: pointer;
+	transition: all 3s ease-out;
 }
 
 </style>
@@ -61,10 +62,20 @@ a.boxclose {
 
 	<script>
 	
+	// function doAnimateShow() {
+	// 	document.getElementById("box").style.top = "200px";
+	// }
+	// function doAnimateHide() {
+	// 	document.getElementById("box").style.top = "-200px";
+	// }
+	// 	document.getElementById('boxclose').onclick = doAnimateHide;
 	function doAnimateShow() {
-		document.getElementById("box").style.top = "200px";
+		document.getElementById("box").style.top="200px";
 	}
-		
+	function doAnimateHide() {
+		document.getElementById("box").style.top="-200px";
+	}
+	document.getElementById('boxclose').onclick=doAnimateHide;
 	</script>
 
 </body>

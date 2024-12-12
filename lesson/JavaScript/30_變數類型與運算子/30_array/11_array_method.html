@@ -8,7 +8,8 @@
 <body>
 
     <h4>JavaScript Array Methods</h4>
-    <p><a href="http://www.w3schools.com/js/js_array_methods.asp">http://www.w3schools.com/js/js_array_methods.asp</a></p>
+    <p><a href="http://www.w3schools.com/js/js_array_methods.asp">http://www.w3schools.com/js/js_array_methods.asp</a>
+    </p>
 
     <script>
         var weekList = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
@@ -18,16 +19,16 @@
         console.log(weekList[1]);
 
         console.log(weekList.length);
-        
-        
+
+
         // 12. 陣列.toString()
         // 數值轉字串
         console.log(weekList.toString());
-        
+
         // 13. 陣列.join("#")
         // 陣列的區隔方式
         console.log(weekList.join("#"));
-        
+
         // 14. 移除陣列中第一份資料
         // 陣列.shift
         // console.log(weekList);
@@ -35,7 +36,7 @@
         console.log(res); //sunday，回傳值為刪除的值
         console.log(weekList);  // [ "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
 
-        
+
 
         // 15. 移除陣列中最後一份資料
         var res = weekList.pop();
@@ -45,27 +46,33 @@
 
         // 16. 想要加入資料到陣列中可以怎麼操作?
         // 16.1直接加字串
-      weekList=["sunday", "monday", "tuesday", "wednesday", "thursday", "friday" ];
-      console.log(weekList); 
-      // 16.2加在開頭
-      res=weekList.unshift("皮卡丘");
-      console.log(res);//7
-      console.log(weekList); 
-      // 16.3加在結尾
-      res=weekList.push( "saturday");
-      console.log(res);//8
-      console.log(weekList); 
-      // 16.4加在結尾
-      console.log(weekList.length);
-      weekList[weekList.length]= "胖丁";
-      console.log(weekList); 
+        weekList = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday"];
+        console.log(weekList);
+        // 16.2加在開頭
+        res = weekList.unshift("皮卡丘");
+        console.log(res);//7
+        console.log(weekList);
+        // 16.3加在結尾
+        res = weekList.push("saturday");
+        console.log(res);//8
+        console.log(weekList);
+        // 16.4加在結尾
+        console.log(weekList.length);
+        weekList[weekList.length] = "胖丁";
+        console.log(weekList);
 
 
-      res=weekList.push("oneday");
-      console.log(res);
-      console.log(weekList);
-      
-      
+        res = weekList.push("oneday");
+        console.log(res);
+        console.log(weekList);
+
+
+        // splice(起始 index, 刪除個數，若為0即為插入, 欲插入元素1, 欲插入元素2, 欲插入元素N)
+        let students = ['Mark', 'Zuck', 'Pony', 'Elon'];
+        // 從第0的位置，刪除2個數值
+        students.splice(0, 2); // students => ['Pony', 'Elon']
+         // 從第1的位置，刪除0個數值，補上John和Cath兩個數值
+        students.splice(1, 0, 'John', 'Cath'); // students => ['Pony', 'John', 'Cath', 'Elon'];
 
     </script>
 </body>

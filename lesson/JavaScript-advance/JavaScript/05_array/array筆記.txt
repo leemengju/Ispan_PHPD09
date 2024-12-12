@@ -1,0 +1,80 @@
+介紹網站:https://blog.techbridge.cc/2016/10/08/javascript-data-structure-algorithm-array/
+
+
+07_splice
+ var data = [3, 0, 1, 8, 7, 2, 5, 4, 9, 6];
+ // data.push("66");
+    // data.unshift(99);
+    // data.shift();
+    // data.pop();
+    // data.splice(2, 3);
+    // 從第2個位置，刪除3個數值，新增數值"100"
+    // data.splice(2, 3, 100);
+
+______________________________________________________
+
+010_forEach
+
+forEach只會有單一數值， map會出陣列
+ <input type="button" id="test" value="click me to test your code" />
+    <div id="report"></div>
+
+    <script>
+
+        test.onclick = function () {
+            var data = [3, 1, 8];
+            var sum = 0;
+
+            //  求加總       
+            // for (let i = 0; i < data.length; i++) {
+            //     sum += data[i];
+            // }
+            // report.innerText = sum;
+
+            // 求個數
+            // // for (let i in data) {  // in   index  0, 1, 2
+            // //     alert(i);
+            // // }
+
+            //求數值
+            // // for (let item of data) {  // dataItem  3, 1, 8
+            // //     alert(item);
+            // // }
+        }
+            
+    </script>
+______________________________________________________
+
+ 011_map_共同操作
+
+ test.onclick = function () {
+            
+
+            // report.innerText = sum;
+            var data = [3, 1, 8];
+            var daralist = data.map(function (item) {
+                return item + 10;
+
+            })
+
+            report.innerText = daralist;
+
+        } 
+______________________________________________________
+
+040 解構賦值
+
+/把陣列解構下來，賦直到另一個陣列裡。
+
+var dataList = [100, 200, 300];
+    // var x = dataList[0];
+    // var y = dataList[1];
+    // var z = dataList[2];
+    var [x, y, z] = dataList;
+    report.innerText = `x = ${x}, y = ${y}, z = ${z}`;
+
+/  數值互換。 
+    var x = 100;
+    var y = 200;
+    [x, y] = [y, x];
+    report.innerText = `x = ${x}, y = ${y}`;
