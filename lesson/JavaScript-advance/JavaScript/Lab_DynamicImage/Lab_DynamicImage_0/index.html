@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Dynamic Image Lab</title>
+  <meta charset="UTF-8">
+  <title>Dynamic Image Lab</title>
 </head>
+
 <body>
 
-<p>...</p>
+  <p>...</p>
 
-<!-- 
+  <!-- 
 TODO:
 請檢視以下這段 HTML，設計師用 <a> 與 <img> 做了
 一個圖片式的超連結，目前固定連往運動家隊。
@@ -17,10 +19,45 @@ TODO:
 球隊圖案（超連結也要一併對應唷）。 
 -->
 
-<a id="imgshref" href="http://oakland.athletics.mlb.com/" target="_blank">
-  <img src="images/oak.gif" id="imgs" border="0" />
+<a id="imgshref1" href="http://oakland.athletics.mlb.com/" target="_blank">
+  <img src="images/oak.gif" />
+</a>
+<a id="imgshref2" href="http://oakland.athletics.mlb.com/" target="_blank">
+  <img src="images/chc.gif"  />
+</a>
+<a id="imgshref3" href="http://oakland.athletics.mlb.com/" target="_blank">
+  <img src="images/sd.gif" />
+</a>
+<a id="imgshref4" href="http://oakland.athletics.mlb.com/" target="_blank">
+  <img src="images/was.gif"  />
 </a>
 
 <p>...</p>
+
+<script>
+  // 獲取所有的連結元素
+  // var links = Array.from(document.querySelectorAll('a'));
+
+  // // 隨機選擇一個連結
+  // var randomIndex = Math.floor(Math.random() * links.length);
+  // var randomLink = links[randomIndex];
+
+  // // 清空當前內容並顯示隨機選擇的連結
+  // var container = document.body; // 或選擇其他容器，例如 document.getElementById('someContainer')
+  // container.innerHTML = ''; // 清空內容
+  // container.appendChild(randomLink); // 添加隨機選擇的連結
+
+
+  var links = Array.from(document.querySelectorAll('a') );
+
+  var randomIndex = Math.floor(Math.random()*links.length);
+  var randomLink= links[randomIndex];
+
+  var container = document. body;
+  container. innerHTML ="";
+  container.appendChild(randomLink) ;
+
+</script>
 </body>
+
 </html>
