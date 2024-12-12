@@ -47,12 +47,12 @@ TODO:
   // container.innerHTML = ''; // 清空內容
   // container.appendChild(randomLink); // 添加隨機選擇的連結
 
-
+//定義數列
   var links = Array.from(document.querySelectorAll('a') );
-
+//隨機變數-->將變數帶數列位置
   var randomIndex = Math.floor(Math.random()*links.length);
   var randomLink= links[randomIndex];
-
+// 定義容器-->清空容器-->將數列放入容器
   var container = document. body;
   container. innerHTML ="";
   container.appendChild(randomLink) ;
