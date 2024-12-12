@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- 10. 底下有兩段被註解掉的程式碼
+             請觀察取消註解後
+             <p> 標籤的內容是否會被改變？ -->
+
+    <!--因為id="demo""還沒有被定義，所以getElementsById('demo')無法取得任何內容。
+                   -->
+    <script>
+        console.log(document.getElementsById('demo'));
+        document.getElementById('demo').innerText = "皮卡丘";
+    </script>
+
+
+</head>
+
+<body>
+
+    <p id="demo"> 測試文字 </p>
+
+    <!--innerText只會呈現原本的文字，但加入等號後
+                 "測試文字"會被更改成"胖丁"
+      -->
+
+    <script>
+        document.getElementById('demo').innerText = "胖丁";
+    </script>
+
+
+</body>
+
+</html>

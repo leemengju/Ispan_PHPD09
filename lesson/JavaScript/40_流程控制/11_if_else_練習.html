@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        // 1. 取得系統現在時間(HH)
+        // 2. 如果是 8點 ~ 11點，在主控台顯示上午課程
+        // 3. 如果是 12點，在主控台顯示中午用餐時間
+        // 4. 如果是 13點 ~ 16點，在主控台顯示下午課程
+        // 5. 其他的時段，在主控台顯示非課程時間
+        var d=new Date() 
+        // console.log(d);
+        
+        var temp= d.getHours();
+        // console.log(temp);
+
+        if (8 <= temp && temp < 12) {
+            console.log('上午課程');
+        }
+        else if (temp == 12) {
+            console.log('中午用餐時間');
+        }
+        else if (12 < temp && temp <= 16) {
+            console.log('下午課程');
+        }
+        else {
+            console.log('非課程時間');
+        }
+
+
+       
+
+        
+        
+
+    </script>
+
+</body>
+
+</html>

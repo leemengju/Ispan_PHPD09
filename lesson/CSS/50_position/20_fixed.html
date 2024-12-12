@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/position.css">
+    <style>
+        /* 10. 將 #reddiv 固定在右下角，並且顯示圖片 */
+        /* fixed固定在視窗的位置 */
+        #reddiv{
+            position:fixed;
+            background-image: url(../img/onepiece20th_logo.png);
+            background-color: transparent;
+            background-size: contain;
+            background-repeat: no-repeat;
+            overflow:visible;
+            left:5%;
+            top:5%;
+           
+        }
+        img{
+            position:fixed;
+            width:20%;
+            right:5%;
+            bottom:5%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>position：fixed</h3>
+
+    <!-- 20. 該在哪裡加上超連結，點選之後連到任意網頁？ -->
+
+    <div class="demo">
+        我是demo div的元素內容。<br>
+        <div onclick="window.open('https://marketplace.visualstudio.com/items?itemName=figma.figma-vscode-extension')" target="blank" src="../img/onepiece20th_logo.png" alt="海賊王" id="reddiv"></div>
+        <a href="https://marketplace.visualstudio.com/items?itemName=figma.figma-vscode-extension')" target="blank" >
+            <div src="../img/onepiece20th_logo.png" alt="海賊王" id="reddiv"></div>
+        </a>
+        <div id="greendiv">Green</div>
+        <div id="bluediv">Blue</div>
+        <img onclick="window.open('https://marketplace.visualstudio.com/items?itemName=figma.figma-vscode-extension')" target="blank" src="../img/onepiece20th_logo.png" alt="海賊王">
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,470 @@
+﻿Lab: Vue.js 入門: Hello! Vue.js
+
+
+
+
+1.  繫結資料到元素內容
+
+
+1.1 新建一個 HTML 檔案，檔名: hello_VueJs.html
+    內容如下:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab</title>
+    <style>
+        body>div {
+            font-family: sans-serif;
+            font-size: 1.25em;
+            border: 1px solid gray;
+            padding: 20px;
+            margin: 20px;
+        }
+    </style>
+
+</head>
+<body>
+
+
+
+<script>
+
+</script>
+</body>
+</html>
+
+
+1.2 在 </head> 的前一行，加入下列這行以引用 Vue.js:
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+1.3 body 區塊加入下列內容:
+
+    <div id="app">
+        {{ message }}
+    </div>
+
+    <Note> 
+    存檔後，滑鼠右鍵 HTML 文件 | Open with Live Server 檢視作品
+    ==> {{ message }}
+
+
+1.4 在頁尾的 script 程式區塊加入下列程式:
+
+        const { createApp } = Vue
+    
+        var vueApp = createApp({
+            data() {
+                return {
+                    message: 'Hello Vue!'
+                }
+            }
+        }).mount('#app')
+
+
+    <Note> 
+    存檔後，在瀏覽器檢視作品
+    ==> {{ message }} 變成 Hello Vue!
+
+    <Note>
+    可以的話，請不要複製貼上，手動鍵入一遍程式。
+
+
+1.5 組合鍵 Ctrl + Shift + I 或功能鍵 F12
+    在 Console 頁籤輸入:
+    vueApp.message = 'Hello! Vue.js';
+
+    <Note>
+    ==> {{ message }} 那邊變成 Hello! Vue.js
+
+
+1.6 上述範例程式也可以改寫成這樣，感覺會比較容易了解:
+
+    <script>
+        var vueApp = Vue.createApp({
+            data() {
+                return {
+                    message: 'Hello Vue!'
+                }
+            }
+        });
+        
+        vueApp.mount('#app');
+    </script>
+
+
+    <Note>
+    解構賦值、物件導向等語法，稍後課程會再說明一遍。
+    
+    <Note>
+    請想一下/討論一下 vueApp 的作用及運作方式。
+
+
+
+
+2.  繫結資料到屬性值
+
+
+2.1 將 <div id="app> 的內容改成這樣:
+
+    <div id="app">
+        <span title="a tooltip">
+            {{ message }}
+        </span>
+    </div>
+
+
+2.2 存檔後，在瀏覽器檢視作品
+
+
+2.3 將 <div id="app> 的內容改成這樣:
+
+    <div id="app">
+        <span v-bind:title="message">
+            {{ message }}
+        </span>
+    </div>
+
+
+2.4 存檔後，在瀏覽器檢視作品
+
+    <Note>
+    滑鼠移到 div 內的文字上方，會出現 Hello Vue! 提示文字。
+
+    <Note>
+    v-bind:title="message"
+    可簡寫成:
+    :title="message"
+
+
+
+
+3.  雙向資料繫結
+
+
+3.1 修改 <div id="app"> 的內容: 
+
+    <div id="app">
+        <input type="text" :value="message" /><br />
+        <span :title="message">
+            {{ message }}
+        </span>
+    </div>
+
+
+3.2 存檔後，在瀏覽器檢視作品
+    輸入任意內容到文字輸入方塊
+
+    <Note>
+    <span>文字方塊的內容並沒有隨之更新
+
+
+3.3 再次修改 <div id="app"> 的內容:
+
+    <div id="app">
+        <input v-model="message"><br />
+        <span :title="message">
+            {{ message }}
+        </span>
+    </div>
+
+
+3.4 存檔後，在瀏覽器檢視作品
+    輸入任意內容到文字輸入方塊
+
+    <Note>
+    <span>文字方塊的內容即時更新
+
+
+3.5 請整理一下單向與雙向繫結的差異。
+
+
+
+
+4.  以迴圈語法重複內容
+
+
+4.1 <div id="app">的內容改成這樣：
+
+    <div id="app">
+        <input v-model="message"><br />
+        <span :title="message">
+            {{ message }}
+        </span>
+        <ul>
+            <li>
+                Job ABC
+            </li>
+        </ul>        
+    </div>
+
+
+
+4.2 頁尾的 script 程式區塊改成這樣:
+
+    <script>
+        const { createApp } = Vue
+    
+        var vueApp = createApp({
+            data() {
+                return {
+                    message: 'Hello Vue!',
+                    todoList: [
+                        { text: 'Job A' },
+                        { text: 'Job B' },
+                        { text: 'Job C' }
+                    ]
+                }
+            }
+        }).mount('#app')
+    </script>
+
+
+4.3 存檔後，在瀏覽器檢視作品
+
+
+4.4 <div id="app">的內容改成這樣：
+
+    <div id="app">
+        <input v-model="message"><br />
+        <span :title="message">
+            {{ message }}
+        </span>
+        <ul>
+            <li v-for="todoItem in todoList">
+                Job ABC
+            </li>
+        </ul>        
+    </div> 
+
+
+4.5 存檔後，在瀏覽器檢視作品
+
+
+4.6 <div id="app">的內容改成這樣：
+
+    <div id="app">
+        <input v-model="message"><br />
+        <span :title="message">
+            {{ message }}
+        </span>
+        <ul>
+            <li v-for="todoItem in todoList">
+                {{ todoItem.text }}
+            </li>
+        </ul>        
+    </div>
+
+
+4.7 存檔後，在瀏覽器檢視作品
+
+
+
+
+5.  寫作事件處理函式
+
+
+5.1 修改 <div id="app"> 的內容，如下:
+
+    <div id="app">
+        <input v-model="message"><br />
+        <span :title="message">
+            {{ message }}
+        </span>
+        <ul>
+            <li v-for="todoItem in todoList"
+                v-on:click="liClick"
+            >
+                {{ todoItem.text }}
+            </li>
+        </ul>        
+    </div>
+
+
+5.2 <script>那邊的程式改成:
+
+    <script>
+        const { createApp } = Vue
+    
+        var vueApp = createApp({
+            data() {
+                return {
+                    message: 'Hello Vue!',
+                    todoList: [
+                        { text: 'Job A' },
+                        { text: 'Job B' },
+                        { text: 'Job C' }
+                    ]
+                }
+            },
+            methods: {
+                liClick: function () {
+                    alert("list item clicked");
+                }
+            }
+        }).mount('#app')
+    </script>
+
+
+5.3 存檔後，在瀏覽器檢視作品
+    點按「Job A」等項目，應該會跳出對話盒顯示: list item clicked
+
+    <Note>
+    請想一下，該怎麼知道點按的是哪一個項目呢?
+
+
+5.4 修改 <div id="app"> 的內容，如下:
+
+    <div id="app">
+        <input v-model="message"><br />
+        <span :title="message">
+            {{ message }}
+        </span>
+        <ul>
+            <li v-for="(todoItem, index) in todoList"
+                v-on:click="liClick(index)"
+            >
+                {{ todoItem.text }} -- {{index}}
+            </li>
+        </ul>        
+    </div>
+
+
+5.5 <script>那邊的程式改成:
+
+    <script>
+        const { createApp } = Vue
+    
+        var vueApp = createApp({
+            data() {
+                return {
+                    message: 'Hello Vue!',
+                    todoList: [
+                        { text: 'Job A' },
+                        { text: 'Job B' },
+                        { text: 'Job C' }
+                    ]
+                }
+            },
+            methods: {
+                liClick: function (index) {
+                    console.log(index);
+                    alert(this.todoList[index].text);
+                }
+            }
+        }).mount('#app')
+    </script>
+
+
+5.6 存檔後，在瀏覽器檢視作品
+    點按「Job A」等項目
+
+
+5.7 修改 <div id="app"> 的內容，如下:
+
+    <div id="app">
+        <input v-model="message"><br />
+        <span :title="message">
+            {{ message }}
+        </span>
+        <ul>
+            <li v-for="(todoItem, index) in todoList"
+                v-on:click="liClick(todoItem)"
+            >
+                {{ todoItem.text }} -- {{index}}
+            </li>
+        </ul>        
+    </div>
+
+
+
+5.8 <script>那邊的程式改成:
+
+    <script>
+        const { createApp } = Vue
+    
+        var vueApp = createApp({
+            data() {
+                return {
+                    message: 'Hello Vue!',
+                    todoList: [
+                        { text: 'Job A' },
+                        { text: 'Job B' },
+                        { text: 'Job C' }
+                    ]
+                }
+            },
+            methods: {
+                liClick: function (item) {
+                    console.log(item);
+                    alert(item.text);
+                }
+            }
+        }).mount('#app')
+    </script>
+
+
+5.9 存檔後，在瀏覽器檢視作品
+    點按「Job A」等項目
+
+
+
+
+6.  條件式畫面處理
+
+
+6.1 <div id="app"> 的畫面改成這樣:
+    （請留意其中的 v-if 及 v-else）
+
+    <div id="app">
+        <input v-model="message"><br />
+        <span :title="message">
+            {{ message }}
+        </span><hr />
+        <button v-on:click="clearTodoListClick">Clear Todo List</button>
+        <ul v-if="todoList.length > 0">
+            <li v-for="(todoItem, index) in todoList"
+                v-on:click="liClick(todoItem)"
+            >
+                {{ todoItem.text }} -- {{index}}
+            </li>
+        </ul>
+        <h3 v-else>Todo list is empty.</h3>      
+    </div>
+
+
+6.2 程式區塊的程式：
+
+    <script>
+        const { createApp } = Vue
+    
+        var vueApp = createApp({
+            data() {
+                return {
+                    message: 'Hello Vue!',
+                    todoList: [
+                        { text: 'Job A' },
+                        { text: 'Job B' },
+                        { text: 'Job C' }
+                    ]
+                }
+            },
+            methods: {
+                liClick: function (item) {
+                    console.log(item);
+                    alert(item.text);
+                },
+                clearTodoListClick: function () {
+                    this.todoList = [];
+                }
+            }
+        }).mount('#app')
+    </script>
+
+
+6.3 存檔後，在瀏覽器檢視作品，
+    點一下 Clear Todo List 按鈕。

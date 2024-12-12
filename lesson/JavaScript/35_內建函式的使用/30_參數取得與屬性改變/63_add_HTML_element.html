@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    
+    <p id="bee">apple</p>
+    <button onclick="addIMG()">點我新增圖片</button>
+    <hr>
+
+    <script>
+    //     function addIMG(){
+    //     // 20. createElement 增加一個元素 (img)
+    //     var elem= document.createElement('img');
+    //     // console.log(elem);
+        
+    //     // 21. setAttribute  設定新增元素的屬性
+    //     // 設定元素的來源
+    //     elem.setAttribute('src','../../img/like.png');
+    //     // 22. appendChild   直接在Html文件中增加元素
+    //     //將圖片顯示在畫面上
+    //     document.body.appendChild(elem);
+    // }
+
+    function addIMG(){
+        var elem= document.createElement('img');
+        elem.setAttribute('src','../../img/like.png');
+        document.body.appendChild(elem);
+    }
+    </script>
+    
+</body> 
+
+</html>

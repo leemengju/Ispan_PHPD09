@@ -1,0 +1,20 @@
+目標 : 建立 Lab_B 數據庫，並推送第一個版本
+
+
+請依照下方步驟，在 GitHub 建立新的數據庫，並將 w3schools_template 資料夾內的檔案推送上去
+
+10. 請在 GitHub 頁面建立新的數據庫 Lab_B
+
+20. 開啟 命令提示字元，使用 git clone 指令將數據庫複製到 桌面的 Git_Demo 資料夾裡面
+
+30. w3schools_template 資料夾內的檔案手動放到 Lab_B 資料夾 準備推送
+
+40. 使用 Visual Studio Code 開啟 Lab_B 資料夾
+
+50. 將檔案放到暫存區列管
+
+60. 提交並查看版本紀錄
+
+70. 推送到 GitHub 數據庫
+
+80. 在 GitHub 頁面查看數據庫變化

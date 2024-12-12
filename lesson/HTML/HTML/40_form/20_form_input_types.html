@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <!-- 參照 20_form_input_types_完成圖.png 製作一份表單 -->
+<h2>海上餐廳-線上訂位</h2>
+<form action="order">
+<fieldset>
+<legend>用餐地點/時段/人數</legend>
+    用餐地點:
+    <input type="radio" name="location" id="淡水">
+    <label for="淡水">淡水店</label>
+    <input type="radio" name="location" id="台中港">
+    <label for="台中港">台中港店</label>
+    <input type="radio" name="location" id="旗津">
+    <label for="旗津">旗津店</label>
+<br>
+用餐時段:
+<input type="date">
+<select name="time" id="time">
+<option value="12:00">12:00</option>
+<option value="17:00">17:00</option>
+</select>
+<br>
+<label for="people">訂位人數(上限20人):</label>
+<input id="people" type="number" max="20" min="1" value="1" >人
+</fieldset>
+<fieldset>
+<legend>訂位資訊</legend>
+<label for="username">姓名:</label>
+<input type="text" id="username">
+<br>
+<br>
+<label for="userphone">電話:</label>
+<input type="number" id="userphone">
+
+
+</fieldset>
+</form>
+    <!-- step1: 標題 -->
+    <h2>海上餐廳-線上訂位</h2>
+
+    <!-- step2: 加入一個表單 <form> -->
+    <!-- action地址 -->
+
+    <!-- step3. 在 <form> 表單內加入 
+                用餐地點 / 時段 / 人數 <fieldset> 群組標籤 
+                和 <legend> 並給予說明 -->
+
+    <form action="">
+        <fieldset>
+        <legend>用餐地點/時段/人數</legend>
+        用餐地點:
+        <input name=location type="radio" id="tamsui">
+        <label for="tamsui">淡水店</label>
+        <input name=location type="radio" id="台中港店">
+        <label for="台中港店">台中港店</label>
+        <input name=location type="radio" id="旗津店">
+        <label for="旗津店">旗津店</label>
+        <br>
+       
+    <!-- step4. 在表單 <form> 內加入用餐地點 -->
+    <!--    id：識別某個HTML文件上的元素 -->
+    <!--  name：做為radio、checkbox的分組 ; 讓伺服器識別 -->
+
+
+    <!-- step5. 在表單 <form> 內加入用餐時段和時間選單 -->
+        用餐時段:
+        <input type="date"style="height: 20px;">
+        <select name="time"style="height: 20px;">
+            <option value="12:00">12:00</option>
+            <option value="17:00">17:00</option>
+        </select>
+        <br>
+        
+    <!-- step6. 在表單 <form>內加入訂位人數和數字輸入框 -->
+        
+    <!--   min: 下限值 -->
+    <!--   max: 上限值 -->
+    <!-- value: 預設值 -->
+        訂位人數(上限20人):
+        <input type="number" max="20" min="1" value="1" style="width: 100px;">人
+
+      </fieldset>                  
+
+    <!-- step7. 在 <form> 表單內加入訂位資訊群組標籤並給予說明 -->
+<br>
+<fieldset>
+    <legend>訂位資訊</legend>
+        <form action="name&input">
+            <label for="username">姓名:</label>
+            <input type="text" id="username">
+            <br>
+            <br>
+            <label for="phone">電話:</label>
+            <input type="tel" id="phone">
+            <br>
+        </form>
+
+
+    
+</fieldset>
+    <!-- step8. 在表單 <form> 內加入姓名和文字輸入框 -->
+
+
+    <!-- step9. 在表單 <form> 內加入電話和輸入框 -->
+        
+        
+
+
+    
+
+</form>
+</body>
+
+</html>

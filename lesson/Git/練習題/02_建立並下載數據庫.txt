@@ -1,0 +1,21 @@
+目標 : 建立 GitHub 數據庫，並複製(下載)數據庫到本機
+
+
+10. 建立 GitHub 數據庫
+
+    11. 前往 GitHub 官網並登入帳號 (https://github.com/)
+
+    12. 在 dashboard 頁面點選綠色「Create repository」或「New」按鈕 建立數據庫
+
+    13. 在 Repository name 輸入框，輸入數據庫名稱: Lab_A
+
+    14. 其餘選項維持預設，點擊最下方綠色「Create repository」按鈕建立
+
+
+20. 複製(下載) GitHub 數據庫到本機。步驟 22~23 請在「命令提示字元 | 終端機」輸入指令
+
+    21. 請在桌面建立 Git_Demo 資料夾，用以存放 Lab_A 數據庫
+
+    22. 請確認 Git_Demo 資料夾的路徑，並使用 cd 指令切換到 Git_Demo 資料夾
+
+    23. 使用指令「git clone 數據庫位址」複製(下載) Lab_A 數據庫

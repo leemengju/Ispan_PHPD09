@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <h4>JavaScript String Methods</h4>
+    <p><a href="http://www.w3schools.com/js/js_string_methods.asp">http://www.w3schools.com/js/js_string_methods.asp</a>
+    </p>
+    <h4>JavaScript String Reference</h4>
+    <p><a
+            href="https://www.w3schools.com/jsref/jsref_obj_string.asp">https://www.w3schools.com/jsref/jsref_obj_string.asp</a>
+    </p>
+
+    <script>
+        var test = "APPLE";
+
+        // 1. 字串的長度
+        // 字串.length
+        console.log(test.length); //5
+
+        // 2. 字串.indexOf() 
+        // 字串裡的某個字母在第幾個位置
+        // 可以幫助我們做什麼事情? 呼叫後回傳了什麼?
+        var res = test.indexOf("P");
+        console.log(res); //1
+
+        // 3. 字串.lastIndexOf() 
+        // 字串裡的某個最後一個字母在第幾個位置
+        // 可以幫助我們做什麼事情? 呼叫後回傳了什麼?
+        res = test.lastIndexOf("P");
+        console.log(res); // 2
+
+        // 4. 字串.split() 幫助我們把字串分割為陣列
+        // 宣告-->當-->印出
+        var fruits = "apple,bubble,lemon";
+        res =fruits.split(",");
+        console.log(res);  // ['apple','bubble','lemon']
+        // 陣列裡有三格，分別填入水果
+        
+
+        // 5. 希望把字串補零到指定長度的話，該如何處理?
+        //    目標 : 原始字串13756，希望產出00013756
+        // 總共有八位，不足的補0
+        // 字串 demo.padStart
+        var demo = "13756";
+        res =  demo.padStart(8, "0");
+        console.log(res);
+
+        // 6. 擷取字串
+        // 0911222333 是 手機
+        // 0423456789 是 電話號碼
+        // 字串 .substring()
+        var phones = "09112223330423456789";
+        cell= phones.substring( 0 ,9)
+        console.log(cell);
+        home= phones.substring( 10 )
+        console.log(home);
+        
+
+
+    </script>
+</body>
+
+</html>

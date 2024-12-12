@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>border</title>
+    <link rel="stylesheet" href="../_css/bootstrap.css">
+    <script src="../_js/bootstrap.bundle.js"></script>
+
+
+    <style>
+        .box {
+            height: 10vh;
+        }
+
+        .box>div {
+            display: inline-block;
+        }
+
+        div[class*="rounded"] {
+            width: 150px;
+        }
+
+        span[class^=border] {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: rgb(9, 140, 255);
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h4>官方網站</h4>
+        <p><a
+                href="https://getbootstrap.com/docs/5.2/utilities/borders/">https://getbootstrap.com/docs/5.2/utilities/borders/</a>
+        </p>
+        <hr>
+
+        <!-- 10. 為什麼這樣設定div不會出現? -->
+        <!-- 因為h沒有設定 -->
+        <div class="w-25 bg-success h-100"></div>
+        <div class="w-25 bg-success" style="border: 1px solid green; height:100px;"></div>
+
+        <!-- 20. 複製貼上官網的範例，為什麼 border 測試不出來 -->
+         因為span是inline，改成inline block即可。
+        <span class="border border-danger"></span>
+        <span class="border-top border-danger"></span>
+        <span class="border-end border-danger"></span>
+        <span class="border-bottom border-danger"></span>
+        <span class="border-start border-danger"></span>
+        <!-- 21. 設定不同的邊線顏色 -->
+        <hr>
+        <span class="border border-1"></span>
+        <span class="border border-2"></span>
+        <span class="border border-3"></span>
+        <span class="border border-4"></span>
+        <span class="border border-5"></span>
+        <hr>
+        <!-- 23. 調整 border 的寬度： border-N -->
+
+        <!-- 25. 設定邊框圓角 -->
+        <!--     .rounded-top    | .rounded-bottom  -->
+        <!--     .rounded-start  | .rounded-end     -->
+        <!--     .rounded-circle | .rounded-pill   -->
+        <span class="border rounded-top"></span>
+        <span class="border rounded-bottom"></span>
+        <span class="border rounded-end"></span>
+        <span class="border rounded-start"></span>
+        <span class="border rounded-circle"></span>
+        <span class="border rounded-pill"></span>
+    </div>
+
+</body>
+
+</html>

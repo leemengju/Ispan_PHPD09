@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>box</title>
+    
+    <style>
+        div {
+            background-color: aqua;
+            width: 300px;
+        }
+
+        /* 完成一個步驟後，請先觀察畫面變化，再執行下一個步驟 */
+        /* 10. 加上 10px 的 border */
+        #div2 {
+            border: 10px solid black;
+        }
+
+        /* 20. 加上 10px的 border、
+              設定 box-sizing: border-box */
+              /* border-box讓寬度維持在原本的寬度 */
+        #div3 {
+            border: 10px solid black;
+            box-sizing: border-box;
+        }
+
+        /* 30. 加上 10px的 border、
+              設定 padding 50px */
+        #div4 {
+            border: 10px solid black;
+            padding: 50px;
+        }
+
+        /* 40. 加上 10px的 border、
+              設定 padding 50px、
+              設定 box-sizing: border-box  */
+        #div5 {
+            border: 10px solid black;
+            box-sizing: border-box;
+            padding:50px ; 
+        }
+    </style>
+
+</head>
+
+<body>
+    <p><a href="https://www.w3schools.com/css/css_boxmodel.asp">CSS Box Model</a></p>
+    <hr>
+    
+    <div id="div1">
+        <span>div1</span>
+    </div>
+
+    <hr>
+
+    <div id="div2">
+        <span>div2 </span>
+    </div>
+
+    <hr>
+
+    <div id="div3">
+        <span>div3</span>
+    </div>
+
+    <hr>
+
+    <div id="div4">
+        <span>div4 </span>
+    </div>
+
+    <hr>
+
+    <div id="div5">
+        <span>div5 </span>
+    </div>
+    
+</body>
+
+</html>

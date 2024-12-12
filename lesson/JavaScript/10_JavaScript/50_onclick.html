@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <!-- 10. 於網頁放置一顆 按鈕(A) -->
+    第一種作法:按鈕(A)
+    引號要錯開，外層雙引號，內層單引號。
+    <button onclick="console.log('皮卡丘');">按鈕(A)</button>
+
+    <!-- 15. 測試加入滑鼠點擊事件，並直接呼叫 console.log() -->
+
+
+    <!-- 20. 於網頁放置一顆 按鈕(B) ，
+     加入點擊事件，事件中執行指定的 函式 apple -->
+     第二種作法:按鈕(B)
+     <button onclick="apple( );">按鈕(B)</button>
+
+    <!-- 25. 函式 apple 要做的事情：在 console 顯示一段文字 -->
+
+    <script>
+        // function 函式名稱(參數){要做的事情}
+        //在console裡面顯示"胖丁"
+        function apple( ) {
+            console.log("胖丁");
+        }
+    </script>
+
+
+
+<button  onclick="apple();">按鈕B</button>
+<script>
+    function apple() {
+console.log("胖丁");
+    }
+</script>
+</body>
+
+</html>

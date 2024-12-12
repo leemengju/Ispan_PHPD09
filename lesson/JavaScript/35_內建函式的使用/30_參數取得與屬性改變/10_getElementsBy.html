@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <h4>JavaScript HTML DOM Elements</h4>
+    <p><a
+            href="https://www.w3schools.com/js/js_htmldom_elements.asp">https://www.w3schools.com/js/js_htmldom_elements.asp</a>
+    </p>
+
+    <hr>
+
+    <h2 id="myApple">Apple</h2>
+    <h2 class="group1">Bee</h2>
+    <h2 class="group1">Cat</h2>
+    <h2>Dog</h2>
+    <h2>Egg</h2>
+
+    <script>
+
+        // 10. 透過 getElementsByTagName 取得所有 <h2> 元素
+        // collection:類陣列
+        var res1 = document.getElementsByTagName('h2');
+        console.log(res1);
+
+
+        // 20. 透過 getElementsByClassName 取得擁有 class 類別的 元素
+        var res2 = document.getElementsByClassName('group1');
+        console.log(res2);
+
+        // 30. 透過 getElementById 取得 id 為 myApple 的元素
+        var res3 = document.getElementById('myApple');
+        console.log(res3);
+        // 更改文字內容
+        // res3.innerText='皮卡丘';
+        // res3.innerHTML='<i>皮卡丘<i>';
+
+
+        // 40. 透過 CSS Selectors 取得 標籤
+        //     querySelector()
+        //     querySelectorAll()
+
+
+        var temp1 = document.querySelector('#myApple');
+        console.log(temp1);
+
+        // querySelector只會選到符合條件的第一個元素
+        var temp2 = document.querySelector('.group1');
+        console.log(temp2);
+        // querySelectoru要選到完全符合條件的元素，需要改成All
+        var temp2 = document.querySelectorAll('.group1');
+        console.log(temp3);
+        console.log(temp3[1]);
+
+
+
+    </script>
+
+
+</body>
+
+</html>

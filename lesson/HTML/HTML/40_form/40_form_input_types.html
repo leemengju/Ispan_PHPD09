@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <!-- 參照 40_form_input_types_完成圖.png 製作一份表單 -->
+<h3>通勤工具使用調查</h3>
+<fieldset>
+    <legend>基本資料</legend>
+    <label for="username">姓名:</label>
+    <input type="text, id:username" required>
+    <br>
+    <br>
+    <label for="userphone">電話:</label>
+    <input type="number, id:userphone" required>
+</fieldset>
+<p class="occupation">
+    職業:
+    <input type="radio" id="student" name="ID">
+    <label for="student">學生</label>
+    <input type="radio" id="teacher" name="ID">
+    <label for="teacher">老師</label>
+    <input type="radio" id="others" name="ID">
+    <label for="others">其他</label>
+    <br>
+</p>
+<p class="age">
+    年紀:
+    <input type="radio" id="young" name="age">
+    <label for="young">20-30</label>
+    <input type="radio" id="middle" name="age">
+    <label for="middle">30-40</label>
+    <input type="radio" id="strong" name="age">
+    <label for="strong">40-50</label>
+    <input type="radio" id="elder" name="age">
+    <label for="elder">50以上</label>
+</p>
+<p class="transportation">
+    交通工具:
+    <input type="checkbox"id="bicycle">
+    <label for="bicycle">腳踏車</label>
+    <input type="checkbox"id="scooter">
+    <label for="scooter">機車</label>
+    <input type="checkbox"id="boat">
+    <label for="boat">船</label>
+    <input type="checkbox"id="other-vehicles">
+    <label for="other-vehicles">其他</label>
+</p>
+
+
+</body>
+<style>
+    body{
+    margin-left: 30px;
+    margin-right: 30px;
+    }
+        
+    </style>
+</html>

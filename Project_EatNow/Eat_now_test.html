@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="body" style="display: inline-block;">
+        <aside class="sidebar">
+        </aside>
+        <section class="selection">
+          <section class="coupon">
+          </section>
+          <section class="category">
+            <style>
+              .restaurant-categories {
+                display: flex;
+                margin: 20px 0 0;
+                align-items: center;
+                gap: 40px;
+                font-size: 14px;
+                color: #101828;
+                text-align: center;
+                line-height: 1.6;
+                flex-wrap: wrap;
+              }
+    
+              .category-item {
+                display: flex;
+                flex-direction: column;
+                width: 80px;
+                margin: auto 0;
+              }
+    
+              .category-icon {
+                aspect-ratio: 1;
+                object-fit: contain;
+                width: 80px;
+                align-self: center;
+              }
+    
+              .category-name {
+                margin: 8px 0 0;
+              }
+    
+              .visually-hidden {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                border: 0;
+              }
+    
+              @media (max-width: 991px) {
+    
+                .restaurant-categories,
+                .category-item {
+                  max-width: 100%;
+                  white-space: initial;
+                }
+              }
+            </style>
+    
+            <nav class="restaurant-categories" aria-label="Restaurant Categories">
+              <article class="category-item">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/31a20904f7c881435f864b1e8e7ac1e3c3500357711e802d42955ef29d881a56?placeholderIfAbsent=true&apiKey=29bdb496da09449eb579968368248119"
+                  alt="All Restaurants Icon" class="category-icon" />
+                <h2 class="category-name">所有餐廳</h2>
+              </article>
+    
+              <article class="category-item">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/0d86e5aa3dedc8155541201fbd5d2f1c26298135f8f8dd7d78a987004c51f3d1?placeholderIfAbsent=true&apiKey=29bdb496da09449eb579968368248119"
+                  alt="Cafe & Light Meals Icon" class="category-icon" />
+                <h2 class="category-name">咖啡簡餐</h2>
+              </article>
+    
+              <article class="category-item">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/58282edb8736930f527cc20187a9b79e6e751e8c1be0a846adde2b062fd674b0?placeholderIfAbsent=true&apiKey=29bdb496da09449eb579968368248119"
+                  alt="Japanese Cuisine Icon" class="category-icon" />
+                <h2 class="category-name">日式料理</h2>
+              </article>
+    
+              <article class="category-item">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/e1dadedeb36b3ced4eb20c38e1db4e557508bc1be841de2bc67bb51108c6ce49?placeholderIfAbsent=true&apiKey=29bdb496da09449eb579968368248119"
+                  alt="Italian Restaurant Icon" class="category-icon" />
+                <h2 class="category-name">義式餐廳</h2>
+              </article>
+    
+              <article class="category-item">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/1d45d9f82ca6529a33c43e138daacf157110aa05282cd541dbe4779a91909f19?placeholderIfAbsent=true&apiKey=29bdb496da09449eb579968368248119"
+                  alt="American Restaurant Icon" class="category-icon" />
+                <h2 class="category-name">美式餐廳</h2>
+              </article>
+    
+              <article class="category-item">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/c851bbc515a2b02171002b2e8e0702e9037fd837e1509bb329c43a700b132fc7?placeholderIfAbsent=true&apiKey=29bdb496da09449eb579968368248119"
+                  alt="Korean Cuisine Icon" class="category-icon" />
+                <h2 class="category-name">韓式料理</h2>
+              </article>
+    
+              <article class="category-item">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/9f95fe3ac319188977a4ab90b8f4c470c59ac0e1ce5d33b5da1a016805fc3586?placeholderIfAbsent=true&apiKey=29bdb496da09449eb579968368248119"
+                  alt="Chinese Restaurant Icon" class="category-icon" />
+                <h2 class="category-name">中式餐廳</h2>
+              </article>
+    
+              <article class="category-item">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/aae5b1e398016ca1623374176817a2bab14b37d4970f7861377694e39ffb4ddd?placeholderIfAbsent=true&apiKey=29bdb496da09449eb579968368248119"
+                  alt="Mexican Cuisine Icon" class="category-icon" />
+                <h2 class="category-name">墨西哥風味</h2>
+              </article>
+    
+              <article class="category-item">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/56f3faeea108cadb50ecc61f06fd09fa66112106cd940643447689364d16f6b2?placeholderIfAbsent=true&apiKey=29bdb496da09449eb579968368248119"
+                  alt="Teppanyaki Icon" class="category-icon" />
+                <h2 class="category-name">鐵板燒料理</h2>
+              </article>
+    
+              <article class="category-item">
+                <h2 class="category-name">蔬食健康</h2>
+              </article>
+            </nav>
+          </section>
+          <section class="fastDeliver">
+          </section>
+          <section class="recommend">
+          </section>
+          <section class="goodPrice">
+          </section>
+          <section class="all">
+          </section>
+        </section>
+</body>
+</html>

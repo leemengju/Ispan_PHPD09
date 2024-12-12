@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* exmaple 01. */
+        #div_A {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            animation-name: ani1;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+
+        }
+
+        /* example 02. */
+        #div_B {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: ani2;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+
+
+        }
+
+        @keyframes ani1 {
+            from {
+                background-color: blue;
+            }
+
+            to {
+                background-color: yellow;
+            }
+        }
+
+        @keyframes ani2 {
+            0% {
+                background-color: blue;
+            }
+
+            20% {
+                background-color: red;
+            }
+
+            40% {
+                background-color: blue;
+            }
+
+            60% {
+                background-color: yellow;
+            }
+
+            60% {
+                background-color: green;
+            }
+
+            100% {
+                background-color: red;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="div_A"></div>
+    <div id="div_B"></div>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+目標 : 編輯檔案，推送新版本(第二版)
+
+
+10. 編輯檔案
+
+    11. 請在 travel.html 加上一個固定在「左上」的區塊，如同「30_新增元素v1_結果圖」
+
+    12. 想嘗試寫程式的同學，請忽略步驟 13~14
+
+    13. 請在 travel.html 加入以下內容
+        <div class="tyContainer tyLeftSide">
+            <div class="tyTitle">快速查詢</div>
+            <a href="#">
+                <div>機票資訊</div>
+            </a>
+            <a href="#">
+                <div>訂房資訊</div>
+            </a>
+            <a href="#">
+                <div>租車資訊</div>
+            </a>
+        </div>
+
+    14. 請在 css/style.css 加入以下樣式
+        .tyContainer {
+            border: 2px solid white;
+            width: 100px;
+            position: fixed;
+            z-index: 1;
+        }
+
+        .tyLeftSide {
+            left: 0;
+            top: 10vh;
+        }
+
+        .tyContainer div {
+            border: 1px solid white;
+            color: white;
+            background-color: black;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tyContainer a div:hover {
+            background-color: #f44336;
+        }
+
+        .tyContainer a {
+            text-decoration: none;
+        }
+
+        .tyContainer .tyTitle {
+            background-color: gray;
+            height: 50px;
+        }
+
+
+20. 將所有異動的檔案放到暫存區列管
+
+
+30. 在本機比較檔案
+
+    31. 在終端機輸入 git diff --cached 指令，比較暫存區和目前版本的差異
+
+    32. 在 Visual Studio Code 左側的「Activity Bar」點選「原始檔控制」，找到放入暫存區的檔案，點選檔案比較內容差異
+
+
+40. 提交檔案並查看版本紀錄
+
+
+50. 在終端機輸入 git push，推送到 GitHub 數據庫
+
+
+60. 在 GitHub 頁面查看數據庫變化

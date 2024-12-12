@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        * {
+          border: solid 1px black; 
+        }
+        html, body {
+          margin: 0px;
+          font-family: "Geist Mono", 微軟正黑體;
+          padding: 50px;
+        }
+        
+        .content button {
+          padding: 15px 30px 15px 30px;
+          margin-right: 10px;
+          display: inline-block;
+          background-color: #cfcfcf;
+          border-radius: 4px;
+        }
+        .content button.button_blue {
+            background-color: #27232F;
+            
+        }
+        .content color_chip {
+          display: inline-block;
+          margin-right: 30px;
+        }
+        /* class才能加點，子元素前須加空格 */
+        .content color_chip .color_block {
+          border: solid 1px rgb(252, 40, 40);
+          width: 30px;
+          height: 30px;
+        }
+        
+        .content color_chip .color_tag {
+          width: 60px;
+          
+        }
+        </style>
+</head>
+<body>
+    
+<div class="content">
+    <h5>style guideline</h5>
+    <h1>品牌視覺引導-40px 大標題</h1>
+    <h1 class="Small_English">English style guideline for h1 title</h1>
+    <h2>品牌視覺引導-30px 中標題</h2>
+    <h2 class="Small_English">English style guideline for h2 title</h2>
+    <h3>品牌視覺引導-20px 小標題</h3>
+    <h3 class="Small_English">English style guideline for h3 title</h3>
+    <h5>VI colors</h5>
+    <color_chip>
+      <div class="color_tag">#ffb336</div>
+      <div class="color_block color_yellow"></div>
+    </color_chip>
+    <color_chip>
+      <div class="color_tag">#27232F</div>
+      <div class="color_block color_blue"></div>
+    </color_chip>
+    <color_chip>
+      <div class="color_tag">#f3f7f7</div>
+      <div class="color_block color_white"></div>
+    </color_chip>
+    <color_chip>
+      <div class="color_tag">#333333</div>
+      <div class="color_block color_grey"></div>
+    </color_chip>
+    <h5>Button Example</h5>
+    <button class="button_blue">按鈕規範</button>
+    <button class="button_yellow">按鈕規範</button>
+    <button class="button_white">按鈕規範</button>
+    
+  </div>
+
+</body>
+</html>

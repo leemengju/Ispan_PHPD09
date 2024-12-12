@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <p><a href="https://www.w3schools.com/html/html_forms.asp">HTML Forms</a></p>
+    <p><a href="https://www.w3schools.com/html/html_form_elements.asp">HTML Form Elements</a></p>
+    <hr>
+
+    <!-- 試試看，<select>、<option> -->
+    <!-- 提示下拉式選單的位置 -->
+    <label for="phone">選擇手機型號:</label>
+    <!-- 下拉式選單 -->
+    <select name="phone_name" id="phone">
+        <option value="i14">iphone 14</option>
+        <option value="i15">iphone 15</option>
+        <option value="p7" selected>iphone 7</option>
+        <option value="p8">iphone 8</option>
+    </select>
+    <hr>
+
+    <!-- 試試看，<select>、<optgroup>、<option> -->
+    <label for="phone2">選擇手機型號:</label>
+    <select name="phone_name" id="phone2">
+        <optgroup label="Apple">
+            <option value="i16">iphone16</option>
+            <option value="i15">iphone15</option>
+        </optgroup>
+        <optgroup label="Google">
+            <option value="i14">Pixel7</option>
+            <option value="i13">Pixel8</option>
+        </optgroup>
+
+    </select>
+    <br>
+    <!-- 試試看，<datalist>、<option> -->
+    <label for="movie">請輸入喜歡的電影:</label>
+    <input type="text" id="movie" list="movielist">
+    <datalist id="movielist">
+        <option value="最後一次">
+        <option value="影后">
+        <option value="八尺門的辯護人">
+        <option value="不夠善良的我們">
+    </datalist>
+    <br>
+    
+    <label for="movie2">請輸入你喜歡的電影:</label>
+    <input type="text" id="movie2" list="movielist" autocomplete="off" style="width: 100px;">
+    <datalist id="movielist" autocomplete="on" style="width:400px;">
+        <option class="movielist" value="最後一次" ></option>
+        <option class="movielist" value="影后"></option>
+        <option class="movielist" value="八尺門的辯護人"></option>
+        <option class="movielist" value="不夠善良的我們"></option>
+    </datalist>
+    
+</body>
+<style>
+
+datalist
+{
+    width: 400px;
+}
+</style>
+
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    <link rel="stylesheet" href="../_css/bootstrap.css">
+    <script src="../_js/bootstrap.bundle.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <h4>官方網站</h4>
+        <p><a
+                href="https://getbootstrap.com/docs/5.2/utilities/flex/">https://getbootstrap.com/docs/5.2/utilities/flex/</a>
+        </p>
+        <h4>Bootstrap Flex</h4>
+        <p><a
+                href="https://www.w3schools.com/bootstrap5/bootstrap_flex.php">https://www.w3schools.com/bootstrap5/bootstrap_flex.php</a>
+        </p>
+        <hr>
+        <h1>.d-flex</h1>
+        <div class="p-3 bg-secondary">
+            <div class="p-2 bg-info">item a</div>
+            <div class="p-2 bg-warning">item b</div>
+            <div class="p-2 bg-success">item c</div>
+        </div>
+        <!-- 10. 比較 .d-flex和 .d-inline-flex 的差異 -->
+        <hr>
+        <h1>.d-flex</h1>
+        <div class="d-flex p-3 bg-secondary">
+            <div class="p-2 bg-info">item a</div>
+            <div class="p-2 bg-warning">item b</div>
+            <div class="p-2 bg-success">item c</div>
+        </div>
+        <hr>
+        <h1>.d-inline-flex</h1>
+        <div class="d-inline-flex p-3 bg-secondary">
+            <div class="p-2 bg-info">item a</div>
+            <div class="p-2 bg-warning">item b</div>
+            <div class="p-2 bg-success">item c</div>
+        </div>
+
+        <!-- 11. 比較 .flex-nowrap 和 .flex-wrap 的差異 -->
+        <hr>
+        <h1>.flex-nowrap</h1>
+        <div class="d-flex flex-nowrap p-3 bg-secondary">
+            <div class="p-2 bg-info">item a</div>
+            <div class="p-2 bg-warning">item b</div>
+            <div class="p-2 bg-success">item c</div>
+            <div class="p-2 bg-info">item a</div>
+            <div class="p-2 bg-warning">item b</div>
+            <div class="p-2 bg-success">item c</div>
+            <div class="p-2 bg-info">item a</div>
+            <div class="p-2 bg-warning">item b</div>
+            <div class="p-2 bg-success">item c</div>
+        </div>
+        <hr>
+        <h1>.flex-wrap</h1>
+        <div class="d-flex flex-wrap p-3 bg-secondary">
+            <div class="p-2 bg-info">item a</div>
+            <div class="p-2 bg-warning">item b</div>
+            <div class="p-2 bg-success">item c</div>
+            <div class="p-2 bg-info">item a</div>
+            <div class="p-2 bg-warning">item b</div>
+            <div class="p-2 bg-success">item c</div>
+            <div class="p-2 bg-info">item a</div>
+            <div class="p-2 bg-warning">item b</div>
+            <div class="p-2 bg-success">item c</div>
+        </div>
+
+        <!-- 20. .flex-grow-0 和 .flex-grow-1 有什麼差異？ -->
+        <hr>
+        <h1>.flex-grow-0 vs .flex-grow-1</h1>
+        <div class="d-flex p-3 bg-secondary">
+            <div class="flex-grow-1 p-2 bg-info">item a</div>
+            <div class="flex-grow-0 p-2 bg-warning">item b</div>
+            <div class="flex-grow-1 p-2 bg-success">item c</div>
+
+        </div>
+
+        <!--      是否可以設置為 flex-grow-2？ -->
+        <!--      * 上述設定需放置在 .d-flex 底下的元素中  -->
+
+        <!-- 25. 透過 .order-* 改變元素順序 -->
+        <h1>.order-*</h1>
+        <div class="d-flex p-3 bg-secondary">
+            <div class="order-3 p-2 bg-info">item a</div>
+            <div class="order-2 p-2 bg-warning">item b</div>
+            <div class="order-1 p-2 bg-success">item c</div>
+
+        </div>
+
+        <!-- 30. .flex-row 和 .flex-row-reverse 的差異 -->
+        <!--      * 上述設定需放置於擁有 .d-flex 的元素中  -->
+        <h1>.flex-row</h1>
+        <div class="d-flex flex-row p-3 bg-secondary">
+            <div class=" p-2 bg-info">item a</div>
+            <div class=" p-2 bg-warning">item b</div>
+            <div class=" p-2 bg-success">item c</div>
+
+        </div>
+        <h1>.flex-row-reverse</h1>
+        <div class="d-flex flex-row-reverse p-3 bg-secondary">
+            <div class=" p-2 bg-info">item a</div>
+            <div class=" p-2 bg-warning">item b</div>
+            <div class=" p-2 bg-success">item c</div>
+
+        </div>
+
+        <h1>.flex-column</h1>
+        <div class="d-flex flex-column p-3 bg-secondary">
+            <div class=" p-2 bg-info">item a</div>
+            <div class=" p-2 bg-warning">item b</div>
+            <div class=" p-2 bg-success">item c</div>
+
+        </div>
+        <h1>.flex-row-reverse</h1>
+        <div class="d-flex flex-column-reverse p-3 bg-secondary">
+            <div class=" p-2 bg-info">item a</div>
+            <div class=" p-2 bg-warning">item b</div>
+            <div class=" p-2 bg-success">item c</div>
+
+        </div>
+
+        <!-- 40. 該如何設置，可以讓外層容器佔瀏覽器寬度的一半？ -->
+        <h1>40.W50</h1>
+        <div class="w-50 p-3 bg-secondary">
+            <div class=" p-2 bg-info">item a</div>
+            <div class=" p-2 bg-warning">item b</div>
+            <div class=" p-2 bg-success">item c</div>
+        </div>
+            <hr>
+            <!-- 50. 該如何設置，讓第一個元素靠左邊，其餘元素靠右邊排列？-->
+            <h1>50.me-auto</h1>
+            <div class="d-flex p-3 bg-secondary">
+                <div class="me-auto p-2 bg-info">item a</div>
+                <div class=" p-2 bg-warning">item b</div>
+                <div class=" p-2 bg-success">item c</div>
+
+            </div>
+
+       
+</body>
+
+</html>

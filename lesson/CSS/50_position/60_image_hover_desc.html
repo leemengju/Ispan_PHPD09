@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* 參照 60_image_hover_desc.png，
+           請試著加入 css，讓文字在滑鼠經過時才顯示  */
+        * {
+            position: relative;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .desc {
+            background-color: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            width: 100%;
+            height: 20%;
+            font-size: 100px;
+            position: absolute;
+            top: 400px;
+            display: flex;
+            /* 使用 Flexbox */
+            justify-content: center;
+            /* 水平方向居中 */
+            align-items: center;
+            /* 垂直方向居中 */
+        }
+
+        .desc:hover {
+            opacity: 1;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <figure>
+        <img src="../img/sunny.JPG">
+        <figcaption class="desc">千陽號海上行</figcaption>
+    </figure>
+
+</body>
+
+</html>

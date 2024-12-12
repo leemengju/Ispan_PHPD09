@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <!-- 顯示效果的地方 -->
+    <p id="pSquare"></p>
+    <pre id="pTimes"></pre>
+
+    <script>
+        // 10. 使用 for 迴圈，逐一取得陣列裡面的元素
+        var weekList = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+        for (var i = 0; i < weekList.length; i++) {
+            console.log(weekList[i]);
+
+        }
+        // 20. 使用 for 迴圈，列印出這個月份從1號到目前系統日
+        // step1.取得當下的日期(年、月、日、''''')
+        // step2.取得月份並調整格式
+        // step3.透過for迴圈產生日期並調整格式，最後產生結果。
+
+
+
+
+        var d = new Date();
+        var mm = (d.getMonth() + 1).toString().padStart(2, '0');
+        for (var i = 1; i < d.getDate(); i++) {
+            var dd = i.toString().padStart(2, '0');
+            console.log(`日期==> ${mm}/${dd}`);
+        }
+
+
+        var d = new Date();
+        var mm = (d.getMonth() + 1).toString().padStart(2, '0');
+        for (var i = 1; i < d.getDate(); i++) {
+            var dd = i.toString().padStart(2, '0');
+            console.log(`日期==> ${mm}/${dd}`);
+
+        }
+
+        // 40. 雙層迴圈 - 長方型星星 #pSquare
+        // **** 
+        // **** 
+        // **** 
+        // **** 
+        // **** 
+        // ****
+        // 方法A:不用迴圈
+
+        var temp = '****<br>****<br>****<br>****<br>****<br>****<br>';
+        document.getElementById('pSquare').innerHTML = temp;
+
+        // 方法A:一層迴圈
+        var temp = '';
+        for (var i = 1; i < 7; i++) {
+            temp += '****<br>';
+            document.getElementById('pSquare').innerHTML = temp;
+        }
+        // 方法A:兩層迴圈
+        var temp = '';
+        for (var i = 1; i < 7; i++) { //column
+            for (var j = 1; j <= 4; j++) { //row
+
+                temp += '*';
+            }
+            temp += '<br>';
+            document.getElementById('pSquare').innerHTML = temp;
+        }
+
+        // var temp='';
+        // for ( var i=1; i<7; i++){
+        //     for ( var j=1; j<5; j++){
+        //         temp+= '*';
+        //     }
+        //     temp+=`<br>`;
+        //     document. getElementById(`pSquare`).innerHTML=temp;
+        // }
+        
+        // 60. 列印九九乘法表 (tab為 "&#9;") + <pre> 標籤 #pTimes
+        // var temp2 = '';
+        // for (var i = 2; i <= 9; i++) {
+
+
+        //     for (var j = 2; j <= 9; j++) {
+        //         temp2 += `${i}*${j}=${i * j}&#9;`
+        //     }
+        //     temp2 += `<br>`
+
+
+        //     document.getElementById('pTimes').innerHTML = temp2;
+
+        // }
+
+        // var temp3 = '';
+        // for (var i = 2; i <= 9; i++) {
+        //     for (var j = 2; j <= 9; j++) {
+        //         temp3 += `${i}*${j}=${i * j}&#9;`
+        //     }
+        //     temp3 += `<br>`
+        //     document.getElementById('pTimes').innerHTML = temp3;
+        // }
+
+        var temp4 = '';
+        for (var i = 2; i <= 9; i++) {
+            for (var j = 2; j <= 9; j++) {
+                temp4 += `${i}+${j}=${i * j}&#9;`
+            }
+            temp4 += `<br>`;
+            document.getElementById('pTimes').innerHTML = temp4;
+        }
+
+
+    </script>
+</body>
+
+</html>

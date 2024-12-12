@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+</head>
+
+<body>
+    <!-- 參照 42_pseudo_class_完成圖.png，建立一組導覽列 -->
+
+    <!-- step1. 加入 <nav>、<ul>、<li> -->
+    <nav>
+        <ul>
+            <li class="html">
+                <a href="https://www.w3schools.com/html/default.asp" target="_blank">HTML</a>
+            </li>
+            <li class="css">
+                <a href="https://www.w3schools.com/html/default.asp" target="_blank" id="CSS">CSS</a>
+            </li>
+            <!-- 如果你要讓點擊範圍擴大，那就是必要用label，並且用onclick="window.open()" -->
+            <li class="css" onclick="window.open('https://www.w3schools.com/html/default.asp')" target="_blank">
+                <label for="CSS">CSS</label>
+            </li>
+            <li class="JavaScript">
+                <a href="https://www.w3schools.com/html/default.asp" target="_blank">JavaScript</a>
+            </li>
+        </ul>
+    </nav>
+
+    <style>
+        nav {
+            width: auto;
+            height: 60px;
+            text-align: center;
+            background-color: black;
+        }
+
+        li {
+            display: inline-block;
+            padding: 20px;
+        }
+        li:hover {
+                background-color: gray;
+                background-clip: content-box;
+            }
+
+        li:active {
+                background-color: rgb(127, 88, 88);
+            }
+
+        a {
+                color: white;
+            }
+
+    
+    </style>
+    <!-- step2. 設定點選項目的時候，會對應到 w3schools 的各項連結 -->
+    <!-- HTML: https://www.w3schools.com/html/default.asp -->
+    <!-- CSS: https://www.w3schools.com/css/default.asp -->
+    <!-- JavaScript: https://www.w3schools.com/js/default.asp -->
+
+    <!-- step3. 引用 navStyle.css -->
+    <!-- step4. 對照 navStyle.css 設定網頁元素 -->
+
+
+    <!-- 補充 : HTML Semantic Elements -->
+    <!-- https://www.w3schools.com/html/html5_semantic_elements.asp -->
+
+</body>
+
+</html>

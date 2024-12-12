@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="report"></div>
+    <script>
+        // function showStar() {
+        //     var result = "";
+        //     for (var i = 1; i <= 3; i++) {
+        //         result += "*";
+        //     }
+        //     report.innerText = result;
+        // }
+        // showStar();
+        function showStar(count, what) {
+            if (count<= 0) {
+                report.innerText =" count > 0 please";
+                return;
+            }
+            if (count>= 21) {
+                report.innerText =" count <=21 please";
+                return;
+            }
+            what = what || "*";
+            var result = "";
+            for (var i = 1; i <= count; i++) {
+                result += what;
+            }
+            report.innerText = result;
+        }
+        showStar(21);
+    </script>
+</body>
+
+</html>

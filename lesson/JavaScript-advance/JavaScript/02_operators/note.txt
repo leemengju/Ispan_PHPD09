@@ -1,0 +1,53 @@
+var line = readLine();
+
+while (line) {
+
+    processLine();
+
+    line = readLine();
+
+}
+ 
+ 
+var line = readLine();
+
+while (line) {
+
+    if (line is wrong format) {
+
+        line = readLine();
+
+        continue;
+
+    }
+
+    processLine();
+
+    line = readLine();
+
+}
+
+ 
+var line = "";
+
+while (line = readLine()) {
+
+    processLine();
+
+}
+ 
+ 
+var line = "";
+
+while (line = readLine()) {
+
+    if (line is wrong format) {
+
+        continue;
+
+    }
+
+    processLine();
+
+}
+ 

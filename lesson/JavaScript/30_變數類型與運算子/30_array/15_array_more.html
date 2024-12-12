@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <script>
+    var x = 10;
+    var y = x;
+    console.log(x); //x= 10
+    console.log(y); //y= 10
+
+    var x = 90;
+    console.log(x);//x= 90
+    console.log(y);//y= 10
+    
+    
+
+        // 10. 宣告一個陣列 apple ，存放 1,2,3,4,5,6
+var apple= [ 1,2,3,4,5,6];
+        // 20. 宣告另外一個陣列 bee，讓 bee = apple 
+var bee=apple;
+        // 30. 取得 bee 第一個位置的值
+console.log(bee[0]); //1
+
+        // 40. 修改 bee 第一個位置的值
+bee[0]=90;
+console.log(bee);// [ 90,2,3,4,5,6]
+
+        // 50. 將 apple  列印出來查看
+console.log(apple);// [ 90,2,3,4,5,6]
+// 當存的內容次是陣列/字串/物件時，改動都會互相影響，因為他們都是指向同一個數據庫。
+
+    </script>
+</body>
+
+</html>

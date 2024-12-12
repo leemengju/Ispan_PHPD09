@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Breakout Game</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script>
+	$(function() {
+		// coding here
+		
+        // this is the same as document.getElementById('canvas');
+        var canvas = $('#canvas')[0];
+        // different browsers support different contexts. All support 2d
+        var context = canvas.getContext('2d');
+
+        var paddleX = 200;
+        var paddleY = 460;
+
+        var paddleWidth = 100;
+        var paddleHeight = 15;
+
+        var paddleDeltaX = 0;
+        var paddleDeltaY = 0;
+
+        function drawPaddle() {
+            context.fillRect(paddleX, paddleY, paddleWidth, paddleHeight);
+        }
+        
+        drawPaddle();
+
+        
+        var ballX = 300;
+        var ballY = 300;
+        var ballRadius = 10;
+
+        function drawBall() {
+            // Context.beginPath when you draw primitive shapes
+            context.beginPath();
+
+            // Draw arc at center ballX, ballY with radius ballRadius, 
+            // From 0 to 2xPI radians (full circle)
+            context.arc(ballX, ballY, ballRadius, 0, Math.PI * 2, true);
+
+            // Fill up the path that you just drew
+            context.fill();
+        }
+        
+        drawBall();
+
+
+        
+	});
+</script>
+
+<style type="text/css">
+canvas {
+	border: 1px solid black;
+}
+</style>
+
+</head>
+<body>
+
+	<h1>Breakout</h1>
+	<canvas id="canvas" width="400" height="500">
+    </canvas>
+
+</body>
+</html>

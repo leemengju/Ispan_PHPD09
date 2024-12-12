@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* 10. 撰寫當滑鼠經過 id 為 reddiv 開頭的元素，
+               把背景顏色改為黃色*/
+        
+
+        /* 20. 挑選 #reddiv_B 設定 display:none */
+        /* 結論:不會保留原本的空間 */
+        #reddiv_B {
+            display:none;
+        }
+
+
+        /* 30. 挑選 #reddiv_C 設定 visibility:hidden */
+        /* 結論:會保留原本的空間 */
+        #reddiv_C {
+            visibility: hidden;
+        }
+        /* 40. 撰寫當滑鼠經過 #reddiv_B 加上 display: block
+               或經過 #reddiv_C 時，加上 visibility: visible，
+               看看是否有效果? */
+        /* 結論:被隱藏的元素無法被hover出現。 */
+        #reddiv_B {
+            display:block;
+        }
+        #reddiv_C {
+            visibility: visible;
+        }
+        
+        .demo>#reddiv_B{
+            display:block;
+        }
+        .demo>#reddiv_C {
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3> display:block 區塊，元素的寬度預設會撐到最大。</h3>
+    <div class="demo">
+        <div id="reddiv_A">Red A</div>
+        <div id="greendiv_A">Green</div>
+        <div id="bluediv_A">Blue</div>
+    </div>
+
+    <hr>
+
+    <h3> display:none 直譯：沒有東西在這裡</h3>
+    <div class="demo">
+        <div id="reddiv_B">Red B</div>
+        <div id="greendiv_B">Green</div>
+        <div id="bluediv_B">Blue</div>
+    </div>
+
+    <h3> visibility:hidden 直譯：藏起來</h3>
+    <div class="demo">
+        <div id="reddiv_C">Red C</div>
+        <div id="greendiv_C">Green</div>
+        <div id="bluediv_C">Blue</div>
+    </div>
+
+</body>
+
+</html>

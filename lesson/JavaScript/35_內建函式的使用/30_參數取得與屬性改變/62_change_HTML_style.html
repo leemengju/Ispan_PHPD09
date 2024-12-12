@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <p id="memo">點選圖片後，放大圖片和文字</p>
+
+    <!-- 10. 設定一張圖片 -->
+    <img id="demo" src="../../img/find.png" alt="" onclick="zoomin()">
+    <script>
+        // 20. 網頁的 圖片的 樣式的 寬度 改變
+        function zoomin() {
+            // console.log("ok");
+
+            var imgelem = document.getElementById('demo');
+            imgelem.style.width = '500px';
+            // 22. 網頁的 memo的 樣式的 字型 改變
+            var elem = document.getElementById('memo');
+            elem.style.fontSize = '30px';
+        }
+    </script>
+
+</body>
+
+</html>

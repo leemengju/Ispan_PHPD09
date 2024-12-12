@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <h4>JavaScript Arrays</h4>
+    <p><a href="http://www.w3schools.com/js/js_arrays.asp">http://www.w3schools.com/js/js_arrays.asp</a></p>
+
+    <p>陣列就像置物櫃一樣，透過index，可以存放物品，可以取出</p>
+    <p>陣列使用時機：相同的資料型態（雖然 JavaScript 可以不需要相同，但還是盡量避免）</p>
+    <p>具有一致的意義、需要參與同樣的運算</p>
+
+    <script>
+
+        // 10. 什麼時候我們需要一個陣列？
+        // 參數很多的時候需要有陣列，且具有相同的意義。
+        var s1 = 90;
+        var s2 = 80;
+        var s3 = 100;
+        // 20. 該怎麼樣宣告一個陣列？
+        var temp = [90, 80, 100];
+        console.log(temp);
+
+        // 25. 該怎麼把東西放進去？
+        var apple = [];
+        // 放資料==>陣列[索引]=資料
+        apple[0] = "皮卡丘";
+        apple[1] = "85";
+        console.log(apple); //['皮卡丘';85]
+
+        // 拿資料==>陣列[索引]
+        console.log(apple[0]);
+
+
+        // 30. 陣列中的陣列
+        apple[2] = ['cat', 'dog'];
+        console.log(apple); //['皮卡丘';85; Array(2)]
+
+        //拿cat
+        console.log(apple[2][0]);
+        // 先拿到第一個陣列，再選擇第幾個數值
+
+
+        // 40. 如果要取得 poker陣列 裡面的13，要如何取得?
+        var poker = [];
+        poker[0] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+        console.log(poker[0][12]);
+        
+
+    </script>
+</body>
+
+</html>

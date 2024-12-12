@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./_css/bootstrap.css">
+    <script src="./_js/bootstrap.bundle.js"></script>
+</head>
+
+<body>
+    <style>
+        * {
+            position: relative;
+        }
+/* 如何讓畫面置於中間?display:grid/flex都無效;position:absolute也無效 */
+        html,
+        body {
+            margin: 0;
+            background-color: lightgray;
+            /* 背景色用於展示效果 */
+        }
+
+            .menu-modal {
+                border-radius: 12px;
+                background: #fff;
+                box-shadow: 0 20px 24px -4px rgba(0, 0, 0, 0.04), 0 4px 20px -4px rgba(0, 0, 0, 0.11);
+                display: flex;
+                width: 640px;
+                max-width: 100%;
+                flex-direction: column;
+                overflow: hidden;
+                margin:auto;
+            }
+
+            .menu-header {
+                background-color: #fff;
+                display: flex;
+                width: 100%;
+                max-width: 640px;
+                flex-direction: column;
+                overflow: hidden;
+                align-items: flex-end;
+                background-image: url(https://cdn.builder.io/api/v1/image/assets%2F29bdb496da09449eb579968368248119%2F5cf8cd564fe74b1181bf723db5a93762);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                padding: 0px 0px 200px;
+            }
+
+            .close-button {
+                border-radius: 100px;
+                background-color: #fff;
+                display: flex;
+                position: absolute;
+                margin-top: 20px;
+                margin-right: 20px;
+                width: 40px;
+                align-items: center;
+                justify-content: center;
+                height: 40px;
+                padding: 8px;
+            }
+
+            .close-icon {
+                aspect-ratio: 1;
+                object-fit: contain;
+                object-position: center;
+                width: 24px;
+                align-self: stretch;
+                margin: auto 0;
+            }
+
+            .menu-content {
+                display: flex;
+                margin-top: 12px;
+                width: 100%;
+                flex-direction: column;
+                padding: 8px 8px 16px;
+            }
+
+            .menu-info {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                font-family: Noto Sans TC, sans-serif;
+                padding: 20px;
+            }
+
+            .menu-title-wrapper {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                font-weight: 700;
+            }
+
+            .menu-name {
+                color: #101828;
+                font-size: 24px;
+                line-height: 1.4;
+                font-weight: 700;
+            }
+
+            .menu-price {
+                color: #475467;
+                font-size: 18px;
+                line-height: 1.6;
+            }
+
+            .menu-description {
+                color: #667085;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 1.6;
+                margin-top: 8px;
+            }
+
+            .options-list {
+                display: flex;
+                margin-top: 12px;
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .option-group {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                margin-bottom: 20px;
+            }
+
+            .option-header {
+                display: flex;
+                width: 100%;
+                align-items: flex-start;
+                gap: 12px;
+                font-family: Noto Sans TC, sans-serif;
+                line-height: 1.6;
+                flex-wrap: wrap;
+                padding: 0 16px;
+            }
+
+            .option-title {
+                display: flex;
+                min-width: 240px;
+                flex-direction: column;
+                flex: 1;
+                flex-basis: 16px;
+            }
+
+            .option-name {
+                color: #1a1a1a;
+                font-size: 20px;
+                font-weight: 700;
+            }
+
+            .option-caption {
+                color: #434b5d;
+                font-size: 12px;
+                font-weight: 400;
+            }
+
+            .required-chip {
+                align-self: flex-start;
+                border-radius: 8px;
+                background: #f2f4f7;
+                font-size: 14px;
+                color: #000;
+                font-weight: 700;
+                padding: 4px 8px;
+            }
+
+            .popular-chip-container {
+                display: flex;
+                flex: 1;
+            }
+
+            .popular-chip {
+                align-self: stretch;
+                border-radius: 8px;
+                background-color: #e96868;
+                font-size: 10px;
+                color: #fff;
+                font-weight: 700;
+                padding: 4px 6px;
+            }
+
+            .options-container {
+                display: flex;
+                margin-top: 8px;
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .option-item {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                gap: 8px;
+                padding: 8px 16px;
+            }
+
+            .radio-button {
+                align-self: stretch;
+                display: flex;
+                flex-direction: column;
+                width: 24px;
+                margin: auto 0;
+            }
+
+            .radio-circle {
+                stroke-width: 1px;
+                background-color: #fff;
+                border-radius: 50%;
+                display: flex;
+                width: 24px;
+                height: 24px;
+                fill: #fff;
+                stroke: #d0d5dd;
+                border: 1px solid #d0d5dd;
+            }
+
+            .option-label {
+                /* border: #e96868 1px solid; */
+                align-self: stretch;
+                min-width: 240px;
+                gap: 8px;
+                color: #101828;
+                flex: 1;
+                margin: auto 0;
+                font: 400 14px/1.6 Noto Sans TC, -apple-system, Roboto, Helvetica, sans-serif;
+            }
+
+            .option-label-popular-chip {
+                /* border: #e96868 1px solid; */
+                align-self: stretch;
+                width: fit-content;
+                text-wrap: nowrap;
+                gap: 8px;
+                color: #101828;
+                flex: 0;
+                margin: auto 0;
+                font: 400 14px/1.6 Noto Sans TC, -apple-system, Roboto, Helvetica, sans-serif;
+            }
+
+            .price-tag {
+                align-self: stretch;
+                display: flex;
+                align-items: center;
+                color: #101828;
+                margin: auto 0;
+                font: 400 14px/1.6 Noto Sans TC, -apple-system, Roboto, Helvetica, sans-serif;
+            }
+
+            .checkbox {
+                border-radius: 8px;
+                background-color: #fff;
+                align-self: stretch;
+                display: flex;
+                width: 24px;
+                height: 24px;
+                margin: auto 0;
+                border: 1px solid #d0d5dd;
+            }
+
+            .notes-section {
+                display: flex;
+                margin-top: 20px;
+                width: 100%;
+                flex-direction: column;
+                font-family: Noto Sans TC, sans-serif;
+                line-height: 1.6;
+                padding: 0 16px;
+            }
+
+            .notes-title {
+                display: flex;
+                width: 100%;
+                align-items: flex-start;
+                gap: 12px;
+                font-size: 18px;
+                color: #1a1a1a;
+                font-weight: 700;
+            }
+
+            .notes-input {
+                display: flex;
+                margin-top: 8px;
+                width: 100%;
+                flex-direction: column;
+                color: #667085;
+                font-weight: 400;
+            }
+
+            .textarea {
+                align-items: flex-start;
+                border-radius: 8px;
+                border: 1px solid #d0d5dd;
+                background: #fff;
+                display: flex;
+                min-height: 114px;
+                width: 100%;
+                gap: 8px;
+                overflow: hidden;
+                font-size: 14px;
+                padding: 12px 12px 80px;
+            }
+
+            .char-count {
+                text-align: right;
+                font-size: 12px;
+                margin-top: 4px;
+            }
+
+            .action-bar {
+                background-color: #fff;
+                border-top: 1px solid #d0d5dd;
+                display: flex;
+                margin-top: 12px;
+                width: 100%;
+                align-items: center;
+                gap: 40px;
+                justify-content: center;
+                flex-wrap: wrap;
+                padding: 32px;
+            }
+
+            .quantity-counter {
+                align-self: stretch;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin: auto 0;
+            }
+
+            .counter-button {
+                border-radius: 100px;
+                background-color: #f2f4f7;
+                align-self: stretch;
+                display: flex;
+                min-height: 40px;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                margin: auto 0;
+                padding: 8px;
+            }
+
+            .counter-icon {
+                aspect-ratio: 1;
+                object-fit: contain;
+                object-position: center;
+                width: 24px;
+                align-self: stretch;
+                margin: auto 0;
+            }
+
+            .quantity-number {
+                align-self: stretch;
+                min-height: 32px;
+                color: #101828;
+                text-align: center;
+                width: 44px;
+                margin: auto 0;
+                padding: 0 10px;
+                font: 700 20px/1.6 Noto Sans TC, -apple-system, Roboto, Helvetica, sans-serif;
+            }
+
+            .add-to-cart {
+                align-self: stretch;
+                border-radius: 8px;
+                border: 1px solid #CA3838;
+                background-color: #CA3838;
+                min-width: 240px;
+                min-height: 48px;
+                gap: 8px;
+                color: #fff;
+                flex: 1;
+                margin: auto 0;
+                padding: 13px 24px;
+                font: italic 400 14px/1.6 "SF Pro Text", -apple-system, Roboto, Helvetica, sans-serif;
+            }
+
+            @media (max-width: 991px) {
+                .menu-header {
+                    max-width: 100%;
+                    padding: 0 0 100px 20px;
+                }
+
+
+
+                .menu-title-wrapper,
+                .menu-name,
+                .menu-price,
+                .menu-description,
+                .option-header,
+                .option-title,
+                .option-item,
+                .option-label,
+                .notes-section {
+                    max-width: 100%;
+                }
+
+                .action-bar {
+             
+                    padding: 20px 20px;
+                }
+
+                .add-to-cart {
+                    padding: 0 20px;
+                }
+            }
+    </style>
+
+    <div class="menu-modal" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+        <div class="menu-header">
+            <button class="close-button" aria-label="Close menu">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/dd90fa03cadce75401c2262b00063476da846436940d325efde2a8e256e6c7ac?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="" class="close-icon" />
+            </button>
+        </div>
+
+        <div class="menu-content">
+            <div class="menu-info">
+                <div class="menu-title-wrapper">
+                    <h2 id="menu-title" class="menu-name">乾式蒜辣白酒海鮮麵套餐</h2>
+                    <div class="menu-price">$340</div>
+                </div>
+                <p class="menu-description">以新鮮海鮮和香濃的白酒醬汁為特色，帶來豐富的口感和誘人的香氣，海鮮愛好者不可錯過。</p>
+            </div>
+
+            <form class="options-list">
+                <fieldset class="option-group">
+                    <div class="option-header">
+                        <div class="option-title">
+                            <legend class="option-name">升級套餐選項</legend>
+                            <div class="option-caption">最多可選擇 1 個項目</div>
+                        </div>
+                        <div class="required-chip" role="note">必填</div>
+                    </div>
+
+                    <div class="options-container">
+                        <label class="option-item">
+                            <div class="radio-button">
+                                <input type="radio" name="meal-upgrade" class="radio-circle" required />
+                            </div>
+                            <div class="option-label-popular-chip">雞米花 + 冰紅茶</div>
+                            <span class="popular-chip-container">
+                                <span class="popular-chip">熱門</span>
+                            </span>
+                        </label>
+
+                        <label class="option-item">
+                            <div class="radio-button">
+                                <input type="radio" name="meal-upgrade" class="radio-circle" required />
+                            </div>
+                            <div class="option-label">洋蔥圈 + 冰紅茶</div>
+                        </label>
+
+                        <label class="option-item">
+                            <div class="radio-button">
+                                <input type="radio" name="meal-upgrade" class="radio-circle" required />
+                            </div>
+                            <span class="option-label">酥脆薯條 + 冰紅茶</span>
+                        </label>
+
+                        <label class="option-item">
+                            <div class="radio-button">
+                                <input type="radio" name="meal-upgrade" class="radio-circle" required />
+                            </div>
+                            <span class="option-label">雞米花 + 冰奶茶</span>
+                            <div class="price-tag">+$5</div>
+                        </label>
+
+                        <label class="option-item">
+                            <div class="radio-button">
+                                <input type="radio" name="meal-upgrade" class="radio-circle" required />
+                            </div>
+                            <span class="option-label">洋蔥圈 + 冰奶茶</span>
+                            <div class="price-tag">+$5</div>
+                        </label>
+
+                        <label class="option-item">
+                            <div class="radio-button">
+                                <input type="radio" name="meal-upgrade" class="radio-circle" required />
+                            </div>
+                            <span class="option-label">酥脆薯條 + 冰奶茶</span>
+                            <div class="price-tag">+$5</div>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="option-group">
+                    <div class="option-header">
+                        <div class="option-title">
+                            <legend class="option-name">口味</legend>
+                            <div class="option-caption">餐點將依據您的選擇進行口味調整</div>
+                        </div>
+                        <div class="required-chip" role="note">必填</div>
+                    </div>
+
+                    <div class="options-container">
+                        <label class="option-item">
+                            <div class="radio-button">
+                                <input type="radio" name="taste" class="radio-circle" required />
+                            </div>
+                            <span class="option-label">清淡</span>
+                        </label>
+
+                        <label class="option-item">
+                            <div class="radio-button">
+                                <input type="radio" name="taste" class="radio-circle" required />
+                            </div>
+                            <span class="option-label">正常</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="option-group">
+                    <div class="option-header">
+                        <div class="option-title">
+                            <legend class="option-name">飲品加點</legend>
+                            <div class="option-caption">最多可選擇 2 個項目</div>
+                        </div>
+                    </div>
+
+                    <div class="options-container">
+                        <label class="option-item">
+                            <input type="checkbox" class="checkbox" name="drinks" />
+                            <span class="option-label-popular-chip">冰紅茶（大杯）</span>
+                            <div class="popular-chip-container">
+                                <div class="popular-chip">熱門</div>
+                            </div>
+                            <div class="price-tag">+$35</div>
+                        </label>
+
+                        <label class="option-item">
+                            <input type="checkbox" class="checkbox" name="drinks" />
+                            <span class="option-label">冰奶茶（大杯）</span>
+                            <div class="price-tag">+$40</div>
+                        </label>
+
+                        <label class="option-item">
+                            <input type="checkbox" class="checkbox" name="drinks" />
+                            <span class="option-label">冰綠茶（大杯）</span>
+                            <div class="price-tag">+$35</div>
+                        </label>
+
+                        <label class="option-item">
+                            <input type="checkbox" class="checkbox" name="drinks" />
+                            <span class="option-label">冰美式（大杯）</span>
+                            <div class="price-tag">+$50</div>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div class="notes-section">
+                    <label for="notes" class="notes-title">餐點備註</label>
+                    <div class="notes-input">
+                        <textarea id="notes" class="textarea" placeholder="請留下你的備註" maxlength="50"
+                            aria-label="餐點備註"></textarea>
+                        <div class="char-count" aria-live="polite">0/50</div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="action-bar">
+            <div class="quantity-counter">
+                <button class="counter-button decrease" aria-label="減少數量">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1db01aaa5da7a92ef7068b801bf1cc765bb3609d036c4fa4547c1453dedc78a5?apiKey=29bdb496da09449eb579968368248119&"
+                        alt="" class="counter-icon" />
+                </button>
+                <div class="quantity-number" aria-label="數量">1</div>
+                <button class="counter-button increase" aria-label="增加數量">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b28bac8fe8121e0b13c9638bb8ea6034273fa61403a8bd3dd9a34c822ea52b47?apiKey=29bdb496da09449eb579968368248119&"
+                        alt="" class="counter-icon" />
+                </button>
+            </div>
+            <button type="submit" class="add-to-cart">新增 1 項單品到購物車・$340</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const textarea = document.getElementById('notes');
+        const charCount = document.querySelector('.char-count');
+
+        textarea.addEventListener('input', () => {
+            const currentLength = textarea.value.length;
+            const maxLength = textarea.getAttribute('maxlength');
+            charCount.textContent = `${currentLength}/${maxLength}`;
+        });
+    });
+
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const decreaseButton = document.querySelector('.decrease');
+        const increaseButton = document.querySelector('.increase');
+        const quantityNumber = document.querySelector('.quantity-number');
+        const addToCartButton = document.querySelector('.add-to-cart');
+
+        const basePrice = 340; // 單位價格
+        let quantity = 1; // 預設數量
+
+        // 更新數量與價格
+        const updateDisplay = () => {
+            quantityNumber.textContent = quantity;
+            const totalPrice = basePrice * quantity;
+            addToCartButton.textContent = `新增 ${quantity} 項單品到購物車・$${totalPrice}`;
+        };
+
+        // 增加數量按鈕事件
+        increaseButton.addEventListener('click', () => {
+            quantity++;
+            updateDisplay();
+        });
+
+        // 減少數量按鈕事件
+        decreaseButton.addEventListener('click', () => {
+            if (quantity > 1) {
+                quantity--;
+                updateDisplay();
+            }
+        });
+
+        // 初始化顯示
+        updateDisplay();
+    });
+
+</script>
+
+</html>

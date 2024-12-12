@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <input type="radio" id="myBrightness">
+    <label for="myBrightness">brightness</label>
+    </table>
+     <img src="../img/sunny.jpg" alt="千羊號">
+     <style>
+        img:has(~#myBrightness:checked ){
+            filter: brightness("20%");
+        }
+        img:has(~#myBrightness:checked ){
+            filter: brightness("2000px");
+        }
+     </style>
+</body>
+</html>

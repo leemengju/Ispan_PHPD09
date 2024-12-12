@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .header {
+          background-color: #fff;
+          display: flex;
+          min-height: 64px;
+          width: 1440px;
+          align-items: center;
+          gap: 8px;
+          justify-content: start;
+          flex-wrap: wrap;
+          max-width: 1920px;
+          padding: 0 16px;
+        }
+        @media (max-width: 991px) {
+          .header {
+            max-width: 100%;
+          }
+        }
+        .menu-wrapper {
+          align-self: stretch;
+          display: flex;
+          flex-direction: column;
+          justify-content: start;
+          width: 48px;
+          margin: auto 0;
+        }
+        .menu-button {
+          border-radius: 24px;
+          display: flex;
+          min-height: 48px;
+          width: 48px;
+          align-items: center;
+          justify-content: center;
+          padding: 14px;
+        }
+        .menu-icon {
+          aspect-ratio: 1;
+          object-fit: contain;
+          object-position: center;
+          width: 20px;
+          align-self: stretch;
+          margin: auto 0;
+        }
+        .logo {
+          aspect-ratio: 4.5;
+          object-fit: contain;
+          object-position: center;
+          width: 153px;
+          align-self: stretch;
+          margin: auto 0;
+        }
+        .location-section {
+          align-self: stretch;
+          display: flex;
+          min-width: 240px;
+          min-height: 64px;
+          align-items: center;
+          gap: 12px;
+          justify-content: start;
+          flex-wrap: wrap;
+          flex: 1;
+          flex-basis: 0%;
+          margin: auto 0;
+          padding: 0 12px;
+        }
+        @media (max-width: 991px) {
+          .location-section {
+            max-width: 100%;
+          }
+        }
+        .location-wrapper {
+          align-self: stretch;
+          display: flex;
+          min-width: 240px;
+          overflow: hidden;
+          justify-content: start;
+          margin: auto 0;
+        }
+        .location-content {
+          display: flex;
+          min-width: 240px;
+          padding-right: 24px;
+          flex-direction: column;
+          justify-content: center;
+        }
+        .location-inner {
+          display: flex;
+          min-height: 36px;
+          align-items: start;
+          justify-content: start;
+        }
+        .location-link {
+          border-radius: 500px;
+          display: flex;
+          min-width: 150px;
+          min-height: 36px;
+          align-items: center;
+          justify-content: start;
+          padding: 6px 0;
+        }
+        .location-icon-wrapper {
+          align-self: stretch;
+          display: flex;
+          min-height: 16px;
+          padding-right: 4px;
+          flex-direction: column;
+          align-items: start;
+          justify-content: start;
+          width: 20px;
+          margin: auto 0;
+        }
+        .location-icon-inner {
+          display: flex;
+          min-height: 16px;
+          width: 16px;
+          flex-direction: column;
+          overflow: hidden;
+          justify-content: center;
+        }
+        .location-icon {
+          aspect-ratio: 1;
+          object-fit: contain;
+          object-position: center;
+          width: 100%;
+          flex: 1;
+        }
+        .location-text {
+          align-self: stretch;
+          overflow: hidden;
+          color: var(--www-ubereats-com-black, #000);
+          white-space: nowrap;
+          width: 156px;
+          margin: auto 0;
+          font: 500 14px/1 Inter, sans-serif;
+        }
+        @media (max-width: 991px) {
+          .location-text {
+            white-space: initial;
+          }
+        }
+        .separator {
+          align-self: stretch;
+          color: var(--www-ubereats-com-tundora, #4b4b4b);
+          margin: auto 0;
+          font: 400 14px/24px Inter, sans-serif;
+        }
+        .time-text {
+          align-self: stretch;
+          overflow: hidden;
+          color: var(--www-ubereats-com-black, #000);
+          white-space: nowrap;
+          margin: auto 0;
+          font: 500 14px/1 Inter, sans-serif;
+        }
+        @media (max-width: 991px) {
+          .time-text {
+            white-space: initial;
+          }
+        }
+        .arrow-icon-wrapper {
+          align-self: stretch;
+          display: flex;
+          min-height: 16px;
+          padding-left: 4px;
+          flex-direction: column;
+          align-items: start;
+          justify-content: start;
+          width: 20px;
+          margin: auto 0;
+        }
+        .arrow-icon {
+          aspect-ratio: 1;
+          object-fit: contain;
+          object-position: center;
+          width: 100%;
+          flex: 1;
+        }
+        .search-section {
+          align-items: start;
+          border-radius: 16px;
+          background: var(--Text-50, #f6f6f6);
+          align-self: stretch;
+          position: relative;
+          display: flex;
+          min-width: 240px;
+          flex-direction: column;
+          justify-content: start;
+          flex: 1;
+          flex-basis: 0%;
+          margin: auto 0;
+          padding: 0 12px;
+        }
+        @media (max-width: 991px) {
+          .search-section {
+            max-width: 100%;
+          }
+        }
+        .search-wrapper {
+          align-items: center;
+          border-radius: 500px;
+          background: var(--Text-50, #f6f6f6);
+          z-index: 0;
+          display: flex;
+          justify-content: start;
+          flex-wrap: wrap;
+          padding: 8px 0;
+        }
+        @media (max-width: 991px) {
+          .search-wrapper {
+            max-width: 100%;
+          }
+        }
+        .search-icon-wrapper {
+          align-self: stretch;
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          justify-content: start;
+          width: 44px;
+          margin: auto 0;
+          padding: 0 12px 0 16px;
+        }
+        .search-icon {
+          aspect-ratio: 1;
+          object-fit: contain;
+          object-position: center;
+          width: 16px;
+        }
+        .search-input {
+          align-self: stretch;
+          display: flex;
+          min-width: 240px;
+          padding-top: 2px;
+          flex-direction: column;
+          overflow: hidden;
+          color: var(--www-ubereats-com-tundora, #4b4b4b);
+          white-space: nowrap;
+          justify-content: start;
+          width: 576px;
+          margin: auto 0;
+          font: 500 14px Inter, sans-serif;
+        }
+        @media (max-width: 991px) {
+          .search-input {
+            max-width: 100%;
+            white-space: initial;
+          }
+        }
+        .search-placeholder {
+          max-width: 100%;
+          width: 576px;
+          padding-bottom: 2px;
+          overflow: hidden;
+        }
+        @media (max-width: 991px) {
+          .search-placeholder {
+            max-width: 100%;
+            white-space: initial;
+          }
+        }
+        .search-label {
+          position: absolute;
+          z-index: 0;
+          display: flex;
+          min-height: 1px;
+          width: 1px;
+          left: 11px;
+          top: -1px;
+          height: 1px;
+        }
+        .profile-section {
+          align-self: stretch;
+          display: flex;
+          gap: 12px;
+          justify-content: end;
+          margin: auto 0;
+        }
+        .cart-button {
+          border-radius: 24px;
+          display: flex;
+          min-height: 48px;
+          align-items: center;
+          color: var(--www-ubereats-com-nero, #fff);
+          white-space: nowrap;
+          text-align: center;
+          justify-content: center;
+          width: 48px;
+          margin: auto 0;
+          padding: 12px 14px;
+          font: 500 12px/1 Inter, sans-serif;
+        }
+        @media (max-width: 991px) {
+          .cart-button {
+            white-space: initial;
+          }
+        }
+        .cart-wrapper {
+          align-self: stretch;
+          width: 2163px;
+          padding-bottom: 4px;
+          background-image: url(https://cdn.builder.io/api/v1/image/assets%2F29bdb496da09449eb579968368248119%2F7c23039157784388bbb1c41677b3a029);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          display: flex;
+          flex-direction: row;
+          margin: auto 0;
+        }
+        @media (max-width: 991px) {
+          .cart-wrapper {
+            white-space: initial;
+          }
+        }
+        .cart-inner {
+          display: flex;
+          width: auto;
+          max-width: 20px;
+          padding-top: 1px;
+          flex-direction: column;
+          align-items: center;
+          justify-content: start;
+        }
+        @media (max-width: 991px) {
+          .cart-inner {
+            white-space: initial;
+          }
+        }
+        .cart-count {
+          border-radius: 20px;
+          display: flex;
+          width: 100%;
+          align-items: center;
+          justify-content: center;
+          height: 20px;
+          padding: 0 6px;
+        }
+        @media (max-width: 991px) {
+          .cart-count {
+            white-space: initial;
+          }
+        }
+        .profile-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          width: 44px;
+        }
+        .profile-icon {
+          aspect-ratio: 0.62;
+          object-fit: contain;
+          object-position: center;
+          width: 31px;
+          align-self: stretch;
+          min-height: 36px;
+          margin: auto 0;
+        }
+        .visually-hidden {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
+      </style>
+      
+      <div class="header">
+        <div class="menu-wrapper">
+          <button class="menu-button" aria-label="Open main menu">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/444876330ca94bf396ae2029c0ea53767dc6f6e88f8599bfb4b35d88f2b8a4b8?apiKey=29bdb496da09449eb579968368248119&" alt="" class="menu-icon" />
+          </button>
+        </div>
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/e817fc1f7784770b0cef055dcfb020c8025ed648ff181222d973ee764fc6459c?apiKey=29bdb496da09449eb579968368248119&" alt="Website Logo" class="logo" />
+        <div class="location-section">
+          <div class="location-wrapper">
+            <div class="location-content">
+              <div class="location-inner">
+                <div class="location-link" tabindex="0" role="button">
+                  <div class="location-icon-wrapper">
+                    <div class="location-icon-inner">
+                      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6bac3a2853089e4c57242e378d360037f2ce3ce621b687b1dd9dd16df771ca27?apiKey=29bdb496da09449eb579968368248119&" alt="Location Pin Icon" class="location-icon" />
+                    </div>
+                  </div>
+                  <div class="location-text">大安森林公園東三門出口</div>
+                  <div class="separator">  •  </div>
+                  <div class="time-text">現在</div>
+                  <div class="arrow-icon-wrapper">
+                    <div class="location-icon-inner">
+                      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6ead83feef2c34ce5f673c55f5de1592b6934db39041a711b5602db91131f072?apiKey=29bdb496da09449eb579968368248119&" alt="Arrow Icon" class="arrow-icon" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="search-section" role="search">
+            <label for="searchInput" class="visually-hidden">Search</label>
+            <div class="search-wrapper">
+              <div class="search-icon-wrapper">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c0bd854170cf114a0046310e6bcda8420b7a72ca8e0bfa4367e2404210896b57?apiKey=29bdb496da09449eb579968368248119&" alt="Search Icon" class="search-icon" />
+              </div>
+              <input type="search" id="searchInput" class="search-input" placeholder="搜尋" />
+            </div>
+          </div>
+        </div>
+        <div class="profile-section">
+          <button class="cart-button" aria-label="Shopping cart">
+            <div class="cart-wrapper">
+              <div class="cart-inner">
+                <div class="cart-count" aria-label="Cart items"></div>
+              </div>
+            </div>
+          </button>
+          <div class="profile-wrapper">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2F29bdb496da09449eb579968368248119%2F909501e14f5244a8b106f76b8208cc2d" alt="User Profile" class="profile-icon" />
+          </div>
+        </div>
+      </div>
+</body>
+</html>

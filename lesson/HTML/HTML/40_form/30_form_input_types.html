@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <!-- 參照 30_form_input_types_完成圖.png 製作一份表單，輸入欄位為必填 -->
+    <h2>海上餐廳-線上訂位</h2>
+    <fieldset  style="width: 80%;">
+    <legend>基本資料</legend>
+    <form action="basic infro">
+        <div class="rowspan">
+        <label for="username" class="text1">姓名:*</label>
+        <input type="text" id:username 
+        placeholder="請輸入中文全名" required>
+        </div>
+        <div class="rowspan">
+        <label for="usermail" class="text1">email:*</label>
+        <input type="email" id:usermail required>
+        </div>
+        <div class="rowspan">
+        <label for="password" class="text1">密碼:*</label>
+        <input type="password" id:password required>
+        </div>
+    </form>
+    </fieldset >
+    <div class="checkbox-group">
+    <input type="checkbox" id="lasting-news">
+    <label for="lasting-news">訂閱最新資訊</label>
+       <span>
+    <input type="checkbox" id="agree-contract">
+    <label for="agree-contract">同意使用者條款</label>
+       </span>
+<style>
+h2{  margin-left: 20px;}
+fieldset{
+    margin-left: 20px;
+    padding: 20px;
+}
+.checkbox-group {
+  margin-top:20px;
+  margin-left: 20px;
+}
+span {
+  margin-left:8px;
+}
+.rowspan{
+    margin: 10px;
+}
+.text1{
+    display:inline-block;
+    width: 60px;
+    text-align:right;
+}
+
+</style>
+</body>
+
+</html>
