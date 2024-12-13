@@ -218,10 +218,13 @@
         width: 350px;
       }
 
-
-
-      .footer_1440 {
-        display: none;
+    }
+    @media screen and (max-width:1280px){
+      .main {
+        padding: 24px 20px 24px 20px;
+      }
+      .sidebar{
+        display:none;
       }
     }
   </style>
@@ -541,8 +544,8 @@
         width: 24px;
       }
 
-      @media (max-width: 640px) {
-        .filter-secondary {
+      @media (max-width: 1280px) {
+        .sidebar{
           display: none;
         }
       }
@@ -2126,7 +2129,7 @@ height: 186px; margin-right:24px ;">
         width: 32px;
       }
 
-      @media (max-width: 991px) {
+      @media screen and (max-width: 991px) {
         .footer {
           max-width: 100%;
           padding: 0 20px;
@@ -2181,14 +2184,18 @@ height: 186px; margin-right:24px ;">
 
         }
       }
+      a.scroll-top{
+        position: absolute;
+        right: 20px;
+      }
     </style>
 
     <div class="footer">
-      <button class="scroll-top" aria-label="Scroll to top">
+    <a class="scroll-top" href="#"><button class="scroll-top" aria-label="Scroll to top">
         <img loading="lazy"
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/39abccba1477c736ab1bc986f3ef978c39ea085eec6ec5cbb873afd11d921981?apiKey=29bdb496da09449eb579968368248119&"
           class="scroll-icon" alt="" />
-      </button>
+      </button></a>
       <div class="footer-content">
         <div class="footer-wrapper">
 

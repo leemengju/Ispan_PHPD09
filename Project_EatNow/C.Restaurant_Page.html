@@ -7,7 +7,7 @@
     <title>Document</title>
     <style>
         * {
-            position: relative;     
+            position: relative;
             /* border: 1px black solid; */
             width: 100%;
             font-family: "Noto Sans TC";
@@ -557,10 +557,13 @@
 
                 @media (max-width: 991px) {
 
+                    .store-name {
+                        width: 250px;
+                    }
+
                     .restaurant-info,
                     .store-container,
                     .store-info,
-                    .store-name,
                     .info-list,
                     .delivery-info {
                         max-width: 100%;
@@ -1021,330 +1024,332 @@
     </main>
     <footer>
         <style>
-          .footer {
-            background: var(--Primary-Varients-800, #8d2727);
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 40px 40px 80px;
-            box-sizing: border-box;
-          }
-    
-          .nav-section {
-            display: flex;
-            flex-direction: column;
-            line-height: normal;
-            width: 76%;
-            margin-left: 20px;
-          }
-    
-          .nav-container {
-            display: flex;
-            width: 100%;
-            flex-direction: column;
-          }
-    
-          .scroll-top {
-            justify-content: center;
-            align-items: center;
-            border-radius: 100px;
-            border: 2px solid var(--Border-White, #fff);
-            background: var(--Primary-Varients-800, #8d2727);
-            align-self: end;
-            display: flex;
-            width: 56px;
-            height: 56px;
-            position: absolute;
-            margin-top: -120px;
-          }
-    
-          .scroll-icon {
-            aspect-ratio: 1;
-            object-fit: contain;
-            width: 24px;
-          }
-    
-          .footer-content {
-            align-self: stretch;
-            z-index: 10;
-          }
-    
-          .footer-wrapper {
-            display: flex;
-            flex-direction: row;
-            gap: 20px;
-            justify-content:flex-start;
-            align-items: center;
-          }
-    
-    
-          .brand-container {
-            display: flex;
-            width: fit-content;
-            flex-direction: column;
-            
-          }
-    
-          .logo {
-            aspect-ratio: 4.5;
-            object-fit: contain;
-            width: 153px;
-          }
-    
-          .app-downloads {
-            display: flex;
-            align-items: start;
-            gap: 16px;
-            flex-wrap: wrap;
-            padding-right: 82px;
-            margin: 14px -5px 0 0;
-          }
-    
-          .app-store-badge {
-            aspect-ratio: 3.7;
-            object-fit: contain;
-            width: 148px;
-          }
-    
-          .play-store-badge {
-            aspect-ratio: 2.82;
-            object-fit: contain;
-            width: 113px;
-          }
-    
-    
-          .footer-links {
-           
-            align-self: start;
-            width: fit-content;
-            display: flex;
-            align-items: start;
-            gap: 40px 110px;
-            color: #fff;
-            font: 400 14px Noto Sans TC, sans-serif;
-          }
-    
-          .link-group {
-            display: flex;
-            flex-direction: column;
-            width: 84px;
-          }
-    
-          .link-header {
-            font-size: 16px;
-            font-weight: 700;
-            text-wrap: nowrap;
-          }
-    
-          .link-item {
-            line-height: 24px;
-            margin-top: 9px;
-            text-wrap: nowrap;
-          }
-    
-          .footer-divider {
-            background-color: #d9d9d9;
-            width: 100%;
-            height: 1px;
-            margin-top: 20px;
-          }
-    
-          .footer-bottom {
-            display: flex;
-            margin: 16px;
-            width: 100%;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-          }
-    
-          .copyright-section {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            color: #fff;
-            width: auto;
-            font: 400 14px/24px Noto Sans TC, -apple-system, Roboto, Helvetica, sans-serif;
-          }
-    
-          .social-links {
-            display: flex;
-            align-items: center;
-            padding-left: -20px;
-            width: auto;
-            gap: 8px;
-          }
-    
-          .social-icon {
-            aspect-ratio: 1;
-            object-fit: contain;
-            width: 32px;
-          }
-    
-          @media (max-width: 991px) {
             .footer {
-              max-width: 100%;
-              padding: 0 20px;
+                background: var(--Primary-Varients-800, #8d2727);
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 40px 40px 80px;
+                box-sizing: border-box;
             }
-    
-            .footer-content {
-              max-width: 100%;
-            }
-    
-            .footer-wrapper {
-              flex-direction: column;
-              align-items: stretch;
-              gap: 0;
-            }
-    
-           
-    
-            .brand-container {
-              margin-top: 40px;
-            }
-    
-            .nav-section {
-              width: 100%;
-            }
-    
-            .nav-container {
-              max-width: 100%;
-              margin-top: 40px;
-            }
-    
-            .footer-links {
-              max-width: 100%;
-              margin-top: 40px;
-            }
-    
-            .footer-bottom {
-              max-width: 100%;
-            }
-    
-            .social-links {
-              display: none;
-            }
-          }
-    
-          @media screen and (max-width: 568px) {
-            a.contract {
-              display: none !important;
-            }
-    
-            .footer-links {
-              gap: 28px;
-    
-            }
-          }
-        </style>
-    
-        <div class="footer">
-          <button class="scroll-top" aria-label="Scroll to top">
-            <img loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/39abccba1477c736ab1bc986f3ef978c39ea085eec6ec5cbb873afd11d921981?apiKey=29bdb496da09449eb579968368248119&"
-              class="scroll-icon" alt="" />
-          </button>
-          <div class="footer-content">
-            <div class="footer-wrapper">
-    
-              <div class="brand-container">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/1cc8ad77894b436405d8d8db7adacdfbf7b26fa350dd0ff88402363a973b7966?apiKey=29bdb496da09449eb579968368248119&"
-                  class="logo" alt="Company Logo" />
-                <div class="app-downloads">
-                  <img
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/8dba81f8addffb5b2dcb71d99637810116e8d98cdec4095c83d442c36fae3749?apiKey=29bdb496da09449eb579968368248119&"
-                    class="app-store-badge" alt="Download on App Store" />
-                  <img
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/f37608570562a32455ce94ab628eb23f032a0cb1619f348334b2adb1824b233f?apiKey=29bdb496da09449eb579968368248119&"
-                    class="play-store-badge" alt="Get it on Google Play" />
-                </div>
-              </div>
-              <div class="footer-links">
-                <div class="link-group">
-                  <div class="link-header">商業合作</div>
-                  <a href="#" style="color: #FFFFFF;" class="link-item">成為合作餐廳</a>
-                  <a href="#" style="color: #FFFFFF;" class="link-item">成為外送夥伴</a>
-                  <a href="#" style="color: #FFFFFF;" class="link-item">聯盟行銷合作</a>
-                </div>
-                <div class="link-group">
-                  <div class="link-header">關於我們</div>
-                  <a href="#" style="color: #FFFFFF;" class="link-item">企業徵才</a>
-                  <a href="#" style="color: #FFFFFF;" class="link-item">相關新聞</a>
-                </div>
-                <div class="link-group">
-                  <div class="link-header">取得協助</div>
-                  <a href="#" style="color: #FFFFFF;" class="link-item">常見問題</a>
-                  <a href="#" style="color: #FFFFFF;" class="link-item">歷史訂單</a>
-                </div>
-              </div>
-    
-            </div>
-            <div class="footer-divider"></div>
-            <div class="footer-bottom">
-              <div class="copyright-section">
-                <span style="display:flex; text-wrap: nowrap;">© 2024 Eat Now Technologies Inc.</span>
-                <a class="contract" style="width: 120px;color: #FFF; display:flex; text-wrap: nowrap;">隱私權政策</a>
-                <a class="contract" style="width: 120px;color: #FFF; display:flex; text-wrap: nowrap;">使用者條款</a>
-              </div>
-              <div class="social-links ">
-                <a href="#" aria-label="Facebook">
-                  <img loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/e4e6e723e673fdc65736b4b7c272a7b8173e4d2dd45368105104db30c33f9de6?apiKey=29bdb496da09449eb579968368248119&"
-                    class="social-icon" alt="" />
-                </a>
-                <a href="#" aria-label="Twitter">
-                  <img loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/cf4af47357cb91bcb31e1cb9235e80bf15ee8d1e03bc644e09edd76fed3e1752?apiKey=29bdb496da09449eb579968368248119&"
-                    class="social-icon" alt="" />
-                </a>
-                <a href="#" aria-label="Instagram">
-                  <img loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/312a9618f749a609c42e95d9877bacbb6e3a7ab132e69abd9e8d8027efa90ee8?apiKey=29bdb496da09449eb579968368248119&"
-                    class="social-icon" alt="" />
-                </a>
-                <a href="#" aria-label="LinkedIn">
-                  <img loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/653648edbb24946f32ede768022f3064b592998e73bfb9086f20ed0c3af707e1?apiKey=29bdb496da09449eb579968368248119&"
-                    class="social-icon" alt="" />
-                </a>
-                <a href="#" aria-label="YouTube">
-                  <img loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/6422a0dff96de511712345a29d8328caede29e01002a0d1001ad43a710b6b33d?apiKey=29bdb496da09449eb579968368248119&"
-                    class="social-icon" alt="" />
-                </a>
-                <a href="#" aria-label="TikTok">
-                  <img loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/03008f3a2a0a9c4a745f8ba6c8aafe794c9f984f04573f64c7d12c4dd6772bc3?apiKey=29bdb496da09449eb579968368248119&"
-                    class="social-icon" alt="" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
 
-      <script>
+            .nav-section {
+                display: flex;
+                flex-direction: column;
+                line-height: normal;
+                width: 76%;
+                margin-left: 20px;
+            }
+
+            .nav-container {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .scroll-top {
+                justify-content: center;
+                align-items: center;
+                border-radius: 100px;
+                border: 2px solid var(--Border-White, #fff);
+                background: var(--Primary-Varients-800, #8d2727);
+                align-self: end;
+                display: flex;
+                width: 56px;
+                height: 56px;
+                position: absolute;
+                margin-top: -120px;
+            }
+
+            .scroll-icon {
+                aspect-ratio: 1;
+                object-fit: contain;
+                width: 24px;
+            }
+
+            .footer-content {
+                align-self: stretch;
+                z-index: 10;
+            }
+
+            .footer-wrapper {
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                justify-content: flex-start;
+                align-items: center;
+            }
+
+
+            .brand-container {
+                display: flex;
+                width: fit-content;
+                flex-direction: column;
+
+            }
+
+            .logo {
+                aspect-ratio: 4.5;
+                object-fit: contain;
+                width: 153px;
+            }
+
+            .app-downloads {
+                display: flex;
+                align-items: start;
+                gap: 16px;
+                flex-wrap: wrap;
+                padding-right: 82px;
+                margin: 14px -5px 0 0;
+            }
+
+            .app-store-badge {
+                aspect-ratio: 3.7;
+                object-fit: contain;
+                width: 148px;
+            }
+
+            .play-store-badge {
+                aspect-ratio: 2.82;
+                object-fit: contain;
+                width: 113px;
+            }
+
+
+            .footer-links {
+
+                align-self: start;
+                width: fit-content;
+                display: flex;
+                align-items: start;
+                gap: 40px 110px;
+                color: #fff;
+                font: 400 14px Noto Sans TC, sans-serif;
+            }
+
+            .link-group {
+                display: flex;
+                flex-direction: column;
+                width: 84px;
+            }
+
+            .link-header {
+                font-size: 16px;
+                font-weight: 700;
+                text-wrap: nowrap;
+            }
+
+            .link-item {
+                line-height: 24px;
+                margin-top: 9px;
+                text-wrap: nowrap;
+            }
+
+            .footer-divider {
+                background-color: #d9d9d9;
+                width: 100%;
+                height: 1px;
+                margin-top: 20px;
+            }
+
+            .footer-bottom {
+                display: flex;
+                margin: 16px;
+                width: 100%;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+
+            .copyright-section {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                color: #fff;
+                width: auto;
+                font: 400 14px/24px Noto Sans TC, -apple-system, Roboto, Helvetica, sans-serif;
+            }
+
+            .social-links {
+                display: flex;
+                align-items: center;
+                padding-left: -20px;
+                width: auto;
+                gap: 8px;
+            }
+
+            .social-icon {
+                aspect-ratio: 1;
+                object-fit: contain;
+                width: 32px;
+            }
+
+            @media (max-width: 991px) {
+                .footer {
+                    max-width: 100%;
+                    padding: 0 20px;
+                }
+
+                .footer-content {
+                    max-width: 100%;
+                }
+
+                .footer-wrapper {
+                    flex-direction: column;
+                    align-items: stretch;
+                    gap: 0;
+                }
+
+
+
+                .brand-container {
+                    margin-top: 40px;
+                }
+
+                .nav-section {
+                    width: 100%;
+                }
+
+                .nav-container {
+                    max-width: 100%;
+                    margin-top: 40px;
+                }
+
+                .footer-links {
+                    max-width: 100%;
+                    margin-top: 40px;
+                }
+
+                .footer-bottom {
+                    max-width: 100%;
+                }
+
+                .social-links {
+                    display: none;
+                }
+            }
+
+            @media screen and (max-width: 568px) {
+                a.contract {
+                    display: none !important;
+                }
+
+                .footer-links {
+                    gap: 28px;
+
+                }
+            }
+
+            a.scroll-top {
+                position: absolute;
+                right: 20px;
+            }
+        </style>
+
+        <div class="footer">
+            <a class="scroll-top" href="#"><button class="scroll-top" aria-label="Scroll to top">
+                    <img loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/39abccba1477c736ab1bc986f3ef978c39ea085eec6ec5cbb873afd11d921981?apiKey=29bdb496da09449eb579968368248119&"
+                        class="scroll-icon" alt="" />
+                </button></a>
+            <div class="footer-content">
+                <div class="footer-wrapper">
+
+                    <div class="brand-container">
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1cc8ad77894b436405d8d8db7adacdfbf7b26fa350dd0ff88402363a973b7966?apiKey=29bdb496da09449eb579968368248119&"
+                            class="logo" alt="Company Logo" />
+                        <div class="app-downloads">
+                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/8dba81f8addffb5b2dcb71d99637810116e8d98cdec4095c83d442c36fae3749?apiKey=29bdb496da09449eb579968368248119&"
+                                class="app-store-badge" alt="Download on App Store" />
+                            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f37608570562a32455ce94ab628eb23f032a0cb1619f348334b2adb1824b233f?apiKey=29bdb496da09449eb579968368248119&"
+                                class="play-store-badge" alt="Get it on Google Play" />
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <div class="link-group">
+                            <div class="link-header">商業合作</div>
+                            <a href="#" style="color: #FFFFFF;" class="link-item">成為合作餐廳</a>
+                            <a href="#" style="color: #FFFFFF;" class="link-item">成為外送夥伴</a>
+                            <a href="#" style="color: #FFFFFF;" class="link-item">聯盟行銷合作</a>
+                        </div>
+                        <div class="link-group">
+                            <div class="link-header">關於我們</div>
+                            <a href="#" style="color: #FFFFFF;" class="link-item">企業徵才</a>
+                            <a href="#" style="color: #FFFFFF;" class="link-item">相關新聞</a>
+                        </div>
+                        <div class="link-group">
+                            <div class="link-header">取得協助</div>
+                            <a href="#" style="color: #FFFFFF;" class="link-item">常見問題</a>
+                            <a href="#" style="color: #FFFFFF;" class="link-item">歷史訂單</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="footer-divider"></div>
+                <div class="footer-bottom">
+                    <div class="copyright-section">
+                        <span style="display:flex; text-wrap: nowrap;">© 2024 Eat Now Technologies Inc.</span>
+                        <a class="contract" style="width: 120px;color: #FFF; display:flex; text-wrap: nowrap;">隱私權政策</a>
+                        <a class="contract" style="width: 120px;color: #FFF; display:flex; text-wrap: nowrap;">使用者條款</a>
+                    </div>
+                    <div class="social-links ">
+                        <a href="#" aria-label="Facebook">
+                            <img loading="lazy"
+                                src="https://cdn.builder.io/api/v1/image/assets/TEMP/e4e6e723e673fdc65736b4b7c272a7b8173e4d2dd45368105104db30c33f9de6?apiKey=29bdb496da09449eb579968368248119&"
+                                class="social-icon" alt="" />
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <img loading="lazy"
+                                src="https://cdn.builder.io/api/v1/image/assets/TEMP/cf4af47357cb91bcb31e1cb9235e80bf15ee8d1e03bc644e09edd76fed3e1752?apiKey=29bdb496da09449eb579968368248119&"
+                                class="social-icon" alt="" />
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <img loading="lazy"
+                                src="https://cdn.builder.io/api/v1/image/assets/TEMP/312a9618f749a609c42e95d9877bacbb6e3a7ab132e69abd9e8d8027efa90ee8?apiKey=29bdb496da09449eb579968368248119&"
+                                class="social-icon" alt="" />
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <img loading="lazy"
+                                src="https://cdn.builder.io/api/v1/image/assets/TEMP/653648edbb24946f32ede768022f3064b592998e73bfb9086f20ed0c3af707e1?apiKey=29bdb496da09449eb579968368248119&"
+                                class="social-icon" alt="" />
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <img loading="lazy"
+                                src="https://cdn.builder.io/api/v1/image/assets/TEMP/6422a0dff96de511712345a29d8328caede29e01002a0d1001ad43a710b6b33d?apiKey=29bdb496da09449eb579968368248119&"
+                                class="social-icon" alt="" />
+                        </a>
+                        <a href="#" aria-label="TikTok">
+                            <img loading="lazy"
+                                src="https://cdn.builder.io/api/v1/image/assets/TEMP/03008f3a2a0a9c4a745f8ba6c8aafe794c9f984f04573f64c7d12c4dd6772bc3?apiKey=29bdb496da09449eb579968368248119&"
+                                class="social-icon" alt="" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
         // 定義函數
         function addClickEvent() {
-          // 獲取所有具有 'restaurant-card' 的元素
-          const cards = document.getElementsByClassName("product-card");
-          
-          // 遍歷所有元素，為每個元素添加點擊事件
-          for (let i = 0; i < cards.length; i++) {
-            cards[i].onclick = function() {
-              // 跳轉到指定的 URL
-              window.location.href = "http://127.0.0.1:5501/Project_EatNow/D.Order_Page.html";
-            };
-          }
+            // 獲取所有具有 'restaurant-card' 的元素
+            const cards = document.getElementsByClassName("product-card");
+
+            // 遍歷所有元素，為每個元素添加點擊事件
+            for (let i = 0; i < cards.length; i++) {
+                cards[i].onclick = function () {
+                    // 跳轉到指定的 URL
+                    window.location.href = "http://127.0.0.1:5501/Project_EatNow/D.Order_Page.html";
+                };
+            }
         }
-        
+
         // 調用函數
         addClickEvent();
-        
-        
-        </script>     
+
+
+    </script>
 </body>
 
 </html>

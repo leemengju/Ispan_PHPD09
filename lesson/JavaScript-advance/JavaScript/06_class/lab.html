@@ -22,9 +22,17 @@
     
     
         // B: [{"firstName":"Derek","lastName":"Jeter"},{"firstName":"Jeremy","lastName":"Lin"},{"firstName":"Lionel","lastName":"Messi"}]
+        // parse可以讓JSON 格式的字串 轉換為 JavaScript 原生物件或陣列 。
+        // 如果你直接對 fromServerString 使用類似 fromServerString[1].firstName，會得到錯誤，因為它只是字串，沒有 firstName 這樣的屬性。(只有陣列才可以)
     var fromServerString='[{"firstName":"Derek","lastName":"Jeter"},{"firstName":"Jeremy","lastName":"Lin"},{"firstName":"Lionel","lastName":"Messi"}]'
     var playerList= JSON.parse(fromServerString);
     report.innerText = playerList[1].firstName;
+
+
+
+report.innerText=Json.stringify(objArray);
+var list= Json.parse(fromServerString);
+report.innerText=list[1].firstName;
     </script>
     
 </body>
