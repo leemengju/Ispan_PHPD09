@@ -18,3 +18,5 @@
 70. 推送到 GitHub 數據庫
 
 80. 在 GitHub 頁面查看數據庫變化
+
+備註:強制推送:git push --force origin main

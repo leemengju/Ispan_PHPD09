@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //方法一:function簡約版
+        function CAnimal() {
+            alert('Animal:....');
+        };
+
+        CAnimal();
+
+
+        //方法二:class物件導向版
+        // 定義一個class
+        class CAnimal {
+            // 執行一個動作
+            makeSound() {
+                // 動作如何操作
+                alert('Animal:....');
+            }
+        }
+        //定義新的參照
+        var obj;
+        // 喚起新的線索，然後從裡面調資料
+        obj = new CAnimal();
+        obj.makeSound();
+
+
+
+        //方法三:function 物件導向版
+        // vs function
+        function CAnimal() {
+            CAnimal.prototype.makeSound = function () {
+                alert('Animal:....');
+            };
+        }
+        let obj = new CAnimal(); // 使用 new 創建物件
+        obj.makeSound(); // Animal:....
+
+
+
+    </script>
+</body>
+
+</html>

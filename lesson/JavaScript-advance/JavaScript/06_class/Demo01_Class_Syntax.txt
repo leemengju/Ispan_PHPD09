@@ -1,7 +1,7 @@
 ﻿// --------------------------------------------------
 // 010: Prepare
 
-<div id="debug"></div>
+<div id="report"></div>
 
 
 
@@ -17,10 +17,10 @@
 	obj.firstName = "Wolfgang";
 	obj.lastName = "Chien";
 	obj.sayHello = function () {
-		debug.innerHTML += "Hello! <br>";	
+		report.innerHTML += "Hello! <br>";	
 	};
 
-	debug.innerHTML = obj.firstName + "<br>";
+	report.innerHTML = obj.firstName + "<br>";
 
 	obj.sayHello();
 
@@ -39,7 +39,7 @@
 		"firstName": "Wolfgang",
 		"lastName": "Chien"
 	};
-	debug.innerHTML = obj.firstName + " " + obj.lastName;
+	report.innerHTML = obj.firstName + " " + obj.lastName;
 
 </script>
 
@@ -60,9 +60,15 @@
 		{"firstName":"Lionel", "lastName":"Messi"}
 	];
 
-	debug.innerText = JSON.stringify(objArray);
-	// B: [{"firstName":"Derek","lastName":"Jeter"},{"firstName":"Jeremy","lastName":"Lin"},{"firstName":"Lionel","lastName":"Messi"}]
+    //"JSON.stringify(字串化)"將 JavaScript 物件或陣列轉換為 JSON 格式的字串。
 
+	report.innerText = JSON.stringify(objArray);
+
+
+	// B: [{"firstName":"Derek","lastName":"Jeter"},{"firstName":"Jeremy","lastName":"Lin"},{"firstName":"Lionel","lastName":"Messi"}]
+var fromServerString='[{"firstName":"Derek","lastName":"Jeter"},{"firstName":"Jeremy","lastName":"Lin"},{"firstName":"Lionel","lastName":"Messi"}]'
+var playerList= JSON.parse(fromServerString);
+report.innerText = playerList[1].firstName;
 </script>
 
 
@@ -77,7 +83,7 @@
 
 	var s = '[{"firstName":"Derek","lastName":"Jeter"},{"firstName":"Jeremy","lastName":"Lin"},{"firstName":"Lionel","lastName":"Messi"}]';
 	var objArray = JSON.parse(s);
-	debug.innerHTML = objArray[2].lastName + "<br>";
+	report.innerHTML = objArray[2].lastName + "<br>";
 
 </script>
 
@@ -98,7 +104,7 @@
 
         var objBox = new Box();
         objBox.paint("Blue");
-        debug.innerHTML = objBox.color;
+        report.innerHTML = objBox.color;
 
     </script>
 
@@ -127,7 +133,7 @@
 
         var objBox = new Box();
         objBox.paint("RoyalBlue", function () {
-            debug.innerHTML = objBox.color;
+            report.innerHTML = objBox.color;
         });
 
 

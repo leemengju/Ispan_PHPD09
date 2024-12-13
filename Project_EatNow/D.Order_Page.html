@@ -631,7 +631,26 @@
         // 初始化顯示
         updateDisplay();
     });
-
+    
+        // 定義函數
+        function addClickEvent() {
+          // 獲取所有具有 'restaurant-card' 的元素
+          const cards = document.getElementsByClassName("add-to-cart");
+          
+          // 遍歷所有元素，為每個元素添加點擊事件
+          for (let i = 0; i < cards.length; i++) {
+            cards[i].onclick = function() {
+              // 跳轉到指定的 URL
+              window.location.href = "http://127.0.0.1:5501/Project_EatNow/E.Cashier_Page.html";
+            };
+          }
+        }
+        
+        // 調用函數
+        addClickEvent();
+        
+        
+     
 </script>
 
 </html>

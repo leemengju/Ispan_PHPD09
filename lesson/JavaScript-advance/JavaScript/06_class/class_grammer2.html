@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class CAnimal {
+            // 下划線代表僅屬於該物件下屬屬性
+            _weight = 1;
+
+            makeSound() {
+                alert("Animal: ...");
+            }
+            // 建構初始值
+            // constructor不能呼叫
+            constructor(weightValue = 1) {
+                this._weight = weightValue;
+            }
+            //  檢驗數值是否符合條件
+            set weight(weightValue) {
+                if (weightValue > 0) {
+                    this._weight = weightValue;
+                }
+            }
+            // /  回傳
+            get weight() {
+                return this._weight;
+            }
+        }
+        // 繼承
+        class CDog extends CAnimal {
+            makeSound() {
+                // // 繼承了CAnimal的makeSound
+                // super.makeSound();
+                alert("Dog barking!");
+            }
+            location="unknown";
+            constructor(weightValue,locationValue) {
+                // // 繼承了CAnimal的weightValue，不然會出錯。
+                super(weightValue);
+                this.location= locationValue;
+            }
+            
+            
+        }
+        var obj = new CDog(3,"Taichung");
+        alert(obj.weight);
+        alert(obj.location);
+        obj.makeSound();
+
+    </script>
+</body>
+
+</html>

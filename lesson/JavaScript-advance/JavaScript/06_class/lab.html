@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="report"></div>
+    <script>
+
+        // A. 物件陣列，用中括號框住一組以 JSON 格式表現的物件
+        var objArray = [
+            {"firstName":"Derek", "lastName":"Jeter"}, 
+            {"firstName":"Jeremy", "lastName":"Lin"}, 
+            {"firstName":"Lionel", "lastName":"Messi"}
+        ];
+    
+        //"JSON.stringify(字串化)"將 JavaScript 物件或陣列轉換為 JSON 格式的字串。
+    
+        report.innerText = JSON.stringify(objArray);
+    
+    
+        // B: [{"firstName":"Derek","lastName":"Jeter"},{"firstName":"Jeremy","lastName":"Lin"},{"firstName":"Lionel","lastName":"Messi"}]
+    var fromServerString='[{"firstName":"Derek","lastName":"Jeter"},{"firstName":"Jeremy","lastName":"Lin"},{"firstName":"Lionel","lastName":"Messi"}]'
+    var playerList= JSON.parse(fromServerString);
+    report.innerText = playerList[1].firstName;
+    </script>
+    
+</body>
+</html>
