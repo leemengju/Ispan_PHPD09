@@ -9,7 +9,7 @@
     <script>
         // 物件.函式()
         // this 指向「使用該函式的物件」
-        
+        // 物件.函式()表示立即调用函数 showFullName，根据调用方式绑定 this
         function showFullName() {
             debug.innerText = this.firstName + " " + this.lastName;
         }
@@ -17,6 +17,7 @@
         var chien = {
             firstName: "Wolfgang",
             lastName: "Chien",
+            // 若沒有加括號表示获取函数 showFullName 的引用，不会执行函数
             toString: showFullName
         }
         
@@ -28,6 +29,7 @@
         
         // lin.toString();
         chien.toString();
+        
         
     </script>
     

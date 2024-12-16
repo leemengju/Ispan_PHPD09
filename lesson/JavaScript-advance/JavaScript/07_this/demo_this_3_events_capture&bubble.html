@@ -20,6 +20,7 @@
     </style>
 </head>
 <body>
+    <P>捕捉和冒泡事件</P>
     <div id="box">
         <div id="letter">Letter</div>
     </div>
@@ -28,6 +29,7 @@
     <script>
 
         // capture phrase:
+        // addEventListener 事件監聽器
         document.addEventListener("click", function (e) {
             debug.innerHTML += "document click (capture): "
                 + "event.target.id: " + e.target.id + ", "

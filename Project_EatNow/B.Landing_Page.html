@@ -18,6 +18,7 @@
       width: 100%;
       border-color: red;
       overflow: scroll;
+      max-width: 100%;
     }
 
 
@@ -52,14 +53,16 @@
     }
 
     .main {
+      
       display: flex;
       justify-content: flex-start;
       align-items: flex-start;
-      padding: 24px 80px 24px 80px;
-      gap: 48px;
+      padding: 24px 0px 24px 20px;
+      gap: 32px;
       box-sizing: border-box;
-
-
+      width: 100%;
+      max-width: 100%; /* 限制寬度不超過載體 */
+     
     }
 
     aside {
@@ -108,27 +111,18 @@
     }
 
     .selection {
+    
       display: flex;
       box-sizing: border-box;
-      width: 948px;
       flex-direction: column;
       align-items: flex-start;
       gap: 20px;
       height: fit-content;
+      width: 100%; 
+      max-width: 100%; /* 限制寬度不超過載體 */
+      overflow: hidden;
     }
 
-    .fastDeliver,
-    .recommend,
-    .goodPrice,
-    .all {
-      display: flex;
-      width: 100%;
-      height: fit-content;
-      align-items: center;
-      margin-bottom: 20px;
-      gap: 20px 0px;
-      flex-wrap: wrap;
-    }
 
     @media screen and (max-width:420px) {
 
@@ -150,13 +144,7 @@
         display: none;
       }
 
-      .main {
-        padding: 24px 20px 24px 20px;
-      }
-
-      .selection {
-        width: 350px;
-      }
+     
 
     }
 
@@ -178,13 +166,13 @@
 
 <body>
 
-  <style>
+  <style class="nav_style">
     nav {
       box-sizing: border-box;
       display: flex;
       justify-content: space-between;
       width: 100%;
-      height: auto;
+      height: fit-content;
       padding: 4px 16px;
       align-items: center;
       white-space: wrap;
@@ -198,7 +186,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-     
+
       width: auto;
     }
 
@@ -217,7 +205,7 @@
       flex-shrink: 0;
       /* 防止子項目壓縮 */
     }
-    
+
     .navbarsearch {
       display: flex;
       padding: 0px 12px;
@@ -241,11 +229,13 @@
       border-radius: 20px;
 
     }
-@media screen and (min-width:1280px) and (max-width:1920px){
-  .nav_pad {
+
+    @media screen and (min-width:1280px) and (max-width:2400px) {
+      .nav_pad {
         display: none;
       }
-}
+    }
+
     @media screen and (max-width:1280px) {
       .nav_web {
         display: none;
@@ -260,13 +250,14 @@
       .nav_pad2 .nav_left {
         display: none !important;
       }
-     
+
       .nav_pad2 .nav_right {
-        justify-content: space-between ;
-        width:100%;
+        justify-content: space-between;
+        width: 100%;
       }
-      .navbarsearch{
-        width:90% !important;
+
+      .navbarsearch {
+        width: 90% !important;
       }
     }
   </style>
@@ -359,22 +350,22 @@
       line-height: normal;">搜尋</span>
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" style="width:auto;" height="24" viewBox="0 0 24 24" fill="none">
-        <mask id="mask0_4377_21426" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="3" y="3" width="18" height="18">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M14 5C13.4477 5 13 5.44772 13 6C13 6.55228 13.4477 7 14 7C14.5523 7 15 6.55228 15 6C15 5.44772 14.5523 5 14 5ZM16.8293 5C16.4175 3.83481 15.3062 3 14 3C12.6938 3 11.5825 3.83481 11.1707 5H4C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H11.1707C11.5825 8.16519 12.6938 9 14 9C15.3062 9 16.4175 8.16519 16.8293 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H16.8293ZM8 11C7.44772 11 7 11.4477 7 12C7 12.5523 7.44772 13 8 13C8.55228 13 9 12.5523 9 12C9 11.4477 8.55228 11 8 11ZM8 9C9.30622 9 10.4175 9.83481 10.8293 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H10.8293C10.4175 14.1652 9.30622 15 8 15C6.69378 15 5.58254 14.1652 5.17071 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H5.17071C5.58254 9.83481 6.69378 9 8 9ZM16 18C16 17.4477 16.4477 17 17 17C17.5523 17 18 17.4477 18 18C18 18.5523 17.5523 19 17 19C16.4477 19 16 18.5523 16 18ZM19.8293 17C19.4175 15.8348 18.3062 15 17 15C15.6938 15 14.5825 15.8348 14.1707 17H4C3.44772 17 3 17.4477 3 18C3 18.5523 3.44772 19 4 19H14.1707C14.5825 20.1652 15.6938 21 17 21C18.3062 21 19.4175 20.1652 19.8293 19H20C20.5523 19 21 18.5523 21 18C21 17.4477 20.5523 17 20 17H19.8293Z" fill="black"/>
+        <mask id="mask0_4377_21426" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="3" y="3" width="18"
+          height="18">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M14 5C13.4477 5 13 5.44772 13 6C13 6.55228 13.4477 7 14 7C14.5523 7 15 6.55228 15 6C15 5.44772 14.5523 5 14 5ZM16.8293 5C16.4175 3.83481 15.3062 3 14 3C12.6938 3 11.5825 3.83481 11.1707 5H4C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H11.1707C11.5825 8.16519 12.6938 9 14 9C15.3062 9 16.4175 8.16519 16.8293 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H16.8293ZM8 11C7.44772 11 7 11.4477 7 12C7 12.5523 7.44772 13 8 13C8.55228 13 9 12.5523 9 12C9 11.4477 8.55228 11 8 11ZM8 9C9.30622 9 10.4175 9.83481 10.8293 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H10.8293C10.4175 14.1652 9.30622 15 8 15C6.69378 15 5.58254 14.1652 5.17071 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H5.17071C5.58254 9.83481 6.69378 9 8 9ZM16 18C16 17.4477 16.4477 17 17 17C17.5523 17 18 17.4477 18 18C18 18.5523 17.5523 19 17 19C16.4477 19 16 18.5523 16 18ZM19.8293 17C19.4175 15.8348 18.3062 15 17 15C15.6938 15 14.5825 15.8348 14.1707 17H4C3.44772 17 3 17.4477 3 18C3 18.5523 3.44772 19 4 19H14.1707C14.5825 20.1652 15.6938 21 17 21C18.3062 21 19.4175 20.1652 19.8293 19H20C20.5523 19 21 18.5523 21 18C21 17.4477 20.5523 17 20 17H19.8293Z"
+            fill="black" />
         </mask>
         <g mask="url(#mask0_4377_21426)">
-          <path d="M0 0H24V24H0V0Z" fill="#101828"/>
+          <path d="M0 0H24V24H0V0Z" fill="#101828" />
         </g>
       </svg>
     </div>
   </nav>
 
 
-
-
-
   <header class="headertext">在城市中探索美食，找尋你的美好食光</header>
-  <section class="main">
+  <section class="main d-flex">
     <aside class="sidebar">
       <div class="fastchoosing">
         <h3 class="mb-3 fw-bold">快速篩選</h3>
@@ -653,7 +644,7 @@
         </div>
       </div>
     </aside>
-    <section class="selection">
+    <section class="selection  d-flex">
 
       <section class="coupon" style="display: flex; flex-wrap: nowrap;justify-content: flex-start;">
         <img class="coupon_img img-fluid" src="./resource/landing_page/selection/coupon/banner.png" style="width: 440px;
@@ -662,8 +653,10 @@ height: 186px; margin-right:24px  ;">
 height: 186px; margin-right:24px ;">
         <img class="coupon_img img-fluid" src="./resource/landing_page/selection/coupon/banner-2.png" style="width: 440px;
 height: 186px; margin-right:24px ;">
+        <img class="coupon_img img-fluid" src="./resource/landing_page/selection/coupon/banner-3.png" style="width: 440px;
+height: 186px; margin-right:24px ;">
       </section>
-      <section class="categoryrecommend" style="display: flex; flex-wrap: nowrap;height: fit-content;">
+      <section class="categoryrecommend" style="display: flex; text-wrap: nowrap;height:fit-content;">
         <style class="categoryrecommend">
           .restaurant-categories {
             display: flex;
@@ -680,13 +673,17 @@ height: 186px; margin-right:24px ;">
             flex-direction: column;
             width: 80px;
             margin: auto 0;
+
           }
 
           .category-icon {
             aspect-ratio: 1;
-            object-fit: contain;
+            object-fit: fill;
             width: 80px;
             align-self: center;
+            border-radius: 100px;
+            border: 1px solid rgb(230, 230, 230);
+            box-sizing: border-box;
           }
 
           .category-name {
@@ -700,7 +697,7 @@ height: 186px; margin-right:24px ;">
             height: 1px;
             padding: 0;
             margin: -1px;
-            overflow: hidden;
+
             clip: rect(0, 0, 0, 0);
             border: 0;
           }
@@ -761,13 +758,25 @@ height: 186px; margin-right:24px ;">
               alt="Mexican Cuisine Icon" class="category-icon" />
             <h2 class="category-name">南美風味</h2>
           </article>
-
           <article class="category-item">
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/56f3faeea108cadb50ecc61f06fd09fa66112106cd940643447689364d16f6b2?placeholderIfAbsent=true&apiKey=29bdb496da09449eb579968368248119"
-              alt="Teppanyaki Icon" class="category-icon" />
+            <img src="./resource/landing_page/catergory/icon-1.png" alt="Teppanyaki Icon" class="category-icon" />
             <h2 class="category-name">鐵板料理</h2>
           </article>
+          <article class="category-item">
+            <img src="./resource/landing_page/catergory/icon-2.png" alt="Mexican Cuisine Icon" class="category-icon" />
+            <h2 class="category-name">蔬食健康</h2>
+          </article>
+          <article class="category-item">
+            <img src="./resource/landing_page/catergory/icon-3.png" alt="Mexican Cuisine Icon" class="category-icon" />
+            <h2 class="category-name">地中海風</h2>
+          </article>
+          <article class="category-item">
+            <img src="./resource/landing_page/catergory/icon-4.png" alt="Mexican Cuisine Icon" class="category-icon" />
+            <h2 class="category-name">伊斯蘭風</h2>
+          </article>
+
+
+
         </nav>
       </section>
       <style class="restaurant">
@@ -776,18 +785,18 @@ height: 186px; margin-right:24px ;">
           font: 600 12px/18px Open Sans, sans-serif;
         }
 
-        .quick-delivery-section {
-          z-index: 0;
+        .selection_group {
           display: flex;
-          margin-top: 20px;
-          min-height: 363px;
           width: 100%;
-          max-width: 948px;
-          align-items: start;
-          gap: 20px 0;
-          justify-content: start;
+          height: fit-content;
+          align-items: center;
+          margin-bottom: 20px;
+          gap: 20px 0px;
           flex-wrap: wrap;
+          justify-content: start;
+         
         }
+
 
         .header-bar {
           display: flex;
@@ -800,6 +809,7 @@ height: 186px; margin-right:24px ;">
           flex: 1;
           flex-basis: 0%;
           height: 48px;
+          padding-right: 20px;
         }
 
         .section-title {
@@ -837,11 +847,11 @@ height: 186px; margin-right:24px ;">
 
         .restaurant-row {
           display: flex;
-          width: 948px;
+          width: 100%;
           align-items: center;
           gap: 24px;
           justify-content: start;
-          flex-wrap: nowrap;
+          flex-wrap: wrap;
         }
 
         .restaurant-card {
@@ -857,7 +867,7 @@ height: 186px; margin-right:24px ;">
           flex-direction: column;
           overflow: hidden;
           justify-content: start;
-          width: 300px;
+          width: 292px;
           margin: auto 0;
         }
 
@@ -1046,285 +1056,445 @@ height: 186px; margin-right:24px ;">
           height: 40px;
         }
       </style>
-      <section class="fastDeliver">
-
-        <div class="quick-delivery-section">
-          <div class="header-bar">
-            <div class="section-title" style="width: auto;">火速送達</div>
-            <div class="view-more-wrapper" style="width: auto;">
-              <div class="view-more-text" style="width: auto;">查看更多</div>
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/064c613a6c100cbd89b444ee5150f8fe0028f66c178738a5be4fde7a211c46fd?apiKey=29bdb496da09449eb579968368248119&"
-                alt="" class="view-more-icon" />
-            </div>
-          </div>
-          <div class="restaurant-row">
-            <div class="restaurant-card">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/6487f36cb6ce58e954a1a061a763b2b1bef44b97de0b31561bbbfcea6671c1cf?apiKey=29bdb496da09449eb579968368248119&"
-                alt="Culin Delight Restaurant" class="restaurant-image" />
-              <div class="card-content">
-                <div class="restaurant-header">
-                  <div class="restaurant-name">Culin Delight</div>
-                  <div class="rating-wrapper">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/f32b2d8c75f5bab513ec8d0d2ce3e3f9b47bb274a216b683d39f6b46b0e2fc76?apiKey=29bdb496da09449eb579968368248119&"
-                      alt="Rating Star" class="star-icon" />
-                    <div class="rating-score" style="width: auto;">3.0</div>
-                    <div class="rating-count">(100+)</div>
-                  </div>
-                </div>
-                <div class="delivery-info">
-                  <div class="info-icon-wrapper">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/c4f261e29f5313fee35cbb33e8f472f81f152cb861578ee9176f18ae964ff1b8?apiKey=29bdb496da09449eb579968368248119&"
-                      alt="Delivery Time Icon" class="info-icon" />
-                  </div>
-                  <div class="delivery-time">10-15分鐘</div>
-                  <div class="separator">•</div>
-                  <div class="info-icon-wrapper">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/b9825bfad2f9414ac1c851bda354677560986c8c804db89238f699c978802734?apiKey=29bdb496da09449eb579968368248119&"
-                      alt="Price Icon" class="info-icon" />
-                  </div>
-                  <div class="price-text">$45</div>
-                </div>
-                <div class="tag-container">
-                  <div class="feature-tag">交通方便</div>
-                  <div class="feature-tag">少油少鹽</div>
-                  <div class="feature-tag">智能廚房</div>
-                </div>
-              </div>
-              <div class="promo-tag" style="width: auto;">指定餐點 5 折</div>
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/19018a7271d19d598fefeba3a1866636f8f937344a3867c9bb9667b915673f60?apiKey=29bdb496da09449eb579968368248119&"
-                alt="Add to Favorites" class="favorite-icon" />
-            </div>
-
-            <div class="restaurant-card">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/871e76bd95842664a3830b562bdf33c0eac1275272f14ad07b9c7d3673e8c932?apiKey=29bdb496da09449eb579968368248119&"
-                alt="Flavor Factory Restaurant" class="restaurant-image" />
-              <div class="card-content">
-                <div class="restaurant-header">
-                  <div class="restaurant-name">Flavor Factory</div>
-                  <div class="rating-wrapper">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/27a7df7ea2e0a367d3b3398b0079bd79a44a28cad2150415bba8d141e5d76715?apiKey=29bdb496da09449eb579968368248119&"
-                      alt="Rating Star" class="star-icon" />
-                    <div class="rating-score">4.9</div>
-                    <div class="rating-count">(1000+)</div>
-                  </div>
-                </div>
-                <div class="delivery-info">
-                  <div class="info-icon-wrapper">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/1559d5cd729b1853a8622a6561fec9672035d957278be511fae4c853893dfe7f?apiKey=29bdb496da09449eb579968368248119&"
-                      alt="Delivery Time Icon" class="info-icon" />
-                  </div>
-                  <div class="delivery-time">20-30分鐘</div>
-                  <div class="separator">•</div>
-                  <div class="info-icon-wrapper">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e62613e618c195ff406b848117aa7132686fa5ab77fa9bbf749250111c7f6fc?apiKey=29bdb496da09449eb579968368248119&"
-                      alt="Price Icon" class="info-icon" />
-                  </div>
-                  <div class="price-text">$45</div>
-                </div>
-                <div class="tag-container">
-                  <div class="feature-tag">交通方便</div>
-                  <div class="feature-tag">少油少鹽</div>
-                  <div class="feature-tag">聚餐首選</div>
-                </div>
-              </div>
-              <div class="promo-tag">指定餐點 5 折</div>
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/3ccab1d2426b24001a63a43880cd3bfa541d6c64f52eb230f01f71046e48c3da?apiKey=29bdb496da09449eb579968368248119&"
-                alt="Add to Favorites" class="favorite-icon" />
-            </div>
-            <div class="restaurant-card">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/c57e7dfa6697a7685ffcc4955e8d1cbe3468edf7b83496151b7c6d79df35656c?apiKey=29bdb496da09449eb579968368248119&"
-                alt="Urban Spice Restaurant" class="restaurant-image" />
-              <div class="card-content">
-                <div class="restaurant-header">
-                  <div class="restaurant-name">Urban Spice</div>
-                  <div class="rating-wrapper">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/4623816c062235024952d71a0d0af8ce46b74b42c5c3da14fb503eb1b7fc8ebd?apiKey=29bdb496da09449eb579968368248119&"
-                      alt="Rating Star" class="star-icon" />
-                    <div class="rating-score">5.0</div>
-                    <div class="rating-count">(100+)</div>
-                  </div>
-                </div>
-                <div class="delivery-info">
-                  <div class="info-icon-wrapper">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/1559d5cd729b1853a8622a6561fec9672035d957278be511fae4c853893dfe7f?apiKey=29bdb496da09449eb579968368248119&"
-                      alt="Delivery Time Icon" class="info-icon" />
-                  </div>
-                  <div class="delivery-time">10-15分鐘</div>
-                  <div class="separator">•</div>
-                  <div class="info-icon-wrapper">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e1d1cbebce63a264e2762dd7d4c5e1cf6c567b6f1e621c05c40fa3cf09fd7cc?apiKey=29bdb496da09449eb579968368248119&"
-                      alt="Price Icon" class="info-icon" />
-                  </div>
-                  <div class="price-text">$45</div>
-                </div>
-                <div class="tag-container">
-                  <div class="feature-tag">交通方便</div>
-                  <div class="feature-tag">複合餐飲</div>
-                </div>
-              </div>
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/cf9a0418f0b93f7b08071b68cf2bed3eccec8ddd150298ffb9a2f432495167bf?apiKey=29bdb496da09449eb579968368248119&"
-                alt="Add to Favorites" class="favorite-icon" />
-            </div>
-
+      <section class="selection_group fastDeliver">
+        <div class="header-bar mt-1">
+          <div class="section-title" style="width: auto;">火速送達</div>
+          <div class="view-more-wrapper" style="width: auto;">
+            <div class="view-more-text" style="width: auto;">查看更多</div>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/064c613a6c100cbd89b444ee5150f8fe0028f66c178738a5be4fde7a211c46fd?apiKey=29bdb496da09449eb579968368248119&"
+              alt="" class="view-more-icon" />
           </div>
         </div>
+        <div class="restaurant-row">
+          <div class="restaurant-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/6487f36cb6ce58e954a1a061a763b2b1bef44b97de0b31561bbbfcea6671c1cf?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Culin Delight Restaurant" class="restaurant-image" />
+            <div class="card-content">
+              <div class="restaurant-header">
+                <div class="restaurant-name">Culin Delight</div>
+                <div class="rating-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/f32b2d8c75f5bab513ec8d0d2ce3e3f9b47bb274a216b683d39f6b46b0e2fc76?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Rating Star" class="star-icon" />
+                  <div class="rating-score" style="width: auto;">3.0</div>
+                  <div class="rating-count">(100+)</div>
+                </div>
+              </div>
+              <div class="delivery-info">
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/c4f261e29f5313fee35cbb33e8f472f81f152cb861578ee9176f18ae964ff1b8?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Delivery Time Icon" class="info-icon" />
+                </div>
+                <div class="delivery-time">10-15分鐘</div>
+                <div class="separator">•</div>
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/b9825bfad2f9414ac1c851bda354677560986c8c804db89238f699c978802734?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Price Icon" class="info-icon" />
+                </div>
+                <div class="price-text">$45</div>
+              </div>
+              <div class="tag-container">
+                <div class="feature-tag">交通方便</div>
+                <div class="feature-tag">少油少鹽</div>
+                <div class="feature-tag">智能廚房</div>
+              </div>
+            </div>
+            <div class="promo-tag" style="width: auto;">指定餐點 5 折</div>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/19018a7271d19d598fefeba3a1866636f8f937344a3867c9bb9667b915673f60?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Add to Favorites" class="favorite-icon" />
+          </div>
+
+          <div class="restaurant-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/871e76bd95842664a3830b562bdf33c0eac1275272f14ad07b9c7d3673e8c932?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Flavor Factory Restaurant" class="restaurant-image" />
+            <div class="card-content">
+              <div class="restaurant-header">
+                <div class="restaurant-name">Flavor Factory</div>
+                <div class="rating-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/27a7df7ea2e0a367d3b3398b0079bd79a44a28cad2150415bba8d141e5d76715?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Rating Star" class="star-icon" />
+                  <div class="rating-score">4.9</div>
+                  <div class="rating-count">(1000+)</div>
+                </div>
+              </div>
+              <div class="delivery-info">
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/1559d5cd729b1853a8622a6561fec9672035d957278be511fae4c853893dfe7f?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Delivery Time Icon" class="info-icon" />
+                </div>
+                <div class="delivery-time">20-30分鐘</div>
+                <div class="separator">•</div>
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e62613e618c195ff406b848117aa7132686fa5ab77fa9bbf749250111c7f6fc?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Price Icon" class="info-icon" />
+                </div>
+                <div class="price-text">$45</div>
+              </div>
+              <div class="tag-container">
+                <div class="feature-tag">交通方便</div>
+                <div class="feature-tag">少油少鹽</div>
+                <div class="feature-tag">聚餐首選</div>
+              </div>
+            </div>
+            <div class="promo-tag">指定餐點 5 折</div>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/3ccab1d2426b24001a63a43880cd3bfa541d6c64f52eb230f01f71046e48c3da?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Add to Favorites" class="favorite-icon" />
+          </div>
+          <div class="restaurant-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/c57e7dfa6697a7685ffcc4955e8d1cbe3468edf7b83496151b7c6d79df35656c?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Urban Spice Restaurant" class="restaurant-image" />
+            <div class="card-content">
+              <div class="restaurant-header">
+                <div class="restaurant-name">Urban Spice</div>
+                <div class="rating-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/4623816c062235024952d71a0d0af8ce46b74b42c5c3da14fb503eb1b7fc8ebd?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Rating Star" class="star-icon" />
+                  <div class="rating-score">5.0</div>
+                  <div class="rating-count">(100+)</div>
+                </div>
+              </div>
+              <div class="delivery-info">
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/1559d5cd729b1853a8622a6561fec9672035d957278be511fae4c853893dfe7f?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Delivery Time Icon" class="info-icon" />
+                </div>
+                <div class="delivery-time">10-15分鐘</div>
+                <div class="separator">•</div>
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e1d1cbebce63a264e2762dd7d4c5e1cf6c567b6f1e621c05c40fa3cf09fd7cc?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Price Icon" class="info-icon" />
+                </div>
+                <div class="price-text">$45</div>
+              </div>
+              <div class="tag-container">
+                <div class="feature-tag">交通方便</div>
+                <div class="feature-tag">複合餐飲</div>
+              </div>
+            </div>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/cf9a0418f0b93f7b08071b68cf2bed3eccec8ddd150298ffb9a2f432495167bf?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Add to Favorites" class="favorite-icon" />
+          </div>
+          <div class="restaurant-card">
+            <img
+              src="./resource/landing_page/selection/restaurant/image-3.png"
+              alt="Palate Pleasures restaurant" class="restaurant-image" />
+            <div class="card-content">
+              <div class="restaurant-header">
+                <div class="restaurant-name">Pleasure Time</div>
+                <div class="rating-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/4623816c062235024952d71a0d0af8ce46b74b42c5c3da14fb503eb1b7fc8ebd?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Rating Star" class="star-icon" />
+                  <div class="rating-score">3.2</div>
+                  <div class="rating-count">(100+)</div>
+                </div>
+              </div>
+              <div class="delivery-info">
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/1559d5cd729b1853a8622a6561fec9672035d957278be511fae4c853893dfe7f?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Delivery Time Icon" class="info-icon" />
+                </div>
+                <div class="delivery-time">20-40分鐘</div>
+                <div class="separator">•</div>
+                <div class="info-icon-wrapper">
+              
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e1d1cbebce63a264e2762dd7d4c5e1cf6c567b6f1e621c05c40fa3cf09fd7cc?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Price Icon" class="info-icon" />
+                </div>
+                <div class="price-text">$45</div>
+              </div>
+              <div class="tag-container">
+                <div class="feature-tag">交通方便</div>
+                <div class="feature-tag">智能廚房</div>
+              </div>
+            </div>
+            <div class="promo-tag" style="width: auto;">壽星全面八折起</div>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/cf9a0418f0b93f7b08071b68cf2bed3eccec8ddd150298ffb9a2f432495167bf?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Add to Favorites" class="favorite-icon" />
+          </div>
+          <div class="restaurant-card">
+            <img
+              src="./resource/landing_page/selection/restaurant/image-4.png"
+              alt="Palate Pleasures restaurant" class="restaurant-image" />
+            <div class="card-content">
+              <div class="restaurant-header">
+                <div class="restaurant-name">Muesli</div>
+                <div class="rating-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/4623816c062235024952d71a0d0af8ce46b74b42c5c3da14fb503eb1b7fc8ebd?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Rating Star" class="star-icon" />
+                  <div class="rating-score">3.2</div>
+                  <div class="rating-count">(100+)</div>
+                </div>
+              </div>
+              <div class="delivery-info">
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/1559d5cd729b1853a8622a6561fec9672035d957278be511fae4c853893dfe7f?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Delivery Time Icon" class="info-icon" />
+                </div>
+                <div class="delivery-time">20-40分鐘</div>
+                <div class="separator">•</div>
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e1d1cbebce63a264e2762dd7d4c5e1cf6c567b6f1e621c05c40fa3cf09fd7cc?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Price Icon" class="info-icon" />
+                </div>
+                <div class="price-text">$45</div>
+              </div>
+              <div class="tag-container">
+                <div class="feature-tag">交通方便</div>
+                <div class="feature-tag">智能廚房</div>
+              </div>
+            </div>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/cf9a0418f0b93f7b08071b68cf2bed3eccec8ddd150298ffb9a2f432495167bf?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Add to Favorites" class="favorite-icon" />
+          </div>
+          
+
+
         </div>
-      </section>
-      <section class="recommend">
-        <div class="recommend">
-          <div class="header-bar">
-            <div class="section-title" style="width: auto;">專屬推薦</div>
-            <div class="view-more-wrapper" style="width: auto;">
-              <div class="view-more-text" style="width: auto;">查看更多</div>
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/064c613a6c100cbd89b444ee5150f8fe0028f66c178738a5be4fde7a211c46fd?apiKey=29bdb496da09449eb579968368248119&"
-                alt="" class="view-more-icon" />
-            </div>
-          </div>
-          <div class="restaurant-row">
-            <div class="restaurant-card">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/0abc072a15c4acfa2a2bb15e50fd59455023939dffa98308f8f963ac9b5f895e?apiKey=29bdb496da09449eb579968368248119&"
-                alt="Harvest Table Restaurant" alt="Harvest Table Restaurant" class="restaurant-image" />
-              <div class="card-content">
-                <div class="restaurant-header">
-                  <div class="restaurant-name">Harvest Table</div>
-                  <div class="rating-wrapper">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/f32b2d8c75f5bab513ec8d0d2ce3e3f9b47bb274a216b683d39f6b46b0e2fc76?apiKey=29bdb496da09449eb579968368248119&"
-                      alt="Rating Star" class="star-icon" />
-                    <div class="rating-score" style="width: auto;">4.2</div>
-                    <div class="rating-count">(100+)</div>
-                  </div>
-                </div>
-                <div class="delivery-info">
-                  <div class="info-icon-wrapper">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/c4f261e29f5313fee35cbb33e8f472f81f152cb861578ee9176f18ae964ff1b8?apiKey=29bdb496da09449eb579968368248119&"
-                      alt="Delivery Time Icon" class="info-icon" />
-                  </div>
-                  <div class="delivery-time">20-40分鐘</div>
-                  <div class="separator">•</div>
-                  <div class="info-icon-wrapper">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/b9825bfad2f9414ac1c851bda354677560986c8c804db89238f699c978802734?apiKey=29bdb496da09449eb579968368248119&"
-                      alt="Price Icon" class="info-icon" />
-                  </div>
-                  <div class="price-text">$45</div>
-                </div>
-                <div class="tag-container">
-                  <div class="feature-tag">智能廚房</div>
-                </div>
-              </div>
-              <!-- <div class="promo-tag" style="width: auto;">指定餐點 5 折</div> -->
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/19018a7271d19d598fefeba3a1866636f8f937344a3867c9bb9667b915673f60?apiKey=29bdb496da09449eb579968368248119&"
-                alt="Add to Favorites" class="favorite-icon" />
-            </div>
-
-            <div class="restaurant-card">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/73c60ff5c97db66f6ad854f9b44851d9083d2bc2950a2a161ca64cbef332cbd6?apiKey=29bdb496da09449eb579968368248119&"
-                alt="Gourmet Junct Restaurant" class="restaurant-image" />
-              <div class="card-content">
-                <div class="restaurant-header">
-                  <div class="restaurant-name">Gourmet Junct</div>
-                  <div class="rating-wrapper">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/4623816c062235024952d71a0d0af8ce46b74b42c5c3da14fb503eb1b7fc8ebd?apiKey=29bdb496da09449eb579968368248119&"
-                      alt="Rating Star" class="star-icon" />
-                    <div class="rating-score">5.0</div>
-                    <div class="rating-count">(100+)</div>
-                  </div>
-                </div>
-                <div class="delivery-info">
-                  <div class="info-icon-wrapper">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/1559d5cd729b1853a8622a6561fec9672035d957278be511fae4c853893dfe7f?apiKey=29bdb496da09449eb579968368248119&"
-                      alt="Delivery Time Icon" class="info-icon" />
-                  </div>
-                  <div class="delivery-time">20-40分鐘</div>
-                  <div class="separator">•</div>
-                  <div class="info-icon-wrapper">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e1d1cbebce63a264e2762dd7d4c5e1cf6c567b6f1e621c05c40fa3cf09fd7cc?apiKey=29bdb496da09449eb579968368248119&"
-                      alt="Price Icon" class="info-icon" />
-                  </div>
-                  <div class="price-text">$45</div>
-                </div>
-                <div class="tag-container">
-                  <div class="feature-tag">交通方便</div>
-                  <div class="feature-tag">智能廚房</div>
-                </div>
-              </div>
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/cf9a0418f0b93f7b08071b68cf2bed3eccec8ddd150298ffb9a2f432495167bf?apiKey=29bdb496da09449eb579968368248119&"
-                alt="Add to Favorites" class="favorite-icon" />
-            </div>
-
-            <div class="restaurant-card">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/926741472a08150b195f3e4e67ef91591ca4c3ec3a5e49d82ffd70c8a3c9eda9?apiKey=29bdb496da09449eb579968368248119&"
-                alt="Golden Plate Restaurant" class="restaurant-image" alt="Flavor Factory Restaurant"
-                class="restaurant-image" />
-              <div class="card-content">
-                <div class="restaurant-header">
-                  <div class="restaurant-name">Golden Plate</div>
-                  <div class="rating-wrapper">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/27a7df7ea2e0a367d3b3398b0079bd79a44a28cad2150415bba8d141e5d76715?apiKey=29bdb496da09449eb579968368248119&"
-                      alt="Rating Star" class="star-icon" />
-                    <div class="rating-score">4.4</div>
-                    <div class="rating-count">(200+)</div>
-                  </div>
-                </div>
-                <div class="delivery-info">
-                  <div class="info-icon-wrapper">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/1559d5cd729b1853a8622a6561fec9672035d957278be511fae4c853893dfe7f?apiKey=29bdb496da09449eb579968368248119&"
-                      alt="Delivery Time Icon" class="info-icon" />
-                  </div>
-                  <div class="delivery-time">20-40分鐘</div>
-                  <div class="separator">•</div>
-                  <div class="info-icon-wrapper">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e62613e618c195ff406b848117aa7132686fa5ab77fa9bbf749250111c7f6fc?apiKey=29bdb496da09449eb579968368248119&"
-                      alt="Price Icon" class="info-icon" />
-                  </div>
-                  <div class="price-text">$45</div>
-                </div>
-                <div class="tag-container">
-                  <div class="feature-tag">交通方便</div>
-                  <div class="feature-tag">少油少鹽</div>
-                  <div class="feature-tag">聚餐首選</div>
-                </div>
-              </div>
-              <!-- <div class="promo-tag">熱門專屬方案 • 買 1 送 1</div> -->
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/3ccab1d2426b24001a63a43880cd3bfa541d6c64f52eb230f01f71046e48c3da?apiKey=29bdb496da09449eb579968368248119&"
-                alt="Add to Favorites" class="favorite-icon" />
-            </div>
-          </div>
         </div>
 
       </section>
-      <section class="goodPrice">
+      <section class="selection_group recommend">
+
+        <div class="header-bar">
+          <div class="section-title" style="width: auto;">專屬推薦</div>
+          <div class="view-more-wrapper" style="width: auto;">
+            <div class="view-more-text" style="width: auto;">查看更多</div>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/064c613a6c100cbd89b444ee5150f8fe0028f66c178738a5be4fde7a211c46fd?apiKey=29bdb496da09449eb579968368248119&"
+              alt="" class="view-more-icon" />
+          </div>
+        </div>
+        <div class="restaurant-row">
+          <div class="restaurant-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/0abc072a15c4acfa2a2bb15e50fd59455023939dffa98308f8f963ac9b5f895e?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Harvest Table Restaurant" alt="Harvest Table Restaurant" class="restaurant-image" />
+            <div class="card-content">
+              <div class="restaurant-header">
+                <div class="restaurant-name">Harvest Table</div>
+                <div class="rating-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/f32b2d8c75f5bab513ec8d0d2ce3e3f9b47bb274a216b683d39f6b46b0e2fc76?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Rating Star" class="star-icon" />
+                  <div class="rating-score" style="width: auto;">4.2</div>
+                  <div class="rating-count">(100+)</div>
+                </div>
+              </div>
+              <div class="delivery-info">
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/c4f261e29f5313fee35cbb33e8f472f81f152cb861578ee9176f18ae964ff1b8?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Delivery Time Icon" class="info-icon" />
+                </div>
+                <div class="delivery-time">20-40分鐘</div>
+                <div class="separator">•</div>
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/b9825bfad2f9414ac1c851bda354677560986c8c804db89238f699c978802734?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Price Icon" class="info-icon" />
+                </div>
+                <div class="price-text">$45</div>
+              </div>
+              <div class="tag-container">
+                <div class="feature-tag">智能廚房</div>
+              </div>
+            </div>
+            <!-- <div class="promo-tag" style="width: auto;">指定餐點 5 折</div> -->
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/19018a7271d19d598fefeba3a1866636f8f937344a3867c9bb9667b915673f60?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Add to Favorites" class="favorite-icon" />
+          </div>
+
+          <div class="restaurant-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/73c60ff5c97db66f6ad854f9b44851d9083d2bc2950a2a161ca64cbef332cbd6?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Gourmet Junct Restaurant" class="restaurant-image" />
+            <div class="card-content">
+              <div class="restaurant-header">
+                <div class="restaurant-name">Gourmet Junct</div>
+                <div class="rating-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/4623816c062235024952d71a0d0af8ce46b74b42c5c3da14fb503eb1b7fc8ebd?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Rating Star" class="star-icon" />
+                  <div class="rating-score">5.0</div>
+                  <div class="rating-count">(100+)</div>
+                </div>
+              </div>
+              <div class="delivery-info">
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/1559d5cd729b1853a8622a6561fec9672035d957278be511fae4c853893dfe7f?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Delivery Time Icon" class="info-icon" />
+                </div>
+                <div class="delivery-time">20-40分鐘</div>
+                <div class="separator">•</div>
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e1d1cbebce63a264e2762dd7d4c5e1cf6c567b6f1e621c05c40fa3cf09fd7cc?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Price Icon" class="info-icon" />
+                </div>
+                <div class="price-text">$45</div>
+              </div>
+              <div class="tag-container">
+                <div class="feature-tag">交通方便</div>
+                <div class="feature-tag">智能廚房</div>
+              </div>
+            </div>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/cf9a0418f0b93f7b08071b68cf2bed3eccec8ddd150298ffb9a2f432495167bf?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Add to Favorites" class="favorite-icon" />
+          </div>
+
+          <div class="restaurant-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/926741472a08150b195f3e4e67ef91591ca4c3ec3a5e49d82ffd70c8a3c9eda9?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Golden Plate Restaurant" class="restaurant-image" alt="Flavor Factory Restaurant"
+              class="restaurant-image" />
+            <div class="card-content">
+              <div class="restaurant-header">
+                <div class="restaurant-name">Golden Plate</div>
+                <div class="rating-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/27a7df7ea2e0a367d3b3398b0079bd79a44a28cad2150415bba8d141e5d76715?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Rating Star" class="star-icon" />
+                  <div class="rating-score">4.4</div>
+                  <div class="rating-count">(200+)</div>
+                </div>
+              </div>
+              <div class="delivery-info">
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/1559d5cd729b1853a8622a6561fec9672035d957278be511fae4c853893dfe7f?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Delivery Time Icon" class="info-icon" />
+                </div>
+                <div class="delivery-time">20-40分鐘</div>
+                <div class="separator">•</div>
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e62613e618c195ff406b848117aa7132686fa5ab77fa9bbf749250111c7f6fc?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Price Icon" class="info-icon" />
+                </div>
+                <div class="price-text">$45</div>
+              </div>
+              <div class="tag-container">
+                <div class="feature-tag">交通方便</div>
+                <div class="feature-tag">少油少鹽</div>
+                <div class="feature-tag">聚餐首選</div>
+              </div>
+            </div>
+            <!-- <div class="promo-tag">熱門專屬方案 • 買 1 送 1</div> -->
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/3ccab1d2426b24001a63a43880cd3bfa541d6c64f52eb230f01f71046e48c3da?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Add to Favorites" class="favorite-icon" />
+          </div>
+          <div class="restaurant-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/3e77c562645dda7ae38354de8c96530683bda1aae29f036f5a7e6c2f8fe42d40?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Fusion Bistro restaurant " class="restaurant-image" class="restaurant-image" />
+            <div class="card-content">
+              <div class="restaurant-header">
+                <div class="restaurant-name">Fusion Bistro</div>
+                <div class="rating-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/27a7df7ea2e0a367d3b3398b0079bd79a44a28cad2150415bba8d141e5d76715?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Rating Star" class="star-icon" />
+                  <div class="rating-score">4.8</div>
+                  <div class="rating-count">(400+)</div>
+                </div>
+              </div>
+              <div class="delivery-info">
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/1559d5cd729b1853a8622a6561fec9672035d957278be511fae4c853893dfe7f?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Delivery Time Icon" class="info-icon" />
+                </div>
+                <div class="delivery-time">20-40分鐘</div>
+                <div class="separator">•</div>
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e62613e618c195ff406b848117aa7132686fa5ab77fa9bbf749250111c7f6fc?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Price Icon" class="info-icon" />
+                </div>
+                <div class="price-text">$45</div>
+              </div>
+              <div class="tag-container">
+                <div class="feature-tag">交通方便</div>
+                <div class="feature-tag">少油少鹽</div>
+                <div class="feature-tag">聚餐首選</div>
+              </div>
+            </div>
+            <div class="promo-tag">熱門專屬方案 • 買 1 送 1</div>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/3ccab1d2426b24001a63a43880cd3bfa541d6c64f52eb230f01f71046e48c3da?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Add to Favorites" class="favorite-icon" />
+          </div>
+          <div class="restaurant-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/dc726b20d4913e1bdc4a987e9839088a7200ea9ffa8a5170a21f3be9e38317bb?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Hungry Harbor Restaurant" class="restaurant-image" />
+            <div class="card-content">
+              <div class="restaurant-header">
+                <div class="restaurant-name">Hungry Harbor</div>
+                <div class="rating-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/4623816c062235024952d71a0d0af8ce46b74b42c5c3da14fb503eb1b7fc8ebd?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Rating Star" class="star-icon" />
+                  <div class="rating-score">5.0</div>
+                  <div class="rating-count">(100+)</div>
+                </div>
+              </div>
+              <div class="delivery-info">
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/1559d5cd729b1853a8622a6561fec9672035d957278be511fae4c853893dfe7f?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Delivery Time Icon" class="info-icon" />
+                </div>
+                <div class="delivery-time">20-40分鐘</div>
+                <div class="separator">•</div>
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e1d1cbebce63a264e2762dd7d4c5e1cf6c567b6f1e621c05c40fa3cf09fd7cc?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Price Icon" class="info-icon" />
+                </div>
+                <div class="price-text">$45</div>
+              </div>
+              <div class="tag-container">
+                <div class="feature-tag">交通方便</div>
+                <div class="feature-tag">智能廚房</div>
+              </div>
+            </div>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/cf9a0418f0b93f7b08071b68cf2bed3eccec8ddd150298ffb9a2f432495167bf?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Add to Favorites" class="favorite-icon" />
+          </div>
+        </div>
+
+
+      </section>
+      <section class="selection_group  goodPrice">
         <div class="header-bar">
           <div class="section-title" style="width: auto;">優惠方案</div>
           <div class="view-more-wrapper" style="width: auto;">
@@ -1376,19 +1546,60 @@ height: 186px; margin-right:24px ;">
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/19018a7271d19d598fefeba3a1866636f8f937344a3867c9bb9667b915673f60?apiKey=29bdb496da09449eb579968368248119&"
               alt="Add to Favorites" class="favorite-icon" />
           </div>
-
           <div class="restaurant-card">
             <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/dc726b20d4913e1bdc4a987e9839088a7200ea9ffa8a5170a21f3be9e38317bb?apiKey=29bdb496da09449eb579968368248119&"
-              alt="Hungry Harbor Restaurant" class="restaurant-image" />
+              src="./resource/landing_page/selection/restaurant/image-1.png"
+              alt="Gradnola Restaurant" class="restaurant-image" />
             <div class="card-content">
               <div class="restaurant-header">
-                <div class="restaurant-name">Hungry Harbor</div>
+                <div class="restaurant-name">Granola</div>
+                <div class="rating-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/f32b2d8c75f5bab513ec8d0d2ce3e3f9b47bb274a216b683d39f6b46b0e2fc76?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Rating Star" class="star-icon" />
+                  <div class="rating-score" style="width: auto;">4.9</div>
+                  <div class="rating-count">(100+)</div>
+                </div>
+              </div>
+              <div class="delivery-info">
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/c4f261e29f5313fee35cbb33e8f472f81f152cb861578ee9176f18ae964ff1b8?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Delivery Time Icon" class="info-icon" />
+                </div>
+                <div class="delivery-time">20-40分鐘</div>
+                <div class="separator">•</div>
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/b9825bfad2f9414ac1c851bda354677560986c8c804db89238f699c978802734?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Price Icon" class="info-icon" />
+                </div>
+                <div class="price-text">$45</div>
+              </div>
+              <div class="tag-container">
+                <div class="feature-tag">交通方便</div>
+                <div class="feature-tag">少油少鹽</div>
+                <div class="feature-tag">智能廚房</div>
+              </div>
+            </div>
+            <!-- <div class="promo-tag" style="width: auto;">指定餐點 5 折</div> -->
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/19018a7271d19d598fefeba3a1866636f8f937344a3867c9bb9667b915673f60?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Add to Favorites" class="favorite-icon" />
+          </div>
+         
+          <div class="restaurant-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/8293087c86ad6785d3d8286c510642468e5b6e7b7475240ea7a0dd55284932a0?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Palate Pleasures restaurant" class="restaurant-image" />
+            <div class="card-content">
+              <div class="restaurant-header">
+                <div class="restaurant-name">Palate Pleasures</div>
                 <div class="rating-wrapper">
                   <img
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/4623816c062235024952d71a0d0af8ce46b74b42c5c3da14fb503eb1b7fc8ebd?apiKey=29bdb496da09449eb579968368248119&"
                     alt="Rating Star" class="star-icon" />
-                  <div class="rating-score">5.0</div>
+                  <div class="rating-score">3.2</div>
                   <div class="rating-count">(100+)</div>
                 </div>
               </div>
@@ -1416,6 +1627,7 @@ height: 186px; margin-right:24px ;">
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/cf9a0418f0b93f7b08071b68cf2bed3eccec8ddd150298ffb9a2f432495167bf?apiKey=29bdb496da09449eb579968368248119&"
               alt="Add to Favorites" class="favorite-icon" />
           </div>
+          
 
           <div class="restaurant-card">
             <img
@@ -1459,11 +1671,52 @@ height: 186px; margin-right:24px ;">
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/3ccab1d2426b24001a63a43880cd3bfa541d6c64f52eb230f01f71046e48c3da?apiKey=29bdb496da09449eb579968368248119&"
               alt="Add to Favorites" class="favorite-icon" />
           </div>
+          <div class="restaurant-card">
+            <img
+              src="./resource/landing_page/selection/restaurant/image-2.png"
+              alt="Gradnola Restaurant" class="restaurant-image" />
+            <div class="card-content">
+              <div class="restaurant-header">
+                <div class="restaurant-name">Cup of Tea</div>
+                <div class="rating-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/f32b2d8c75f5bab513ec8d0d2ce3e3f9b47bb274a216b683d39f6b46b0e2fc76?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Rating Star" class="star-icon" />
+                  <div class="rating-score" style="width: auto;">4.9</div>
+                  <div class="rating-count">(100+)</div>
+                </div>
+              </div>
+              <div class="delivery-info">
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/c4f261e29f5313fee35cbb33e8f472f81f152cb861578ee9176f18ae964ff1b8?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Delivery Time Icon" class="info-icon" />
+                </div>
+                <div class="delivery-time">20-40分鐘</div>
+                <div class="separator">•</div>
+                <div class="info-icon-wrapper">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/b9825bfad2f9414ac1c851bda354677560986c8c804db89238f699c978802734?apiKey=29bdb496da09449eb579968368248119&"
+                    alt="Price Icon" class="info-icon" />
+                </div>
+                <div class="price-text">$45</div>
+              </div>
+              <div class="tag-container">
+                <div class="feature-tag">交通方便</div>
+                <div class="feature-tag">少油少鹽</div>
+                <div class="feature-tag">智能廚房</div>
+              </div>
+            </div>
+            <!-- <div class="promo-tag" style="width: auto;">指定餐點 5 折</div> -->
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/19018a7271d19d598fefeba3a1866636f8f937344a3867c9bb9667b915673f60?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Add to Favorites" class="favorite-icon" />
+          </div>
         </div>
 
       </section>
 
-      <section class="all">
+      <section class="selection_group  all">
         <div class="header-bar">
           <div class="section-title" style="width: auto;">全部餐廳</div>
           <div class="view-more-wrapper" style="width: auto;">
@@ -1476,11 +1729,11 @@ height: 186px; margin-right:24px ;">
         <div class="restaurant-row">
           <div class="restaurant-card">
             <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/4e071bfd9497567f8a71aa5d939d9101d921fd97cdceef67897a33825bc3c47f?apiKey=29bdb496da09449eb579968368248119&"
+              src="./resource/landing_page/selection/restaurant/image.png"
               alt="Roots Eatery restaurant" class="restaurant-image" />
             <div class="card-content">
               <div class="restaurant-header">
-                <div class="restaurant-name">Wholesome Eats</div>
+                <div class="restaurant-name">Merry Dishes</div>
                 <div class="rating-wrapper">
                   <img
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/f32b2d8c75f5bab513ec8d0d2ce3e3f9b47bb274a216b683d39f6b46b0e2fc76?apiKey=29bdb496da09449eb579968368248119&"
@@ -1595,10 +1848,6 @@ height: 186px; margin-right:24px ;">
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/cf9a0418f0b93f7b08071b68cf2bed3eccec8ddd150298ffb9a2f432495167bf?apiKey=29bdb496da09449eb579968368248119&"
               alt="Add to Favorites" class="favorite-icon" />
           </div>
-
-
-        </div>
-        <div class="restaurant-row">
           <div class="restaurant-card">
             <img
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/f40cf6b712d5725a325b52249f070af8418a08f621f86c4530686b491df71fd5?apiKey=29bdb496da09449eb579968368248119&"
@@ -1640,19 +1889,18 @@ height: 186px; margin-right:24px ;">
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/19018a7271d19d598fefeba3a1866636f8f937344a3867c9bb9667b915673f60?apiKey=29bdb496da09449eb579968368248119&"
               alt="Add to Favorites" class="favorite-icon" />
           </div>
-
           <div class="restaurant-card">
             <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/8293087c86ad6785d3d8286c510642468e5b6e7b7475240ea7a0dd55284932a0?apiKey=29bdb496da09449eb579968368248119&"
-              alt="Palate Pleasures restaurant" class="restaurant-image" />
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/73c60ff5c97db66f6ad854f9b44851d9083d2bc2950a2a161ca64cbef332cbd6?apiKey=29bdb496da09449eb579968368248119&"
+              alt="Gourmet Junct Restaurant" class="restaurant-image" />
             <div class="card-content">
               <div class="restaurant-header">
-                <div class="restaurant-name">Palate Pleasures</div>
+                <div class="restaurant-name">Gourmet Junct</div>
                 <div class="rating-wrapper">
                   <img
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/4623816c062235024952d71a0d0af8ce46b74b42c5c3da14fb503eb1b7fc8ebd?apiKey=29bdb496da09449eb579968368248119&"
                     alt="Rating Star" class="star-icon" />
-                  <div class="rating-score">3.2</div>
+                  <div class="rating-score">5.0</div>
                   <div class="rating-count">(100+)</div>
                 </div>
               </div>
@@ -1680,50 +1928,7 @@ height: 186px; margin-right:24px ;">
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/cf9a0418f0b93f7b08071b68cf2bed3eccec8ddd150298ffb9a2f432495167bf?apiKey=29bdb496da09449eb579968368248119&"
               alt="Add to Favorites" class="favorite-icon" />
           </div>
-
-          <div class="restaurant-card">
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/3e77c562645dda7ae38354de8c96530683bda1aae29f036f5a7e6c2f8fe42d40?apiKey=29bdb496da09449eb579968368248119&"
-              alt="Fusion Bistro restaurant " class="restaurant-image" class="restaurant-image" />
-            <div class="card-content">
-              <div class="restaurant-header">
-                <div class="restaurant-name">Fusion Bistro</div>
-                <div class="rating-wrapper">
-                  <img
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/27a7df7ea2e0a367d3b3398b0079bd79a44a28cad2150415bba8d141e5d76715?apiKey=29bdb496da09449eb579968368248119&"
-                    alt="Rating Star" class="star-icon" />
-                  <div class="rating-score">4.8</div>
-                  <div class="rating-count">(400+)</div>
-                </div>
-              </div>
-              <div class="delivery-info">
-                <div class="info-icon-wrapper">
-                  <img
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/1559d5cd729b1853a8622a6561fec9672035d957278be511fae4c853893dfe7f?apiKey=29bdb496da09449eb579968368248119&"
-                    alt="Delivery Time Icon" class="info-icon" />
-                </div>
-                <div class="delivery-time">20-40分鐘</div>
-                <div class="separator">•</div>
-                <div class="info-icon-wrapper">
-                  <img
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e62613e618c195ff406b848117aa7132686fa5ab77fa9bbf749250111c7f6fc?apiKey=29bdb496da09449eb579968368248119&"
-                    alt="Price Icon" class="info-icon" />
-                </div>
-                <div class="price-text">$45</div>
-              </div>
-              <div class="tag-container">
-                <div class="feature-tag">交通方便</div>
-                <div class="feature-tag">少油少鹽</div>
-                <div class="feature-tag">聚餐首選</div>
-              </div>
-            </div>
-            <div class="promo-tag">熱門專屬方案 • 買 1 送 1</div>
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/3ccab1d2426b24001a63a43880cd3bfa541d6c64f52eb230f01f71046e48c3da?apiKey=29bdb496da09449eb579968368248119&"
-              alt="Add to Favorites" class="favorite-icon" />
-          </div>
         </div>
-
       </section>
 
     </section>

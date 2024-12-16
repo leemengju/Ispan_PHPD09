@@ -14,7 +14,10 @@
 
 
   <style>
-    
+
+    body{
+      overflow: scroll;
+    }
     .background-video {
       position: fixed;
       top: 0;
@@ -31,7 +34,8 @@
       border-radius: 12px;
       display: block;
       width:360px ;
-      padding: 28px 24px 28px;
+      padding: 20px 24px 20px;
+      
      
     }
    
@@ -86,6 +90,16 @@
       white-space: nowrap;
       -webkit-overflow-scrolling: touch;
     }
+    .copyright{
+      position:fixed;
+      bottom:2%;
+      left:50%;
+       transform: translateX(-50%);
+        display:flex;
+        justify-content: center; 
+        text-wrap: nowrap;
+
+    }
   </style>
 
 
@@ -97,9 +111,9 @@
   <video class="background-video" autoplay muted loop>
     <source src="./resource/Login_page/197190-904257543_2.mp4" type="video/mp4">
   </video>
-  <img style="position:absolute;top:3%; left:3%;" src="./resource/landing_page/nav/logo.svg" alt="logo" width="160px"
+  <img style="position:absolute; top:3%; left:3%;" src="./resource/landing_page/nav/logo.svg" alt="logo" width="160px"
     ;>
-  <main class="  m-auto mt-5">
+  <main class="  m-auto mt-3">
     <form>
       <h1 class="h2 mb-3 fw-bold ">登入</h1>
       <h6 class="h6 mb-5 fw-light">享受美好生活，從
@@ -172,7 +186,7 @@
   </main>
 <br>
 <br>
-  <div class ="text-center" style="position:absolute;bottom:3%;left:50%; transform: translateX(-50%); display:flex;justify-content: center; text-wrap: nowrap;">© 2024 Eat Now Technologies Inc.</div>
+  <div  class="copyright" >© 2024 Eat Now Technologies Inc.</div>
 
 </body>
 

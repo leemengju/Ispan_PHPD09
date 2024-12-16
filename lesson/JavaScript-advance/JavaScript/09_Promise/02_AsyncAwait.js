@@ -11,6 +11,7 @@ function longTimeWork(workFine = true, errorMessage = "test") {
 //     console.log(result);
 // }
 
+// 加上async 才可以使用 await
 async function usingLongTimeWork() {
     try {
         var result = await longTimeWork(false, "test");
