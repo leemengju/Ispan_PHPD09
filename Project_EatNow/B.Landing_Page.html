@@ -21,44 +21,6 @@
     }
 
 
-
-    .nav_1440 {
-      box-sizing: border-box;
-      justify-content: space-between;
-      display: flex;
-      width: 100%;
-      height: 64px;
-      padding: 0px 16px;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .navbarsearch {
-      display: flex;
-      padding: 0px 12px;
-      width: 600px;
-      height: 37px;
-      align-items: flex-start;
-      border-radius: 16px;
-      background: var(--Text-50, #F6F6F6);
-    }
-
-    .navbaravatar {
-      display: flex;
-      width: 36px;
-      height: 36px;
-      justify-content: center;
-      align-items: center;
-      flex-shrink: 0;
-      background-image: url("./resource/landing_page/nav/avatar.jpg");
-      background-size: cover;
-      margin: 14px;
-      border: none;
-      border-radius: 20px;
-      padding: 0;
-    }
-
-
     header {
       display: flex;
       width: 100%;
@@ -119,7 +81,7 @@
       flex-shrink: 0;
       border-radius: 30px;
       background: #E7E7E7;
-      border:  #D0D5DD 1px solid;
+      border: #D0D5DD 1px solid;
     }
 
     .sidebar .buttontext {
@@ -168,30 +130,8 @@
       flex-wrap: wrap;
     }
 
+    @media screen and (max-width:420px) {
 
-    footer {
-      height: 290px;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      z-index: 100;
-      box-sizing: border-box;
-
-    }
-
-
-
-
-
-    @media screen and (max-width:420px) and (min-width:375px) {
-
-      .nav_1440 {
-        display: none;
-      }
-
-      .nav_390 {
-        display: block;
-      }
 
       .headertext {
         font-size: 20px;
@@ -219,12 +159,14 @@
       }
 
     }
-    @media screen and (max-width:1280px){
+
+    @media screen and (max-width:1280px) {
       .main {
         padding: 24px 20px 24px 20px;
       }
-      .sidebar{
-        display:none;
+
+      .sidebar {
+        display: none;
       }
     }
   </style>
@@ -236,380 +178,200 @@
 
 <body>
 
-  <nav class="nav_1440">
+  <style>
+    nav {
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: auto;
+      padding: 4px 16px;
+      align-items: center;
+      white-space: wrap;
+      text-wrap: wrap;
 
-    <svg xmlns="http://www.w3.org/2000/svg" style="width: auto;flex-shrink: 0;" height="20" viewBox="0 0 20 20"
-      fill="none">
-      <path fill-rule="evenodd" clip-rule="evenodd"
-        d="M19.1667 3.33325H0.833344V5.83325H19.1667V3.33325ZM19.1667 9.16658H0.833344V11.6666H19.1667V9.16658ZM0.833344 14.9999H19.1667V17.4999H0.833344V14.9999Z"
-        fill="#8D2727" />
-    </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" style="width: auto;flex-shrink: 0;" height="36" viewBox="0 0 153 36"
-      fill="none">
-      <g clip-path="url(#clip0_4268_2886)">
-        <path
-          d="M19.3933 1.27686C17.1971 1.27686 15.0225 1.70941 12.9935 2.54984C10.9646 3.39026 9.12103 4.62208 7.56814 6.17498C6.01524 7.72788 4.78341 9.57144 3.94299 11.6004C3.10256 13.6294 2.67001 15.804 2.67001 18.0001C2.67001 20.1962 3.10256 22.3709 3.94299 24.3998C4.78341 26.4288 6.01524 28.2723 7.56814 29.8252C9.12103 31.3781 10.9646 32.6099 12.9935 33.4504C15.0225 34.2908 17.1971 34.7234 19.3933 34.7234C21.5894 34.7234 23.764 34.2908 25.793 33.4504C27.8219 32.6099 29.6655 31.3781 31.2184 29.8252C32.7713 28.2723 34.0031 26.4288 34.8435 24.3998C35.6839 22.3709 36.1165 20.1962 36.1165 18.0001C36.1165 15.804 35.6839 13.6294 34.8435 11.6004C34.0031 9.57144 32.7713 7.72788 31.2184 6.17498C29.6655 4.62208 27.8219 3.39026 25.793 2.54984C23.764 1.70941 21.5894 1.27686 19.3933 1.27686Z"
-          fill="#CA3838" />
-        <path
-          d="M46.071 7.14038H48.9585C49.9245 7.14038 50.8817 7.15443 51.8302 7.18253C52.7769 7.21064 53.6911 7.25367 54.5728 7.31163L54.4568 9.29283H46.5031C45.9094 9.29283 45.4738 9.44125 45.1963 9.73807C44.9188 10.0349 44.78 10.5188 44.78 11.1897V22.9637C44.78 23.6328 44.9188 24.1211 45.1963 24.4285C45.4738 24.7341 45.9094 24.8869 46.5031 24.8869H54.4568L54.5728 26.8391C53.6911 26.8971 52.7769 26.9357 51.8302 26.955C50.8817 26.9744 49.9245 26.9884 48.9585 26.9972C47.9907 27.0077 47.0282 27.013 46.071 27.013C44.903 27.013 43.9791 26.7012 43.2994 26.0777C42.6197 25.456 42.271 24.619 42.2535 23.567V10.5864C42.271 9.51326 42.6197 8.67107 43.2994 8.05985C43.9791 7.44687 44.903 7.14038 46.071 7.14038ZM42.7699 17.5364V15.4973H53.3372V17.5364H42.7699ZM64.8555 12.6572C65.8883 12.6572 66.7638 12.7959 67.4822 13.0735C68.2006 13.351 68.7415 13.8146 69.1051 14.4645C69.4687 15.1161 69.6505 16.0066 69.6505 17.136V26.9867H67.7272L67.3531 23.9411L67.1819 23.6249V17.136C67.1819 16.2736 66.9851 15.6562 66.5917 15.2839C66.2 14.9098 65.4492 14.7227 64.3392 14.7227C63.6103 14.7227 62.6961 14.7613 61.5966 14.8386C60.4953 14.9159 59.409 15.002 58.3376 15.0968L58.1057 13.2869C58.7574 13.1727 59.4705 13.0673 60.245 12.9707C61.0213 12.8759 61.8117 12.7995 62.6161 12.7415C63.4188 12.6853 64.1653 12.6572 64.8555 12.6572ZM61.3515 18.3716H68.5018L68.4728 20.2079L61.7836 20.2369C61.1127 20.2562 60.6428 20.4336 60.3741 20.7691C60.1071 21.1045 59.9737 21.5682 59.9737 22.1601V23.0506C59.9737 23.7795 60.1458 24.3108 60.49 24.6445C60.8343 24.98 61.3893 25.1477 62.1551 25.1477C62.6908 25.1477 63.2985 25.0476 63.9782 24.8474C64.6579 24.6454 65.3429 24.3336 66.0332 23.9121C66.7217 23.4923 67.3531 22.9566 67.9274 22.305V24.115C67.7167 24.3819 67.4155 24.6928 67.0238 25.0476C66.6304 25.4024 66.1614 25.7466 65.6169 26.0804C65.0707 26.4158 64.4674 26.6933 63.807 26.9129C63.1466 27.1342 62.4335 27.2448 61.6677 27.2448C60.8439 27.2448 60.1168 27.0964 59.4863 26.7996C58.854 26.5028 58.3604 26.0619 58.0056 25.477C57.6526 24.8939 57.4761 24.1808 57.4761 23.3378V21.8176C57.4761 20.7251 57.8151 19.8777 58.493 19.2752C59.1727 18.6728 60.1256 18.3716 61.3515 18.3716ZM75.0777 8.86339H77.5199V23.1349C77.5199 23.8058 77.6631 24.2845 77.9494 24.5707C78.2374 24.8588 78.7257 25.0028 79.4142 25.0028H81.5403L81.8275 26.8681C81.5201 26.9454 81.1653 27.0121 80.7631 27.0683C80.3627 27.1263 79.971 27.1693 79.5881 27.1974C79.2052 27.2273 78.8987 27.2422 78.6686 27.2422C77.5006 27.2422 76.6102 26.9164 75.9972 26.2648C75.3842 25.6149 75.0777 24.677 75.0777 23.4511V8.86339ZM75.3069 12.997H81.9697V14.9229H72.5511V13.1419L75.3069 12.997ZM104.366 7.16936H106.867V25.9776C106.867 26.6486 106.541 26.984 105.889 26.984H103.42C103.132 26.984 102.902 26.9164 102.73 26.7812C102.558 26.6477 102.414 26.4466 102.298 26.1778L95.609 12.1355C95.4368 11.7526 95.2357 11.3223 95.0056 10.8446C94.7755 10.3651 94.6034 9.92425 94.4893 9.52204H94.0282C94.0669 9.94357 94.0958 10.3748 94.1151 10.8156C94.1345 11.2565 94.1441 11.6964 94.1441 12.1355V26.984H91.6176V8.17314C91.6176 7.50395 91.9522 7.16936 92.6214 7.16936H95.0056C95.2919 7.16936 95.5211 7.2361 95.6933 7.36959C95.8671 7.50307 96.0112 7.70418 96.1253 7.97291L102.614 21.6701C102.825 22.0723 103.05 22.5272 103.289 23.0348C103.529 23.5424 103.755 24.0447 103.966 24.5418H104.453C104.434 24.0254 104.415 23.5178 104.395 23.019C104.376 22.5219 104.366 22.0249 104.366 21.5278V7.16936ZM117.521 12.6546C119.13 12.6546 120.417 12.8934 121.383 13.3712C122.351 13.8507 123.045 14.6305 123.467 15.7107C123.889 16.7926 124.099 18.2241 124.099 20.005C124.099 21.786 123.889 23.2166 123.467 24.2968C123.045 25.3787 122.351 26.1594 121.383 26.6389C120.417 27.1166 119.13 27.3555 117.521 27.3555C115.933 27.3555 114.655 27.1166 113.687 26.6389C112.721 26.1594 112.023 25.3787 111.593 24.2968C111.161 23.2166 110.945 21.786 110.945 20.005C110.945 18.2241 111.161 16.7926 111.593 15.7107C112.023 14.6305 112.721 13.8507 113.687 13.3712C114.655 12.8934 115.933 12.6546 117.521 12.6546ZM117.521 14.7201C116.507 14.7201 115.708 14.8781 115.123 15.1943C114.54 15.5104 114.124 16.0514 113.874 16.8172C113.625 17.583 113.5 18.6456 113.5 20.005C113.5 21.3645 113.625 22.4271 113.874 23.1929C114.124 23.9586 114.54 24.4996 115.123 24.8158C115.708 25.1319 116.507 25.29 117.521 25.29C118.536 25.29 119.34 25.1319 119.934 24.8158C120.528 24.4996 120.949 23.9586 121.199 23.1929C121.446 22.4271 121.57 21.3645 121.57 20.005C121.57 18.6456 121.446 17.583 121.199 16.8172C120.949 16.0514 120.528 15.5104 119.934 15.1943C119.34 14.8781 118.536 14.7201 117.521 14.7201ZM146.093 12.997H148.619L144.541 26.2938C144.485 26.5045 144.371 26.6723 144.198 26.797C144.025 26.9217 143.823 26.984 143.595 26.984H141.382C141.154 26.984 140.948 26.912 140.766 26.768C140.583 26.624 140.473 26.4369 140.436 26.2068L138.139 16.7013C138.062 16.3377 137.99 15.9741 137.923 15.6105C137.856 15.247 137.775 14.8737 137.678 14.4909H137.333C137.257 14.8737 137.176 15.247 137.09 15.6105C137.004 15.9741 136.923 16.3377 136.845 16.7013L134.577 26.2068C134.519 26.4369 134.404 26.624 134.232 26.768C134.06 26.912 133.849 26.984 133.6 26.984H131.418C131.188 26.984 130.987 26.9217 130.815 26.797C130.643 26.6723 130.528 26.5045 130.47 26.2938L126.394 12.997H128.921L131.821 23.3062C131.916 23.6522 132.002 24.0017 132.079 24.3547C132.155 24.7095 132.222 25.059 132.28 25.4033H132.654C132.749 25.059 132.839 24.7095 132.925 24.3547C133.011 24.0017 133.093 23.6522 133.17 23.3062L135.496 13.7742C135.535 13.5442 135.635 13.3571 135.797 13.2131C135.96 13.0691 136.167 12.997 136.416 12.997H138.626C138.856 12.997 139.052 13.0691 139.214 13.2131C139.377 13.3571 139.488 13.5538 139.546 13.8032L141.843 23.3062C141.919 23.6522 141.999 23.9973 142.086 24.3415C142.172 24.6858 142.253 25.0397 142.331 25.4033H142.705C142.8 25.0397 142.876 24.6902 142.934 24.3547C142.992 24.021 143.078 23.6715 143.192 23.3062L146.093 12.997Z"
-          fill="#CA3838" />
-        <path
-          d="M12.4854 11.6191H14.2585C14.8521 11.6191 15.4405 11.6279 16.0236 11.6455C16.6068 11.6631 17.1688 11.6894 17.7098 11.7245L17.6386 12.9417H12.7489C12.3853 12.9417 12.1174 13.033 11.9453 13.2157C11.7749 13.3984 11.6898 13.6961 11.6898 14.1088V21.346C11.6898 21.757 11.7749 22.0565 11.9453 22.2444C12.1174 22.4323 12.3853 22.5263 12.7489 22.5263H17.6386L17.7098 23.7277C17.1688 23.7628 16.6068 23.7865 16.0236 23.7988C15.4405 23.8111 14.8521 23.8199 14.2585 23.8251C13.6648 23.8304 13.0738 23.833 12.4854 23.833C11.767 23.833 11.1989 23.6416 10.7808 23.2587C10.3628 22.8776 10.1485 22.363 10.138 21.7148V13.7373C10.1485 13.0787 10.3628 12.5606 10.7808 12.1829C11.1989 11.8071 11.767 11.6191 12.4854 11.6191ZM10.4542 18.008V16.7566H16.951V18.008H10.4542ZM27.9662 11.6349H29.5021V23.1955C29.5021 23.6082 29.3019 23.8146 28.9015 23.8146H27.3839C27.2065 23.8146 27.0652 23.7733 26.9598 23.6908C26.8526 23.6082 26.7639 23.4844 26.6937 23.3193L22.5811 14.6884C22.4757 14.4531 22.3519 14.1879 22.2096 13.8928C22.0691 13.5995 21.9637 13.329 21.8935 13.0813H21.6116C21.6344 13.3395 21.652 13.6039 21.6643 13.8743C21.6748 14.1466 21.6801 14.4179 21.6801 14.6884V23.8146H20.1283V12.2514C20.1283 11.8404 20.3338 11.6349 20.7448 11.6349H22.2096C22.387 11.6349 22.5284 11.6753 22.6338 11.7561C22.7409 11.8387 22.8296 11.9625 22.8999 12.1276L26.8887 20.5477C27.0186 20.7954 27.1565 21.0746 27.3023 21.3855C27.4498 21.6982 27.5886 22.0073 27.7185 22.3129H28.0189C28.0066 21.995 27.9943 21.6832 27.982 21.3776C27.9715 21.072 27.9662 20.7664 27.9662 20.4608V11.6349Z"
-          fill="white" />
-      </g>
-      <defs>
-        <clipPath id="clip0_4268_2886">
-          <rect width="153" height="34.6982" fill="white" transform="translate(0 0.650879)" />
-        </clipPath>
-      </defs>
-    </svg>
-    <div class="row" style="width:auto;display:flex; white-space:nowrap; align-items: center; gap:8px; padding:0 24px;">
-      <svg xmlns="http://www.w3.org/2000/svg" style="width:auto;" height="16" viewBox="0 0 16 16" fill="none">
-        <path fill-rule="evenodd" clip-rule="evenodd"
-          d="M8.00002 0.666748C9.60002 0.666748 11.2667 1.26675 12.4667 2.53341C14.9334 5.00008 14.9334 9.06675 12.4667 11.4667L8.00002 16.0001L3.53335 11.5334C1.06668 9.06675 1.06668 5.00008 3.53335 2.53341C4.73335 1.26675 6.40002 0.666748 8.00002 0.666748ZM8.00002 13.2001L11.0667 10.1334C12.7333 8.40008 12.7333 5.66675 11.0667 3.93341C10.2667 3.13341 9.13335 2.66675 8.00002 2.66675C6.86668 2.66675 5.73335 3.13341 4.93335 3.93341C3.26668 5.66675 3.26668 8.40008 4.93335 10.1334L8.00002 13.2001ZM9.33335 7.00008C9.33335 7.3537 9.19287 7.69284 8.94282 7.94289C8.69278 8.19294 8.35364 8.33342 8.00002 8.33342C7.64639 8.33342 7.30726 8.19294 7.05721 7.94289C6.80716 7.69284 6.66668 7.3537 6.66668 7.00008C6.66668 6.64646 6.80716 6.30732 7.05721 6.05727C7.30726 5.80722 7.64639 5.66675 8.00002 5.66675C8.35364 5.66675 8.69278 5.80722 8.94282 6.05727C9.19287 6.30732 9.33335 6.64646 9.33335 7.00008Z"
-          fill="black" />
-      </svg>
-      <span style="width: fit-content; white-space: nowrap;">大安森林公園東三門出口  •  現在</span>
-      <svg xmlns="http://www.w3.org/2000/svg" style="width: auto;" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M12 5.33325V7.86659L8 10.9333L4 7.86659V5.33325L8 8.39992L12 5.33325Z" fill="black" />
-      </svg>
-    </div>
-    <div class="navbarsearch" style="align-items: center;gap:8px;margin-right: 12px;">
-      <svg xmlns="http://www.w3.org/2000/svg" style="width: auto;" height="16" viewBox="0 0 16 16" fill="none">
-        <path
-          d="M15.0672 13.6001L12.1344 10.6665C12.8672 9.6001 13.3344 8.3337 13.3344 6.9337C13.3336 3.4665 10.4664 0.600098 6.99998 0.600098C3.53358 0.600098 0.667175 3.4665 0.667175 6.9337C0.667175 10.4001 3.53358 13.2665 7.00078 13.2665C8.40078 13.2665 9.66718 12.8001 10.7336 12.0665L13.6672 15.0001L15.0672 13.6001ZM2.66718 7.0001C2.66718 4.6001 4.60078 2.6665 7.00078 2.6665C9.40078 2.6665 11.3336 4.6001 11.3336 7.0001C11.3336 9.4001 9.40078 11.3337 7.00078 11.3337C4.60078 11.3337 2.66718 9.4001 2.66718 7.0001Z"
-          fill="black" />
-      </svg>
-      <span style="width: auto;color: #4B4B4B;font-family: Inter;font-size: 13.672px;font-style: normal;font-weight: 500;
-      line-height: normal;">搜尋</span>
-    </div>
+    }
 
+    .nav_left,
+    .nav_right {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+     
+      width: auto;
+    }
 
-    <svg xmlns="http://www.w3.org/2000/svg" style="width: auto;flex-shrink: 0;" height="20" viewBox="0 0 20 20"
-      fill="none">
-      <path fill-rule="evenodd" clip-rule="evenodd"
-        d="M4.58333 14.9999H17.5L19.1667 4.58325H5.41667L5 2.08325H0.75V4.58325H2.83333L4.58333 14.9999ZM16.25 7.08325L15.4167 12.4999H6.66667L5.83333 7.08325H16.25ZM6.25 19.1666C6.69203 19.1666 7.11595 18.991 7.42851 18.6784C7.74107 18.3659 7.91667 17.9419 7.91667 17.4999C7.91667 17.0579 7.74107 16.634 7.42851 16.3214C7.11595 16.0088 6.69203 15.8333 6.25 15.8333C5.80797 15.8333 5.38405 16.0088 5.07149 16.3214C4.75893 16.634 4.58333 17.0579 4.58333 17.4999C4.58333 17.9419 4.75893 18.3659 5.07149 18.6784C5.38405 18.991 5.80797 19.1666 6.25 19.1666ZM17.9167 17.4999C17.9167 17.9419 17.7411 18.3659 17.4285 18.6784C17.1159 18.991 16.692 19.1666 16.25 19.1666C15.808 19.1666 15.384 18.991 15.0715 18.6784C14.7589 18.3659 14.5833 17.9419 14.5833 17.4999C14.5833 17.0579 14.7589 16.634 15.0715 16.3214C15.384 16.0088 15.808 15.8333 16.25 15.8333C16.692 15.8333 17.1159 16.0088 17.4285 16.3214C17.7411 16.634 17.9167 17.0579 17.9167 17.4999Z"
-        fill="black" />
-    </svg>
-    <img class="navbaravatar">
+    .nav_left {
+      justify-content: flex-start;
+      margin-right: auto;
 
+    }
 
+    .nav_right {
+      justify-content: flex-end;
 
-  </nav>
-  <nav class="nav_390">
-    <style>
-      /* .nav_390 {
+    }
+
+    nav * {
+      flex-shrink: 0;
+      /* 防止子項目壓縮 */
+    }
+    
+    .navbarsearch {
+      display: flex;
+      padding: 0px 12px;
+      height: 37px;
+      align-items: flex-start;
+      border-radius: 16px;
+      background: var(--Text-50, #F6F6F6);
+    }
+
+    .navbaravatar {
+      display: flex;
+      width: 36px;
+      height: 36px;
+      justify-content: flex-end;
+      align-items: center;
+      flex-shrink: 0;
+      background-image: url("./resource/landing_page/nav/avatar.jpg");
+      background-size: cover;
+      margin: 12px 0px 12px 12px;
+      border: none;
+      border-radius: 20px;
+
+    }
+@media screen and (min-width:1280px) and (max-width:1920px){
+  .nav_pad {
         display: none;
-      } */
+      }
+}
+    @media screen and (max-width:1280px) {
+      .nav_web {
+        display: none;
+      }
 
-      .mobile-header {
-        background-color: rgba(255, 255, 255, 1);
-        z-index: 0;
+      .nav_pad {
         display: flex;
-        width: 100%;
-        flex-direction: column;
-        padding: 8px 20px 12px;
       }
+    }
 
-      .nav-container {
-        display: flex;
-        width: auto;
-        align-items: center;
-        justify-content: space-between;
-        white-space: nowrap;
-        flex-wrap: nowrap;
+    @media screen and (max-width:700px) {
+      .nav_pad2 .nav_left {
+        display: none !important;
       }
-
-      .brand-wrapper {
-        align-self: stretch;
-        display: flex;
-        align-items: center;
-        gap: 8px;
+     
+      .nav_pad2 .nav_right {
+        justify-content: space-between ;
+        width:100%;
       }
-
-      .menu-icon {
-        aspect-ratio: 1.29;
-        object-fit: contain;
-        width: 18px;
-        fill: var(--Primary-Varients-800, #8d2727);
-        align-self: stretch;
+      .navbarsearch{
+        width:90% !important;
       }
-
-      .brand-logo {
-        aspect-ratio: 4.5;
-        object-fit: contain;
-        width: 153px;
-        align-self: stretch;
-      }
-
-      .nav-action {
-        aspect-ratio: 2.25;
-        object-fit: contain;
-        width: 108px;
-        align-self: stretch;
-      }
-
-      .location-wrapper {
-        display: flex;
-        margin-top: 8px;
-        min-height: 36px;
-        width: 100%;
-      }
-
-      .location-content {
-        border-radius: 500px;
-        display: flex;
-        min-width: 240px;
-        min-height: 36px;
-        width: 100%;
-        align-items: center;
-        gap: 40px 100px;
-        justify-content: space-between;
-        flex: 1;
-        padding: 10px 0;
-      }
-
-      .address-wrapper {
-        align-self: stretch;
-        display: flex;
-        align-items: center;
-      }
-
-      .location-icon-wrapper {
-        align-self: stretch;
-        display: flex;
-        min-height: 16px;
-        padding-right: 4px;
-        flex-direction: column;
-        width: 20px;
-      }
-
-      .location-icon-container {
-        display: flex;
-        min-height: 16px;
-        width: 16px;
-        flex-direction: column;
-        overflow: hidden;
-        justify-content: center;
-      }
-
-      .location-icon {
-        aspect-ratio: 1;
-        object-fit: contain;
-        width: 100%;
-        flex: 1;
-      }
-
-      .address-text {
-        align-self: stretch;
-        overflow: hidden;
-        color: var(--www-ubereats-com-black, #000);
-        white-space: nowrap;
-        width: 156px;
-        font: 500 14px/1 Inter, sans-serif;
-      }
-
-      .time-selector {
-        align-self: stretch;
-        display: flex;
-        align-items: center;
-      }
-
-      .time-text {
-        align-self: stretch;
-        overflow: hidden;
-        color: var(--www-ubereats-com-black, #000);
-        white-space: nowrap;
-        font: 500 14px/1 Inter, sans-serif;
-      }
-
-      .dropdown-icon-wrapper {
-        align-self: stretch;
-        display: flex;
-        min-height: 16px;
-        padding-left: 4px;
-        flex-direction: column;
-        width: 20px;
-      }
-
-      .dropdown-icon {
-        aspect-ratio: 1;
-        object-fit: contain;
-        width: 100%;
-        flex: 1;
-      }
-
-      .search-section {
-        display: flex;
-        margin-top: 8px;
-        width: 100%;
-        align-items: start;
-        gap: 4px;
-        justify-content: center;
-      }
-
-      .search-container {
-        border-radius: 16px;
-        background: var(--Netual-Varients-50, #f5f6f6);
-        position: relative;
-        display: flex;
-        min-width: 240px;
-        flex-direction: column;
-        flex: 1;
-        padding: 0 12px;
-      }
-
-      .search-input-wrapper {
-        align-items: center;
-        border-radius: 500px;
-        background: var(--Netual-Varients-50, #f5f6f6);
-        z-index: 0;
-        display: flex;
-        width: 100%;
-        padding: 8px 0;
-      }
-
-      .search-icon-wrapper {
-        align-self: stretch;
-        display: flex;
-        flex-direction: column;
-        width: 44px;
-        padding: 0 12px 0 16px;
-      }
-
-      .search-icon {
-        aspect-ratio: 1;
-        object-fit: contain;
-        width: 16px;
-      }
-
-      .search-input {
-        align-self: stretch;
-        display: flex;
-        min-width: 240px;
-        padding-top: 2px;
-        flex-direction: column;
-        overflow: hidden;
-        color: var(--www-ubereats-com-tundora, #4b4b4b);
-        white-space: nowrap;
-        width: 576px;
-        font: 500 14px Inter, sans-serif;
-      }
-
-      .search-placeholder {
-        width: 100%;
-        padding-bottom: 2px;
-        overflow: hidden;
-      }
-
-      .visually-hidden {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        border: 0;
-      }
-
-      .filter-wrapper {
-        display: flex;
-        min-height: 40px;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        padding: 2px 5px 8px 8px;
-      }
-
-      .filter-icon {
-        display: flex;
-        max-width: 18px;
-        flex-direction: column;
-      }
-
-      .filter-color {
-        background-color: rgba(16, 24, 40, 1);
-        display: flex;
-        min-height: 18px;
-        width: 100%;
-        height: 18px;
-        fill: var(--grey-900, #101828);
-      }
-
-      .filter-secondary {
-        display: flex;
-        min-height: 30px;
-        width: 24px;
-      }
-
-      @media (max-width: 1280px) {
-        .sidebar{
-          display: none;
-        }
-      }
-    </style>
-
-    <div class="mobile-header">
-      <nav class="nav-container">
-        <div class="brand-wrapper">
-          <img loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/9267af16d3f3c3e7ba39fac84290e50f678073b1569b5cd785faf5829d068e71?placeholderIfAbsent=true&apiKey=29bdb496da09449eb579968368248119"
-            class="menu-icon" alt="Menu" />
-          <img loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/a605f12fa0f5f54bf08d26e932380f95b779b785a6f009060b9c7a3460dd0ea2?placeholderIfAbsent=true&apiKey=29bdb496da09449eb579968368248119"
-            class="brand-logo" alt="Brand Logo" />
-        </div>
-        <img loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/a7c150a87c0d53688279ad31bee3dec63949c1a9fd7a09b068f928905af8267d?placeholderIfAbsent=true&apiKey=29bdb496da09449eb579968368248119"
-          class="nav-action" alt="Navigation Actions" />
-      </nav>
-      <div class="location-wrapper">
-        <div class="location-content">
-          <div class="address-wrapper">
-            <div class="location-icon-wrapper">
-              <div class="location-icon-container">
-                <img loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/9af0780c5cfb06ea9a8fb00630f15825b1cab85b891a5b90b95d65d26193534b?placeholderIfAbsent=true&apiKey=29bdb496da09449eb579968368248119"
-                  class="location-icon" alt="Location Pin" />
-              </div>
-            </div>
-            <div class="address-text">大安森林公園東三門出口</div>
-          </div>
-          <div class="time-selector" role="button" tabindex="0">
-            <div class="time-text">現在</div>
-            <div class="dropdown-icon-wrapper">
-              <div class="location-icon-container">
-                <img loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/0ea7a066290438a4649de8eeed5bdce4d3a68f695a17567a32e27969bbb8e40a?placeholderIfAbsent=true&apiKey=29bdb496da09449eb579968368248119"
-                  class="dropdown-icon" alt="Dropdown Arrow" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="search-section">
-        <form class="search-container" role="search">
-          <div class="search-input-wrapper">
-            <div class="search-icon-wrapper">
-              <img loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/9e369cb2feeda136d78e9362425d267c41eddee42bf35250cd1308913b2ed204?placeholderIfAbsent=true&apiKey=29bdb496da09449eb579968368248119"
-                class="search-icon" alt="Search Icon" />
-            </div>
-            <label for="searchInput" class="visually-hidden">搜尋</label>
-            <input type="search" id="searchInput" class="search-input" placeholder="搜尋" aria-label="搜尋" />
-          </div>
-        </form>
-        <div class="filter-wrapper" role="button" tabindex="0" aria-label="Filter Options">
-          <div class="filter-icon">
-            <div class="filter-color"></div>
-          </div>
-          <div class="filter-secondary"></div>
-        </div>
+    }
+  </style>
+  <nav class="nav_web">
+    <div class="nav_left">
+      <svg class="svg_menu" xmlns="http://www.w3.org/2000/svg" style="width: auto;flex-shrink: 0;" height="20"
+        viewBox="0 0 20 20" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M19.1667 3.33325H0.833344V5.83325H19.1667V3.33325ZM19.1667 9.16658H0.833344V11.6666H19.1667V9.16658ZM0.833344 14.9999H19.1667V17.4999H0.833344V14.9999Z"
+          fill="#8D2727" />
+      </svg>
+      <img class="logo" src="./resource/landing_page/nav/logo.svg" alt="Logo">
+      <div class="nav_row"
+        style="display:flex;flex-shrink: 0;width:284px; white-space:nowrap; align-items: center; gap:8px;">
+        <svg xmlns="http://www.w3.org/2000/svg" style="width:auto;" height="16" viewBox="0 0 16 16" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M8.00002 0.666748C9.60002 0.666748 11.2667 1.26675 12.4667 2.53341C14.9334 5.00008 14.9334 9.06675 12.4667 11.4667L8.00002 16.0001L3.53335 11.5334C1.06668 9.06675 1.06668 5.00008 3.53335 2.53341C4.73335 1.26675 6.40002 0.666748 8.00002 0.666748ZM8.00002 13.2001L11.0667 10.1334C12.7333 8.40008 12.7333 5.66675 11.0667 3.93341C10.2667 3.13341 9.13335 2.66675 8.00002 2.66675C6.86668 2.66675 5.73335 3.13341 4.93335 3.93341C3.26668 5.66675 3.26668 8.40008 4.93335 10.1334L8.00002 13.2001ZM9.33335 7.00008C9.33335 7.3537 9.19287 7.69284 8.94282 7.94289C8.69278 8.19294 8.35364 8.33342 8.00002 8.33342C7.64639 8.33342 7.30726 8.19294 7.05721 7.94289C6.80716 7.69284 6.66668 7.3537 6.66668 7.00008C6.66668 6.64646 6.80716 6.30732 7.05721 6.05727C7.30726 5.80722 7.64639 5.66675 8.00002 5.66675C8.35364 5.66675 8.69278 5.80722 8.94282 6.05727C9.19287 6.30732 9.33335 6.64646 9.33335 7.00008Z"
+            fill="black" />
+        </svg>
+        <span style="width: fit-content; white-space: nowrap;">大安森林公園東三門出口  •  現在</span>
+        <svg xmlns="http://www.w3.org/2000/svg" style="width: auto;" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M12 5.33325V7.86659L8 10.9333L4 7.86659V5.33325L8 8.39992L12 5.33325Z" fill="black" />
+        </svg>
       </div>
     </div>
+    <div class="nav_right">
+      <div class="navbarsearch " style="align-items: center;gap:8px;margin-right: 12px;width: 480px;">
+        <svg xmlns="http://www.w3.org/2000/svg" style="width: auto;" height="16" viewBox="0 0 16 16" fill="none">
+          <path
+            d="M15.0672 13.6001L12.1344 10.6665C12.8672 9.6001 13.3344 8.3337 13.3344 6.9337C13.3336 3.4665 10.4664 0.600098 6.99998 0.600098C3.53358 0.600098 0.667175 3.4665 0.667175 6.9337C0.667175 10.4001 3.53358 13.2665 7.00078 13.2665C8.40078 13.2665 9.66718 12.8001 10.7336 12.0665L13.6672 15.0001L15.0672 13.6001ZM2.66718 7.0001C2.66718 4.6001 4.60078 2.6665 7.00078 2.6665C9.40078 2.6665 11.3336 4.6001 11.3336 7.0001C11.3336 9.4001 9.40078 11.3337 7.00078 11.3337C4.60078 11.3337 2.66718 9.4001 2.66718 7.0001Z"
+            fill="black" />
+        </svg>
+        <span style="width: auto;color: #4B4B4B;font-family: Inter;font-size: 13.672px;font-style: normal;font-weight: 500;
+      line-height: normal;">搜尋</span>
+      </div>
+      <svg class="svg_chart" xmlns="http://www.w3.org/2000/svg" style="width: auto;flex-shrink: 0;" height="20"
+        viewBox="0 0 20 20" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M4.58333 14.9999H17.5L19.1667 4.58325H5.41667L5 2.08325H0.75V4.58325H2.83333L4.58333 14.9999ZM16.25 7.08325L15.4167 12.4999H6.66667L5.83333 7.08325H16.25ZM6.25 19.1666C6.69203 19.1666 7.11595 18.991 7.42851 18.6784C7.74107 18.3659 7.91667 17.9419 7.91667 17.4999C7.91667 17.0579 7.74107 16.634 7.42851 16.3214C7.11595 16.0088 6.69203 15.8333 6.25 15.8333C5.80797 15.8333 5.38405 16.0088 5.07149 16.3214C4.75893 16.634 4.58333 17.0579 4.58333 17.4999C4.58333 17.9419 4.75893 18.3659 5.07149 18.6784C5.38405 18.991 5.80797 19.1666 6.25 19.1666ZM17.9167 17.4999C17.9167 17.9419 17.7411 18.3659 17.4285 18.6784C17.1159 18.991 16.692 19.1666 16.25 19.1666C15.808 19.1666 15.384 18.991 15.0715 18.6784C14.7589 18.3659 14.5833 17.9419 14.5833 17.4999C14.5833 17.0579 14.7589 16.634 15.0715 16.3214C15.384 16.0088 15.808 15.8333 16.25 15.8333C16.692 15.8333 17.1159 16.0088 17.4285 16.3214C17.7411 16.634 17.9167 17.0579 17.9167 17.4999Z"
+          fill="black" />
+      </svg>
+      <img class="navbaravatar">
+    </div>
   </nav>
+
+  <nav class="nav_pad nav_pad1">
+    <div class="nav_left">
+      <svg class="svg_menu" xmlns="http://www.w3.org/2000/svg" style="width: auto;flex-shrink: 0;" height="20"
+        viewBox="0 0 20 20" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M19.1667 3.33325H0.833344V5.83325H19.1667V3.33325ZM19.1667 9.16658H0.833344V11.6666H19.1667V9.16658ZM0.833344 14.9999H19.1667V17.4999H0.833344V14.9999Z"
+          fill="#8D2727" />
+      </svg>
+      <img class="logo" src="./resource/landing_page/nav/logo.svg" alt="Logo">
+    </div>
+    <div class="nav_right">
+      <svg class="svg_chart" xmlns="http://www.w3.org/2000/svg" style="width: auto;flex-shrink: 0;" height="20"
+        viewBox="0 0 20 20" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M4.58333 14.9999H17.5L19.1667 4.58325H5.41667L5 2.08325H0.75V4.58325H2.83333L4.58333 14.9999ZM16.25 7.08325L15.4167 12.4999H6.66667L5.83333 7.08325H16.25ZM6.25 19.1666C6.69203 19.1666 7.11595 18.991 7.42851 18.6784C7.74107 18.3659 7.91667 17.9419 7.91667 17.4999C7.91667 17.0579 7.74107 16.634 7.42851 16.3214C7.11595 16.0088 6.69203 15.8333 6.25 15.8333C5.80797 15.8333 5.38405 16.0088 5.07149 16.3214C4.75893 16.634 4.58333 17.0579 4.58333 17.4999C4.58333 17.9419 4.75893 18.3659 5.07149 18.6784C5.38405 18.991 5.80797 19.1666 6.25 19.1666ZM17.9167 17.4999C17.9167 17.9419 17.7411 18.3659 17.4285 18.6784C17.1159 18.991 16.692 19.1666 16.25 19.1666C15.808 19.1666 15.384 18.991 15.0715 18.6784C14.7589 18.3659 14.5833 17.9419 14.5833 17.4999C14.5833 17.0579 14.7589 16.634 15.0715 16.3214C15.384 16.0088 15.808 15.8333 16.25 15.8333C16.692 15.8333 17.1159 16.0088 17.4285 16.3214C17.7411 16.634 17.9167 17.0579 17.9167 17.4999Z"
+          fill="black" />
+      </svg>
+      <img class="navbaravatar">
+    </div>
+  </nav>
+  <nav class="nav_pad nav_pad2 mb-2">
+    <div class="nav_left">
+      <div class="nav_row"
+        style="display:flex;flex-shrink: 0;width:284px; white-space:nowrap; align-items: center; gap:8px;">
+        <svg xmlns="http://www.w3.org/2000/svg" style="width:auto;" height="16" viewBox="0 0 16 16" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M8.00002 0.666748C9.60002 0.666748 11.2667 1.26675 12.4667 2.53341C14.9334 5.00008 14.9334 9.06675 12.4667 11.4667L8.00002 16.0001L3.53335 11.5334C1.06668 9.06675 1.06668 5.00008 3.53335 2.53341C4.73335 1.26675 6.40002 0.666748 8.00002 0.666748ZM8.00002 13.2001L11.0667 10.1334C12.7333 8.40008 12.7333 5.66675 11.0667 3.93341C10.2667 3.13341 9.13335 2.66675 8.00002 2.66675C6.86668 2.66675 5.73335 3.13341 4.93335 3.93341C3.26668 5.66675 3.26668 8.40008 4.93335 10.1334L8.00002 13.2001ZM9.33335 7.00008C9.33335 7.3537 9.19287 7.69284 8.94282 7.94289C8.69278 8.19294 8.35364 8.33342 8.00002 8.33342C7.64639 8.33342 7.30726 8.19294 7.05721 7.94289C6.80716 7.69284 6.66668 7.3537 6.66668 7.00008C6.66668 6.64646 6.80716 6.30732 7.05721 6.05727C7.30726 5.80722 7.64639 5.66675 8.00002 5.66675C8.35364 5.66675 8.69278 5.80722 8.94282 6.05727C9.19287 6.30732 9.33335 6.64646 9.33335 7.00008Z"
+            fill="black" />
+        </svg>
+        <span style="width: fit-content; white-space: nowrap;">大安森林公園東三門出口  •  現在</span>
+        <svg xmlns="http://www.w3.org/2000/svg" style="width: auto;" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M12 5.33325V7.86659L8 10.9333L4 7.86659V5.33325L8 8.39992L12 5.33325Z" fill="black" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="nav_right">
+      <div class="navbarsearch" style="align-items: center;gap:8px;margin-right: 12px; width:320px">
+        <svg xmlns="http://www.w3.org/2000/svg" style="width: auto;" height="16" viewBox="0 0 16 16" fill="none">
+          <path
+            d="M15.0672 13.6001L12.1344 10.6665C12.8672 9.6001 13.3344 8.3337 13.3344 6.9337C13.3336 3.4665 10.4664 0.600098 6.99998 0.600098C3.53358 0.600098 0.667175 3.4665 0.667175 6.9337C0.667175 10.4001 3.53358 13.2665 7.00078 13.2665C8.40078 13.2665 9.66718 12.8001 10.7336 12.0665L13.6672 15.0001L15.0672 13.6001ZM2.66718 7.0001C2.66718 4.6001 4.60078 2.6665 7.00078 2.6665C9.40078 2.6665 11.3336 4.6001 11.3336 7.0001C11.3336 9.4001 9.40078 11.3337 7.00078 11.3337C4.60078 11.3337 2.66718 9.4001 2.66718 7.0001Z"
+            fill="black" />
+        </svg>
+        <span style="width: auto;color: #4B4B4B;font-family: Inter;font-size: 13.672px;font-style: normal;font-weight: 500;
+      line-height: normal;">搜尋</span>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" style="width:auto;" height="24" viewBox="0 0 24 24" fill="none">
+        <mask id="mask0_4377_21426" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="3" y="3" width="18" height="18">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M14 5C13.4477 5 13 5.44772 13 6C13 6.55228 13.4477 7 14 7C14.5523 7 15 6.55228 15 6C15 5.44772 14.5523 5 14 5ZM16.8293 5C16.4175 3.83481 15.3062 3 14 3C12.6938 3 11.5825 3.83481 11.1707 5H4C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H11.1707C11.5825 8.16519 12.6938 9 14 9C15.3062 9 16.4175 8.16519 16.8293 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H16.8293ZM8 11C7.44772 11 7 11.4477 7 12C7 12.5523 7.44772 13 8 13C8.55228 13 9 12.5523 9 12C9 11.4477 8.55228 11 8 11ZM8 9C9.30622 9 10.4175 9.83481 10.8293 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H10.8293C10.4175 14.1652 9.30622 15 8 15C6.69378 15 5.58254 14.1652 5.17071 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H5.17071C5.58254 9.83481 6.69378 9 8 9ZM16 18C16 17.4477 16.4477 17 17 17C17.5523 17 18 17.4477 18 18C18 18.5523 17.5523 19 17 19C16.4477 19 16 18.5523 16 18ZM19.8293 17C19.4175 15.8348 18.3062 15 17 15C15.6938 15 14.5825 15.8348 14.1707 17H4C3.44772 17 3 17.4477 3 18C3 18.5523 3.44772 19 4 19H14.1707C14.5825 20.1652 15.6938 21 17 21C18.3062 21 19.4175 20.1652 19.8293 19H20C20.5523 19 21 18.5523 21 18C21 17.4477 20.5523 17 20 17H19.8293Z" fill="black"/>
+        </mask>
+        <g mask="url(#mask0_4377_21426)">
+          <path d="M0 0H24V24H0V0Z" fill="#101828"/>
+        </g>
+      </svg>
+    </div>
+  </nav>
+
+
+
+
 
   <header class="headertext">在城市中探索美食，找尋你的美好食光</header>
   <section class="main">
@@ -617,7 +379,7 @@
       <div class="fastchoosing">
         <h3 class="mb-3 fw-bold">快速篩選</h3>
         <div style="display: flex; gap: 16px; width: fit-content;padding-bottom:8px;">
-          <button class="fastchoosing_button"style="display: flex; ">
+          <button class="fastchoosing_button" style="display: flex; ">
             <svg xmlns="http://www.w3.org/2000/svg" style="width: auto;" height="20" viewBox="0 0 21 20" fill="none">
               <mask id="mask0_4199_23465" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="21"
                 height="20">
@@ -631,7 +393,7 @@
             </svg>
             <span class="buttontext" style="width: auto;">不到半小時</span>
           </button>
-          <button class="fastchoosing_button"  style="display: flex;">
+          <button class="fastchoosing_button" style="display: flex;">
             <svg xmlns="http://www.w3.org/2000/svg" style="width: auto;" height="16" viewBox="0 0 17 16" fill="none">
               <mask id="mask0_4199_23470" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="17"
                 height="16">
@@ -647,7 +409,7 @@
           </button>
         </div>
         <div style="display: flex; gap: 8px; width: fit-content;">
-          <button class="fastchoosing_button"  style="display: flex;">
+          <button class="fastchoosing_button" style="display: flex;">
             <span class="buttontext" style="width: auto;">評分最高</span>
           </button>
           <button class="fastchoosing_button" style="display: flex;">
@@ -2021,7 +1783,7 @@ height: 186px; margin-right:24px ;">
         display: flex;
         flex-direction: row;
         gap: 20px;
-        justify-content:flex-start;
+        justify-content: flex-start;
         align-items: center;
       }
 
@@ -2030,7 +1792,7 @@ height: 186px; margin-right:24px ;">
         display: flex;
         width: fit-content;
         flex-direction: column;
-        
+
       }
 
       .logo {
@@ -2062,7 +1824,7 @@ height: 186px; margin-right:24px ;">
 
 
       .footer-links {
-       
+
         align-self: start;
         width: fit-content;
         display: flex;
@@ -2145,7 +1907,7 @@ height: 186px; margin-right:24px ;">
           gap: 0;
         }
 
-       
+
 
         .brand-container {
           margin-top: 40px;
@@ -2184,18 +1946,19 @@ height: 186px; margin-right:24px ;">
 
         }
       }
-      a.scroll-top{
+
+      a.scroll-top {
         position: absolute;
         right: 20px;
       }
     </style>
 
     <div class="footer">
-    <a class="scroll-top" href="#"><button class="scroll-top" aria-label="Scroll to top">
-        <img loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/39abccba1477c736ab1bc986f3ef978c39ea085eec6ec5cbb873afd11d921981?apiKey=29bdb496da09449eb579968368248119&"
-          class="scroll-icon" alt="" />
-      </button></a>
+      <a class="scroll-top" href="#"><button class="scroll-top" aria-label="Scroll to top">
+          <img loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/39abccba1477c736ab1bc986f3ef978c39ea085eec6ec5cbb873afd11d921981?apiKey=29bdb496da09449eb579968368248119&"
+            class="scroll-icon" alt="" />
+        </button></a>
       <div class="footer-content">
         <div class="footer-wrapper">
 
@@ -2276,26 +2039,26 @@ height: 186px; margin-right:24px ;">
     </div>
   </footer>
 
-<script>
-// 定義函數
-function addClickEvent() {
-  // 獲取所有具有 'restaurant-card' 的元素
-  const cards = document.getElementsByClassName("restaurant-card");
-  
-  // 遍歷所有元素，為每個元素添加點擊事件
-  for (let i = 0; i < cards.length; i++) {
-    cards[i].onclick = function() {
-      // 跳轉到指定的 URL
-      window.location.href = "http://127.0.0.1:5501/Project_EatNow/C.Restaurant_Page.html";
-    };
-  }
-}
+  <script>
+    // 定義函數
+    function addClickEvent() {
+      // 獲取所有具有 'restaurant-card' 的元素
+      const cards = document.getElementsByClassName("restaurant-card");
 
-// 調用函數
-addClickEvent();
+      // 遍歷所有元素，為每個元素添加點擊事件
+      for (let i = 0; i < cards.length; i++) {
+        cards[i].onclick = function () {
+          // 跳轉到指定的 URL
+          window.location.href = "http://127.0.0.1:5501/Project_EatNow/C.Restaurant_Page.html";
+        };
+      }
+    }
+
+    // 調用函數
+    addClickEvent();
 
 
-</script>
+  </script>
 
 </body>
 
