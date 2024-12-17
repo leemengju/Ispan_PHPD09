@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="report"></div>
+    <script>
+        // var x = 103 var y = 200;  // error
+        // var x = 103; var y = 200;
+        // report.innerText = `x = ${x}`;
+
+        // return
+
+        function test() {
+            return 100;
+        }
+        var answer = test();
+        report.innerText = answer;
+
+
+        // 陣列次序可以對調
+        // var [x, y, z] = dataList;
+        var obj = {
+            x: 111,
+            y: 222,
+            z: 333
+        }
+        // var x = obj.x;
+        // var y = obj.y;
+        // var z = obj.z;
+        var { x, z, y } = obj;
+
+        report.innerText = `x = ${x}, y = ${y}, z = ${z}`;
+
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>

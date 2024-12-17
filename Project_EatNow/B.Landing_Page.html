@@ -53,7 +53,7 @@
     }
 
     .main {
-      
+
       display: flex;
       justify-content: flex-start;
       align-items: flex-start;
@@ -61,8 +61,9 @@
       gap: 32px;
       box-sizing: border-box;
       width: 100%;
-      max-width: 100%; /* 限制寬度不超過載體 */
-     
+      max-width: 100%;
+      /* 限制寬度不超過載體 */
+
     }
 
     aside {
@@ -111,40 +112,35 @@
     }
 
     .selection {
-    
+
       display: flex;
       box-sizing: border-box;
       flex-direction: column;
       align-items: flex-start;
       gap: 20px;
       height: fit-content;
-      width: 100%; 
-      max-width: 100%; /* 限制寬度不超過載體 */
+      width: 100%;
+      max-width: 100%;
+      /* 限制寬度不超過載體 */
       overflow: hidden;
     }
 
 
-    @media screen and (max-width:420px) {
 
 
-      .headertext {
-        font-size: 20px;
 
-      }
 
-      .restaurant-categories {
-        gap: 20px;
-      }
-
-      .category-name {
-        font-size: 16px;
-      }
-
-      .sidebar {
+    @media screen and (max-width: 1880px) {
+      .restaurant-card:nth-of-type(5) {
         display: none;
       }
 
-     
+    }
+
+    @media screen and (max-width: 1500px) {
+      .restaurant-card:nth-of-type(4) {
+        display: none;
+      }
 
     }
 
@@ -156,6 +152,45 @@
       .sidebar {
         display: none;
       }
+    }
+
+    @media screen and (max-width:930px) {
+      .restaurant-name {
+        font-size: 16px !important;
+      }
+
+    }
+
+    @media screen and (max-width:817px) {
+      .restaurant-card:nth-of-type(4) {
+        display: flex;
+      }
+
+    }
+
+
+    @media screen and (max-width:553px) {
+      .headertext {
+        font-size: 24px;
+        width: 300px;
+      }
+
+      .restaurant-image {
+        height: 200px;
+      }
+
+    }
+
+    @media screen and (max-width:500px) {
+
+     
+      .coupon_img {
+        top: -4px;
+        object-fit: contain;
+
+      }
+
+
     }
   </style>
 
@@ -236,6 +271,22 @@
       }
     }
 
+    @media screen and (max-width: 1880px) {
+      .restaurant-card:nth-of-type(5) {
+        display: none;
+      }
+
+    }
+
+    @media screen and (max-width: 1500px) {
+      .restaurant-card:nth-of-type(4) {
+        display: none;
+      }
+
+    }
+
+
+
     @media screen and (max-width:1280px) {
       .nav_web {
         display: none;
@@ -246,9 +297,38 @@
       }
     }
 
+    @media screen and (max-width:930px) {
+      .restaurant-name {
+        font-size: 16px !important;
+      }
+
+    }
+
+    @media screen and (max-width:817px) {
+      .restaurant-card:nth-of-type(4) {
+        display: flex;
+      }
+
+    }
+
     @media screen and (max-width:700px) {
       .nav_pad2 .nav_left {
         display: none !important;
+      }
+
+      .nav_pad2 .nav_right {
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .navbarsearch {
+        width: 90% !important;
+      }
+    }
+
+    @media screen and (max-width:553px) {
+      .headertext {
+        font-size: 28px;
       }
 
       .nav_pad2 .nav_right {
@@ -364,7 +444,7 @@
   </nav>
 
 
-  <header class="headertext">在城市中探索美食，找尋你的美好食光</header>
+  <header><span class="headertext">在城市中探索美食，找尋你的美好食光</span></header>
   <section class="main d-flex">
     <aside class="sidebar">
       <div class="fastchoosing">
@@ -794,7 +874,7 @@ height: 186px; margin-right:24px ;">
           gap: 20px 0px;
           flex-wrap: wrap;
           justify-content: start;
-         
+
         }
 
 
@@ -809,7 +889,7 @@ height: 186px; margin-right:24px ;">
           flex: 1;
           flex-basis: 0%;
           height: 48px;
-          padding-right: 20px;
+
         }
 
         .section-title {
@@ -863,12 +943,13 @@ height: 186px; margin-right:24px ;">
           position: relative;
           display: flex;
           min-width: 240px;
-          min-height: 291px;
+
           flex-direction: column;
           overflow: hidden;
           justify-content: start;
           width: 292px;
           margin: auto 0;
+          flex: 1;
         }
 
         .promo-tag {
@@ -877,9 +958,8 @@ height: 186px; margin-right:24px ;">
 
         .restaurant-image {
           aspect-ratio: 1.78;
-          object-fit: contain;
+          object-fit: cover;
           object-position: center;
-          width: 300px;
           border-radius: 12px 12px 0 0;
           z-index: 0;
           max-width: 100%;
@@ -887,11 +967,12 @@ height: 186px; margin-right:24px ;">
 
         .card-content {
           box-sizing: border-box;
-          z-index: 0;
           display: flex;
           width: 100%;
           flex-direction: column;
           justify-content: start;
+          align-items: stretch;
+
           padding: 8px 8px 20px 8px;
         }
 
@@ -951,8 +1032,7 @@ height: 186px; margin-right:24px ;">
           display: flex;
           margin-top: 8px;
           width: 100%;
-
-          align-items: cent;
+          align-items: center;
           gap: 2px;
           overflow: hidden;
           justify-content: start;
@@ -1050,8 +1130,8 @@ height: 186px; margin-right:24px ;">
           width: 40px;
           position: absolute;
           z-index: 0;
-          left: 260px;
-          top: 16px;
+          right: 2px;
+          top: 12px;
           transform: translate(-50%, 0%);
           height: 40px;
         }
@@ -1190,9 +1270,8 @@ height: 186px; margin-right:24px ;">
               alt="Add to Favorites" class="favorite-icon" />
           </div>
           <div class="restaurant-card">
-            <img
-              src="./resource/landing_page/selection/restaurant/image-3.png"
-              alt="Palate Pleasures restaurant" class="restaurant-image" />
+            <img src="./resource/landing_page/selection/restaurant/image-3.png" alt="Palate Pleasures restaurant"
+              class="restaurant-image" />
             <div class="card-content">
               <div class="restaurant-header">
                 <div class="restaurant-name">Pleasure Time</div>
@@ -1213,7 +1292,7 @@ height: 186px; margin-right:24px ;">
                 <div class="delivery-time">20-40分鐘</div>
                 <div class="separator">•</div>
                 <div class="info-icon-wrapper">
-              
+
                   <img
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e1d1cbebce63a264e2762dd7d4c5e1cf6c567b6f1e621c05c40fa3cf09fd7cc?apiKey=29bdb496da09449eb579968368248119&"
                     alt="Price Icon" class="info-icon" />
@@ -1231,9 +1310,8 @@ height: 186px; margin-right:24px ;">
               alt="Add to Favorites" class="favorite-icon" />
           </div>
           <div class="restaurant-card">
-            <img
-              src="./resource/landing_page/selection/restaurant/image-4.png"
-              alt="Palate Pleasures restaurant" class="restaurant-image" />
+            <img src="./resource/landing_page/selection/restaurant/image-4.png" alt="Palate Pleasures restaurant"
+              class="restaurant-image" />
             <div class="card-content">
               <div class="restaurant-header">
                 <div class="restaurant-name">Muesli</div>
@@ -1269,7 +1347,7 @@ height: 186px; margin-right:24px ;">
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/cf9a0418f0b93f7b08071b68cf2bed3eccec8ddd150298ffb9a2f432495167bf?apiKey=29bdb496da09449eb579968368248119&"
               alt="Add to Favorites" class="favorite-icon" />
           </div>
-          
+
 
 
         </div>
@@ -1547,9 +1625,8 @@ height: 186px; margin-right:24px ;">
               alt="Add to Favorites" class="favorite-icon" />
           </div>
           <div class="restaurant-card">
-            <img
-              src="./resource/landing_page/selection/restaurant/image-1.png"
-              alt="Gradnola Restaurant" class="restaurant-image" />
+            <img src="./resource/landing_page/selection/restaurant/image-1.png" alt="Gradnola Restaurant"
+              class="restaurant-image" />
             <div class="card-content">
               <div class="restaurant-header">
                 <div class="restaurant-name">Granola</div>
@@ -1587,7 +1664,7 @@ height: 186px; margin-right:24px ;">
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/19018a7271d19d598fefeba3a1866636f8f937344a3867c9bb9667b915673f60?apiKey=29bdb496da09449eb579968368248119&"
               alt="Add to Favorites" class="favorite-icon" />
           </div>
-         
+
           <div class="restaurant-card">
             <img
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/8293087c86ad6785d3d8286c510642468e5b6e7b7475240ea7a0dd55284932a0?apiKey=29bdb496da09449eb579968368248119&"
@@ -1627,7 +1704,7 @@ height: 186px; margin-right:24px ;">
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/cf9a0418f0b93f7b08071b68cf2bed3eccec8ddd150298ffb9a2f432495167bf?apiKey=29bdb496da09449eb579968368248119&"
               alt="Add to Favorites" class="favorite-icon" />
           </div>
-          
+
 
           <div class="restaurant-card">
             <img
@@ -1672,9 +1749,8 @@ height: 186px; margin-right:24px ;">
               alt="Add to Favorites" class="favorite-icon" />
           </div>
           <div class="restaurant-card">
-            <img
-              src="./resource/landing_page/selection/restaurant/image-2.png"
-              alt="Gradnola Restaurant" class="restaurant-image" />
+            <img src="./resource/landing_page/selection/restaurant/image-2.png" alt="Gradnola Restaurant"
+              class="restaurant-image" />
             <div class="card-content">
               <div class="restaurant-header">
                 <div class="restaurant-name">Cup of Tea</div>
@@ -1728,9 +1804,8 @@ height: 186px; margin-right:24px ;">
         </div>
         <div class="restaurant-row">
           <div class="restaurant-card">
-            <img
-              src="./resource/landing_page/selection/restaurant/image.png"
-              alt="Roots Eatery restaurant" class="restaurant-image" />
+            <img src="./resource/landing_page/selection/restaurant/image.png" alt="Roots Eatery restaurant"
+              class="restaurant-image" />
             <div class="card-content">
               <div class="restaurant-header">
                 <div class="restaurant-name">Merry Dishes</div>

@@ -14,31 +14,34 @@
 
 
   <style>
-
-    body{
+    body {
       overflow: scroll;
     }
+
     .background-video {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover; /* 保持影片比例且覆蓋整個背景 */
-      z-index: -1; /* 影片置於所有內容後方 */
+      object-fit: cover;
+      /* 保持影片比例且覆蓋整個背景 */
+      z-index: -1;
+      /* 影片置於所有內容後方 */
       opacity: 60%;
     }
+
     main {
-      
+
       background-color: #fff;
       border-radius: 12px;
       display: block;
-      width:360px ;
-      padding: 20px 24px 20px;
-      
-     
+      width: 360px;
+      padding: 20px 24px 28px;
+
+
     }
-   
+
 
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -90,14 +93,15 @@
       white-space: nowrap;
       -webkit-overflow-scrolling: touch;
     }
-    .copyright{
-      position:fixed;
-      bottom:2%;
-      left:50%;
-       transform: translateX(-50%);
-        display:flex;
-        justify-content: center; 
-        text-wrap: nowrap;
+
+    .copyright {
+      position: fixed;
+      bottom: 15%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      text-wrap: nowrap;
 
     }
   </style>
@@ -107,13 +111,13 @@
   <link href="./bootstrap-5.2.3-examples/bootstrap-5.2.3-examples/sign-in/signin.css" rel="stylesheet">
 </head>
 
-<body >
+<body>
   <video class="background-video" autoplay muted loop>
     <source src="./resource/Login_page/197190-904257543_2.mp4" type="video/mp4">
   </video>
   <img style="position:absolute; top:3%; left:3%;" src="./resource/landing_page/nav/logo.svg" alt="logo" width="160px"
     ;>
-  <main class="  m-auto mt-3">
+  <main class="  m-auto mt-5">
     <form>
       <h1 class="h2 mb-3 fw-bold ">登入</h1>
       <h6 class="h6 mb-5 fw-light">享受美好生活，從
@@ -129,7 +133,7 @@
       <div>
         <div style="display: flex; justify-content: space-between; align-items:start;">
           <label class=" fw-bold  " for="floatingPassword">密碼</label>
-          <label class="text-decoration-underline text-muted " >忘記密碼</label>
+          <label class="text-decoration-underline text-muted ">忘記密碼</label>
         </div>
         <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
           style="border-radius:4px;">
@@ -137,19 +141,21 @@
 
       <div class="w-100 checkbox mt-1 mb-3" style="display:flex; justify-items:flex-start">
         <label>
-          <input type="checkbox" value="remember-me"> 記住帳號密碼
+          <input id="checkbox" type="checkbox" value="remember-me" checked> 記住帳號密碼
         </label>
       </div>
-      <button class="w-100 btn btn-lg" style="background-color:#CA3838;color:#fff ;" type="submit" onclick="window.open('http://127.0.0.1:5501/Project_EatNow/B.Landing_Page.html')">登錄</button>
+      <button class="w-100 btn btn-lg" style="background-color:#CA3838;color:#fff ;" type="submit"
+        onclick="window.open('http://127.0.0.1:5501/Project_EatNow/B.Landing_Page.html')">登錄</button>
       <br><br>
       <button class="w-100 btn btn-lg  btn-outline-danger-subtle" style="border:#CA3838 2px solid;color: #CA3838;"
         type="submit">略過</button>
     </form>
     <div class="text-center ">
       <p class=" mt-5  text-muted">_______ 其他登入方式 _______</p>
-      <div class="  row " style="display: flex;justify-content:space-between; white-space:nowrap; padding: 0px 12px;gap:4px">
-        <button class="  btn btn-sm  btn-outline-danger-subtle" style="width:95px;border:#CA3838 2px solid;color: #CA3838;"
-          type="submit">
+      <div class="  row "
+        style="display: flex;justify-content:space-between; white-space:nowrap; padding: 0px 12px;gap:4px">
+        <button class="  btn btn-sm  btn-outline-danger-subtle"
+          style="width:95px;border:#CA3838 2px solid;color: #CA3838;" type="submit">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google"
             viewBox="0 0 16 16">
             <path
@@ -157,8 +163,8 @@
           </svg>
           Google
         </button>
-        <button class="btn btn-sm  btn-outline-danger-subtle" style="width:95px; border:#CA3838 2px solid;color: #CA3838;"
-          type="submit">
+        <button class="btn btn-sm  btn-outline-danger-subtle"
+          style="width:95px; border:#CA3838 2px solid;color: #CA3838;" type="submit">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-apple"
             viewBox="0 0 16 16">
             <path
@@ -168,8 +174,8 @@
           </svg>
           Apple
         </button>
-        <button class=" btn btn-sm  btn-outline-danger-subtle" style="width:95px; border:#CA3838 2px solid;color: #CA3838;"
-          type="submit">
+        <button class=" btn btn-sm  btn-outline-danger-subtle"
+          style="width:95px; border:#CA3838 2px solid;color: #CA3838;" type="submit">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook"
             viewBox="0 0 16 16">
             <path
@@ -180,14 +186,41 @@
 
       </div>
       <p class=" my-3 text-muted text-center">還沒有帳號？
-        <span class=" text-decoration-underline " >註冊帳號</span>
+        <span class=" text-decoration-underline ">註冊帳號</span>
       </p>
     </div>
   </main>
-<br>
-<br>
-  <div  class="copyright" >© 2024 Eat Now Technologies Inc.</div>
 
+  <div class="copyright ">© 2024 Eat Now Technologies Inc.</div>
+  <script>
+     
+  
+    function doChange() {
+      var email = document.getElementById("floatingInput").value;
+      var password = document.getElementById("floatingPassword").value;
+      localStorage.setItem("floatingInput", email);
+      localStorage.setItem("floatingPassword", password);
+    }
+  
+    document.getElementById("floatingInput").onkeyup = doChange;
+    document.getElementById("floatingPassword").onkeyup = doChange;
+  
+    function readAndShow() {
+      if (localStorage["floatingInput"]) {
+        document.getElementById("floatingInput").value = localStorage["floatingInput"];
+      }
+      if (localStorage["floatingPassword"]) {
+        document.getElementById("floatingPassword").value = localStorage["floatingPassword"];
+      }
+    }
+  
+    window.onload = readAndShow;
+
+    document.getElementById("checkbox").onclick = function() {
+  localStorage.removeItem("floatingInput");
+  localStorage.removeItem("floatingPassword");
+}
+  </script>
 </body>
 
 </html>

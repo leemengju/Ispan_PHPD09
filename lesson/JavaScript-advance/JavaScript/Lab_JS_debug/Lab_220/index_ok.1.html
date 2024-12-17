@@ -38,31 +38,46 @@
 <script src="../js/bootstrap.min.js"></script>
 
 <script>
-    
+   
     var mailList = [
-        "jeremy.lin@gmail.com", 
+        "jeremy.lin@gmail.com",
         "derek.jeter@gmail.com",
         "chien-ming.wang@gmail.com",
         undefined,
         "lionel.messi@gmail.com"
         ];
-    
+//    try 和catch 可以讓程式更加堅強，多一遍執行的機會。
+
+
     function sendMail(mailAddress) {
+        var result = 200;
         try {
             $("#report").append(mailAddress.toString() + "<br>");
         }
         catch (e) {
+            result = 404; // 999;
             $("#report").append(e.message + "<br>");
         }
+        return result;
     }
-    
+   
     for (i = 0; i < mailList.length; i++) {
-        sendMail(mailList[i]);
+        var result = sendMail(mailList[i]);
+        if (result == 404) {
+            sendMail(mailList[i]);
+        }
+        if (result == 999) {
+            break;
+        }
     }
-    
-    
-    
+   
+   
+   
 </script>
+ 
+</body>
+ 
+</html>
 
 </body>
 

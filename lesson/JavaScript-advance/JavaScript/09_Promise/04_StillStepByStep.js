@@ -14,22 +14,6 @@ function sad(data, timeCount) {
     })
 }
 
-// function sad(data,timeCount){
-//     return new Promise(function(resolve, reject){
-//         setTimeout(function () {
-// resolve(data);            
-//         }, timeCount )
-//     })
-// }
-// function sad(data, timeCount){
-//     return new Promise(function(resolve, reject){
-//         setTimeout(function(){
-//             resolve(data);
-//         },timeCount)
-        
-//     }
-// )
-// }
 
 async function living() {
     var total = 0;

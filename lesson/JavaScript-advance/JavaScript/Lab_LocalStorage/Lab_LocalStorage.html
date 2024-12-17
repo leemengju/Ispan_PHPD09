@@ -92,6 +92,16 @@ fieldset .submit {
 
 <span id="test"></span>
 
-
+<script>
+		function doChange() {
+		// document.getElementById("test").innerHTML += this.name + ":" + this.value + "<br>";
+		localStorage.setItem(this.name, this.value);
+	}
+	
+	document.getElementById("txtName").onkeyup = doChange;
+	document.getElementById("txtEmail").onkeyup = doChange;
+	document.getElementById("txtPhone").onkeyup = doChange;
+	
+</script>
 </body>
 </html>

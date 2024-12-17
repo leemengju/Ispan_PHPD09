@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="report"></div>
+    <input type="button" id="lab" value="Click me to save" />
+    <input type="button" id="labRead" value="Click me to read" />
+    <script>
+        lab.onclick = function () {
+            localStorage.setItem("userName", "Chien");
+            report.innerText = "OK";
+        }
+        labRead.onclick = function () {
+            // var data = localStorage.getItem("userName");
+            var data = localStorage["userName"];
+            if (data){
+                report.innerText = data;
+            }
+            else {
+                report.innerText = "No data";
+            }
+           
+        }
+        </script>
+</body>
+</html>
