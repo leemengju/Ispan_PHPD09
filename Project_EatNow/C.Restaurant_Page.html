@@ -21,15 +21,17 @@
             overflow: scroll;
         }
 
-        
+        /* <------------------------------------Header--------------------------------------------> */
+
         header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            align-self: stretch;
+            align-items: start;
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: contain;
             width: 100%;
+            max-height: 400px;
+
         }
 
         #carouselExampleControls {
@@ -44,11 +46,54 @@
             display: flex;
             position: absolute;
             transform: translateX(-15%);
-            bottom: 20%;
+            bottom: 80%;
 
         }
 
+        .carousel-controls {
+            position: absolute;
+            top: 40%;
+            transform: translateY(-30%);
+            z-index: 10;
 
+        }
+
+        /* <------------------------------------Header_map--------------------------------------------> */
+        .header_map_group {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header_map_x {
+            position: absolute;
+            width: 20%;
+            height: 100%;
+            background-color: none;
+        }
+
+        .header_map_left {
+            left: 0;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+        }
+
+        .header_map_right {
+            right: 0;
+            background: linear-gradient(to left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+        }
+
+        .header_map_top {
+            position: absolute;
+            width: 100%;
+            height: 5%;
+            top: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+        }
+
+        /* <------------------------------------Main--------------------------------------------> */
         main {
             display: flex;
             padding: 56px 120px;
@@ -65,12 +110,165 @@
 
         }
 
+        /* <------------------------------------Restaurant_info--------------------------------------------> */
         .Restaurant_info {
             display: flex;
             width: 100%;
             flex-direction: column;
             justify-content: space-between;
             align-items: flex-start;
+        }
+
+        .tag-list {
+            align-self: start;
+            display: flex;
+            align-items: start;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--Grey-Dark, #101828);
+            line-height: 1.6;
+            justify-content: start;
+            width: auto;
+        }
+
+        .tag-highlight {
+            border-radius: 8px;
+            background-color: var(--Primary-Red, #CA3838);
+            padding: 4px 8px;
+            color: var(--Grey-Light, #F2F4F7);
+            text-wrap: nowrap;
+        }
+
+        .tag-default {
+            border-radius: 8px;
+            background-color: var(--Grey-Light, #F2F4F7);
+            padding: 4px 8px;
+            text-wrap: nowrap;
+        }
+
+        .store-container {
+            display: flex;
+            margin-top: 16px;
+            width: 100%;
+            align-items: start;
+            gap: 16px;
+            justify-content: start;
+            flex-wrap: nowrap;
+        }
+
+        .store-info {
+            display: flex;
+            min-width: 240px;
+            flex-direction: column;
+            color: var(--Grey-Dark, #101828);
+            justify-content: start;
+            flex: 1;
+            flex-basis: 0%;
+        }
+
+        .store-name {
+            font-size: 40px;
+            line-height: 1.2;
+        }
+
+        .info-list {
+            align-self: start;
+            display: flex;
+            margin-top: 16px;
+            align-items: center;
+            gap: 16px;
+            font-size: 16px;
+            line-height: 1.6;
+            justify-content: start;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            align-self: stretch;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            justify-content: start;
+            margin: auto 0;
+            width: auto;
+        }
+
+        .info-icon {
+            aspect-ratio: 1;
+            object-fit: contain;
+            object-position: center;
+            width: 24px;
+            align-self: stretch;
+            margin: auto 0;
+        }
+
+        .status-text {
+            font-family: SF Pro Text, -apple-system, Roboto, Helvetica, sans-serif;
+            color: var(--Primary-Red, #CA3838);
+        }
+
+        .more-info {
+            color: var(--Primary-Blue, #306DB8);
+            background-color: #FFF;
+            width: auto;
+            border: white solid 1px;
+            padding-bottom: 2px;
+        }
+
+        .delivery-toggle {
+            border-radius: 1000px;
+            border: 1px solid var(--Grey-300, #d0d5dd);
+            background: var(--Grey-100, #f2f4f7);
+            box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.04);
+            display: flex;
+            overflow: hidden;
+            font-size: 14px;
+            line-height: 1.6;
+            justify-content: center;
+            align-items: center;
+            width: 144px;
+            height: 40px;
+
+        }
+
+       
+
+        .toggle-active {
+            border-radius: 100px;
+            background: var(--Foundation-Grey-Dark, #282727);
+            box-shadow: 0px 12px 16px -4px rgba(0, 0, 0, 0.05), 0px 0px 6px -2px rgba(0, 0, 0, 0.05);
+            color: var(--White, #FFFFFF);
+            padding: 9px 24px;
+            width: 76px;
+            height: 40px;
+            text-wrap: nowrap;
+        }
+
+        .toggle-inactive {
+            border-radius: 4px;
+            box-shadow: 0px 12px 16px -4px rgba(0, 0, 0, 0.05), 0px 0px 6px -2px rgba(0, 0, 0, 0.05);
+            min-height: 40px;
+            color: var(--Grey-Medium, #667085);
+            padding: 9px 24px;
+            width: 76px;
+            height: 40px;
+            text-wrap: nowrap;
+            border: #f2f4f7 solid 1px;
+        }
+
+        /* <------------------------------------Stepper--------------------------------------------> */
+        .delivery-info {
+            display: flex;
+            margin-top: 16px;
+            width: 100%;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            color: var(--Grey-Dark, #101828);
+            font-weight: 400;
+            line-height: 1.6;
+            justify-content: start;
+            flex-wrap: wrap;
         }
 
         .stepper {
@@ -90,6 +288,28 @@
 
         }
 
+        /* <------------------------------------餐點區域--------------------------------------------> */
+        .address-grid {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            white-space: wrap;
+            text-wrap: wrap;
+            gap: 20px;
+
+            width: 100%;
+        }
+
+        .shop_location {
+            font-size: 20px;
+        }
+
+        .shop_address {
+            font-size: 20px;
+        }
+
+        /* 每一區餐點種類的外框 */
         .featured-section {
             display: flex;
             width: 100%;
@@ -98,6 +318,7 @@
             justify-content: start;
         }
 
+        /* 每一區餐點種類標題區的外框 */
         .header-container {
             display: flex;
             width: 100%;
@@ -105,6 +326,7 @@
             justify-content: start;
         }
 
+        /* 餐點種類大標題，包含accent-bar&title */
         .header-title-wrapper {
             display: flex;
             width: 100%;
@@ -117,6 +339,7 @@
             flex-wrap: wrap;
         }
 
+        /* title前面的指示符號 */
         .accent-bar {
             border-radius: 40px;
             background: var(--Foundation-Brown-Normal, #ca3838);
@@ -199,6 +422,22 @@
             border-radius: 12px;
         }
 
+        /*<---------------------------------------RWD-----------------------------------------> */
+
+        
+
+        @media screen and (max-width:1280px) {
+            main {
+                padding: 40px 80px 24px 80px;
+            }
+
+        }
+        @media screen and (max-width:1200px) {
+            .shop_map {
+             width:100%;   
+            }
+        }
+
         @media (max-width: 991px) {
 
             .featured-section,
@@ -210,37 +449,13 @@
                 white-space: initial;
             }
 
-
-
-            .product-info {
-                white-space: initial;
+            .store-name {
+                width: 250px;
             }
         }
 
-        footer {
-            height: 290px;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            z-index: 100;
-            box-sizing: border-box;
-
-        }
-
-
-
-        @media screen and (max-width:1440px) and (min-width:1280px) {
-            .main {
-                padding: 24px 20px 24px 20px;
-            }
-
-            .footer {
-                padding: 0px 20px 80px;
-            }
-        }
-
-        @media screen and (max-width: 578px) and (min-width: 375px) {
-            .main {
+        @media screen and (max-width: 578px) {
+            main {
                 padding: 16px 32px 16px;
 
             }
@@ -253,9 +468,6 @@
                 height: 100%;
             }
 
-            .footer {
-                padding: 0px 20px 80px;
-            }
         }
     </style>
 
@@ -266,423 +478,733 @@
 </head>
 
 <body>
-    <style>
-        nav {
-          box-sizing: border-box;
-          display: flex;
-          justify-content: space-between;
-          width: 100%;
-          height: auto;
-          padding: 4px 16px;
-          align-items: center;
-          white-space: wrap;
-          text-wrap: wrap;
-    
-        }
-    
-        .nav_left,
-        .nav_right {
-          box-sizing: border-box;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-         
-          width: auto;
-        }
-    
-        .nav_left {
-          justify-content: flex-start;
-          margin-right: auto;
-    
-        }
-    
-        .nav_right {
-          justify-content: flex-end;
-    
-        }
-    
-        nav * {
-          flex-shrink: 0;
-          /* 防止子項目壓縮 */
-        }
-        
-        .navbarsearch {
-          display: flex;
-          padding: 0px 12px;
-          height: 37px;
-          align-items: flex-start;
-          border-radius: 16px;
-          background: var(--Text-50, #F6F6F6);
-        }
-    
-        .navbaravatar {
-          display: flex;
-          width: 36px;
-          height: 36px;
-          justify-content: flex-end;
-          align-items: center;
-          flex-shrink: 0;
-          background-image: url("./resource/landing_page/nav/avatar.jpg");
-          background-size: cover;
-          margin: 12px 0px 12px 12px;
-          border: none;
-          border-radius: 20px;
-    
-        }
-    @media screen and (min-width:1280px) and (max-width:2400px){
-      .nav_pad {
-            display: none;
-          }
-    }
-        @media screen and (max-width:1280px) {
-          .nav_web {
-            display: none;
-          }
-    
-          .nav_pad {
-            display: flex;
-          }
-        }
-    
-        @media screen and (max-width:700px) {
-          .nav_pad2 .nav_left {
-            display: none !important;
-          }
-         
-          .nav_pad2 .nav_right {
-            justify-content: space-between ;
-            width:100%;
-          }
-          .navbarsearch{
-            width:90% !important;
-          }
-        }
-      </style>
-      <nav class="nav_web">
-        <div class="nav_left">
-          <svg class="svg_menu" xmlns="http://www.w3.org/2000/svg" style="width: auto;flex-shrink: 0;" height="20"
-            viewBox="0 0 20 20" fill="none">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-              d="M19.1667 3.33325H0.833344V5.83325H19.1667V3.33325ZM19.1667 9.16658H0.833344V11.6666H19.1667V9.16658ZM0.833344 14.9999H19.1667V17.4999H0.833344V14.9999Z"
-              fill="#8D2727" />
-          </svg>
-          <img class="logo" src="./resource/landing_page/nav/logo.svg" alt="Logo">
-          <div class="nav_row"
-            style="display:flex;flex-shrink: 0;width:284px; white-space:nowrap; align-items: center; gap:8px;">
-            <svg xmlns="http://www.w3.org/2000/svg" style="width:auto;" height="16" viewBox="0 0 16 16" fill="none">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M8.00002 0.666748C9.60002 0.666748 11.2667 1.26675 12.4667 2.53341C14.9334 5.00008 14.9334 9.06675 12.4667 11.4667L8.00002 16.0001L3.53335 11.5334C1.06668 9.06675 1.06668 5.00008 3.53335 2.53341C4.73335 1.26675 6.40002 0.666748 8.00002 0.666748ZM8.00002 13.2001L11.0667 10.1334C12.7333 8.40008 12.7333 5.66675 11.0667 3.93341C10.2667 3.13341 9.13335 2.66675 8.00002 2.66675C6.86668 2.66675 5.73335 3.13341 4.93335 3.93341C3.26668 5.66675 3.26668 8.40008 4.93335 10.1334L8.00002 13.2001ZM9.33335 7.00008C9.33335 7.3537 9.19287 7.69284 8.94282 7.94289C8.69278 8.19294 8.35364 8.33342 8.00002 8.33342C7.64639 8.33342 7.30726 8.19294 7.05721 7.94289C6.80716 7.69284 6.66668 7.3537 6.66668 7.00008C6.66668 6.64646 6.80716 6.30732 7.05721 6.05727C7.30726 5.80722 7.64639 5.66675 8.00002 5.66675C8.35364 5.66675 8.69278 5.80722 8.94282 6.05727C9.19287 6.30732 9.33335 6.64646 9.33335 7.00008Z"
-                fill="black" />
-            </svg>
-            <span style="width: fit-content; white-space: nowrap;">大安森林公園東三門出口  •  現在</span>
-            <svg xmlns="http://www.w3.org/2000/svg" style="width: auto;" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M12 5.33325V7.86659L8 10.9333L4 7.86659V5.33325L8 8.39992L12 5.33325Z" fill="black" />
-            </svg>
-          </div>
-        </div>
-        <div class="nav_right">
-          <div class="navbarsearch " style="align-items: center;gap:8px;margin-right: 12px;width: 480px;">
-            <svg xmlns="http://www.w3.org/2000/svg" style="width: auto;" height="16" viewBox="0 0 16 16" fill="none">
-              <path
-                d="M15.0672 13.6001L12.1344 10.6665C12.8672 9.6001 13.3344 8.3337 13.3344 6.9337C13.3336 3.4665 10.4664 0.600098 6.99998 0.600098C3.53358 0.600098 0.667175 3.4665 0.667175 6.9337C0.667175 10.4001 3.53358 13.2665 7.00078 13.2665C8.40078 13.2665 9.66718 12.8001 10.7336 12.0665L13.6672 15.0001L15.0672 13.6001ZM2.66718 7.0001C2.66718 4.6001 4.60078 2.6665 7.00078 2.6665C9.40078 2.6665 11.3336 4.6001 11.3336 7.0001C11.3336 9.4001 9.40078 11.3337 7.00078 11.3337C4.60078 11.3337 2.66718 9.4001 2.66718 7.0001Z"
-                fill="black" />
-            </svg>
-            <span style="width: auto;color: #4B4B4B;font-family: Inter;font-size: 13.672px;font-style: normal;font-weight: 500;
-          line-height: normal;">搜尋</span>
-          </div>
-          <svg class="svg_chart" xmlns="http://www.w3.org/2000/svg" style="width: auto;flex-shrink: 0;" height="20"
-            viewBox="0 0 20 20" fill="none">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-              d="M4.58333 14.9999H17.5L19.1667 4.58325H5.41667L5 2.08325H0.75V4.58325H2.83333L4.58333 14.9999ZM16.25 7.08325L15.4167 12.4999H6.66667L5.83333 7.08325H16.25ZM6.25 19.1666C6.69203 19.1666 7.11595 18.991 7.42851 18.6784C7.74107 18.3659 7.91667 17.9419 7.91667 17.4999C7.91667 17.0579 7.74107 16.634 7.42851 16.3214C7.11595 16.0088 6.69203 15.8333 6.25 15.8333C5.80797 15.8333 5.38405 16.0088 5.07149 16.3214C4.75893 16.634 4.58333 17.0579 4.58333 17.4999C4.58333 17.9419 4.75893 18.3659 5.07149 18.6784C5.38405 18.991 5.80797 19.1666 6.25 19.1666ZM17.9167 17.4999C17.9167 17.9419 17.7411 18.3659 17.4285 18.6784C17.1159 18.991 16.692 19.1666 16.25 19.1666C15.808 19.1666 15.384 18.991 15.0715 18.6784C14.7589 18.3659 14.5833 17.9419 14.5833 17.4999C14.5833 17.0579 14.7589 16.634 15.0715 16.3214C15.384 16.0088 15.808 15.8333 16.25 15.8333C16.692 15.8333 17.1159 16.0088 17.4285 16.3214C17.7411 16.634 17.9167 17.0579 17.9167 17.4999Z"
-              fill="black" />
-          </svg>
-          <img class="navbaravatar">
-        </div>
-      </nav>
-    
-      <nav class="nav_pad nav_pad1">
-        <div class="nav_left">
-          <svg class="svg_menu" xmlns="http://www.w3.org/2000/svg" style="width: auto;flex-shrink: 0;" height="20"
-            viewBox="0 0 20 20" fill="none">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-              d="M19.1667 3.33325H0.833344V5.83325H19.1667V3.33325ZM19.1667 9.16658H0.833344V11.6666H19.1667V9.16658ZM0.833344 14.9999H19.1667V17.4999H0.833344V14.9999Z"
-              fill="#8D2727" />
-          </svg>
-          <img class="logo" src="./resource/landing_page/nav/logo.svg" alt="Logo">
-        </div>
-        <div class="nav_right">
-          <svg class="svg_chart" xmlns="http://www.w3.org/2000/svg" style="width: auto;flex-shrink: 0;" height="20"
-            viewBox="0 0 20 20" fill="none">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-              d="M4.58333 14.9999H17.5L19.1667 4.58325H5.41667L5 2.08325H0.75V4.58325H2.83333L4.58333 14.9999ZM16.25 7.08325L15.4167 12.4999H6.66667L5.83333 7.08325H16.25ZM6.25 19.1666C6.69203 19.1666 7.11595 18.991 7.42851 18.6784C7.74107 18.3659 7.91667 17.9419 7.91667 17.4999C7.91667 17.0579 7.74107 16.634 7.42851 16.3214C7.11595 16.0088 6.69203 15.8333 6.25 15.8333C5.80797 15.8333 5.38405 16.0088 5.07149 16.3214C4.75893 16.634 4.58333 17.0579 4.58333 17.4999C4.58333 17.9419 4.75893 18.3659 5.07149 18.6784C5.38405 18.991 5.80797 19.1666 6.25 19.1666ZM17.9167 17.4999C17.9167 17.9419 17.7411 18.3659 17.4285 18.6784C17.1159 18.991 16.692 19.1666 16.25 19.1666C15.808 19.1666 15.384 18.991 15.0715 18.6784C14.7589 18.3659 14.5833 17.9419 14.5833 17.4999C14.5833 17.0579 14.7589 16.634 15.0715 16.3214C15.384 16.0088 15.808 15.8333 16.25 15.8333C16.692 15.8333 17.1159 16.0088 17.4285 16.3214C17.7411 16.634 17.9167 17.0579 17.9167 17.4999Z"
-              fill="black" />
-          </svg>
-          <img class="navbaravatar">
-        </div>
-      </nav>
-      <nav class="nav_pad nav_pad2 mb-2">
-        <div class="nav_left">
-          <div class="nav_row"
-            style="display:flex;flex-shrink: 0;width:284px; white-space:nowrap; align-items: center; gap:8px;">
-            <svg xmlns="http://www.w3.org/2000/svg" style="width:auto;" height="16" viewBox="0 0 16 16" fill="none">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M8.00002 0.666748C9.60002 0.666748 11.2667 1.26675 12.4667 2.53341C14.9334 5.00008 14.9334 9.06675 12.4667 11.4667L8.00002 16.0001L3.53335 11.5334C1.06668 9.06675 1.06668 5.00008 3.53335 2.53341C4.73335 1.26675 6.40002 0.666748 8.00002 0.666748ZM8.00002 13.2001L11.0667 10.1334C12.7333 8.40008 12.7333 5.66675 11.0667 3.93341C10.2667 3.13341 9.13335 2.66675 8.00002 2.66675C6.86668 2.66675 5.73335 3.13341 4.93335 3.93341C3.26668 5.66675 3.26668 8.40008 4.93335 10.1334L8.00002 13.2001ZM9.33335 7.00008C9.33335 7.3537 9.19287 7.69284 8.94282 7.94289C8.69278 8.19294 8.35364 8.33342 8.00002 8.33342C7.64639 8.33342 7.30726 8.19294 7.05721 7.94289C6.80716 7.69284 6.66668 7.3537 6.66668 7.00008C6.66668 6.64646 6.80716 6.30732 7.05721 6.05727C7.30726 5.80722 7.64639 5.66675 8.00002 5.66675C8.35364 5.66675 8.69278 5.80722 8.94282 6.05727C9.19287 6.30732 9.33335 6.64646 9.33335 7.00008Z"
-                fill="black" />
-            </svg>
-            <span style="width: fit-content; white-space: nowrap;">大安森林公園東三門出口  •  現在</span>
-            <svg xmlns="http://www.w3.org/2000/svg" style="width: auto;" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M12 5.33325V7.86659L8 10.9333L4 7.86659V5.33325L8 8.39992L12 5.33325Z" fill="black" />
-            </svg>
-          </div>
-        </div>
-    
-        <div class="nav_right">
-          <div class="navbarsearch" style="align-items: center;gap:8px;margin-right: 12px; width:320px">
-            <svg xmlns="http://www.w3.org/2000/svg" style="width: auto;" height="16" viewBox="0 0 16 16" fill="none">
-              <path
-                d="M15.0672 13.6001L12.1344 10.6665C12.8672 9.6001 13.3344 8.3337 13.3344 6.9337C13.3336 3.4665 10.4664 0.600098 6.99998 0.600098C3.53358 0.600098 0.667175 3.4665 0.667175 6.9337C0.667175 10.4001 3.53358 13.2665 7.00078 13.2665C8.40078 13.2665 9.66718 12.8001 10.7336 12.0665L13.6672 15.0001L15.0672 13.6001ZM2.66718 7.0001C2.66718 4.6001 4.60078 2.6665 7.00078 2.6665C9.40078 2.6665 11.3336 4.6001 11.3336 7.0001C11.3336 9.4001 9.40078 11.3337 7.00078 11.3337C4.60078 11.3337 2.66718 9.4001 2.66718 7.0001Z"
-                fill="black" />
-            </svg>
-            <span style="width: auto;color: #4B4B4B;font-family: Inter;font-size: 13.672px;font-style: normal;font-weight: 500;
-          line-height: normal;">搜尋</span>
-          </div>
-          <svg xmlns="http://www.w3.org/2000/svg" style="width:auto;" height="24" viewBox="0 0 24 24" fill="none">
-            <mask id="mask0_4377_21426" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="3" y="3" width="18" height="18">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M14 5C13.4477 5 13 5.44772 13 6C13 6.55228 13.4477 7 14 7C14.5523 7 15 6.55228 15 6C15 5.44772 14.5523 5 14 5ZM16.8293 5C16.4175 3.83481 15.3062 3 14 3C12.6938 3 11.5825 3.83481 11.1707 5H4C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H11.1707C11.5825 8.16519 12.6938 9 14 9C15.3062 9 16.4175 8.16519 16.8293 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H16.8293ZM8 11C7.44772 11 7 11.4477 7 12C7 12.5523 7.44772 13 8 13C8.55228 13 9 12.5523 9 12C9 11.4477 8.55228 11 8 11ZM8 9C9.30622 9 10.4175 9.83481 10.8293 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H10.8293C10.4175 14.1652 9.30622 15 8 15C6.69378 15 5.58254 14.1652 5.17071 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H5.17071C5.58254 9.83481 6.69378 9 8 9ZM16 18C16 17.4477 16.4477 17 17 17C17.5523 17 18 17.4477 18 18C18 18.5523 17.5523 19 17 19C16.4477 19 16 18.5523 16 18ZM19.8293 17C19.4175 15.8348 18.3062 15 17 15C15.6938 15 14.5825 15.8348 14.1707 17H4C3.44772 17 3 17.4477 3 18C3 18.5523 3.44772 19 4 19H14.1707C14.5825 20.1652 15.6938 21 17 21C18.3062 21 19.4175 20.1652 19.8293 19H20C20.5523 19 21 18.5523 21 18C21 17.4477 20.5523 17 20 17H19.8293Z" fill="black"/>
-            </mask>
-            <g mask="url(#mask0_4377_21426)">
-              <path d="M0 0H24V24H0V0Z" fill="#101828"/>
-            </g>
-          </svg>
-        </div>
-      </nav>
-    
+    <!-- <------------------------------------Nav-------------------------------------------->
+    <nav>
+        <!-- <------------------------------------蓋版區域-------------------------------------------->
+        <!-- <------------------------------------蓋版區域:nav_sidebar-------------------------------------------->
+        <!-- <------------------------------------nav_sidebar_style-------------------------------------------->
+        <style class="nav_sidebar_style ">
+            .nav_sidebar {
+                position: fixed;
+                top: 0px;
+                left: -300px;
+                /* 初始位置在畫面外 */
+                width: 280px;
+                height: 100vh;
+                box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+                transition: left 0.3s ease-in-out;
+                z-index: 200;
+            }
 
-    <header>
-        <div id="carouselExampleControls" class="carousel slide" data-bs-interval="1000" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="3"
-                    aria-label="Slide 4"></button>
-                <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="4"
-                    aria-label="Slide 5"></button>
-            </div>
-            <div class="carousel-inner ">
-                <div class="carousel-item active">
-                    <img src="./resource/restaurant_page/Hero image.png" alt="">
-                </div>
-                <div class="carousel-item ">
-                    <img src="./resource/restaurant_page/Hero image-2.png" alt="">
-                </div>
-                <div class="carousel-item ">
-                    <img src="./resource/restaurant_page/Hero image-3.png" alt="">
-                </div>
-                <div class="carousel-item ">
-                    <img src="./resource/restaurant_page/Hero image-4.png" alt="">
-                </div>
-                <div class="carousel-item ">
-                    <img src="./resource/restaurant_page/Hero image-1.png" alt="">
-                </div>
-            </div class="carousel-controls">
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            .nav_sidebar.show {
+                left: 0;
+                /* 顯示時移入畫面 */
+            }
+
+            .nav-link {
+                display: flex;
+                flex-direction: row;
+                gap: 8px;
+                align-items: center;
+            }
+
+            .nav_sidebar_backgroud {
+                z-index: 190;
+            }
+        </style>
+        <!-- <------------------------------------nav_sidebar_html-------------------------------------------->
+        <!-- nav_sidebar的背景--->
+        <div class="nav_sidebar_backgroud modal modal-sheet position-fixed  "
+            style="background-color: rgba(0, 0, 0, 0.5);">
         </div>
+        <!-- nav_sidebar的主體--->
+        <div class="nav_sidebar">
+            <aside class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;height: 100vh;">
+                <!-- <-----------------------------------頭像-------------------------------------------->
+                <div class="nav_sidebar_account w-100 gap-1"
+                    style="display: flex; flex-direction: row; align-items: center;">
+                    <img src="./resource/landing_page/nav/avatar-user.png" style="width:40px" height="40"
+                        class="rounded-circle me-2">
+                    <div class="column w-75 h-75">
+                        <strong class="user-name " style="width:120px;">LieShin-Mu</strong>
+                        <p class="text-primary" style="width:120px;">帳號管理</p>
+                    </div>
+                </div>
+                <hr>
+                <!-- <-----------------------------------nav_sidebar_content-------------------------------------------->
+                <!-- <------------------------------------nav_sidebar_core-functions-------------------------------------------->
+                <ul class="nav  flex-column mb-2 gap-3">
+                    <li>
+                        <a href="#" class="nav-link link-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" style="width:16px" height="16" fill="currentColor"
+                                class="bi bi-bookmark" viewBox="0 0 16 16">
+                                <path d="M2 2v13.5l6-3 6 3V2z" />
+                            </svg>
+                            訂單
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link link-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" style="width:16px" height="16" fill="currentColor"
+                                class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+                            </svg>
+                            收藏餐廳
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link link-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" style="width:16px" height="16" fill="currentColor"
+                                class="bi bi-wallet-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M1.5 2A1.5 1.5 0 0 0 0 3.5v2h6a.5.5 0 0 1 .5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542s.987-.254 1.194-.542C9.42 6.644 9.5 6.253 9.5 6a.5.5 0 0 1 .5-.5h6v-2A1.5 1.5 0 0 0 14.5 2z" />
+                                <path
+                                    d="M16 6.5h-5.551a2.7 2.7 0 0 1-.443 1.042C9.613 8.088 8.963 8.5 8 8.5s-1.613-.412-2.006-.958A2.7 2.7 0 0 1 5.551 6.5H0v6A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5z" />
+                            </svg>
+                            錢包
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link link-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" style="width:16px" height="16" fill="currentColor"
+                                class="bi bi-ticket-perforated-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6zm4-1v1h1v-1zm1 3v-1H4v1zm7 0v-1h-1v1zm-1-2h1v-1h-1zm-6 3H4v1h1zm7 1v-1h-1v1zm-7 1H4v1h1zm7 1v-1h-1v1zm-8 1v1h1v-1zm7 1h1v-1h-1z" />
+                            </svg>
+                            優惠
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link link-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" style="width:16px" height="16" fill="currentColor"
+                                class="bi bi-gear-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
+                            </svg>
+                            設定
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+                <!-- <------------------------------------nav_sidebar_different_persona-------------------------------------------->
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li>
+                        <a href="#" class="nav-link link-dark">
+                            註冊成為外送夥伴
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link link-dark">
+                            建立企業帳號
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link link-dark">
+                            新增您的餐廳
+                        </a>
+                    </li>
+                </ul>
+                <!-- <------------------------------------nav_sidebar_log_out-------------------------------------------->
+                <hr>
+                <a class="dropdown-item mx-3 mb-3 text-muted fs-5" href="#">登出</a>
+            </aside>
+
+        </div>
+
+        <!-- <------------------------------------nav_sidebar_script-------------------------------------------->
+
+        <script class="nav_sidebar_script">
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const svgMenus = document.getElementsByClassName("svg_menu");
+                const navSidebar = document.querySelector(".nav_sidebar");
+                const navSidebarBackgroud = document.querySelector(".nav_sidebar_backgroud");
+
+
+
+                if (svgMenus && navSidebar && navSidebarBackgroud) {
+                    Array.from(svgMenus).forEach((svgMenu) => {
+                        // 點擊SVG圖標顯示側邊欄
+                        svgMenu.addEventListener("click", (event) => {
+                            navSidebarBackgroud.style.display = "block";
+                            event.stopPropagation(); // 阻止事件冒泡
+                            navSidebar.classList.add("show");
+
+                        });
+                    });
+
+
+                    // 點擊空白處也關閉側邊欄
+                    document.addEventListener("click", () => {
+                        navSidebar.classList.remove("show");
+                        navSidebarBackgroud.style.display = "none";
+                        event.stopPropagation(); // 阻止事件冒泡
+                    });
+                }
+            });
+
+        </script>
+
+        <!-- <------------------------------------蓋版區域:address_popup-------------------------------------------->
+        <!-- <------------------------------------address_popup_style-------------------------------------------->
+        <style class="nav_address_popup_style">
+            .nav_address_popup {
+                display: none;
+            }
+
+            .address_row {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .address_row_right,
+            .address_row_left {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: auto;
+            }
+
+            .address_column {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .feature-tag {
+                align-self: stretch;
+                border-radius: 20px;
+                background: light;
+                gap: 4px;
+                margin: auto 0;
+                width: fit-content;
+                padding: 4px 12px;
+
+            }
+        </style>
+        <!-- <------------------------------------address_popup_html-------------------------------------------->
+        <div class="nav_address_popup">
+            <div class="modal modal-sheet position-fixed d-block py-5" tabindex="-1" role="dialog" id="modalSheet"
+                style="background-color: rgba(0, 0, 0, 0.5);">
+                <div class=" modal-content modal-dialog rounded-4 shadow  " role="document">
+                    <!-- <------------------------------------Title-------------------------------------------->
+                    <div class="modal-header w-100">
+                        <h1 class="modal-title fs-5 fw-bold w-75">地址編輯</h1>
+                        <button type="button" class="address_popup_close btn-close me-0" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <!-- <------------------------------------Content-------------------------------------------->
+                    <!-- <------------------------------------Content:adress-default-------------------------------------------->
+                    <div class="address_row  p-2 px-3 bg bg-light ">
+                        <div class="address_row_left gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" style="width:24px" height="24" fill="currentColor"
+                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            </svg>
+                            <div class="address_column d-flex">
+                                <span class=" fs-6 fw-bold  text-primary">公司</span>
+                                <span class=" fw-light text-primary">台北市大安區大安森林公園東三門出口</span>
+                            </div>
+                        </div>
+                        <div class="address_row_right">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                class="bi bi-pencil-square text-secondary" viewBox="0 0 16 16">
+                                <path
+                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                <path fill-rule="evenodd"
+                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- <------------------------------------Content:address-alternative--------------------------------------------->
+                    <div class="address_row  p-2 px-3">
+                        <div class="address_row_left gap-2">
+                            <svg class="bi bi-geo-alt" xmlns="http://www.w3.org/2000/svg" style="width:24px;"
+                                height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path
+                                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                            </svg>
+                            <div class="address_column d-flex">
+                                <span class=" fs-6 fw-bold">租屋</span>
+                                <span class=" text-small text-muted">新北市板橋區文化路二段168號</span>
+                            </div>
+                        </div>
+                        <div class="address_row_right">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                class="bi bi-pencil-square text-secondary" viewBox="0 0 16 16">
+                                <path
+                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                <path fill-rule="evenodd"
+                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- <------------------------------------Content:address-alternative2--------------------------------------------->
+                    <div class="address_row  p-2 px-3 ">
+                        <div class="address_row_left gap-2">
+                            <svg class="bi bi-geo-alt" xmlns="http://www.w3.org/2000/svg" style="width:24px;"
+                                height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path
+                                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                            </svg>
+                            <div class="address_column d-flex">
+                                <span class=" fs-6 fw-bold">老家</span>
+                                <span class=" text-small text-muted">台中市西屯區台灣大道三段200號</span>
+                            </div>
+                        </div>
+                        <div class="address_row_right">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                class="bi bi-pencil-square text-secondary" viewBox="0 0 16 16">
+                                <path
+                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                <path fill-rule="evenodd"
+                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- <------------------------------------Content:address-alternative3--------------------------------------------->
+                    <div class="address_row  p-2 px-3 ">
+                        <div class="address_row_left gap-2">
+                            <svg class="bi bi-geo-alt" xmlns="http://www.w3.org/2000/svg" style="width:24px;"
+                                height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path
+                                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                            </svg>
+                            <div class="address_column">
+                                <span class=" fs-6 fw-bold">別墅</span>
+                                <span class=" text-small text-muted">台南市東區大同路二段50巷12號</span>
+                            </div>
+                        </div>
+                        <div class="address_row_right">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                class="bi bi-pencil-square text-secondary" viewBox="0 0 16 16">
+                                <path
+                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                <path fill-rule="evenodd"
+                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- <------------------------------------Sub-Title-------------------------------------------->
+                    <div class=" w-100 mx-3">
+                        <h1 class=" fs-5 fw-bold w-75 tex">時間偏好設定</h1>
+                    </div>
+                    <!-- <------------------------------------Content:timeset-default-------------------------------------------->
+                    <div class="address_row  p-2 px-3 mb-3  ">
+                        <div class="address_row_left gap-2 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" style="width:22px" height="22" fill="currentColor"
+                                class="bi bi-clock" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+                            </svg>
+                            <span class=" fs-6 fw-bold te ">立刻送達</span>
+
+                        </div>
+                        <div class="address_row_right">
+                            <div class="feature-tag ">時間設定</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <------------------------------------address_popup_script-------------------------------------------->
+        <script class="address_popup_script">
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const navRows = document.getElementsByClassName("nav_row");//有兩個
+                const navAddressPopup = document.querySelector(".nav_address_popup");
+                const addressPopupClose = document.querySelector(".address_popup_close");
+
+
+                if (navRows.length > 0 && navAddressPopup && addressPopupClose) {
+                    // 點擊SVG圖標顯示側邊欄
+                    Array.from(navRows).forEach((navRow) => {
+                        navRow.addEventListener("click", (event) => {
+                            event.stopPropagation(); // 防止事件冒泡
+                            navAddressPopup.style.display = "block";
+                        });
+                    });
+
+                    // 點擊close層關閉側邊欄
+                    addressPopupClose.addEventListener("click", () => {
+                        navAddressPopup.style.display = "none";
+                        event.stopPropagation(); // 防止事件冒泡
+                    });
+
+                    // 點擊空白處也關閉側邊欄
+                    document.addEventListener("click", () => {
+                        navAddressPopup.style.display = "none";
+                    });
+                }
+            });
+        </script>
+        <!-- <------------------------------------nav_style-------------------------------------------->
+        <style class="nav_style">
+            /* .nav_sidebar {
+        display: none;
+      } */
+
+            .nav {
+                box-sizing: border-box;
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                height: fit-content;
+                padding: 4px 16px;
+                align-items: center;
+                white-space: wrap;
+                text-wrap: wrap;
+
+            }
+
+            .nav_left,
+            .nav_right {
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: auto;
+            }
+
+            .nav_left {
+                justify-content: flex-start;
+                margin-right: auto;
+                cursor: pointer;
+            }
+
+            .nav_menu {
+                cursor: pointer;
+            }
+
+            .nav_right {
+                justify-content: flex-end;
+
+            }
+
+            nav * {
+                flex-shrink: 0;
+                /* 防止子項目壓縮 */
+            }
+
+            .navbarsearch {
+                display: flex;
+                padding: 0px 12px;
+                height: 37px;
+                align-items: flex-start;
+                border-radius: 16px;
+                background: var(--Text-50, #F6F6F6);
+            }
+
+            .number_hint {
+                position: absolute;
+                background-color: #CA3838;
+                color: #FFF;
+                z-index: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+
+            .number_hint_cart {
+                width: 12px;
+                height: 12px;
+                right: 42px;
+                font-size: 8px;
+            }
+
+            .number_hint_sort {
+                width: 8px;
+                height: 8px;
+                right: 0px;
+
+            }
+
+            .navbaravatar {
+                display: flex;
+                width: 36px;
+                height: 36px;
+                justify-content: flex-end;
+                align-items: center;
+                flex-shrink: 0;
+                background-image: url("./resource/landing_page/nav/avatar-user.png");
+                background-size: cover;
+                margin: 12px 0px 12px 12px;
+                border-radius: 20px;
+
+            }
+
+            @media screen and (min-width:1280px) and (max-width:2400px) {
+                .nav_pad {
+                    display: none;
+                }
+            }
+
+            @media screen and (max-width: 1880px) {
+                .restaurant-card:nth-of-type(5) {
+                    display: none;
+                }
+
+            }
+
+            @media screen and (max-width: 1500px) {
+                .restaurant-card:nth-of-type(4) {
+                    display: none;
+                }
+
+            }
+
+
+
+            @media screen and (max-width:1280px) {
+                .nav_web {
+                    display: none;
+                }
+
+                .nav_pad {
+                    display: flex;
+                }
+            }
+
+            @media screen and (max-width:930px) {
+                .restaurant-name {
+                    font-size: 16px !important;
+                }
+
+            }
+
+            @media screen and (max-width:817px) {
+                .restaurant-card:nth-of-type(4) {
+                    display: flex;
+                }
+
+            }
+
+            @media screen and (max-width:700px) {
+                .nav_pad2 .nav_left {
+                    display: none !important;
+                }
+
+                .nav_pad2 .nav_right {
+                    justify-content: space-between;
+                    width: 100%;
+                }
+
+                .navbarsearch {
+                    width: 90% !important;
+                }
+            }
+
+            @media screen and (max-width:553px) {
+                .headertext {
+                    font-size: 28px;
+                }
+
+                .nav_pad2 .nav_right {
+                    justify-content: space-between;
+                    width: 100%;
+                }
+
+                .navbarsearch {
+                    width: 90% !important;
+                }
+            }
+        </style>
+        <!-- <------------------------------------nav_web&pad-------------------------------------------->
+        <nav class="nav nav_web">
+            <div class="nav_left">
+                <svg class="svg_menu" xmlns="http://www.w3.org/2000/svg" style="width: auto;flex-shrink: 0;" height="20"
+                    viewBox="0 0 20 20" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M19.1667 3.33325H0.833344V5.83325H19.1667V3.33325ZM19.1667 9.16658H0.833344V11.6666H19.1667V9.16658ZM0.833344 14.9999H19.1667V17.4999H0.833344V14.9999Z"
+                        fill="#8D2727" />
+                </svg>
+                <img class="logo" src="./resource/landing_page/nav/logo.svg" alt="Logo">
+                <div class="nav_row"
+                    style="display:flex;flex-shrink: 0;width:284px; white-space:nowrap; align-items: center; gap:8px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="width:auto;" height="16" viewBox="0 0 16 16"
+                        fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M8.00002 0.666748C9.60002 0.666748 11.2667 1.26675 12.4667 2.53341C14.9334 5.00008 14.9334 9.06675 12.4667 11.4667L8.00002 16.0001L3.53335 11.5334C1.06668 9.06675 1.06668 5.00008 3.53335 2.53341C4.73335 1.26675 6.40002 0.666748 8.00002 0.666748ZM8.00002 13.2001L11.0667 10.1334C12.7333 8.40008 12.7333 5.66675 11.0667 3.93341C10.2667 3.13341 9.13335 2.66675 8.00002 2.66675C6.86668 2.66675 5.73335 3.13341 4.93335 3.93341C3.26668 5.66675 3.26668 8.40008 4.93335 10.1334L8.00002 13.2001ZM9.33335 7.00008C9.33335 7.3537 9.19287 7.69284 8.94282 7.94289C8.69278 8.19294 8.35364 8.33342 8.00002 8.33342C7.64639 8.33342 7.30726 8.19294 7.05721 7.94289C6.80716 7.69284 6.66668 7.3537 6.66668 7.00008C6.66668 6.64646 6.80716 6.30732 7.05721 6.05727C7.30726 5.80722 7.64639 5.66675 8.00002 5.66675C8.35364 5.66675 8.69278 5.80722 8.94282 6.05727C9.19287 6.30732 9.33335 6.64646 9.33335 7.00008Z"
+                            fill="black" />
+                    </svg>
+                    <span style="width: fit-content; white-space: nowrap;">大安森林公園東三門出口  •  現在</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" style="width: auto;" height="16" viewBox="0 0 16 16"
+                        fill="none">
+                        <path d="M12 5.33325V7.86659L8 10.9333L4 7.86659V5.33325L8 8.39992L12 5.33325Z" fill="black" />
+                    </svg>
+                </div>
+            </div>
+            <div class="nav_right">
+                <div class="navbarsearch " style="align-items: center;gap:8px;margin-right: 12px;width: 480px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="width: auto;" height="16" viewBox="0 0 16 16"
+                        fill="none">
+                        <path
+                            d="M15.0672 13.6001L12.1344 10.6665C12.8672 9.6001 13.3344 8.3337 13.3344 6.9337C13.3336 3.4665 10.4664 0.600098 6.99998 0.600098C3.53358 0.600098 0.667175 3.4665 0.667175 6.9337C0.667175 10.4001 3.53358 13.2665 7.00078 13.2665C8.40078 13.2665 9.66718 12.8001 10.7336 12.0665L13.6672 15.0001L15.0672 13.6001ZM2.66718 7.0001C2.66718 4.6001 4.60078 2.6665 7.00078 2.6665C9.40078 2.6665 11.3336 4.6001 11.3336 7.0001C11.3336 9.4001 9.40078 11.3337 7.00078 11.3337C4.60078 11.3337 2.66718 9.4001 2.66718 7.0001Z"
+                            fill="black" />
+                    </svg>
+                    <span style="width: auto;color: #4B4B4B;font-family: Inter;font-size: 13.672px;font-style: normal;font-weight: 500;
+      line-height: normal;">搜尋</span>
+                </div>
+                <svg class="svg_cart" xmlns="http://www.w3.org/2000/svg" style="width: auto;flex-shrink: 0;" height="20"
+                    viewBox="0 0 20 20" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M4.58333 14.9999H17.5L19.1667 4.58325H5.41667L5 2.08325H0.75V4.58325H2.83333L4.58333 14.9999ZM16.25 7.08325L15.4167 12.4999H6.66667L5.83333 7.08325H16.25ZM6.25 19.1666C6.69203 19.1666 7.11595 18.991 7.42851 18.6784C7.74107 18.3659 7.91667 17.9419 7.91667 17.4999C7.91667 17.0579 7.74107 16.634 7.42851 16.3214C7.11595 16.0088 6.69203 15.8333 6.25 15.8333C5.80797 15.8333 5.38405 16.0088 5.07149 16.3214C4.75893 16.634 4.58333 17.0579 4.58333 17.4999C4.58333 17.9419 4.75893 18.3659 5.07149 18.6784C5.38405 18.991 5.80797 19.1666 6.25 19.1666ZM17.9167 17.4999C17.9167 17.9419 17.7411 18.3659 17.4285 18.6784C17.1159 18.991 16.692 19.1666 16.25 19.1666C15.808 19.1666 15.384 18.991 15.0715 18.6784C14.7589 18.3659 14.5833 17.9419 14.5833 17.4999C14.5833 17.0579 14.7589 16.634 15.0715 16.3214C15.384 16.0088 15.808 15.8333 16.25 15.8333C16.692 15.8333 17.1159 16.0088 17.4285 16.3214C17.7411 16.634 17.9167 17.0579 17.9167 17.4999Z"
+                        fill="black" />
+                </svg>
+                <p class="number_hint number_hint_cart rounded">0</p>
+                <img class="navbaravatar">
+            </div>
+        </nav>
+        <nav class="nav  nav_pad nav_pad1">
+            <div class="nav_left">
+                <svg class="svg_menu" xmlns="http://www.w3.org/2000/svg" style="width: auto;flex-shrink: 0;" height="20"
+                    viewBox="0 0 20 20" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M19.1667 3.33325H0.833344V5.83325H19.1667V3.33325ZM19.1667 9.16658H0.833344V11.6666H19.1667V9.16658ZM0.833344 14.9999H19.1667V17.4999H0.833344V14.9999Z"
+                        fill="#8D2727" />
+                </svg>
+                <img class="logo" src="./resource/landing_page/nav/logo.svg" alt="Logo">
+            </div>
+            <div class="nav_right">
+                <svg class="svg_chart" xmlns="http://www.w3.org/2000/svg" style="width: auto;flex-shrink: 0;"
+                    height="20" viewBox="0 0 20 20" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M4.58333 14.9999H17.5L19.1667 4.58325H5.41667L5 2.08325H0.75V4.58325H2.83333L4.58333 14.9999ZM16.25 7.08325L15.4167 12.4999H6.66667L5.83333 7.08325H16.25ZM6.25 19.1666C6.69203 19.1666 7.11595 18.991 7.42851 18.6784C7.74107 18.3659 7.91667 17.9419 7.91667 17.4999C7.91667 17.0579 7.74107 16.634 7.42851 16.3214C7.11595 16.0088 6.69203 15.8333 6.25 15.8333C5.80797 15.8333 5.38405 16.0088 5.07149 16.3214C4.75893 16.634 4.58333 17.0579 4.58333 17.4999C4.58333 17.9419 4.75893 18.3659 5.07149 18.6784C5.38405 18.991 5.80797 19.1666 6.25 19.1666ZM17.9167 17.4999C17.9167 17.9419 17.7411 18.3659 17.4285 18.6784C17.1159 18.991 16.692 19.1666 16.25 19.1666C15.808 19.1666 15.384 18.991 15.0715 18.6784C14.7589 18.3659 14.5833 17.9419 14.5833 17.4999C14.5833 17.0579 14.7589 16.634 15.0715 16.3214C15.384 16.0088 15.808 15.8333 16.25 15.8333C16.692 15.8333 17.1159 16.0088 17.4285 16.3214C17.7411 16.634 17.9167 17.0579 17.9167 17.4999Z"
+                        fill="black" />
+                </svg>
+                <p class="number_hint number_hint_cart rounded">0</p>
+                <img class="navbaravatar">
+            </div>
+        </nav>
+        <nav class="nav  nav_pad nav_pad2 mb-2">
+            <div class="nav_left">
+                <div class="nav_row"
+                    style="display:flex;flex-shrink: 0;width:284px; white-space:nowrap; align-items: center; gap:8px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="width:auto;" height="16" viewBox="0 0 16 16"
+                        fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M8.00002 0.666748C9.60002 0.666748 11.2667 1.26675 12.4667 2.53341C14.9334 5.00008 14.9334 9.06675 12.4667 11.4667L8.00002 16.0001L3.53335 11.5334C1.06668 9.06675 1.06668 5.00008 3.53335 2.53341C4.73335 1.26675 6.40002 0.666748 8.00002 0.666748ZM8.00002 13.2001L11.0667 10.1334C12.7333 8.40008 12.7333 5.66675 11.0667 3.93341C10.2667 3.13341 9.13335 2.66675 8.00002 2.66675C6.86668 2.66675 5.73335 3.13341 4.93335 3.93341C3.26668 5.66675 3.26668 8.40008 4.93335 10.1334L8.00002 13.2001ZM9.33335 7.00008C9.33335 7.3537 9.19287 7.69284 8.94282 7.94289C8.69278 8.19294 8.35364 8.33342 8.00002 8.33342C7.64639 8.33342 7.30726 8.19294 7.05721 7.94289C6.80716 7.69284 6.66668 7.3537 6.66668 7.00008C6.66668 6.64646 6.80716 6.30732 7.05721 6.05727C7.30726 5.80722 7.64639 5.66675 8.00002 5.66675C8.35364 5.66675 8.69278 5.80722 8.94282 6.05727C9.19287 6.30732 9.33335 6.64646 9.33335 7.00008Z"
+                            fill="black" />
+                    </svg>
+                    <span style="width: fit-content; white-space: nowrap;">大安森林公園東三門出口  •  現在</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" style="width: auto;" height="16" viewBox="0 0 16 16"
+                        fill="none">
+                        <path d="M12 5.33325V7.86659L8 10.9333L4 7.86659V5.33325L8 8.39992L12 5.33325Z" fill="black" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="nav_right">
+                <div class="navbarsearch" style="align-items: center;gap:8px;margin-right: 12px; width:320px">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="width: auto;" height="16" viewBox="0 0 16 16"
+                        fill="none">
+                        <path
+                            d="M15.0672 13.6001L12.1344 10.6665C12.8672 9.6001 13.3344 8.3337 13.3344 6.9337C13.3336 3.4665 10.4664 0.600098 6.99998 0.600098C3.53358 0.600098 0.667175 3.4665 0.667175 6.9337C0.667175 10.4001 3.53358 13.2665 7.00078 13.2665C8.40078 13.2665 9.66718 12.8001 10.7336 12.0665L13.6672 15.0001L15.0672 13.6001ZM2.66718 7.0001C2.66718 4.6001 4.60078 2.6665 7.00078 2.6665C9.40078 2.6665 11.3336 4.6001 11.3336 7.0001C11.3336 9.4001 9.40078 11.3337 7.00078 11.3337C4.60078 11.3337 2.66718 9.4001 2.66718 7.0001Z"
+                            fill="black" />
+                    </svg>
+                    <span style="width: auto;color: #4B4B4B;font-family: Inter;font-size: 13.672px;font-style: normal;font-weight: 500;
+      line-height: normal;">搜尋</span>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" style="width:auto;" height="24" viewBox="0 0 24 24" fill="none">
+                    <mask id="mask0_4377_21426" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="3" y="3"
+                        width="18" height="18">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M14 5C13.4477 5 13 5.44772 13 6C13 6.55228 13.4477 7 14 7C14.5523 7 15 6.55228 15 6C15 5.44772 14.5523 5 14 5ZM16.8293 5C16.4175 3.83481 15.3062 3 14 3C12.6938 3 11.5825 3.83481 11.1707 5H4C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H11.1707C11.5825 8.16519 12.6938 9 14 9C15.3062 9 16.4175 8.16519 16.8293 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H16.8293ZM8 11C7.44772 11 7 11.4477 7 12C7 12.5523 7.44772 13 8 13C8.55228 13 9 12.5523 9 12C9 11.4477 8.55228 11 8 11ZM8 9C9.30622 9 10.4175 9.83481 10.8293 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H10.8293C10.4175 14.1652 9.30622 15 8 15C6.69378 15 5.58254 14.1652 5.17071 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H5.17071C5.58254 9.83481 6.69378 9 8 9ZM16 18C16 17.4477 16.4477 17 17 17C17.5523 17 18 17.4477 18 18C18 18.5523 17.5523 19 17 19C16.4477 19 16 18.5523 16 18ZM19.8293 17C19.4175 15.8348 18.3062 15 17 15C15.6938 15 14.5825 15.8348 14.1707 17H4C3.44772 17 3 17.4477 3 18C3 18.5523 3.44772 19 4 19H14.1707C14.5825 20.1652 15.6938 21 17 21C18.3062 21 19.4175 20.1652 19.8293 19H20C20.5523 19 21 18.5523 21 18C21 17.4477 20.5523 17 20 17H19.8293Z"
+                            fill="black" />
+                    </mask>
+                    <g mask="url(#mask0_4377_21426)">
+                        <path d="M0 0H24V24H0V0Z" fill="#101828" />
+                    </g>
+                </svg>
+                <p class="number_hint number_hint_sort rounded"></p>
+            </div>
+        </nav>
+        <!-- <------------------------------------nav_script-------------------------------------------->
+        <script class="nav_script">
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const logos = document.getElementsByClassName("logo");
+                if (logos) {
+                    Array.from(logos).forEach((logo) => {
+
+                        logo.addEventListener("click", (event) => {
+
+                            window.location.href = "http://127.0.0.1:5501/Project_EatNow/B.Landing_Page.html";
+                        });
+                    });
+
+                }
+            });
+
+        </script>
+    </nav>
+
+    <!-- <------------------------------------Header-------------------------------------------->
+    <header>
+        <!-- <div id="carouselExampleControls" class="carousel slide" data-bs-interval="1000" data-bs-ride="carousel"> -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="3"
+                aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="4"
+                aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner ">
+            <div class="carousel-item active">
+                <img src="./resource/restaurant_page/banner=image2.png" alt="">
+            </div>
+            <div class="carousel-item ">
+                <img src="./resource/restaurant_page/banner=image3.png" alt="">
+            </div>
+            <div class="carousel-item ">
+                <img src="./resource/restaurant_page/banner=Default.png" alt="">
+            </div>
+            <div class="carousel-item ">
+                <img src="./resource/restaurant_page/banner=image4.png" alt="">
+            </div>
+            <div class="carousel-item ">
+                <img src="./resource/restaurant_page/banner=image5.png" alt="">
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-control carousel-control-prev" type="button"
+                    data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control carousel-control-next" type="button"
+                    data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="header_map_group">
+            <div class="header_map_x header_map_left">
+            </div>
+            <div class="header_map_x header_map_right">
+            </div>
+            <div class="header_map_y header_map_top">
+            </div>
         </div>
 
     </header>
+    <!-- <------------------------------------Main-------------------------------------------->
     <main>
-
+        <!-- <------------------------------------Restaurant_info-------------------------------------------->
         <section class="Restaurant_info">
 
-            <style>
-                .tag-list {
-                    align-self: start;
-                    display: flex;
-                    align-items: start;
-                    gap: 12px;
-                    font-size: 14px;
-                    color: var(--Grey-Dark, #101828);
-                    line-height: 1.6;
-                    justify-content: start;
-                    width: auto;
-                }
-
-                .tag-highlight {
-                    border-radius: 8px;
-                    background-color: var(--Primary-Red, #CA3838);
-                    padding: 4px 8px;
-                    color: var(--Grey-Light, #F2F4F7);
-                    text-wrap: nowrap;
-                }
-
-                .tag-default {
-                    border-radius: 8px;
-                    background-color: var(--Grey-Light, #F2F4F7);
-                    padding: 4px 8px;
-                    text-wrap: nowrap;
-                }
-
-                .store-container {
-                    display: flex;
-                    margin-top: 16px;
-                    width: 100%;
-                    align-items: start;
-                    gap: 16px;
-                    justify-content: start;
-                    flex-wrap: nowrap;
-                }
-
-                .store-info {
-                    display: flex;
-                    min-width: 240px;
-                    flex-direction: column;
-                    color: var(--Grey-Dark, #101828);
-                    justify-content: start;
-                    flex: 1;
-                    flex-basis: 0%;
-                }
-
-                .store-name {
-                    font-size: 40px;
-                    line-height: 1.2;
-                }
-
-                .info-list {
-                    align-self: start;
-                    display: flex;
-                    margin-top: 16px;
-                    align-items: center;
-                    gap: 16px;
-                    font-size: 16px;
-                    line-height: 1.6;
-                    justify-content: start;
-                    flex-wrap: wrap;
-                }
-
-                .info-item {
-                    align-self: stretch;
-                    display: flex;
-                    align-items: center;
-                    gap: 4px;
-                    justify-content: start;
-                    margin: auto 0;
-                    width: auto;
-                }
-
-                .info-icon {
-                    aspect-ratio: 1;
-                    object-fit: contain;
-                    object-position: center;
-                    width: 24px;
-                    align-self: stretch;
-                    margin: auto 0;
-                }
-
-                .status-text {
-                    font-family: SF Pro Text, -apple-system, Roboto, Helvetica, sans-serif;
-                    color: var(--Primary-Red, #CA3838);
-                }
-
-                .more-info {
-                    color: var(--Primary-Blue, #306DB8);
-                    background-color: #FFF;
-                    width: auto;
-                    border: white solid 1px;
-                    padding-bottom: 2px;
-                }
-
-                .delivery-toggle {
-                    border-radius: 1000px;
-                    border: 1px solid var(--Grey-300, #d0d5dd);
-                    background: var(--Grey-100, #f2f4f7);
-                    box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.04);
-                    display: flex;
-                    overflow: hidden;
-                    font-size: 14px;
-                    line-height: 1.6;
-                    justify-content: center;
-                    align-items: center;
-                    width: 144px;
-                    height: 40px;
-
-                }
-
-                .toggle-active {
-                    border-radius: 100px;
-                    background: var(--Foundation-Grey-Dark, #282727);
-                    box-shadow: 0px 12px 16px -4px rgba(0, 0, 0, 0.05), 0px 0px 6px -2px rgba(0, 0, 0, 0.05);
-                    color: var(--White, #FFFFFF);
-                    padding: 9px 24px;
-                    width: 76px;
-                    height: 40px;
-                    text-wrap: nowrap;
-                }
-
-                .toggle-inactive {
-                    border-radius: 4px;
-                    box-shadow: 0px 12px 16px -4px rgba(0, 0, 0, 0.05), 0px 0px 6px -2px rgba(0, 0, 0, 0.05);
-                    min-height: 40px;
-                    color: var(--Grey-Medium, #667085);
-                    padding: 9px 24px;
-                    width: 76px;
-                    height: 40px;
-                    text-wrap: nowrap;
-                    border: #f2f4f7 solid 1px;
-                }
-
-                .delivery-info {
-                    display: flex;
-                    margin-top: 16px;
-                    width: 100%;
-                    align-items: center;
-                    gap: 12px;
-                    font-size: 16px;
-                    color: var(--Grey-Dark, #101828);
-                    font-weight: 400;
-                    line-height: 1.6;
-                    justify-content: start;
-                    flex-wrap: wrap;
-                }
-
-                @media (max-width: 991px) {
-
-                    .store-name {
-                        width: 250px;
-                    }
-
-                    .restaurant-info,
-                    .store-container,
-                    .store-info,
-                    .info-list,
-                    .delivery-info {
-                        max-width: 100%;
-                    }
-
-                    .tag-default,
-                    .info-item,
-                    .delivery-toggle {
-                        white-space: initial;
-                    }
-
-                    .toggle-active,
-                    .toggle-inactive {
-                        padding: 0 20px;
-                    }
-                }
-            </style>
 
             <div class="tag-list">
                 <div class="tag-highlight">指定餐點 5 折</div>
@@ -724,9 +1246,13 @@
                     </div>
                 </div>
 
-                <div class="delivery-toggle" role="tablist">
+                <div class="delivery-toggle delivery-toggle-deliver" role="tablist">
                     <button class="toggle-active" role="tab" aria-selected="true" tabindex="0">外送</button>
                     <button class="toggle-inactive" role="tab" aria-selected="false" tabindex="0">外帶</button>
+                </div>
+                <div class="delivery-toggle delivery-toggle-takeOut" role="tablist">
+                    <button class="toggle-inactive" role="tab" aria-selected="true" tabindex="0">外送</button>
+                    <button class="toggle-active" role="tab" aria-selected="false" tabindex="0">外帶</button>
                 </div>
             </div>
 
@@ -767,9 +1293,28 @@
 
 
         </section>
+
+        <section class="Shop_Address">
+            <div class="featured-section">
+                <div class="header-container">
+                    <div class="header-title-wrapper">
+                        <div class="accent-bar"></div>
+                        <div class="main-title">商家資訊</div>
+                    </div>
+                    <div class="subtitle">那些平價且美味的餐點就在你身邊！</div>
+                </div>
+                <div class="address-grid mt-3">
+                    <div class="shop_location fw-bold" style="width: 80px;">店鋪位置</div>
+                    <div class=" shop_address text-muted" style="display:flex ;width: 40%; flex-wrap: wrap;">No. 164,
+                        Section 2, Dunhua South Road, Da’an District, Taipei
+                        City, Taiwan 106</div>
+                    <img class="shop_map img-fluid" src="./resource/restaurant_page/map.png">
+                </div>
+            </div>
+
+            </div>
+        </section>
         <section class="Popular">
-
-
             <div class="featured-section">
                 <div class="header-container">
                     <div class="header-title-wrapper">
@@ -1124,8 +1669,10 @@
         </section>
 
     </main>
+    <!-- <------------------------------------Footer-------------------------------------------->
     <footer>
-        <style>
+        <!-- <------------------------------------footer_style-------------------------------------------->
+        <style class="footer_style">
             .footer {
                 background: var(--Primary-Varients-800, #8d2727);
                 width: 100%;
@@ -1150,25 +1697,6 @@
                 flex-direction: column;
             }
 
-            .scroll-top {
-                justify-content: center;
-                align-items: center;
-                border-radius: 100px;
-                border: 2px solid var(--Border-White, #fff);
-                background: var(--Primary-Varients-800, #8d2727);
-                align-self: end;
-                display: flex;
-                width: 56px;
-                height: 56px;
-                position: absolute;
-                margin-top: -120px;
-            }
-
-            .scroll-icon {
-                aspect-ratio: 1;
-                object-fit: contain;
-                width: 24px;
-            }
 
             .footer-content {
                 align-self: stretch;
@@ -1287,7 +1815,7 @@
                 width: 32px;
             }
 
-            @media (max-width: 991px) {
+            @media screen and (max-width: 991px) {
                 .footer {
                     max-width: 100%;
                     padding: 0 20px;
@@ -1343,18 +1871,39 @@
                 }
             }
 
-            a.scroll-top {
-                position: absolute;
-                right: 20px;
+            .scroll-top {
+                justify-content: center;
+                align-items: center;
+                border-radius: 100px;
+                border: 2px solid var(--Border-White, #fff);
+                background: var(--Primary-Varients-800, #8d2727);
+                display: flex;
+                width: 56px;
+                height: 56px;
+                position: fixed;
+                right: 32px;
+                bottom: 32px;
+                z-index: 20;
+
+            }
+
+            .scroll-icon {
+                aspect-ratio: 1;
+                object-fit: contain;
+                width: 24px;
             }
         </style>
 
         <div class="footer">
-            <a class="scroll-top" href="#"><button class="scroll-top" aria-label="Scroll to top">
+            <!-- <------------------------------------scroll-top/back-to-top-------------------------------------------->
+            <a class="scroll-top" href="#">
+                <button class="scroll-top" aria-label="Scroll to top">
                     <img loading="lazy"
                         src="https://cdn.builder.io/api/v1/image/assets/TEMP/39abccba1477c736ab1bc986f3ef978c39ea085eec6ec5cbb873afd11d921981?apiKey=29bdb496da09449eb579968368248119&"
-                        class="scroll-icon" alt="" />
-                </button></a>
+                        class="scroll-icon" />
+                </button>
+            </a>
+            <!-- <------------------------------------footer-content-------------------------------------------->
             <div class="footer-content">
                 <div class="footer-wrapper">
 
@@ -1432,7 +1981,9 @@
         </div>
     </footer>
 
+    <!-- <------------------------------------Script-------------------------------------------->
     <script>
+        // <!-- <------------------------------------Script:換頁-------------------------------------------->
         // 定義函數
         function addClickEvent() {
             // 獲取所有具有 'restaurant-card' 的元素
@@ -1450,7 +2001,7 @@
         // 調用函數
         addClickEvent();
 
-
+        // <!-- <------------------------------------Script:外送外帶切換-------------------------------------------->
     </script>
 </body>
 

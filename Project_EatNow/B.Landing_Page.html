@@ -26,7 +26,7 @@
     header {
       display: flex;
       width: 100%;
-      height: 120px;
+      height: 100px;
       box-sizing: border-box;
       flex-direction: column;
       justify-content: center;
@@ -46,10 +46,10 @@
       color: var(--grey-white, #FFF);
       text-align: center;
       font-family: "Noto Sans TC";
-      font-size: var(--size-h4, 32px);
+      font-size: var(--size-h4, 24px);
       font-style: normal;
       font-weight: 700;
-      line-height: 140%;
+
       /* 44.8px */
     }
 
@@ -67,7 +67,8 @@
 
     }
 
-    aside {
+    /* <------------------------------------Aside--------------------------------------------> */
+    .aside_sidebar {
       width: 284px;
       display: flex;
       flex-direction: column;
@@ -98,13 +99,13 @@
 
     .aside_sidebar button:focus {
       transform: scale(1.05);
-      background-color: #CA3838;
+      background-color: #F9CFCF;
 
     }
 
     .aside_sidebar button.select-button {
       transform: scale(1.05);
-      background-color: #CA3838;
+      background-color: #F9CFCF;
 
     }
 
@@ -136,6 +137,7 @@
       border: 1px solid #BBB;
     }
 
+    /* <------------------------------------Selection--------------------------------------------> */
     .selection {
       display: flex;
       box-sizing: border-box;
@@ -149,6 +151,7 @@
 
     }
 
+
     .coupon_group {
       overflow-x: scroll;
       /* 必须允许滚动 */
@@ -158,6 +161,7 @@
       /* 防止内容换行 */
       flex: 1;
       scrollbar-width: none;
+
 
     }
 
@@ -190,13 +194,13 @@
     }
 
 
-
     .coupon_img:hover {
       transform: scale(1.05);
       transition: transform 0.3s ease;
 
     }
 
+    /* <------------------------------------RWD--------------------------------------------> */
 
     @media screen and (max-width: 1880px) {
       .restaurant-card:nth-of-type(5) {
@@ -268,312 +272,369 @@
 </head>
 
 <body>
-
+  <!-- <------------------------------------Nav-------------------------------------------->
   <nav>
+    <!-- <------------------------------------蓋版區域-------------------------------------------->
+    <!-- <------------------------------------蓋版區域:nav_sidebar-------------------------------------------->
+    <!-- <------------------------------------nav_sidebar_style-------------------------------------------->
+    <style class="nav_sidebar_style ">
+      .nav_sidebar {
+        position: fixed;
+        top: 0px;
+        left: -300px;
+        /* 初始位置在畫面外 */
+        width: 280px;
+        height: 100vh;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        transition: left 0.3s ease-in-out;
+        z-index: 200;
+      }
+
+      .nav_sidebar.show {
+        left: 0;
+        /* 顯示時移入畫面 */
+      }
+
+      .nav-link {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .nav_sidebar_backgroud {
+        z-index: 190;
+      }
+    </style>
+    <!-- <------------------------------------nav_sidebar_html-------------------------------------------->
+    <!-- nav_sidebar的背景--->
+    <div class="nav_sidebar_backgroud modal modal-sheet position-fixed  " style="background-color: rgba(0, 0, 0, 0.5);">
+    </div>
+    <!-- nav_sidebar的主體--->
     <div class="nav_sidebar">
-      <style class="nav_sidebar_style ">
-        .nav_sidebar {
-          position: fixed;
-          top: 0px;
-          left: -300px;
-          /* 初始位置在畫面外 */
-          width: 300px;
-          height: 100vh;
-          padding: 20px;
-          box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-          transition: left 0.3s ease-in-out;
-          z-index: 1.1;
-        }
-
-        .nav_sidebar.show {
-          left: 0;
-          /* 顯示時移入畫面 */
-        }
-
-        .overlay {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.5);
-          display: none;
-          z-index: 11;
-          /* 預設隱藏 */
-        }
-
-
-
-        .scrollarea {
-          overflow-y: auto;
-        }
-
-        .bd-placeholder-img {
-          font-size: 1.125rem;
-          text-anchor: middle;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          user-select: none;
-        }
-
-        .b-example-divider {
-          height: 3rem;
-          background-color: rgba(0, 0, 0, .1);
-          border: solid rgba(0, 0, 0, .15);
-          border-width: 1px 0;
-          box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-        }
-
-        .b-example-vr {
-          flex-shrink: 0;
-          width: 1.5rem;
-          height: 100vh;
-        }
-
-        .bi {
-          vertical-align: -.125em;
-          fill: currentColor;
-        }
-
-        .nav-scroller {
-          position: relative;
-          z-index: 2;
-          height: 2.75rem;
-          overflow-y: hidden;
-        }
-
-        .nav-scroller {
-          display: flex;
-          flex-wrap: nowrap;
-          padding-bottom: 1rem;
-          margin-top: -1px;
-          overflow-x: auto;
-          text-align: center;
-          white-space: nowrap;
-          -webkit-overflow-scrolling: touch;
-        }
-      </style>
-
-      <svg xmlns="http://www.w3.org/2000/svg">
-        <symbol id="bootstrap" viewBox="0 0 118 94">
-          <title>Bootstrap</title>
-          <path fill-rule="evenodd" clip-rule="evenodd"
-            d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z">
-          </path>
-        </symbol>
-        <symbol id="home" viewBox="0 0 16 16">
-          <path
-            d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z" />
-        </symbol>
-        <symbol id="speedometer2" viewBox="0 0 16 16">
-          <path
-            d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z" />
-          <path fill-rule="evenodd"
-            d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z" />
-        </symbol>
-        <symbol id="table" viewBox="0 0 16 16">
-          <path
-            d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z" />
-        </symbol>
-        <symbol id="people-circle" viewBox="0 0 16 16">
-          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-          <path fill-rule="evenodd"
-            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-        </symbol>
-        <symbol id="grid" viewBox="0 0 16 16">
-          <path
-            d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
-        </symbol>
-        <symbol id="collection" viewBox="0 0 16 16">
-          <path
-            d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z" />
-        </symbol>
-        <symbol id="calendar3" viewBox="0 0 16 16">
-          <path
-            d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" />
-          <path
-            d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
-        </symbol>
-        <symbol id="chat-quote-fill" viewBox="0 0 16 16">
-          <path
-            d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM7.194 6.766a1.688 1.688 0 0 0-.227-.272 1.467 1.467 0 0 0-.469-.324l-.008-.004A1.785 1.785 0 0 0 5.734 6C4.776 6 4 6.746 4 7.667c0 .92.776 1.666 1.734 1.666.343 0 .662-.095.931-.26-.137.389-.39.804-.81 1.22a.405.405 0 0 0 .011.59c.173.16.447.155.614-.01 1.334-1.329 1.37-2.758.941-3.706a2.461 2.461 0 0 0-.227-.4zM11 9.073c-.136.389-.39.804-.81 1.22a.405.405 0 0 0 .012.59c.172.16.446.155.613-.01 1.334-1.329 1.37-2.758.942-3.706a2.466 2.466 0 0 0-.228-.4 1.686 1.686 0 0 0-.227-.273 1.466 1.466 0 0 0-.469-.324l-.008-.004A1.785 1.785 0 0 0 10.07 6c-.957 0-1.734.746-1.734 1.667 0 .92.777 1.666 1.734 1.666.343 0 .662-.095.931-.26z" />
-        </symbol>
-        <symbol id="cpu-fill" viewBox="0 0 16 16">
-          <path d="M6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
-          <path
-            d="M5.5.5a.5.5 0 0 0-1 0V2A2.5 2.5 0 0 0 2 4.5H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2A2.5 2.5 0 0 0 4.5 14v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14a2.5 2.5 0 0 0 2.5-2.5h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14A2.5 2.5 0 0 0 11.5 2V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5zm1 4.5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3A1.5 1.5 0 0 1 6.5 5z" />
-        </symbol>
-        <symbol id="gear-fill" viewBox="0 0 16 16">
-          <path
-            d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
-        </symbol>
-        <symbol id="speedometer" viewBox="0 0 16 16">
-          <path
-            d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2zM3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.389.389 0 0 0-.029-.518z" />
-          <path fill-rule="evenodd"
-            d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.945 11.945 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0z" />
-        </symbol>
-        <symbol id="toggles2" viewBox="0 0 16 16">
-          <path d="M9.465 10H12a2 2 0 1 1 0 4H9.465c.34-.588.535-1.271.535-2 0-.729-.195-1.412-.535-2z" />
-          <path
-            d="M6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm.535-10a3.975 3.975 0 0 1-.409-1H4a1 1 0 0 1 0-2h2.126c.091-.355.23-.69.41-1H4a2 2 0 1 0 0 4h2.535z" />
-          <path d="M14 4a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" />
-        </symbol>
-        <symbol id="tools" viewBox="0 0 16 16">
-          <path
-            d="M1 0L0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z" />
-        </symbol>
-        <symbol id="chevron-right" viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-        </symbol>
-        <symbol id="geo-fill" viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z" />
-        </symbol>
-      </svg>
-
-      <div class="d-flex flex-nowrap">
-
-        <div class="b-example-divider b-example-vr"></div>
-
-        <aside class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-          <div class="dropdown" style="width: 100%;">
-            <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-              <strong>mdo</strong>
-            </a>
-            <ul class="dropdown-menu text-small shadow">
-              <li><a class="dropdown-item" href="#">New project...</a></li>
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
-            </ul>
+      <aside class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;height: 100vh;">
+        <!-- <-----------------------------------頭像-------------------------------------------->
+        <div class="nav_sidebar_account w-100 gap-1" style="display: flex; flex-direction: row; align-items: center;">
+          <img src="./resource/landing_page/nav/avatar-user.png" style="width:40px" height="40"
+            class="rounded-circle me-2">
+          <div class="column w-75 h-75">
+            <strong class="user-name " style="width:120px;">LieShin-Mu</strong>
+            <p class="text-primary" style="width:120px;">帳號管理</p>
           </div>
-          <hr>
-          <ul class="nav nav-pills flex-column mb-auto">
-            <li class="nav-item">
-              <a href="#" class="nav-link active" aria-current="page">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#home" />
-                </svg>
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link link-dark">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#speedometer2" />
-                </svg>
-                Dashboard
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link link-dark">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#table" />
-                </svg>
-                Orders
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link link-dark">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#grid" />
-                </svg>
-                Products
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link link-dark">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#people-circle" />
-                </svg>
-                Customers
-              </a>
-            </li>
-          </ul>
-          <hr>
-          <ul class="nav nav-pills flex-column mb-auto">
+        </div>
+        <hr>
+        <!-- <-----------------------------------nav_sidebar_content-------------------------------------------->
+        <!-- <------------------------------------nav_sidebar_core-functions-------------------------------------------->
+        <ul class="nav  flex-column mb-2 gap-3">
+          <li>
+            <a href="#" class="nav-link link-dark">
+              <svg xmlns="http://www.w3.org/2000/svg" style="width:16px" height="16" fill="currentColor"
+                class="bi bi-bookmark" viewBox="0 0 16 16">
+                <path d="M2 2v13.5l6-3 6 3V2z" />
+              </svg>
+              訂單
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-dark">
+              <svg xmlns="http://www.w3.org/2000/svg" style="width:16px" height="16" fill="currentColor"
+                class="bi bi-heart-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+              </svg>
+              收藏餐廳
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-dark">
+              <svg xmlns="http://www.w3.org/2000/svg" style="width:16px" height="16" fill="currentColor"
+                class="bi bi-wallet-fill" viewBox="0 0 16 16">
+                <path
+                  d="M1.5 2A1.5 1.5 0 0 0 0 3.5v2h6a.5.5 0 0 1 .5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542s.987-.254 1.194-.542C9.42 6.644 9.5 6.253 9.5 6a.5.5 0 0 1 .5-.5h6v-2A1.5 1.5 0 0 0 14.5 2z" />
+                <path
+                  d="M16 6.5h-5.551a2.7 2.7 0 0 1-.443 1.042C9.613 8.088 8.963 8.5 8 8.5s-1.613-.412-2.006-.958A2.7 2.7 0 0 1 5.551 6.5H0v6A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5z" />
+              </svg>
+              錢包
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-dark">
+              <svg xmlns="http://www.w3.org/2000/svg" style="width:16px" height="16" fill="currentColor"
+                class="bi bi-ticket-perforated-fill" viewBox="0 0 16 16">
+                <path
+                  d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6zm4-1v1h1v-1zm1 3v-1H4v1zm7 0v-1h-1v1zm-1-2h1v-1h-1zm-6 3H4v1h1zm7 1v-1h-1v1zm-7 1H4v1h1zm7 1v-1h-1v1zm-8 1v1h1v-1zm7 1h1v-1h-1z" />
+              </svg>
+              優惠
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-dark">
+              <svg xmlns="http://www.w3.org/2000/svg" style="width:16px" height="16" fill="currentColor"
+                class="bi bi-gear-fill" viewBox="0 0 16 16">
+                <path
+                  d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
+              </svg>
+              設定
+            </a>
+          </li>
+        </ul>
+        <hr>
+        <!-- <------------------------------------nav_sidebar_different_persona-------------------------------------------->
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li>
+            <a href="#" class="nav-link link-dark">
+              註冊成為外送夥伴
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-dark">
+              建立企業帳號
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-dark">
+              新增您的餐廳
+            </a>
+          </li>
+        </ul>
+        <!-- <------------------------------------nav_sidebar_log_out-------------------------------------------->
+        <hr>
+        <a class="dropdown-item mx-3 mb-3 text-muted fs-5" href="#">登出</a>
+      </aside>
 
-            <li>
-              <a href="#" class="nav-link link-dark">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#speedometer2" />
-                </svg>
-                Dashboard
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link link-dark">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#table" />
-                </svg>
-                Orders
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link link-dark">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#grid" />
-                </svg>
-                Products
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link link-dark">
-                <svg class="bi pe-none me-2" width="16" height="16">
-                  <use xlink:href="#people-circle" />
-                </svg>
-                Customers
-              </a>
-            </li>
-          </ul>
-        </aside>
-
-
-      </div>
-      <div id="overlay" class="overlay"></div>
-      <script class="nav_script">
-
-        document.addEventListener("DOMContentLoaded", () => {
-          const svgMenu = document.querySelector(".svg_menu");
-          const navSidebar = document.querySelector(".nav_sidebar");
-          const overlay = document.querySelector(".overlay");
-
-          if (svgMenu && navSidebar && overlay) {
-            // 點擊SVG圖標顯示側邊欄
-            svgMenu.addEventListener("click", (event) => {
-              svgMenu.style.display = "none"; // 隱藏 SVG 圖標
-              navSidebar.classList.add("show"); // 顯示側邊欄
-              overlay.classList.add("active"); // 顯示遮罩層
-              event.stopPropagation(); // 阻止事件冒泡
-            });
-
-            // 點擊遮罩層關閉側邊欄
-            overlay.addEventListener("click", () => {
-              navSidebar.classList.remove("show"); // 隱藏側邊欄
-              overlay.classList.remove("active"); // 隱藏遮罩層
-              svgMenu.style.display = "block"; // 恢復 SVG 圖標
-            });
-
-            // 點擊空白處也關閉側邊欄
-            document.addEventListener("click", () => {
-              navSidebar.classList.remove("show");
-              overlay.classList.remove("active");
-              svgMenu.style.display = "block";
-            });
-          } else {
-            console.error("Missing one or more required DOM elements.");
-          }
-        });
-      </script>
     </div>
 
+
+    <!-- <------------------------------------nav_sidebar_script-------------------------------------------->
+
+    <script class="nav_sidebar_script">
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const svgMenus = document.getElementsByClassName("svg_menu");
+        const navSidebar = document.querySelector(".nav_sidebar");
+        const navSidebarBackgroud = document.querySelector(".nav_sidebar_backgroud");
+
+
+
+        if (svgMenus && navSidebar && navSidebarBackgroud) {
+          Array.from(svgMenus).forEach((svgMenu) => {
+            // 點擊SVG圖標顯示側邊欄
+            svgMenu.addEventListener("click", (event) => {
+              navSidebarBackgroud.style.display = "block";
+              event.stopPropagation(); // 阻止事件冒泡
+              navSidebar.classList.add("show");
+
+            });
+          });
+
+
+          // 點擊空白處也關閉側邊欄
+          document.addEventListener("click", () => {
+            navSidebar.classList.remove("show");
+            navSidebarBackgroud.style.display = "none";
+            event.stopPropagation(); // 阻止事件冒泡
+          });
+        }
+      });
+
+    </script>
+
+    <!-- <------------------------------------蓋版區域:address_popup-------------------------------------------->
+    <!-- <------------------------------------address_popup_style-------------------------------------------->
+    <style class="nav_address_popup_style">
+      .nav_address_popup {
+        display: none;
+      }
+
+      .address_row {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .address_row_right,
+      .address_row_left {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: auto;
+      }
+
+      .address_column {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .feature-tag {
+        align-self: stretch;
+        border-radius: 20px;
+        background: light;
+        gap: 4px;
+        margin: auto 0;
+        width: fit-content;
+        padding: 4px 12px;
+
+      }
+    </style>
+    <!-- <------------------------------------address_popup_html-------------------------------------------->
+    <div class="nav_address_popup">
+      <div class="modal modal-sheet position-fixed d-block py-5" tabindex="-1" role="dialog" id="modalSheet"
+        style="background-color: rgba(0, 0, 0, 0.5);">
+        <div class=" modal-content modal-dialog rounded-4 shadow  " role="document">
+          <!-- <------------------------------------Title-------------------------------------------->
+          <div class="modal-header w-100">
+            <h1 class="modal-title fs-5 fw-bold w-75">地址編輯</h1>
+            <button type="button" class="address_popup_close btn-close me-0" data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <!-- <------------------------------------Content-------------------------------------------->
+          <!-- <------------------------------------Content:adress-default-------------------------------------------->
+          <div class="address_row  p-2 px-3 bg bg-light ">
+            <div class="address_row_left gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" style="width:24px" height="24" fill="currentColor"
+                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+              </svg>
+              <div class="address_column d-flex">
+                <span class=" fs-6 fw-bold  text-primary">公司</span>
+                <span class=" fw-light text-primary">台北市大安區大安森林公園東三門出口</span>
+              </div>
+            </div>
+            <div class="address_row_right">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                class="bi bi-pencil-square text-secondary" viewBox="0 0 16 16">
+                <path
+                  d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                <path fill-rule="evenodd"
+                  d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+              </svg>
+            </div>
+          </div>
+          <!-- <------------------------------------Content:address-alternative--------------------------------------------->
+          <div class="address_row  p-2 px-3">
+            <div class="address_row_left gap-2">
+              <svg class="bi bi-geo-alt" xmlns="http://www.w3.org/2000/svg" style="width:24px;" height="24"
+                fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+              </svg>
+              <div class="address_column d-flex">
+                <span class=" fs-6 fw-bold">租屋</span>
+                <span class=" text-small text-muted">新北市板橋區文化路二段168號</span>
+              </div>
+            </div>
+            <div class="address_row_right">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                class="bi bi-pencil-square text-secondary" viewBox="0 0 16 16">
+                <path
+                  d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                <path fill-rule="evenodd"
+                  d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+              </svg>
+            </div>
+          </div>
+          <!-- <------------------------------------Content:address-alternative2--------------------------------------------->
+          <div class="address_row  p-2 px-3 ">
+            <div class="address_row_left gap-2">
+              <svg class="bi bi-geo-alt" xmlns="http://www.w3.org/2000/svg" style="width:24px;" height="24"
+                fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+              </svg>
+              <div class="address_column d-flex">
+                <span class=" fs-6 fw-bold">老家</span>
+                <span class=" text-small text-muted">台中市西屯區台灣大道三段200號</span>
+              </div>
+            </div>
+            <div class="address_row_right">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                class="bi bi-pencil-square text-secondary" viewBox="0 0 16 16">
+                <path
+                  d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                <path fill-rule="evenodd"
+                  d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+              </svg>
+            </div>
+          </div>
+          <!-- <------------------------------------Content:address-alternative3--------------------------------------------->
+          <div class="address_row  p-2 px-3 ">
+            <div class="address_row_left gap-2">
+              <svg class="bi bi-geo-alt" xmlns="http://www.w3.org/2000/svg" style="width:24px;" height="24"
+                fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+              </svg>
+              <div class="address_column">
+                <span class=" fs-6 fw-bold">別墅</span>
+                <span class=" text-small text-muted">台南市東區大同路二段50巷12號</span>
+              </div>
+            </div>
+            <div class="address_row_right">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                class="bi bi-pencil-square text-secondary" viewBox="0 0 16 16">
+                <path
+                  d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                <path fill-rule="evenodd"
+                  d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+              </svg>
+            </div>
+          </div>
+          <hr>
+          <!-- <------------------------------------Sub-Title-------------------------------------------->
+          <div class=" w-100 mx-3">
+            <h1 class=" fs-5 fw-bold w-75 tex">時間偏好設定</h1>
+          </div>
+          <!-- <------------------------------------Content:timeset-default-------------------------------------------->
+          <div class="address_row  p-2 px-3 mb-3  ">
+            <div class="address_row_left gap-2 ">
+              <svg xmlns="http://www.w3.org/2000/svg" style="width:22px" height="22" fill="currentColor"
+                class="bi bi-clock" viewBox="0 0 16 16">
+                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+              </svg>
+              <span class=" fs-6 fw-bold te ">立刻送達</span>
+
+            </div>
+            <div class="address_row_right">
+              <div class="feature-tag ">時間設定</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <------------------------------------address_popup_script-------------------------------------------->
+    <script class="address_popup_script">
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const navRows = document.getElementsByClassName("nav_row");//有兩個
+        const navAddressPopup = document.querySelector(".nav_address_popup");
+        const addressPopupClose = document.querySelector(".address_popup_close");
+
+
+        if (navRows.length > 0 && navAddressPopup && addressPopupClose) {
+          // 點擊SVG圖標顯示側邊欄
+          Array.from(navRows).forEach((navRow) => {
+            navRow.addEventListener("click", (event) => {
+              event.stopPropagation(); // 防止事件冒泡
+              navAddressPopup.style.display = "block";
+            });
+          });
+
+          // 點擊close層關閉側邊欄
+          addressPopupClose.addEventListener("click", () => {
+            navAddressPopup.style.display = "none";
+            event.stopPropagation(); // 防止事件冒泡
+          });
+
+          // 點擊空白處也關閉側邊欄
+          document.addEventListener("click", () => {
+            navAddressPopup.style.display = "none";
+          });
+        }
+      });
+    </script>
+    <!-- <------------------------------------nav_style-------------------------------------------->
     <style class="nav_style">
       /* .nav_sidebar {
         display: none;
@@ -745,7 +806,7 @@
         }
       }
     </style>
-
+    <!-- <------------------------------------nav_web&pad-------------------------------------------->
     <nav class="nav nav_web">
       <div class="nav_left">
         <svg class="svg_menu" xmlns="http://www.w3.org/2000/svg" style="width: auto;flex-shrink: 0;" height="20"
@@ -849,12 +910,38 @@
         <p class="number_hint number_hint_sort rounded"></p>
       </div>
     </nav>
+    <!-- <------------------------------------nav_script-------------------------------------------->
+    <script class="nav_script">
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const logos = document.getElementsByClassName("logo");
+
+
+
+
+        if (logos) {
+          Array.from(logos).forEach((logo) => {
+
+            logo.addEventListener("click", (event) => {
+
+              window.location.href = "http://127.0.0.1:5501/Project_EatNow/B.Landing_Page.html";
+            });
+          });
+
+        }
+      });
+
+    </script>
+
   </nav>
 
-
+  <!-- <------------------------------------Header-------------------------------------------->
   <header><span class="headertext">在城市中探索美食，找尋你的美好食光</span></header>
+  <!-- <------------------------------------Main-------------------------------------------->
   <section class="main d-flex">
+    <!-- <------------------------------------Aside-------------------------------------------->
     <aside class="aside_sidebar">
+      <!-- <------------------------------------快速篩選-------------------------------------------->
       <div class="fastchoosing">
         <h3 class="mb-3 fw-bold">快速篩選</h3>
         <div style="display: flex; gap: 16px; width: fit-content;padding-bottom:8px;">
@@ -906,6 +993,7 @@
         </div>
       </div>
       <hr style="opacity: 0.2;">
+      <!-- <------------------------------------排序方式-------------------------------------------->
       <div class="arrangement">
         <h3 class="mb-3 fw-bold ">排序方式</h3>
         <div style="display: flex; align-items: center">
@@ -930,6 +1018,7 @@
 
       </div>
       <hr style="opacity: 0.2;">
+      <!-- <------------------------------------價格範圍-------------------------------------------->
       <div class="pricerange">
         <h3 class="mb-3 fw-bold">價格範圍</h3>
         <div style="display: flex; gap: 12px; width: fit-content;">
@@ -941,6 +1030,7 @@
         </div>
       </div>
       <hr style="opacity: 0.2;">
+      <!-- <------------------------------------評分-------------------------------------------->
       <div class="rating">
         <h3 class="mb-3 fw-bold">評分</h3>
         <div class="d-flex" style="align-items:center;">
@@ -1094,6 +1184,7 @@
         </div>
       </div>
       <hr style="opacity: 0.2;">
+      <!-- <------------------------------------美食種類-------------------------------------------->
       <div class="sidebar_category">
         <h3 class="mb-3 fw-bold">美食種類</h3>
 
@@ -1132,12 +1223,26 @@
         </div>
       </div>
     </aside>
+    <!-- <------------------------------------餐廳選擇區域-------------------------------------------->
     <section class="selection  d-flex">
-
+      <!-- <------------------------------------優惠券-------------------------------------------->
       <section class="coupon" style="display: flex; flex-wrap: nowrap;justify-content: flex-start;">
-        <button class="scroll-left scroll-left-coupon" aria-label="Scroll Left">◀</button>
-        <button class="scroll-right scroll-right-coupon" aria-label="Scroll Right">▶</button>
-        <div class="coupon_group">
+
+        <!-- <------------------------------------左右controls-------------------------------------------->
+        <button class="scroll-left scroll-left-coupon" aria-label="Scroll Left"><svg xmlns="http://www.w3.org/2000/svg"
+            width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16"
+            style="stroke:black; stroke-width:1;">
+            <path fill-rule="evenodd"
+              d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+          </svg></button>
+        <button class="scroll-right scroll-right-coupon" aria-label="Scroll Right"><svg
+            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right"
+            viewBox="0 0 16 16" style="stroke:black; stroke-width:1;">
+            <path fill-rule="evenodd"
+              d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+          </svg></button>
+        <!-- <------------------------------------優惠券Row-------------------------------------------->
+        <div class="coupon_group p-1 ps-3">
           <img class="coupon_img img-fluid" src="./resource/landing_page/selection/coupon/banner.png" style="width: 440px;
 height: 186px; margin-right:24px  ;">
           <img class="coupon_img img-fluid" src="./resource/landing_page/selection/coupon/banner-1.png" style="width: 440px;
@@ -1148,6 +1253,7 @@ height: 186px; margin-right:24px ;">
 height: 186px; margin-right:24px ;">
       </section>
       </div>
+      <!-- <------------------------------------種類推薦-------------------------------------------->
       <section class="categoryrecommend" style="display: flex; text-wrap: nowrap;height:fit-content;">
         <style class="categoryrecommend">
           .restaurant-categories {
@@ -1168,6 +1274,7 @@ height: 186px; margin-right:24px ;">
             /* 防止内容换行 */
             flex: 1;
             scrollbar-width: none;
+
 
 
           }
@@ -1212,9 +1319,15 @@ height: 186px; margin-right:24px ;">
             border: 0;
           }
         </style>
-
-        <button class="scroll-left  scroll-left-categoryrecommend" aria-label="Scroll Left">◀</button>
-        <div class="restaurant-categories" aria-label="Restaurant Categories" style="height: fit-content;">
+        <!-- <------------------------------------左controls-------------------------------------------->
+        <button class="scroll-left  scroll-left-categoryrecommend" aria-label="Scroll Left"><svg
+            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
+            viewBox="0 0 16 16" style="stroke:black; stroke-width:1;">
+            <path fill-rule="evenodd"
+              d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+          </svg></button>
+        <!-- <------------------------------------餐廳種類-------------------------------------------->
+        <div class="restaurant-categories py-1 px-3" aria-label="Restaurant Categories" style="height: fit-content;">
 
           <article class="category-item">
             <img
@@ -1288,8 +1401,15 @@ height: 186px; margin-right:24px ;">
             <h2 class="category-name">伊斯蘭風</h2>
           </article>
         </div>
-        <button class="scroll-right scroll-right-categoryrecommend" aria-label="Scroll Right">▶</button>
+        <!-- <------------------------------------右controls-------------------------------------------->
+        <button class="scroll-right scroll-right-categoryrecommend" aria-label="Scroll Right"><svg
+            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right"
+            viewBox="0 0 16 16" style="stroke:black; stroke-width:1;">
+            <path fill-rule="evenodd"
+              d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+          </svg></button>
       </section>
+      <!-- <------------------------------------餐廳-------------------------------------------->
       <style class="restaurant">
         .price-text {
           color: var(--Primary-Varients-500, #de5555);
@@ -1576,6 +1696,7 @@ height: 186px; margin-right:24px ;">
           height: 40px;
         }
       </style>
+      <!-- <------------------------------------火速送達區-------------------------------------------->
       <section class="selection_group fastDeliver">
         <div class="header-bar mt-1">
           <div class="section-title" style="width: auto;">火速送達</div>
@@ -1787,15 +1908,11 @@ height: 186px; margin-right:24px ;">
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/cf9a0418f0b93f7b08071b68cf2bed3eccec8ddd150298ffb9a2f432495167bf?apiKey=29bdb496da09449eb579968368248119&"
               alt="Add to Favorites" class="favorite-icon" />
           </div>
-
-
-
         </div>
-        </div>
-
       </section>
+      <!-- <------------------------------------專屬推薦區-------------------------------------------->
       <section class="selection_group recommend">
-
+        <!-- <------------------------------------標題-------------------------------------------->
         <div class="header-bar">
           <div class="section-title" style="width: auto;">專屬推薦</div>
           <div class="view-more-wrapper" style="width: auto;">
@@ -1805,6 +1922,7 @@ height: 186px; margin-right:24px ;">
               alt="" class="view-more-icon" />
           </div>
         </div>
+        <!-- <------------------------------------卡片Row-------------------------------------------->
         <div class="restaurant-row">
           <div class="restaurant-card">
             <img
@@ -2012,7 +2130,9 @@ height: 186px; margin-right:24px ;">
 
 
       </section>
+      <!-- <------------------------------------優惠方案區-------------------------------------------->
       <section class="selection_group  goodPrice">
+        <!-- <------------------------------------標題-------------------------------------------->
         <div class="header-bar">
           <div class="section-title" style="width: auto;">優惠方案</div>
           <div class="view-more-wrapper" style="width: auto;">
@@ -2022,6 +2142,7 @@ height: 186px; margin-right:24px ;">
               alt="" class="view-more-icon" />
           </div>
         </div>
+        <!-- <------------------------------------卡片Row-------------------------------------------->
         <div class="restaurant-row">
           <div class="restaurant-card">
             <img
@@ -2231,8 +2352,9 @@ height: 186px; margin-right:24px ;">
         </div>
 
       </section>
-
+      <!-- <------------------------------------全部區-------------------------------------------->
       <section class="selection_group  all">
+        <!-- <------------------------------------標題-------------------------------------------->
         <div class="header-bar">
           <div class="section-title" style="width: auto;">全部餐廳</div>
           <div class="view-more-wrapper" style="width: auto;">
@@ -2242,6 +2364,7 @@ height: 186px; margin-right:24px ;">
               alt="" class="view-more-icon" />
           </div>
         </div>
+        <!-- <------------------------------------卡片Row-------------------------------------------->
         <div class="restaurant-row">
           <div class="restaurant-card">
             <img src="./resource/landing_page/selection/restaurant/image.png" alt="Roots Eatery restaurant"
@@ -2445,11 +2568,12 @@ height: 186px; margin-right:24px ;">
           </div>
         </div>
       </section>
-
     </section>
   </section>
+  <!-- <------------------------------------Footer-------------------------------------------->
   <footer>
-    <style>
+    <!-- <------------------------------------footer_style-------------------------------------------->
+    <style class="footer_style">
       .footer {
         background: var(--Primary-Varients-800, #8d2727);
         width: 100%;
@@ -2672,6 +2796,7 @@ height: 186px; margin-right:24px ;">
     </style>
 
     <div class="footer">
+      <!-- <------------------------------------scroll-top/back-to-top-------------------------------------------->
       <a class="scroll-top" href="#">
         <button class="scroll-top" aria-label="Scroll to top">
           <img loading="lazy"
@@ -2679,6 +2804,7 @@ height: 186px; margin-right:24px ;">
             class="scroll-icon" />
         </button>
       </a>
+      <!-- <------------------------------------footer-content-------------------------------------------->
       <div class="footer-content">
         <div class="footer-wrapper">
 
@@ -2777,8 +2903,6 @@ height: 186px; margin-right:24px ;">
 
     // 調用函數
     addClickEvent();
-
-
     // <------------------------------------多選按鈕-------------------------------------------->
     const buttons = document.querySelectorAll('.aside_sidebar button');
 
@@ -2799,7 +2923,7 @@ height: 186px; margin-right:24px ;">
       }
 
       // 获取单个文章的宽度（包括间距）
-      const itemWidth = scrollContainer.querySelector(".coupon_img").offsetWidth + 40; // 16 是 gap 的值
+      const itemWidth = scrollContainer.querySelector(".coupon_img").offsetWidth + 1000;
 
       // 向左滚动
       scrollLeftButton.addEventListener("click", () => {
@@ -2825,7 +2949,7 @@ height: 186px; margin-right:24px ;">
       }
 
       // 获取单个文章的宽度（包括间距）
-      const itemWidth = scrollContainer.querySelector(".category-item").offsetWidth + 16; // 16 是 gap 的值
+      const itemWidth = scrollContainer.querySelector(".category-item").offsetWidth + 1000;
 
       // 向左滚动
       scrollLeftButton.addEventListener("click", () => {
