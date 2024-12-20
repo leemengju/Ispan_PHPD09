@@ -58,8 +58,8 @@
 
         }
 
-        /* <------------------------------------Header_map--------------------------------------------> */
-        .header_map_group {
+        /* <------------------------------------Header_mask--------------------------------------------> */
+        .header_mask_group {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -68,24 +68,24 @@
             align-items: center;
         }
 
-        .header_map_x {
+        .header_mask_x {
             position: absolute;
             width: 20%;
             height: 100%;
             background-color: none;
         }
 
-        .header_map_left {
+        .header_mask_left {
             left: 0;
             background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
         }
 
-        .header_map_right {
+        .header_mask_right {
             right: 0;
             background: linear-gradient(to left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
         }
 
-        .header_map_top {
+        .header_mask_top {
             position: absolute;
             width: 100%;
             height: 5%;
@@ -231,7 +231,9 @@
 
         }
 
-       
+        .delivery-toggle-takeOut {
+            display: none;
+        }
 
         .toggle-active {
             border-radius: 100px;
@@ -275,7 +277,7 @@
             display: flex;
             width: 100%;
             align-items: flex-start;
-            gap: var(--spacing-2xl, 40px);
+            gap: 20px;
 
         }
 
@@ -288,7 +290,48 @@
 
         }
 
+        #stepper_block_商家資訊 {
+            display: none;
+        }
+
+        .stepper_block {
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+            width: fit-content;
+            padding: 2px 8px 0px;
+        }
+
+        .stepper_block:hover {
+            background-color: #FBE5E5;
+            border-radius: 4px;
+        }
+
+        .stepper_block:hover .stepper_underline_default {
+            background-color: #CA3838;
+        }
+
+        .stepper_name_active {
+            color: #CA3838;
+        }
+
+        .stepper_name_default {
+            color: #7F7F7F;
+        }
+
+        .stepper_underline_active {
+            background-color: #CA3838;
+        }
+
+        .stepper_underline_default {
+            background-color: transparent;
+        }
+
         /* <------------------------------------餐點區域--------------------------------------------> */
+        #Shop_Address {
+            display: none;
+        }
+
         .address-grid {
             display: flex;
             flex-direction: row;
@@ -297,7 +340,6 @@
             white-space: wrap;
             text-wrap: wrap;
             gap: 20px;
-
             width: 100%;
         }
 
@@ -306,7 +348,17 @@
         }
 
         .shop_address {
+            width: 40%;
             font-size: 20px;
+        }
+
+        .shop_map {
+            border-radius: 4px;
+        }
+
+        .shop_map:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
         }
 
         /* 每一區餐點種類的外框 */
@@ -368,7 +420,6 @@
             width: 100%;
             align-items: start;
             gap: 24px;
-            font-size: 16px;
             font-weight: 700;
             justify-content: start;
             flex-wrap: wrap;
@@ -379,13 +430,18 @@
             border-radius: 20px;
             border: 1px solid var(--Text-300, #b0b0b0);
             display: flex;
-            min-width: 240px;
             gap: 24px;
             justify-content: start;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             flex-grow: 1;
-            width: 464px;
             padding: 24px;
+            width: 436px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            background-color: #FBE5E5;
         }
 
         .product-info {
@@ -409,44 +465,144 @@
         .product-description {
             color: rgba(102, 112, 133, 1);
             font-weight: 400;
-            line-height: 24px;
+            font-size: 22px;
+            line-height: auto;
             margin-top: 4px;
             white-space: wrap;
+            display: -webkit-box;
+            /* 啟用多行文本的限制模式。 */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            /* 隱藏超出限制的內容。 */
+            text-overflow: ellipsis;
+            /* 用省略號替代超出的文本。 */
+            -webkit-line-clamp: 3;
+            /* 限制顯示三行 */
+        }
+
+        /*<---------------------------------------Product_Img-----------------------------------------> */
+        
+        .quantity-counter {
+            /* border: #CA3838 2px solid; */
+            position: absolute;
+            right: 6%;
+            bottom: 5%;
+            align-self: stretch;
+            display: flex;
+            align-items: center;
+            gap: -2px;
+            width: fit-content;
+            z-index: 2;
+            border-radius: 24px;
+            /* background-color: #fff;
+            border: #B0B0B0 solid 1px;
+            */
+        }
+
+        .counter-button {
+            border-radius: 100px;
+            background-color: #fff;
+            border: #B0B0B0 solid 1px;
+            /* border: #ffffff solid 1px; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            margin: auto 0;
+        }
+
+        .counter-button-decrease {
+            visibility: hidden;
+            z-index: 2;
+        }
+
+        .counter-icon {
+            stroke-width: 0.5;
+            width: 24px;
+            height: 24px;
+            stroke: #CA3838;
+            fill: #CA3838;
+            overflow: visible;
+
+
+        }
+
+        .quantity-number {
+            visibility: hidden;
+            align-self: stretch;
+            color: #101828;
+            text-align: center;
+            margin: auto 0;
+            padding: 0 10px;
+            font: 700 20px/1.6 Noto Sans TC, -apple-system, Roboto, Helvetica, sans-serif;
+            z-index: 2;
         }
 
         .product-image {
+            position: relative;
             aspect-ratio: 1;
-            object-fit: contain;
-            object-position: center;
+            object-fit: cover;
             width: 140px;
+            height:140px;
             border-radius: 12px;
         }
 
         /*<---------------------------------------RWD-----------------------------------------> */
 
-        
+
+
+        @media screen and (max-width:1800px) {
+            .product-description {
+                font-size: 18px;
+                width: 90%;
+            }
+        }
 
         @media screen and (max-width:1280px) {
             main {
                 padding: 40px 80px 24px 80px;
             }
-
         }
+
         @media screen and (max-width:1200px) {
+            .shop_location {
+                font-size: 16px;
+            }
+
+            .shop_address {
+                font-size: 16px;
+            }
+
             .shop_map {
-             width:100%;   
+                width: 100%;
             }
         }
 
-        @media (max-width: 991px) {
 
-            .featured-section,
-            .header-container,
-            .header-title-wrapper,
-            .subtitle,
-            .products-grid {
-                max-width: 100%;
-                white-space: initial;
+        @media screen and (max-width:1100px) {
+            main {
+                padding: 40px 40px 24px 40px;
+            }
+
+            .address-grid {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .shop_address {
+                width: 80%;
+            }
+
+        }
+
+        @media (max-width: 991px) {
+            .store-container {
+                flex-direction: column;
+            }
+
+            .product-description {
+                font-size: 18px;
             }
 
             .store-name {
@@ -461,11 +617,52 @@
             }
 
             .product-card {
-                display: flex;
-                max-width: 100%;
-                white-space: initial;
-                padding: 12px 20px;
-                height: 100%;
+                border: none;
+                border-bottom: 1px solid #b0b0b0;
+                border-radius: 0px;
+                padding: 0px 0px 16px;
+            }
+
+        }
+
+        @media screen and (max-width: 480px) {
+            main {
+                padding: 16px 16px 16px;
+
+            }
+
+            .product-card {
+                gap: 8px;
+
+            }
+
+            .product-name {
+                font-size: 18px;
+                line-height: 1.6;
+            }
+
+            .product-description {
+                font-size: 14px;
+                line-height: 20px;
+                width: 90%;
+                display: -webkit-box;
+                /* 啟用多行文本的限制模式。 */
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                /* 隱藏超出限制的內容。 */
+                text-overflow: ellipsis;
+                /* 用省略號替代超出的文本。 */
+                -webkit-line-clamp: 2;
+                /* 限制顯示三行 */
+
+
+
+            }
+
+            .product-image {
+                aspect-ratio: 1;
+                width: 100px;
+                border-radius: 8px;
             }
 
         }
@@ -1190,12 +1387,12 @@
                 </button>
             </div>
         </div>
-        <div class="header_map_group">
-            <div class="header_map_x header_map_left">
+        <div class="header_mask_group">
+            <div class="header_mask_x header_mask_left">
             </div>
-            <div class="header_map_x header_map_right">
+            <div class="header_mask_x header_mask_right">
             </div>
-            <div class="header_map_y header_map_top">
+            <div class="header_mask_y header_mask_top">
             </div>
         </div>
 
@@ -1215,7 +1412,7 @@
 
             <div class="store-container">
                 <div class="store-info">
-                    <h1 class="store-name">Flavor Factory 義大利小館</h1>
+                    <h1 class="store-name" id="store-name">Flavor Factory 義大利小館</h1>
                     <div class="info-list">
                         <div class="info-item">
                             <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d74ea16c45ad2f1235c6ef705acd5acc3e81dfec023fddde2da7acfba4100659?placeholderIfAbsent=true&apiKey=29bdb496da09449eb579968368248119"
@@ -1270,31 +1467,39 @@
             <div class="stepper-dividor"
                 style="position: absolute; margin-top: 33px; display:flex; height: 2px; align-self:stretch; background-color:#D0D5DD;">
             </div>
-            <div class="stepper_block " style="display:flex ;flex-direction:column;gap:4px; width:72px; ">
-                <div class="stepper_name_active" style="color:#CA3838 ; white-space:nowrap; width:auto;">人氣精選</div>
-                <div style="display: flex; height: 2px; align-self:stretch; background-color:#CA3838 ;"></div>
-            </div>
-            <div class="stepper_block " style="display:flex ;flex-direction:column;gap:4px; width:72px; ">
-                <div class="stepper_name_active" style="color:#7F7F7F ; white-space:nowrap; width:auto;">義大利麵</div>
-                <!-- <div style="display: flex; height: 2px; align-self:stretch; background-color:#D0D5DD;"></div> -->
-            </div>
-            <div class="stepper_block " style="display:flex ;flex-direction:column;gap:4px; width: 36px; ">
-                <div class="stepper_name_active" style="color:#7F7F7F ; white-space:nowrap; width:auto;">燉飯</div>
-                <!-- <div style="display: flex; height: 2px; align-self:stretch; background-color:#D0D5DD;"></div> -->
-            </div>
-            <div class="stepper_block " style="display:flex ;flex-direction:column;gap:4px; width: 36px; ">
-                <div class="stepper_name_active" style="color:#7F7F7F ; white-space:nowrap; width:auto;">披薩</div>
-                <!-- <div style="display: flex; height: 2px; align-self:stretch; background-color:#D0D5DD;"></div> -->
-            </div>
-            <div class="stepper_block " style="display:flex ;flex-direction:column;gap:4px; width: 36px; ">
-                <div class="stepper_name_active" style="color:#7F7F7F ; white-space:nowrap; width:auto;">飲料</div>
-                <!-- <div style="display: flex; height: 2px; align-self:stretch; background-color:#D0D5DD;"></div> -->
-            </div>
+            <a href=" #Shop_Address" id="stepper_block_商家資訊" class="text-decoration-none stepper_block ">
+                <div id="stepper_name_商家資訊" class="stepper_name_active" style=" white-space:nowrap; width:auto;">商家資訊
+                </div>
+                <div id="stepper_underline_商家資訊" class="stepper_underline_active"
+                    style="display: flex; height: 2px; align-self:stretch; "></div>
+            </a>
+            <a href="#Popular" id="stepper_block_人氣精選" class="text-decoration-none stepper_block ">
+                <div id="stepper_name_人氣精選" class="stepper_name_active" style=" white-space:nowrap; width:auto;">人氣精選
+                </div>
+                <div id="stepper_underline_人氣精選" class="stepper_underline_active"
+                    style="display: flex; height: 2px; align-self:stretch; "></div>
+            </a>
+            <a href="#Spaghetti" class="text-decoration-none stepper_block ">
+                <div class="stepper_name_default" style=" white-space:nowrap; width:auto;">義大利麵</div>
+                <div class="stepper_underline_default" style="display: flex; height: 2px; align-self:stretch; "></div>
+            </a>
+            <a href="#Rice" class="text-decoration-none stepper_block ">
+                <div class="stepper_name_default" style=" white-space:nowrap; width:auto;">燉飯</div>
+                <div class="stepper_underline_default" style="display: flex; height: 2px; align-self:stretch; "></div>
+            </a>
+            <a href=" #Pizza" class="text-decoration-none stepper_block ">
+                <div class="stepper_name_default" style=" white-space:nowrap; width:auto;">披薩</div>
+                <div class="stepper_underline_default" style="display: flex; height: 2px; align-self:stretch; "></div>
+            </a>
+            <a href=" #Drink" class="text-decoration-none stepper_block ">
+                <div class="stepper_name_default" style=" white-space:nowrap; width:auto;">飲料</div>
+                <div class="stepper_underline_default" style="display: flex; height: 2px; align-self:stretch; "></div>
+            </a>
 
 
         </section>
 
-        <section class="Shop_Address">
+        <section id="Shop_Address">
             <div class="featured-section">
                 <div class="header-container">
                     <div class="header-title-wrapper">
@@ -1305,16 +1510,17 @@
                 </div>
                 <div class="address-grid mt-3">
                     <div class="shop_location fw-bold" style="width: 80px;">店鋪位置</div>
-                    <div class=" shop_address text-muted" style="display:flex ;width: 40%; flex-wrap: wrap;">No. 164,
+                    <div class=" shop_address text-muted" style="display:flex ; flex-wrap: wrap;">No.
+                        164,
                         Section 2, Dunhua South Road, Da’an District, Taipei
                         City, Taiwan 106</div>
-                    <img class="shop_map img-fluid" src="./resource/restaurant_page/map.png">
+                    <img class="shop_map img-fluid " src="./resource/restaurant_page/map.png">
                 </div>
             </div>
 
             </div>
         </section>
-        <section class="Popular">
+        <section id="Popular">
             <div class="featured-section">
                 <div class="header-container">
                     <div class="header-title-wrapper">
@@ -1327,15 +1533,36 @@
                     <div class="product-card">
                         <div class="product-info">
                             <div class="product-name">乾式蒜辣白酒海鮮麵套餐</div>
-                            <div class="product-price">$450</div>
+                            <div class="product-price">$340</div>
                             <div class="product-description">
                                 以新鮮海鮮和香濃的白酒醬汁為特色，帶來豐富的口感和誘人的香氣，海鮮愛好者不可錯過。
-
                             </div>
                         </div>
-                        <img loading="lazy"
-                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/182543a7dbbd1a377ec22a64728b185639be4a9f4baf975e1fbd05547573aeef?placeholderIfAbsent=true&apiKey=29bdb496da09449eb579968368248119"
-                            class="product-image" alt="乾式蒜辣白酒海鮮麵套餐" />
+                        <div class="product-image">
+                            <div class="quantity-counter">
+                                <button class="counter-button counter-button-decrease" aria-label="減少數量">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                        class="bi bi-dash-lg counter-icon" viewBox="1 1 13 13">
+                                        <path fill-rule="evenodd"
+                                            d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8" />
+                                    </svg>
+                                </button>
+                                <div class="quantity-number" aria-label="數量">0</div>
+                                <button class="counter-button counter-button-increase" aria-label="增加數量">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                        class="bi bi-plus-lg  counter-icon" viewBox="1 1 13 13">
+                                        <path fill-rule="evenodd"
+                                            d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <img loading="lazy"
+                                src="https://cdn.builder.io/api/v1/image/assets%2F29bdb496da09449eb579968368248119%2F5cf8cd564fe74b1181bf723db5a93762"
+                                class="product-image" alt="乾式蒜辣白酒海鮮麵套餐" />
+                        </div>
+                        <!-- <img loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/182543a7dbbd1a377ec22a64728b185639be4a9f4baf975e1fbd05547573aeef?placeholderIfAbsent=true&apiKey=29bdb496da09449eb579968368248119"
+                        class="product-image" alt="乾式蒜辣白酒海鮮麵套餐" /> -->
                     </div>
                     <div class="product-card">
                         <div class="product-info">
@@ -1351,7 +1578,7 @@
                             class="product-image" alt="鮮蝦烘蛋" />
                     </div>
                 </div>
-                <div class="products-grid">
+                <div class="products-grid ">
                     <div class="product-card">
                         <div class="product-info">
                             <div class="product-name">青醬奶油雞肉麵套餐</div>
@@ -1381,7 +1608,7 @@
                 </div>
             </div>
         </section>
-        <section class="Spaghetti">
+        <section id="Spaghetti">
 
             <div class="pasta-section">
                 <div class="header">
@@ -1395,7 +1622,7 @@
 
                     </div>
                 </div>
-                <div class="products-grid">
+                <div class="products-grid ">
                     <div class="product-card">
                         <div class="product-info">
                             <div class="product-name">經典肉醬義大利麵</div>
@@ -1428,7 +1655,7 @@
 
 
 
-                <div class="products-grid">
+                <div class="products-grid ">
                     <div class="product-card">
                         <div class="product-info">
                             <div class="product-name">紅椒培根義大利麵</div>
@@ -1456,7 +1683,7 @@
                 </div>
             </div>
         </section>
-        <section class="Rice">
+        <section id="Rice">
             <div class="header">
                 <div class="header-title-wrapper">
                     <div class="accent-bar"></div>
@@ -1467,7 +1694,7 @@
 
                 </div>
             </div>
-            <div class="products-grid">
+            <div class="products-grid ">
                 <div class="product-card">
                     <div class="product-info">
                         <div class="product-name">菠菜奶酪燉飯</div>
@@ -1495,14 +1722,14 @@
                         class="product-image" alt="牛肉燉飯 - 紅酒燉煮的香濃美味" />
                 </div>
             </div>
-            <div class="products-grid">
+            <div class="products-grid ">
                 <div class="product-card">
                     <div class="product-info">
                         <div class="product-name">豌豆與火腿燉飯</div>
                         <div class="product-price">$180</div>
                         <div class="product-description">
 
-                            當豌豆的清甜與火腿的鹹香交織在一起時，每一口都帶來不同的味覺驚喜。這道燉飯不僅色彩鮮豔，還充滿了多層次的風味，讓人回味無窮。
+                            當豌豆的清甜與火腿的鹹香交織在一起時，每一口都帶來不同的味覺驚喜。這道燉飯充滿了多層次的風味，讓人回味無窮。
                         </div>
                     </div>
                     <img loading="lazy"
@@ -1516,7 +1743,7 @@
                         <div class="product-name">海鮮燉飯</div>
                         <div class="product-price">$280</div>
                         <div class="product-description">
-                            這道燉飯融合了新鮮的海鮮，無論是蝦、蛤蜊還是鮮魚，都帶來了大海的味道。每一口都彷彿在品嚐海風，濃郁的海洋鮮味與米飯的綿密口感交織在一起，讓人陶醉其中。
+                            這道燉飯融合了新鮮的海鮮。每一口都彷彿在品嚐海風，濃郁的海洋鮮味與米飯的綿密口感交織在一起，讓人陶醉其中。
 
                         </div>
                     </div>
@@ -1527,7 +1754,7 @@
             </div>
 
         </section>
-        <section class="Pizza">
+        <section id="Pizza">
 
             <div class="pizza-section">
                 <div class="header-container">
@@ -1541,7 +1768,7 @@
 
                     </div>
                 </div>
-                <div class="products-grid">
+                <div class="products-grid ">
                     <div class="product-card">
                         <div class="product-info">
                             <div class="product-title">瑪格麗塔披薩</div>
@@ -1574,7 +1801,7 @@
                             class="product-image" alt="四季披薩 - 四種不同配料代表四季風味" />
                     </div>
                 </div>
-                <div class="products-grid">
+                <div class="products-grid ">
                     <div class="product-card">
                         <div class="product-info">
                             <div class="product-title">奶酪披薩</div>
@@ -1604,7 +1831,7 @@
                 </div>
             </div>
         </section>
-        <section class="Drink">
+        <section id="Drink">
             <div class="section-header">
                 <div class="header-title-wrapper">
                     <div class="accent-bar"></div>
@@ -1614,7 +1841,7 @@
                     專為炎熱季節設計的清涼解渴飲料。這些飲品不僅能迅速補充水分，還能帶來清新的味覺享受，讓人在酷暑中感到愉快和放鬆。
                 </div>
             </div>
-            <div class="products-grid">
+            <div class="products-grid ">
                 <div class="product-card">
                     <div class="product-info">
                         <div class="product-name">檸檬蜂蜜水</div>
@@ -1640,7 +1867,7 @@
                         class="product-image" alt="胡蘿蔔橙汁 - 營養豐富的混合果汁" />
                 </div>
             </div>
-            <div class="products-grid">
+            <div class="products-grid ">
                 <div class="product-card">
                     <div class="product-info">
                         <div class="product-name">覆盆子檸檬氣泡飲</div>
@@ -1896,7 +2123,7 @@
 
         <div class="footer">
             <!-- <------------------------------------scroll-top/back-to-top-------------------------------------------->
-            <a class="scroll-top" href="#">
+            <a class="scroll-top" href="#store-name">
                 <button class="scroll-top" aria-label="Scroll to top">
                     <img loading="lazy"
                         src="https://cdn.builder.io/api/v1/image/assets/TEMP/39abccba1477c736ab1bc986f3ef978c39ea085eec6ec5cbb873afd11d921981?apiKey=29bdb496da09449eb579968368248119&"
@@ -1987,7 +2214,7 @@
         // 定義函數
         function addClickEvent() {
             // 獲取所有具有 'restaurant-card' 的元素
-            const cards = document.getElementsByClassName("product-card");
+            const cards = document.getElementsByClassName("product-info");
 
             // 遍歷所有元素，為每個元素添加點擊事件
             for (let i = 0; i < cards.length; i++) {
@@ -2002,6 +2229,108 @@
         addClickEvent();
 
         // <!-- <------------------------------------Script:外送外帶切換-------------------------------------------->
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // const svgMenus = document.getElementsByClassName("svg_menu");
+            const deliveryToggleDeliver = document.querySelector(".delivery-toggle-deliver");
+            const deliveryToggleTakeOut = document.querySelector(".delivery-toggle-takeOut");
+            const deliveryInfo = document.querySelector(".delivery-info");
+            const stepperBlock商家資訊 = document.getElementById("stepper_block_商家資訊");
+            const stepperName人氣精選 = document.getElementById("stepper_name_人氣精選");
+            const stepperUnderline人氣精選 = document.getElementById("stepper_underline_人氣精選");
+            const shopAddress = document.getElementById("Shop_Address");
+
+
+
+            if (deliveryToggleDeliver && deliveryToggleTakeOut && deliveryInfo && stepperBlock商家資訊 && stepperName人氣精選 && stepperUnderline人氣精選 && shopAddress) {
+                deliveryToggleDeliver.addEventListener("click", (event) => {
+                    deliveryToggleDeliver.style.display = "none";
+                    deliveryToggleTakeOut.style.display = "flex";
+                    deliveryInfo.style.display = "none";
+                    stepperBlock商家資訊.style.display = "flex";
+                    stepperName人氣精選.style.color = " #7F7F7F";
+                    stepperUnderline人氣精選.style.backgroundColor = " transparent";
+                    shopAddress.style.display = "flex";
+                    event.stopPropagation(); // 阻止事件冒泡 
+                });
+                deliveryToggleTakeOut.addEventListener("click", (event) => {
+                    deliveryToggleDeliver.style.display = "flex";
+                    deliveryToggleTakeOut.style.display = "none";
+                    deliveryInfo.style.display = "flex";
+                    stepperBlock商家資訊.style.display = "none";
+                    stepperName人氣精選.style.color = " #CA3838";
+                    stepperUnderline人氣精選.style.backgroundColor = " #CA3838";
+                    shopAddress.style.display = "none";
+                    event.stopPropagation(); // 阻止事件冒泡 
+                });
+            };
+        })
+
+        // <!-- <------------------------------------Script:Plus&Minus------------------------------------------->
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const quantityCounter = document.querySelector('.quantity-counter');
+            const decreaseButton = document.querySelector('.counter-button-decrease');
+            const increaseButton = document.querySelector('.counter-button-increase');
+            const quantityNumber = document.querySelector('.quantity-number');
+            const numberHintCarts = document.getElementsByClassName('number_hint_cart');
+
+            let quantity = 0; // 預設數量
+
+            // 更新數量與樣式顯示
+            function updateDisplay() {
+                if (quantityNumber) {
+                    quantityNumber.textContent = quantity;
+                }
+                if (numberHintCarts) {
+                    Array.from(numberHintCarts).forEach(numberHintCart => {
+                        numberHintCart.textContent = quantity;
+                    });
+                }
+
+                if (quantity > 0) {
+                    decreaseButton.style.visibility = "visible";
+                    quantityNumber.style.visibility = "visible";
+                    quantityCounter.style.backgroundColor = "#fff";
+                    quantityCounter.style.border = "1px solid #B0B0B0";
+                    decreaseButton.style.border = "1px solid #fff";
+                    increaseButton.style.border = "1px solid #fff";
+
+                } else {
+                    decreaseButton.style.visibility = "hidden";
+                    quantityNumber.style.visibility = "hidden";
+                    quantityCounter.style.backgroundColor = "transparent";
+                    quantityCounter.style.border = "transparent";
+                    increaseButton.style.border = "1px solid #B0B0B0";
+                }
+            }
+
+            // 綁定增加數量按鈕事件
+            if (increaseButton) {
+                increaseButton.addEventListener("click", (event) => {
+                    quantity++;
+                    event.stopPropagation(); // 阻止事件冒泡
+                    updateDisplay();
+                });
+            }
+
+            // 綁定減少數量按鈕事件
+            if (decreaseButton) {
+                decreaseButton.addEventListener("click", () => {
+                    if (quantity > 0) {
+                        quantity--;
+                        updateDisplay();
+                    }
+                });
+            }
+
+            // 初始化顯示
+            updateDisplay();
+        });
+
+
     </script>
 </body>
 
