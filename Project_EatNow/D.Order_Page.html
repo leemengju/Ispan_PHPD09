@@ -300,7 +300,7 @@
             padding: 0 16px;
         }
 
-       
+
 
         /* <------------------------------------計算字數--------------------------------------------> */
 
@@ -309,7 +309,8 @@
             font-size: 12px;
             margin-top: 4px;
         }
-/* <------------------------------------置底區--------------------------------------------> */
+
+        /* <------------------------------------置底區--------------------------------------------> */
         .notes-title {
             display: flex;
             width: 100%;
@@ -342,7 +343,7 @@
             font-size: 14px;
             padding: 12px 12px 80px;
         }
-        
+
 
         .action-bar {
             background-color: #fff;
@@ -606,15 +607,15 @@
                     </div>
                 </div>
                 <!-- <-----------------------------------餐點備註提示-------------------------------------------->
-                <div class="notes-remind-section">
+                <!-- <div class="notes-remind-section">
                     <p>常用備註</p>
                     <button class="notes_remind_button ">
-                        不到半小時</button>
+                        冰美式請苦一點，像我的人生一樣苦，謝謝</button>
                     <button class="notes_remind_button ">
                         不到半小時</button>
                     <button class="notes_remind_button ">
                         不到半小時</button>
-                </div>
+                </div> -->
             </form>
         </main>
         <!-- <-----------------------------------置底操作-------------------------------------------->
@@ -636,7 +637,7 @@
 </body>
 
 <script>
-    // <!-- <------------------------------------Script:備註文字------------------------------------------->
+    // <!-- <------------------------------------Script:備註文字與下方的計算文字數量連動------------------------------------------->
     document.addEventListener('DOMContentLoaded', () => {
         const textarea = document.getElementById('notes');
         const charCount = document.querySelector('.char-count');
@@ -648,42 +649,67 @@
         });
     });
 
-
     // <!-- <------------------------------------Script:加減btn%連動------------------------------------------->
+    // 初始變量
+    let my_basePrice = 340; // 預設基價
+    let my_quantity = 1;    // 初始數量
+    let additionalPrice = 0; // 選項加價總和
+
+    // 更新「加入購物車」按鈕
+    function updateCartButton() {
+        // 計算最終價格
+        const totalPrice = (my_basePrice + additionalPrice) * my_quantity;
+        const addToCartBtn = document.querySelector('.add-to-cart');
+        // 更新按鈕文字
+        addToCartBtn.textContent = `新增 ${my_quantity} 項單品到購物車・$${totalPrice}`;
+    }
+
+    // 更新選項加價
+    function updateAdditionalPrice() {
+        additionalPrice = 0; // 重置加價
+
+        // 計算所有勾選的 checkbox 的加價
+        document.querySelectorAll('.checkbox:checked').forEach((checkbox) => {
+            const priceTag = checkbox.closest('.option-item').querySelector('.price-tag').textContent;
+            const price = parseInt(priceTag.replace('+$', '')); // 提取數字部分
+            additionalPrice += price; // 累加加價
+        });
+
+        // 計算被選中的 radio-circle 的加價
+        const selectedRadio = document.querySelector('.radio-circle:checked');
+        if (selectedRadio) {
+            const priceTag = selectedRadio.closest('.option-item').querySelector('.price-tag').textContent;
+            const price = parseInt(priceTag.replace('+$', '')); // 提取數字部分
+            additionalPrice += price; // 累加加價
+        }
+
+        updateCartButton(); // 更新按鈕顯示
+    }
+
+    // 更新數量
+    function updateQuantity(change) {
+        my_quantity = Math.max(1, my_quantity + change); // 防止數量小於 1
+        document.querySelector('.quantity-number').textContent = my_quantity; // 更新數量顯示
+        updateCartButton(); // 更新按鈕顯示
+    }
+
+    // 綁定事件
     document.addEventListener('DOMContentLoaded', () => {
-        const decreaseButton = document.querySelector('.decrease');
-        const increaseButton = document.querySelector('.increase');
-        const quantityNumber = document.querySelector('.quantity-number');
-        const addToCartButton = document.querySelector('.add-to-cart');
-
-        const basePrice = 340; // 單位價格
-        let quantity = 1; // 預設數量
-
-        // 更新數量與價格
-        const updateDisplay = () => {
-            quantityNumber.textContent = quantity;
-            const totalPrice = basePrice * quantity;
-            addToCartButton.textContent = `新增 ${quantity} 項單品到購物車・$${totalPrice}`;
-        };
-
-        // 增加數量按鈕事件
-        increaseButton.addEventListener('click', () => {
-            quantity++;
-            updateDisplay();
+        // 綁定 checkbox 和 radio-circle 的變更事件
+        document.querySelectorAll('.checkbox, .radio-circle').forEach((input) => {
+            input.addEventListener('change', updateAdditionalPrice);
         });
 
-        // 減少數量按鈕事件
-        decreaseButton.addEventListener('click', () => {
-            if (quantity > 1) {
-                quantity--;
-                updateDisplay();
-            }
-        });
+        // 綁定數量增減事件
+        document.querySelector('.increase').addEventListener('click', () => updateQuantity(1));
+        document.querySelector('.decrease').addEventListener('click', () => updateQuantity(-1));
 
-        // 初始化顯示
-        updateDisplay();
+        // 初始化按鈕顯示
+        updateCartButton();
     });
 
+
+    // <!-- <------------------------------------Script:跳轉頁面------------------------------------------->
     // 定義函數
     function addClickEvent() {
         // 獲取所有具有 'restaurant-card' 的元素

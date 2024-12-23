@@ -86,15 +86,21 @@
                     <span class="badge rounded-circle" style="background-color: #CA3838;">1</span>
                 </h4>
                 <ul class="list-group mb-3">
-                    <li class="list-group-item d-flex justify-content-flex-start  align-items-center gap-2 lh-sm ">
+                    <li class="list-group-item d-flex justify-content-start gap-2  align-items-center lh-sm ">
 
                         <div>
-                            <img class=" img-fluid" src="./resource/restaurant_page/Hero image.png"
+                            <img class=" img-fluid" src="./resource/restaurant_page/banner=Default.png"
                                 style="border-radius:100px; width: 32px; height: 32px; background-size: cover;">
+
                         </div>
-                        <div>
-                            <h6 class="my-0">Flavor Factory 義大利小館</h6>
-                        </div>
+
+                        <h6 class="d-flex mt-2 ">Flavor Factory 義大利小館</h6>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                        </svg>
 
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-sm ">
@@ -104,9 +110,24 @@
                                 雞米花 + 冰紅茶/清淡口味
                                 <br>
                                 備註:請不要加辣
+                                <br><br>
+                                $340
                             </small>
                         </div>
-                        <span class="text-muted">$340</span>
+                        <div class="text-muted">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-pencil-square" viewBox="0 0 16 16" style="color: #CA3838;">
+                                <path
+                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                <path fill-rule="evenodd"
+                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-trash3" viewBox="0 0 16 16">
+                                <path
+                                    d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
+                            </svg>
+                        </div>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-sm">
                         <div>
@@ -150,41 +171,38 @@
                             <label for="username" class="form-label">暱稱</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text">@</span>
-                                <input type="text" class="form-control" id="username" placeholder="Username" required>
+                                <input type="text" class="form-control" id="username" value="LieShin-Mu" required>
                                 <div class="invalid-feedback">
-                                    Your username is required.
+                                    請填寫暱稱
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-12">
                             <label for="email" class="form-label">電子郵件 <span class="text-muted">(選填)</span></label>
-                            <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                            <div class="invalid-feedback">
-                                Please enter a valid email address for shipping updates.
-                            </div>
+                            <input type="email" class="form-control" id="email" value="muyu@gmail.com">
+
                         </div>
 
                         <div class="col-md-5">
                             <label for="country" class="form-label">城市</label>
-                            <select class="form-select" id="country" required>
-                                <option value="">請選擇</option>
+                            <select class="form-select" id="country" value="台北" required>
+
                                 <option>台北</option>
                                 <option>台中</option>
                                 <option>台南</option>
                                 <option>高雄</option>
                             </select>
                             <div class="invalid-feedback">
-                                Please select a valid city.
+                                請選擇城市。
                             </div>
                         </div>
 
                         <div class="col-md-4">
                             <label for="state" class="form-label">區域</label>
-                            <select class="form-select" id="state" required>
-                                <option value="">請選擇</option>
-                                <option>松山區</option>
+                            <select class="form-select" id="state" value="大安區" required>
                                 <option>大安區</option>
+                                <option>松山區</option>
                                 <option>內湖區</option>
                                 <option>南港區</option>
                                 <option>中山區</option>
@@ -192,21 +210,21 @@
                                 <option>大同區</option>
                             </select>
                             <div class="invalid-feedback">
-                                Please provide a valid state.
+                                請選擇有效區域。
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <label for="zip" class="form-label">郵遞區號</label>
-                            <input type="text" class="form-control" id="zip" placeholder="">
+                            <input type="text" class="form-control" id="zip" value="106">
                             <div class="invalid-feedback">
                             </div>
                         </div>
                         <div class="col-12">
                             <label for="address" class="form-label">地址</label>
-                            <input type="text" class="form-control" id="address" required>
+                            <input type="text" class="form-control" id="address" value="大安森林公園東三門出口" required>
                             <div class="invalid-feedback">
-                                Please enter your shipping address.
+                                請輸入有效地址。
                             </div>
                         </div>
 
@@ -214,7 +232,7 @@
 
 
                     <div class="form-check mt-3">
-                        <input type="checkbox" class="form-check-input" id="save-info">
+                        <input type="checkbox" class="form-check-input" id="save-info" checked>
                         <label class="form-check-label" for="save-info">保留外送資訊</label>
                     </div>
 
@@ -244,7 +262,7 @@
                     <div class=" payway row gy-3">
                         <div class="col-md-6">
                             <label for="cc-name" class="form-label">持卡人姓名</label>
-                            <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                            <input type="text" class="form-control" id="cc-name" value="LieShin-Mu" required>
                             <small class="text-muted">與登記卡片名稱相同</small>
                             <div class="invalid-feedback">
                                 Name on card is required
@@ -253,7 +271,7 @@
 
                         <div class="col-md-6">
                             <label for="cc-number" class="form-label">號碼</label>
-                            <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                            <input type="text" class="form-control" id="cc-number" value="8888-9999-0000" required>
                             <div class="invalid-feedback">
                                 Credit card number is required
                             </div>
@@ -261,7 +279,7 @@
 
                         <div class="col-md-3">
                             <label for="cc-expiration" class="form-label">Expiration</label>
-                            <input type="text" class="form-control" id="cc-expiration" placeholder="MM/YY" required>
+                            <input type="text" class="form-control" id="cc-expiration" value="09/29" required>
                             <div class="invalid-feedback">
                                 Expiration date required
                             </div>
@@ -269,7 +287,7 @@
 
                         <div class="col-md-3">
                             <label for="cc-cvv" class="form-label">CVV</label>
-                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                            <input type="text" class="form-control" id="cc-cvv" value="198" required>
                             <div class="invalid-feedback">
                                 Security code required
                             </div>
@@ -278,31 +296,44 @@
 
                     <hr class="my-4">
 
-                    <button class="w-100 btn btn-lg" style="background-color:#CA3838;color:azure;"
-                        type="submit">一鍵下訂單</button>
+                    <button onclick="submitOrder()" class="w-100 btn btn-lg"
+                        style="background-color:#CA3838;color:azure;" type="submit">一鍵下訂單</button>
                     <br>
                     <br>
-                    <div onclick=" window.location.href ='http://127.0.0.1:5501/Project_EatNow/F.Deliver_Page.html'"  class="fast-order w-100 btn btn-outline-danger-subtle btn-lg"
-                        style="border:#CA3838 solid 4px ;color:#CA3838;">快速下訂</div>
+
                 </form>
             </div>
         </div>
     </main>
 
 
+    <!-- <script src="./bootstrap-5.2.3-examples/bootstrap-5.2.3-examples/checkout/form-validation.js">
+    </script> -->
+    <script>
+   (() => {
+  'use strict';
 
+  // 取得需要應用自訂驗證樣式的所有表單
+  const forms = document.querySelectorAll('.needs-validation');
 
+  // 為每個表單添加提交事件處理
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        // 如果驗證失敗，阻止表單提交
+        event.preventDefault();
+        event.stopPropagation();
+      } else {
+        // 如果驗證通過，跳轉到指定頁面
+        event.preventDefault(); // 阻止默認提交行為
+        window.location.href = 'http://127.0.0.1:5501/Project_EatNow/F.Deliver_Page.html';
+      }
 
-
-    <script src="./bootstrap-5.2.3-examples/bootstrap-5.2.3-examples/checkout/form-validation.js">
-        
-      
-
-        
-    </script>
-
-
-
+      // 添加 Bootstrap 驗證樣式
+      form.classList.add('was-validated');
+    }, false);
+  });
+})();
 
 
     </script>

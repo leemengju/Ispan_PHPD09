@@ -22,7 +22,14 @@
         * {
             position: relative;
         }
-
+        .deliver_map{
+            transition: transform 0.3s ease;
+        
+        }
+        .deliver_map:hover{
+            transform:scale(1.05);
+        
+        }
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -31,12 +38,7 @@
             user-select: none;
         }
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-
+        
         .b-example-divider {
             height: 3rem;
             background-color: rgba(0, 0, 0, .1);
@@ -44,25 +46,25 @@
             border-width: 1px 0;
             box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
         }
-
+        
         .b-example-vr {
             flex-shrink: 0;
             width: 1.5rem;
             height: 100vh;
         }
-
+        
         .bi {
             vertical-align: -.125em;
             fill: currentColor;
         }
-
+        
         .nav-scroller {
             position: relative;
             z-index: 2;
             height: 2.75rem;
             overflow-y: hidden;
         }
-
+        
         .nav-scroller .nav {
             display: flex;
             flex-wrap: nowrap;
@@ -73,7 +75,12 @@
             white-space: nowrap;
             -webkit-overflow-scrolling: touch;
         }
-    </style>
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+        </style>
 
 
 </head>
@@ -93,19 +100,21 @@
                             style="width: 25%; background-color:#CA3838 ;"></div>
                     </div>
                     <p class="col-md-8 fs-5 text-secondary mt-3">最晚抵達時間13:20PM</p>
-                    <div class=" d-flex justify-content-between align-items-center">
-                        <div class=" d-flex justify-content-flex-start  align-items-center gap-2 lh-sm ">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex justify-content-flex-start align-items-center gap-2 lh-sm">
                             <div>
-                                <img class=" img-fluid" src="./resource/deliver_page/rider.jpg"
-                                    style="border-radius:100px ;border:#CA3838 3px solid; width: 48px; height: 48px; background-size: cover;">
+                                <img class="img-fluid" 
+                                    src="./resource/deliver_page/rider.jpg" 
+                                    style="border-radius: 100px; border: #CA3838 3px solid; width: 48px; height: 48px; background-size: cover;">
                             </div>
                             <div>
-                                <h6 class="my-1 text-secondary">騎手姓名:王鈺璽</h6>
-                                <h6 class="my-0 text-secondary">電話:0939066147</h6>
+                                <h6 class="my-1 text-secondary">騎手姓名: 王鈺璽</h6>
+                                <h6 class="my-0 text-secondary">電話: 0939066147</h6>
                             </div>
                         </div>
-                        <button class="btn btn-lg text-white" style=" background-color:#CA3838 ;"
-                            type="button">連絡外送騎手</button>
+                        <a href="tel:0939066147" class="btn btn-lg text-white" style="background-color: #CA3838;" role="button">
+                            連絡外送騎手
+                        </a>
                     </div>
                 </div>
             </div>
@@ -122,7 +131,7 @@
                             </svg>
                             <h5 class="col-md-10  text-secondary ">106台北市大安區大安森林公園東三門口</h5>
                         </div>
-                        <img class=" img-fluid rounded" src="./resource/deliver_page/20241210145507.png " alt="">
+                        <img class="deliver_map img-fluid rounded" src="./resource/deliver_page/20241210145507.png " alt="">
                     </div>
                 </div>
                 <div class="col-md-6 ">
