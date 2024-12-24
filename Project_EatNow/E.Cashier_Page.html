@@ -310,6 +310,7 @@
     <!-- <script src="./bootstrap-5.2.3-examples/bootstrap-5.2.3-examples/checkout/form-validation.js">
     </script> -->
     <script>
+        //  <!-- <-----------------------------------驗證後提交-------------------------------------------->
    (() => {
   'use strict';
 
@@ -326,7 +327,7 @@
       } else {
         // 如果驗證通過，跳轉到指定頁面
         event.preventDefault(); // 阻止默認提交行為
-        window.location.href = 'http://127.0.0.1:5501/Project_EatNow/F.Deliver_Page.html';
+        window.open("./F.Deliver_Page.html", "_blank");
       }
 
       // 添加 Bootstrap 驗證樣式

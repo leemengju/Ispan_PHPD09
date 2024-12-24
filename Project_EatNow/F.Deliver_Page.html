@@ -20,65 +20,72 @@
 
     <style>
         * {
-            position: relative;
-        }
-        .deliver_map{
-            transition: transform 0.3s ease;
-        
-        }
-        .deliver_map:hover{
-            transform:scale(1.05);
-        
-        }
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
+        position: relative;
         }
 
-        
+
+
+        /* <!-- <-----------------------------------核心內頁--------------------------------------------> */
+        .deliver_map {
+        transition: transform 0.3s ease;
+
+        }
+
+        .deliver_map:hover {
+        transform: scale(1.05);
+
+        }
+
+        .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        }
+
+
         .b-example-divider {
-            height: 3rem;
-            background-color: rgba(0, 0, 0, .1);
-            border: solid rgba(0, 0, 0, .15);
-            border-width: 1px 0;
-            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
         }
-        
+
         .b-example-vr {
-            flex-shrink: 0;
-            width: 1.5rem;
-            height: 100vh;
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
         }
-        
+
         .bi {
-            vertical-align: -.125em;
-            fill: currentColor;
+        vertical-align: -.125em;
+        fill: currentColor;
         }
-        
+
         .nav-scroller {
-            position: relative;
-            z-index: 2;
-            height: 2.75rem;
-            overflow-y: hidden;
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
         }
-        
+
         .nav-scroller .nav {
-            display: flex;
-            flex-wrap: nowrap;
-            padding-bottom: 1rem;
-            margin-top: -1px;
-            overflow-x: auto;
-            text-align: center;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
         }
+
         @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
+        .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+        }
         }
         </style>
 
@@ -103,8 +110,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="d-flex justify-content-flex-start align-items-center gap-2 lh-sm">
                             <div>
-                                <img class="img-fluid" 
-                                    src="./resource/deliver_page/rider.jpg" 
+                                <img class="img-fluid" src="./resource/landing_page/nav/avatar-rider (3).png"
                                     style="border-radius: 100px; border: #CA3838 3px solid; width: 48px; height: 48px; background-size: cover;">
                             </div>
                             <div>
@@ -112,7 +118,8 @@
                                 <h6 class="my-0 text-secondary">電話: 0939066147</h6>
                             </div>
                         </div>
-                        <a href="tel:0939066147" class="btn btn-lg text-white" style="background-color: #CA3838;" role="button">
+                        <a href="tel:0939066147" class="btn btn-lg text-white" style="background-color: #CA3838;"
+                            role="button">
                             連絡外送騎手
                         </a>
                     </div>
@@ -131,13 +138,19 @@
                             </svg>
                             <h5 class="col-md-10  text-secondary ">106台北市大安區大安森林公園東三門口</h5>
                         </div>
-                        <img class="deliver_map img-fluid rounded" src="./resource/deliver_page/20241210145507.png " alt="">
+                        <a href="https://www.google.com/maps/search/?api=1&query=106台北市大安區大安森林公園東三門口" target="_blank">
+                            <iframe class="deliver_map img-fluid rounded"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2896.3944935018053!2d121.53004331549617!3d25.029490283972596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abbd92149d47%3A0x5ad33444bfc38da0!2z5aSn5qWt6Zmi5ZyS5biC5p2x5Y-377yI5p2x5Y-35Lit5b2x5aSn5qiZ!5e0!3m2!1szh-TW!2stw!4v1700000000000!5m2!1szh-TW!2stw"
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="width: 100%;">
+                            </iframe>
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-6 ">
-                    <div class=" row d-flex align-items-between h-100 p-5 bg-light rounded-3 gap-4" >
+                    <div class=" row d-flex align-items-between h-100 p-5 bg-light rounded-3 gap-4">
+
                         <head class="col-12  d-flex gap-0">
-                            <h2  style="height: fit-content; position:relative; margin-bottom:-15px;">訂單摘要</h2>
+                            <h2 style="height: fit-content; position:relative; margin-bottom:-15px;">訂單摘要</h2>
                             <small class="text-muted ">訂購商家:Flavor Factory 義大利小館</small>
                         </head>
                         <div class="col-12">
