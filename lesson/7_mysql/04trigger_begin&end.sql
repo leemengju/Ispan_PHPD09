@@ -1,4 +1,5 @@
 -- <-----------------------若UserInfo 中新增一筆資料，將此事件自動記錄到Log 資料表中-------------------------------->
+--begin...end 存在於"存儲過程、觸發器 或 函數 "中使用，所以調數據時不需要使用
 DROP trigger if exists userinfo_insert;
 DELIMITER $$
 CREATE trigger userinfo_insert

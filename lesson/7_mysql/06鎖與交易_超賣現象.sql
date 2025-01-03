@@ -74,6 +74,25 @@ BEGIN
     SELECT '賣完了'as status;
     end if;
  end;
+
+-- <--------------------------------解除超賣現象2_query+上x鎖----------------------------------------->
+-- <--------------------------------這樣就不用先update----------------------------------------->
+ drop PROCEDURE if exists buy2;
+CREATE procedure buy2()
+BEGIN
+    DECLARE n int;
+    START TRANSACTION;
+     -- query+上x鎖
+     SELECT quantity into n from ticket where tid=1 for update;
+    -- checked
+     if n>=0 THEN
+     -- update
+    update  ticket set quantity=quantity-1 WHERE tid=1;
+       SELECT '買走一張票'as status;
+    ELSE
+    SELECT '賣完了'as status;
+    end if;
+    commit;
 -- <-----------------------為什麼不能直接用 CASE...WHEN...THEN...ELSE？--------------------------------->
 -- CASE 只能選擇值，不能進行流程控制（如執行 COMMIT 或 ROLLBACK 這類語句）。
 -- <-----------------------該月壽星打八折--------------------------------->
@@ -95,7 +114,7 @@ FROM (
 ■ READ COMMITTED– 只會讀到已經 commit 的資料– uncommit 的資料會忽略，不會造成阻塞。
 ■ READ UNCOMMITTED– 可讀到另一交易已修改但尚未 commit 的資料，造成髒讀取
 ■ SERIALIZABLE– 確保一群交易依序執行，不會多個交易同時執行導致讀寫交錯– 因為需要更多的鎖來控制執行順序，因此會影響效率
-
+-- serializable盡量少用，不然效能會很差
 -- <--------------------------------更改隔離等級----------------------------------------->
 UPDATE userinfo set password=null WHERE uid='A01';
 set TRANSACTION isolation level read committed;
@@ -106,3 +125,13 @@ SELECT'r1',* from userinfo where uid='A01';
 do sleep(10);
 SELECT'r2',* from userinfo where uid='A01';
 commit;
+-- <--------------------------------deadlock死結:互相等結果被卡死。解法:等等再試----------------------------------------->
+
+    update  ticket set quantity=1 WHERE tid=1;
+    set TRANSACTION isolation level SERIALIZABLE;
+    start TRANSACTION;
+        SELECT * from ticket WHERE tid=1;
+        do sleep(10);
+        update  ticket set quantity=quantity-1 WHERE tid=1;
+        commit;
+  SELECT * from ticket WHERE tid=1;

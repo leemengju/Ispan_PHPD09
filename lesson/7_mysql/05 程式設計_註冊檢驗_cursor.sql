@@ -210,7 +210,8 @@ BEGIN
   open c;
 --  往下挪動一筆，將資料c丟進n裡面
   fetch c into n;
---   開啟游標 c，準備開始遍歷查詢結果。
+--   當尚未到達檔案的結尾時，執行某段程式碼。
+--   在某些條件未達成反覆執行某段程式碼。
   while ! E0F do
 --   將提取的資料值 n 累加到 total。
         set total =total + n;
