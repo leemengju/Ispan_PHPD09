@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#btnTry").click(function () {
+        // 在這裏寫程式
+        // $("#betaRibbon").addClass("beta-ribbon");
+        // $("#betaRibbon").removeClass("beta-ribbon");
+        $("#betaRibbon").toggleClass("beta-ribbon");
+        $('#report').css(
+          {
+            "font-family": "Arial",
+            "font-size": "1.2em"
+          }
+
+        )
+        //         DOM 操作方式比較
+        // DOM 加載完成的處理
+
+        // jQuery 使用 $(document).ready(function() {}) 來等待 DOM 加載完成後執行指定的程式碼。
+        // 純 JavaScript 使用 document.addEventListener("DOMContentLoaded", callback) 來完成相同的功能。
+        // 選擇元素
+
+        // jQuery 使用簡潔的選擇器語法，例如 $("#btnTry") 選擇 ID 為 btnTry 的元素。
+        // 純 JavaScript 則使用 document.getElementById("btnTry") 方法，語法稍微冗長，但執行效果相同。
+        // 事件綁定
+
+        // jQuery 提供 .click(function() {}) 方法來處理點擊事件。
+        // 純 JavaScript 使用 .addEventListener("click", callback) 來監聽點擊事件，支援更廣泛的事件類型。
+        // 修改 CSS 樣式
+
+        // jQuery 使用 .css({ "property": "value" }) 的方法來修改樣式，可以一次設定多個屬性。
+        // 純 JavaScript 使用 element.style.property = "value" 的方式修改樣式，需逐一設置每個屬性。
+      })
+    });
+  </script>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+
+  <div class="beta-ribbon-wrapper">
+    <div id="betaRibbon">
+      <a href="/about/#beta">Beta</a>
+    </div>
+  </div>
+
+  <div id="report">Report:<br></div>
+  <hr>
+  <form action="" method="put" onsubmit="return false;">
+    <button type="button" id="btnTry">Try</button>
+  </form>
+</body>
+
+</html>

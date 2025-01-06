@@ -57,3 +57,8 @@ OPTIMIZE TABLE my_table
 做ER:drawer.io
 建欄位名稱
 每一個人都需要建立一個stored procedure
+
+暢銷排行
+產品名稱
+日期折扣
+

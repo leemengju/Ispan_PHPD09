@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<canvas id="myCanvas" width="400" height="300" 
+  style="border:1px solid #000000;">
+</canvas> 
+
+
+<script>
+// HTML5 Canvas 繪圖三部曲:
+// 1. 找出 Canvas
+var c = document.getElementById("myCanvas");
+// 2. 傳回 2D 繪圖引擎物件
+var ctx = c.getContext("2d");
+// 3. 開始作畫
+
+// 用藍色畫出圖片外框
+ctx.strokeStyle = "#0000FF";
+ctx.strokeRect(0, 0, 200, 50);
+
+// 以黑色塗滿圖片下緣製作出黑底區塊
+ctx.fillStyle = "#000000";
+ctx.fillRect(0, 35, 200, 15);
+
+// 置中對齊輸出文字
+ctx.font = "24px Arial italic";
+ctx.textBaseline = "top";
+ctx.textAlign = "center";
+ctx.fillText("Signin Seal", 100, 5);
+
+// 在黑底區塊描出黑底白字文字
+ctx.font="8px Arial italic";
+ctx.textBaseline = "top";
+ctx.textAlign = "center";
+ctx.fillStyle = "#FFFFFF";
+ctx.fillText("Powered by HTML5", 100, 35);
+
+// 刷上藍色漸層背景增添質感
+// 以下這段程式，若非不是一開始就畫出，就必須設定
+// globalCompositeOperation，否則，預設會蓋掉先前的內容
+ctx.globalCompositeOperation = "destination-over";
+var grd = ctx.createLinearGradient(0, 0, 0, 50);
+grd.addColorStop(0, "white");
+grd.addColorStop(1, "#0000EE");
+ctx.fillStyle = grd;
+ctx.fillRect(0, 0, 200, 50);
+
+</script>
+
+</body>
+</html>

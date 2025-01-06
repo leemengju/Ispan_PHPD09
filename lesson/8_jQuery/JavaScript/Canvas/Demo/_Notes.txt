@@ -1,0 +1,10 @@
+本資料夾範例，源自於下列兩個網站:
+
+HTML5 Game Physics by Hunter Loftis
+http://labs.skookum.com
+
+
+淺談Canvas - save/restore
+http://blog.ring.idv.tw/comment.ser?i=386
+
+

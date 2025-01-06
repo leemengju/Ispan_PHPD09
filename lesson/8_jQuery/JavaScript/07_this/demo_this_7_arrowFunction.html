@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+</head>
+<body>
+    <div id="debug"></div>
+    <script>
+
+        var obj = {
+            "firstName": "Wolfgang",
+            lastName: "Chien",
+            // 箭頭函式的 this 是指向「外面」喔!
+            sayHello: () => {
+                console.log(this);  // window
+                debug.innerHTML += "Hello! " + this.firstName;
+            }
+        };
+    
+        obj.sayHello();
+    
+    </script>
+    
+</body>
+</html>
+
+

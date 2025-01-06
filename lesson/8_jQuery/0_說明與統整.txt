@@ -1,0 +1,20 @@
+jquery目的:
+1.存取網頁。
+2.主要從資料庫存提資料。
+3.可以連結攝像頭、喇叭，可以掃條碼和視覺辨識。
+-----
+文法統整:
+.text()
+.html()
+.prop()
+.append()
+.addClass()
+.css()
+.on("event", how)
+.off("event")
+.fadeIn()
+.fadeOut()
+.fadeTo()
+.data()
+$(".pet").eq(0)
+$(".pet").each(function (idx, ref));
