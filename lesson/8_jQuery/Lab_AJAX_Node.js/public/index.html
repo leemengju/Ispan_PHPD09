@@ -6,6 +6,7 @@
     <title>Lab</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
         .task-description,
         .list-group {
@@ -44,8 +45,10 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="button1id"></label>
                         <div class="col-md-8">
-                            <button type="button" id="button1id" name="button1id" class="btn btn-danger" onclick='MakeRequestSync()'>Hello</button>
-                            <button type="button" id="button2id" name="button2id" class="btn btn-success" onclick='MakeRequestAsync()'>Hello (AJAX)</button> &nbsp;
+                            <button type="button" id="button1id" name="button1id" class="btn btn-danger"
+                                onclick='MakeRequestSync()'>Hello</button>
+                            <button type="button" id="button2id" name="button2id" class="btn btn-success"
+                                onclick='MakeRequestAsync()'>Hello (AJAX)</button> &nbsp;
                             <span id='ResponseDiv'></span>
                         </div>
                     </div>
@@ -73,8 +76,9 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="button1id"></label>
                         <div class="col-md-8">
-                            <button type="button" id="getButton" name="getButton" class="btn btn-success">Hello -- $.get()</button> &nbsp;
-                            <span id='reportSpan'></span>
+                            <button type="button" id="getButton" name="getButton" class="btn btn-success">Hello --
+                                $.get()</button> &nbsp;
+                            <span id='reportSpan1'></span>
                         </div>
                     </div>
                 </form>
@@ -88,21 +92,24 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="firstNameTextBox">FirstName:</label>
                         <div class="col-md-4">
-                            <input name="firstNameTextBox" id="firstNameTextBox" type="text" class="form-control input-md">
+                            <input name="firstNameTextBox" id="firstNameTextBox" type="text"
+                                class="form-control input-md">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="lastNameTextBox">LastName:</label>
                         <div class="col-md-4">
-                            <input name="lastNameTextBox" id="lastNameTextBox" type="text" class="form-control input-md">
+                            <input name="lastNameTextBox" id="lastNameTextBox" type="text"
+                                class="form-control input-md">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="button1id"></label>
                         <div class="col-md-8">
-                            <button type="button" id="postButton" name="postButton" class="btn btn-success">Hello -- $.post(), $.ajax()</button> &nbsp;
-                            <span id='resultSpan'></span>
+                            <button type="button" id="postButton" name="postButton" class="btn btn-success">Hello --
+                                $.post(), $.ajax()</button> &nbsp;
+                            <span id='resultSpan2'></span>
                         </div>
                     </div>
                 </form>
@@ -117,42 +124,88 @@
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script type='text/javascript' src='js/ajax_concept.js'></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $(".nav-tabs a").click(function() {
+        // <-------------------------------------------$.get()------------------------------------------------>
+        $(document).ready(function () {
+            $(".nav-tabs a").click(function () {
                 $(this).tab('show');
             });
 
-
-            $("#getButton").on("click", function() {
+            $("#getButton").on("click", function () {
                 var s = $("#nameTextBox").val();
-
-
-
-
-
-                $("#reportSpan").text(s);
+                $("#reportSpan1").text(s);
             })
 
 
+        
+        // <-------------------------------------------$.post()------------------------------------------------>
+        // <-------------------------------------------GET 是用於從伺服器請求數據的操作，適合讀取數據。------------------------------------------------>
+        // <-------------------------------------------POST 是用於向伺服器提交數據的操作，適合修改、添加數據。------------------------------------------------>
 
-            $("#postButton").on("click", function() {
-                var dataToServer = {
-                    firstName: $("#firstNameTextBox").val(),
-                    lastName: $("#lastNameTextBox").val()
-                }
-
-
-
-
-                $("#resultSpan").text(JSON.stringify(dataToServer));
-            })
+        $("#postButton").on("click", async function () {
+            var dataToServer = {
+                firstName: $("#firstNameTextBox").val(),
+                lastName: $("#lastNameTextBox").val()
+            }
 
 
+            // 方法一: 直接用post
+            // $.post("/test", dataToServer,
+            //     function (e) {
+            //         $("#resultSpan2").text(e);
+            //     }
+            // )
+
+ // <-------------------------------------------$.ajax({})------------------------------------------------>
+            // // 方法二: 用ajax
+            // $.ajax({
+            //     type: "post",
+            //     url: "/test",
+            //     data: JSON.stringify(dataToServer),
+            //     success: function (e) {
+            //         $("#resultSpan2").text(e + "--version2");
+            //     }
+            // })
+
+// <-------------------------------------------promise------------------------------------------------>
+            // 方法三: promise
+            // 記得要加上 async function()， 宣告後面加 await
+            //  contentType: "application/json":告訴server我們改格式了，不能只在data自己偷偷改。
+            //  headers:{} 可以在開頭補內容。
+
+            // var result = await $.ajax({
+            //     type: "post",
+            //     url: "/test",
+            //     data: JSON.stringify(dataToServer),
+            //     contentType: "application/json",
+            //     headers: {
+            //         prefix: "Mr."
+            //     }
+            // });
+
+            // $("#resultSpan2").text(result + "--version3");
+       
 
 
-        });
+// <-------------------------------------------將$.ajax改成Axios------------------------------------------------>
+var config={
+    headers:{
+        "content-type":"application/json",
+        "prefix":"mr.",
+    }
+}
+var result = await axios.post(
+                 "/test2",
+                 JSON.stringify(dataToServer),
+                 config);
+
+            $("#resultSpan2").text(result + "--version3");
+        })
+
+    });
+
     </script>
 
 </body>
