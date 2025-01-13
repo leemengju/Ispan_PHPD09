@@ -18,3 +18,19 @@ jquery目的:
 .data()
 $(".pet").eq(0)
 $(".pet").each(function (idx, ref));
+-----
+實戰練習:
+Ajax_node.js
+資料獲取、傳入
+
+Lab_jQuery
+E.
+F.
+G.
+
+Lab_jQueryUI
+Accordion
+
+Lab_ToDoList
+
+

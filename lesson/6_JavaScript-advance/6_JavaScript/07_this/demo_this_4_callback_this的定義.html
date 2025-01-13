@@ -9,11 +9,15 @@
     <div id="debug"></div>
 
     <script>
-// this 會因為
+// class Creature: 定義了一個名為 Creature 的類別。
+// constructor(weightValue = 1): 構造函數，當創建 Creature 的實例時，會執行此方法。這個方法接受一個默認值為 1 的參數 weightValue，但在此範例中並未使用這個參數。它會將實例的 name 屬性設置為 "cicada"。
+// makeSound(): 這個方法首先會在控制台輸出 this.name，即 "cicada"。然後，它使用 setTimeout 設置了一個延遲 1000 毫秒（1 秒）執行的回調函數。
         class Creature {
             constructor(weightValue = 1) {
                 this.name = "cicada";
             }
+
+            // 這裡有一個問題，this 代表的是 Creature 類的實例。在 JavaScript 中，當你在 setTimeout 的回調函數中使用 function 定義的函數時，this 會指向全局對象（在瀏覽器中是 window，在 Node.js 中是 global），而不是 Creature 的實例。因此，_this 被用來捕捉 this 的引用，使它能夠在回調中繼續指向 Creature 的實例。
             makeSound() {
                 console.log(this.name);
                 let _this=this;
@@ -22,6 +26,9 @@
                 }, 1000)
             }
         }
+
+        // const obj = new Creature();: 這行創建了一個新的 Creature 實例 obj，並執行構造函數，將 name 設置為 "cicada"。
+        // obj.makeSound();: 調用了 obj 的 makeSound 方法。 
         const obj = new Creature();
         obj.makeSound();
 

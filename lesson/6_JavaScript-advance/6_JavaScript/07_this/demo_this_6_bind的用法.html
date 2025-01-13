@@ -7,27 +7,19 @@
     <div id="debug"></div>
     
     <script>
-        "use strict";
+        // "use strict";
 
         function showLocation () {
-            // console.log(this);  // undefined
             debug.innerText = this.location;
         } 
         showLocation();  
 
-        // var showLocation = function () {
-        //     console.log(this);
-        //     debug.innerText = this.location;
-        // } 
+       
     // bind 定義什麼是 this
         showLocation = showLocation.bind(window);
         showLocation();
 
-        // var showLocation = () => {
-        //     console.log(this);
-        //     debug.innerText = this.location;
-        // } 
-        // showLocation();
+     
 
     </script>
     

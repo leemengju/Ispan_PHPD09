@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="container">
+
+
+    <h1>待辦事項清單 - 刪除</h1>
+
+    <hr />
+    <div>
+        <dl class="row">
+            <dt class="col-sm-2">
+                項目名稱
+            </dt>
+            <dd class="col-sm-10" id="Name"  >
+                Job A
+            </dd>
+            <dt class="col-sm-2">
+                是否已完工
+            </dt>
+            <dd class="col-sm-10">
+                <input class="check-box" disabled="disabled" id="IsComplete" type="checkbox" checked="checked" />
+            </dd>
+        </dl>
+
+        <hr>
+        <h3>確定要刪除這筆資料嗎?</h3>
+
+        <form action="/Todo/Delete" method="post">
+            <input type="hidden" id="TodoItemId" name="TodoItemId" value="1" />
+            <input id="deleteButton" type="button" value="確定" class="btn btn-outline-danger" /> |
+            <a href="/index.html" class="btn btn-outline-info">取消</a>
+    </div>
+
+
+    <script>
+        //   文件備妥之後再ready
+        $(document).ready(function () {
+            // 把要編輯的資料從sessionStorage撈起來
+            var id = sessionStorage.getItem("todoTableId");
+            var url = `http://localhost:3000/todo/item/${id}`;
+            // console.log(id);
+
+            // 先拿資料，把目前頁面的資料替換成sessionStorage裡面的資料
+            $.get(url, function (e) {
+                $("#Name").text(e.title);
+                $("#IsComplete").prop("checked", e.isComplete);
+            })
+        
+
+            // 點擊button
+            $("#deleteButton").on("click", async function () {
+                
+                // 更改網址
+                var todoTableId = sessionStorage.getItem("todoTableId")
+                var delUrl = "/todo/delete/" + todoTableId;
+                
+                // 修改完之後回傳server
+                var result = await $.ajax({
+                    type: "delete",
+                    url: delUrl,
+                   
+                })
+                // console.log( result);
+
+
+
+                // // 回到首頁
+                window.location = "/index.html";
+
+            })
+
+
+        })
+    </script>
+
+</div>

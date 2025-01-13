@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>
+            待辦事項清單
+            <a href="Create.html" class="btn btn-outline-success btn-md float-right">
+                新增
+            </a>
+        </h1>
+
+        <table id="jobList" class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        項目名稱
+                    </th>
+                    <th>
+                        是否已完工
+                    </th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Job A
+                    </td>
+                    <td>
+                        <input class="check-box" disabled="disabled" type="checkbox" />
+                    </td>
+                    <td>
+                        <span class="float-right">
+                            <a href="edit.html" class="btn btn-outline-primary btn-sm">編輯</a> |
+                            <a href="delete.html" class="btn btn-outline-danger btn-sm">刪除</a>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <script>
+        // $(document).ready(function () {
+
+        //     $("#postButton").on("click", async function () {
+        //         var dataToServer = {
+        //             firstName: $("#firstNameTextBox").val(),
+        //             lastName: $("#lastNameTextBox").val()
+        //         }
+
+
+
+        var todoTable = [
+            { todoTableId: 1, title: "Job XXX", isComplete: 1 },
+            { todoTableId: 2, title: "Job YYY", isComplete: 0 },
+            { todoTableId: 3, title: "Job ZZZ", isComplete: 1 }
+        ];
+
+        // e 是一個事件物件，以下是一些常見屬性：
+
+        // type：事件的類型（例如 click, keydown）。
+        // target：觸發事件的 DOM 元素。
+        // currentTarget：事件綁定的元素。
+        // preventDefault()：取消事件的預設行為。
+        // stopPropagation()：停止事件冒泡。
+        // key 或 keyCode：鍵盤按鍵事件中，按下的鍵或其代碼。
+        // clientX 和 clientY：滑鼠事件中，滑鼠指針相對於視窗的座標。
+
+        //將資料從API端取出來 
+        // get是抓url，再出function
+        $.get("/todo/list", function (e) {
+            todoTable = e;//串API
+
+            // 1.刪除之前的數據
+            $('#jobList tbody').empty();
+
+            // 2.將陣列資訊轉成UI前端。
+            // 對於每一行todoTable，求index和項目內容
+            $.each(todoTable, function (index, item) {
+
+                var trHtml = `  <tr>
+                            <td>
+                                ${item.title}
+                            </td>
+                            <td>
+                                <input class="check-box" disabled="disabled"
+                                    type="checkbox" ${(item.isComplete) ? "checked" : ""} />
+                            </td>
+                            <td>
+                                <span class="float-right">
+                                    <a href="edit.html" onclick="doEdit(${item.todoTableId})" class="btn btn-outline-primary btn-sm">編輯</a> |
+                                    <a href="delete.html" onclick="doDelete(${item.todoTableId})"  class="btn btn-outline-danger btn-sm">刪除</a>
+                                </span>
+                            </td>
+                        </tr>`;
+                // 2.將新增的項目放在#joblist之後。
+                $('#jobList').append(trHtml);
+
+            }) // end of each
+        }) // end of get
+       
+        // 將點擊後的內容儲存在session_storage，下一頁才會知道點擊的是哪一個項目。
+        // 這裡的id被直接賦值為"${item.todoTableId}"
+        function doEdit(id) {
+            sessionStorage.setItem("todoTableId", id);
+        }
+        function doDelete(id) {
+            sessionStorage.setItem("todoTableId", id);
+        }
+
+    </script>
+
+</body>
+
+</html>

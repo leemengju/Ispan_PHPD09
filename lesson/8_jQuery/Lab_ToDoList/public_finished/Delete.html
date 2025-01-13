@@ -39,6 +39,8 @@
     <script>
         var todoTableId = sessionStorage.getItem("todoTableId") || 1;
         var url = "/todo/item/" + todoTableId;
+
+
         $.get(url, function (e) {
             // var item = JSON.parse(e);
             var item = e;
@@ -46,13 +48,17 @@
             $("#isComplete").prop("checked", (item.isComplete) ? "checked" : "" );
         })
 
+
         $("#deleteButton").on("click", async function () {
             var todoTableId = sessionStorage.getItem("todoTableId") || 1;
+            
             var delUrl = "/todo/delete/" + todoTableId;
+
             var result = await $.ajax({
                 type: "delete",
                 url: delUrl
             })
+
             // alert(result);
             window.location = "/index.html";
         })

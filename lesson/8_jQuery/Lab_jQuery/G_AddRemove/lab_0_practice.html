@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery.toast.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <h2>最新消息</h2>
+                <ul id="latestNews" class="list-group">
+                    <li class="list-group-item">First item</li>
+                    <li class="list-group-item">Second item</li>
+                    <li class="list-group-item">Third item</li>
+                </ul>
+            </div>
+
+            <div class="col-sm-4">
+                &nbsp;
+            </div>
+
+            <div class="col-sm-4">
+                &nbsp;
+            </div>
+
+        </div> <!-- end of row -->
+
+    </div> <!-- end of container -->
+
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.toast.js"></script>
+
+    <script>
+
+        // 使用方式:
+        // showToast("標題", "提示文字") 例如:
+        // showToast("Hint", "請點一下正確的圖案");
+        function showToast(heading, message) {
+            $.toast({
+                text: message, // Text that is to be shown in the toast
+                heading: heading, // Optional heading to be shown on the toast
+                icon: 'warning', // Type of toast icon
+                showHideTransition: 'fade', // fade, slide or plain
+                allowToastClose: true, // Boolean value true or false
+                hideAfter: 3000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+                stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+                position: 'top-right', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+                textAlign: 'left',  // Text alignment i.e. left, right or center
+                loader: true,  // Whether to show loader or not. True by default
+                loaderBg: '#9ec600',  // Background color of the toast loader
+                beforeShow: function () { }, // will be triggered before the toast is shown
+                afterShown: function () { }, // will be triggered after the toat has been shown
+                beforeHide: function () { }, // will be triggered before the toast gets hidden
+                afterHidden: function () { }  // will be triggered after the toast has been hidden
+            });
+        }
+
+
+        $(function () {
+
+
+            // Lab 程式:
+            // 清單轉換成陣列
+            var newsList =
+                [
+                    { ymd: "2017-01-01", title: "Item 1" },
+                    { ymd: "2017-01-01", title: "Item 2" },
+                    { ymd: "2017-01-02", title: "Item 3" },
+                    { ymd: "2017-01-03", title: "Item 4" },
+                    { ymd: "2017-01-04", title: "Item 5" }
+                ];
+
+
+            // <---------------------------------------------將newsList新增在 #latestNews之後-------------------------------------------->
+            // 方法一_for迴圈，兩層定義:
+            // for (let i = 0; i < 5; i++) {
+            //     var newsItem = newsList[i];
+            //     var liText = `<li class="list-group-item">${newsItem.title} [${newsItem.ymd}]</li>`;
+            //     $("#latestNews").append(liText);
+            // }
+
+
+            //     方法二_for迴圈，單層定義:
+            //     for (let i = 0; i < newsList.length; i++) {
+            //         var liTemplate = `
+            // <li class="list-group-item">
+            //     ${newsList[i].title} [${newsList[i].ymd}]
+            // </li>`;
+            //         $("#latestNews").append(liTemplate);
+            //     }
+
+
+            // 方法三_each:
+            // $.each(newsList, function (key, obj) {
+            //     var newsText = obj.title + " [" + obj.ymd + "]";
+            //     var lihtml = $("<li></li>")
+            //         .text(newsText)
+            //         .addClass("list-group-item");
+            //     $("#latestNews").append(lihtml);
+            // })
+
+                        // <---------------------------------------------將原本的#latestNews li刪除，並新增調整list的順序-------------------------------------------->
+            $("#latestNews li").remove();
+            $.each(newsList, function (key, obj) {
+                var newsText = obj.title + " [" + obj.ymd + "]";
+                var lihtml = $("<li></li>")
+                    .text(newsText)
+                    .addClass("list-group-item");
+                $("#latestNews").append(lihtml);
+            
+            })
+// 不可以直接用lihtml，因為它屬於$.each()的區域變數。
+//  $("#latestNews li")已被刪除。新增的lihtml會變成新的 $("#latestNews li")
+// 建議將remove改成detach。因為remove只能點一次，但detach可以保留他的數據和位置。
+
+
+// 方法一_直接detach this,並接上新的參數:
+//             $("#latestNews li").dblclick(function(){
+//                 var $li=$(this).detach();
+//                 $("#latestNews").append($li);
+//             })
+
+//   方法二_求idndex，並將其帶入eq():
+  
+  $("#latestNews li").dblclick(function() {
+    var LiIndex= $("#latestNews").index();
+    var $li=$("#latestNews li").eq(LiIndex).detach();
+    $("#latestNews").append($li);
+ 
+
+  })
+
+
+
+  $("#latestNews li").dblclick(function () {
+        var iIndex = $(this).index();
+        showToast("", iIndex);
+        var $li = $("#latestNews li").eq(iIndex).detach();
+        $("#latestNews").append($li);
+    })
+
+
+
+
+
+
+        })  // end of init.
+
+    </script>
+
+</body>
+
+</html>

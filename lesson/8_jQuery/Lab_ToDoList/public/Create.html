@@ -33,24 +33,25 @@
 </div>
 
 <script>
-
-    $("#okButton").on("click", async function () {
-
-        var dataToServer = {
-            title: $("#Name").prop("value"),
-            isComplete: ($("#IsComplete").prop("checked")) ? 1 : 0
-        };
-
-        var result = await $.ajax({
-            type: "post",
-            url: "/todo/create",
-            contentType: "application/json",
-            data: JSON.stringify(dataToServer)
-        });
-
-        window.location = "/index.html";
-
-    })
+$("#okButton").on("click", async function () {
+    var dataToServer={
+        title: $("#Name").val(),
+        isComplete:$("#IsComplete").prop("checked")? 1:0
+    }
+    // console.log(dataToServer);
     
+    
+    var result= await $.ajax({
+        type:"post",
+        url:"/todo/create",
+        contentType:"application/Json",
+        data:JSON.stringify( dataToServer)
+    
+    })
+
+    window.location="/index.html"
+})
+    
+
     
 </script>

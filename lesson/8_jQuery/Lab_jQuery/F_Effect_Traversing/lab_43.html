@@ -83,6 +83,20 @@ $(function () {
     // 請接著寫作
     // Lab 程式:
 
+//     var speciesList = ["狗狗", "貓", "兔兔"];
+
+// 定義了一個陣列，包含三個物種名稱，分別是 "狗狗"、"貓" 和 "兔兔"。
+// 它將用於為每個 .pet 元素動態分配物種名稱。
+// $(".pet").each(function (key, obj) { ... })
+
+// 使用 jQuery 的 each 方法迭代選中的所有 .pet 元素。
+// key: 當前元素的索引（從 0 開始）。
+// obj: 當前元素的 DOM 對象。
+// $(obj).data("species", speciesList[key]);
+
+// $(obj): 將 DOM 對象轉換為 jQuery 對象。
+// .data("species", speciesList[key]): 動態為該元素的 data-species 屬性設置值。
+// speciesList[key]: 根據當前元素的索引 (key)，從 speciesList 中取值並設置。
     var speciesList = ["狗狗", "貓", "兔兔"];
     $(".pet").each(function (key, obj) {
         $(obj).data("species", speciesList[key]);
