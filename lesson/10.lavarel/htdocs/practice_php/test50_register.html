@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        // 目的是檢查用戶輸入的帳號（account）是否符合某些條件（例如，是否已被註冊）。它的功能細節如下：
+        function checkAccount() {
+        // 如果用戶輸入了 myaccount，$('#account').val() 就會返回 myaccount。
+//         動態生成一個 URL，將用戶輸入的帳號作為參數。
+// 如果用戶輸入的帳號是 myaccount，這行代碼會生成這樣的 URL：
+//             複製程式碼checkAccount.php ? account = myaccount
+        url = 'checkAccount.php?account=' + $('#account').val();
+            // 用 jQuery 的 load() 方法，把指定 URL（checkAccount.php）的回應內容載入到 HTML 元素 id="mesg" 中。
+            // 應該就是像text或是html的樣子
+        $('#mesg').load(url);
+        }
+        // checkForm() 的返回值決定表單是否提交。
+        // 如果返回 true，表單正常提交。
+        // 如果返回 false，表單提交會被中止。
+        function checkForm() {
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>register page</h1>
+    <!-- onsubmit 事件處理函數 與checkForm() 綁定 。checkForm()傳回true表單才會傳出去。-->
+    <form action="test51_loginExam.php" method="post" enctype="multipart/form-data" onsubmit="return checkForm()">
+        Account:
+        <!-- 馬上去檢查是否有重複 -->
+        <input type="text" name="account" id="account" onblur="checkAccount()"><br>
+        Password:
+        <input type="password" name="passwd"><br>
+        Realname:
+        <input type="text" name="realname"><br>
+        <!-- 頭像 -->
+        Icon: <input type="file" name="icon" /><br />
+        <button type="submit" value="register">register</button>
+    </form>
+</body>
+
+</html>

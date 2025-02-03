@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<!-- -------------------------------------前端------------------------------------ -->
+
+<body>
+    <h1> Brad Company </h1>
+    <hr>
+    OrderID:
+    <input id="orderID">
+    <input type="button" value="search" onclick="search()">
+    <hr>
+    Employee ID <span id="eid"></span> <span id="ename"></span><br>
+    Customer ID <span id="cid"></span> <span id="cname"></span><br>
+    Order Date <span id="date"></span><br>
+    <table id="table" width="100%" border="1">
+
+    </table>
+
+
+</body>
+<!-- -------------------------------------接收資料------------------------------------ -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    // 點擊btn之後，搜尋後端的資訊
+    function search() {
+        // test60_searchProduct_backEnd.php，同时在 URL 中包含了一个查询参数 orderID=。
+        // 使用 jQuery 的 $() 选择器，找到 ID 为 orderID 的 HTML 元素（通常是一个 <input> 或 <select>）。
+        //     .val() 方法用来获取该元素的当前值。
+        // 成功網址舉例:test60_searchProduct_backEnd.php?orderID=12345
+        // 定義網址
+        let url = 'test60_searchProduct_backEnd.php?orderID=' + $('#orderID').val();
+
+// 從網址中得到data和狀態
+        $.get(url, function (data, status) {
+            // 如果狀態成功
+            if (status == "success") {
+                // 如果data的error值為0
+                if (data.error == 0) {
+                    // 先把UI有的資料先印出來
+                    $('#eid').html(data.eid);
+                    $('#ename').html(data.ename);
+                    $('#cid').html(data.cid);
+                    $('#cname').html(data.cname);
+                    $('#date').html(data.date);
+
+
+                    $('#table').empty();//確保重新查詢時不會疊加
+                    // 將detail的資料一筆一筆的印出來
+                    // 語法:$().each(function(index,element){})
+                    $(data.detail).each(function (i, row) {
+                        // 在ta
+                        $('#table').append(
+                            '<tr>' +
+                            '<td>' + (i + 1) + '</td>' +
+                            '<td>' + row.pname + '</td>' +
+                            '<td>' + row.price + '</td>' +
+                            '<td>' + row.qty + '</td>' +
+                            '<td>' + row.sum + '</td>' +
+                            '<tr>'
+                        );
+                    });
+                } else {
+                    console.log("error");
+                    $('#table').empty();
+                }
+
+            }
+        }
+        );
+
+    }
+</script>
+
+</html>
