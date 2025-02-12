@@ -29,35 +29,44 @@
 
     </div>
 
-<script src="../js/jquery.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 
-<script>
-    
-    var mailList = [
-        "jeremy.lin@gmail.com", 
-        "derek.jeter@gmail.com",
-        "chien-ming.wang@gmail.com",
-        undefined,
-        "lionel.messi@gmail.com"
+    <script>
+
+        var mailList = [
+            "jeremy.lin@gmail.com",
+            "derek.jeter@gmail.com",
+            "chien-ming.wang@gmail.com",
+            undefined,
+            "lionel.messi@gmail.com"
         ];
-    
-    function sendMail(mailAddress) {
-        try {
-            $("#report").append(mailAddress.toString() + "<br>");
+
+        function sendMail(mailAddress) {
+            try {
+                result = 200;
+                $("#report").append(mailAddress.toString() + "<br>");
+            }
+            catch (e) {
+                result = 404;
+                $("#report").append(e.message + "<br>");
+                // $("#report").append(e.message + "<br>");
+            }
+            return result;
+
         }
-        catch (e) {
-            $("#report").append(e.message + "<br>");
+
+        for (i = 0; i < mailList.length; i++) {
+            sendMail(mailList[i]);
+            if (result == 404) {
+                sendMail("do again");
+            }
+
         }
-    }
-    
-    for (i = 0; i < mailList.length; i++) {
-        sendMail(mailList[i]);
-    }
-    
-    
-    
-</script>
+
+
+
+    </script>
 
 </body>
 

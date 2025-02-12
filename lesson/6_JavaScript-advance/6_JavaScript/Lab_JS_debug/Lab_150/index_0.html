@@ -55,7 +55,9 @@ report.innerHTML =
     <script src="../js/bootstrap.min.js"></script>
 
     <script>
-    
+    // 兩個實數之間沒有影響。
+    // 在陣列後新增一個元素，會改變。
+    // 因為object都指向同一個資料區，將資料區換一個數值，那會換。
     function doWork(anInt, anArray, anObject) {
         anInt = 11;
         anArray.push("three");

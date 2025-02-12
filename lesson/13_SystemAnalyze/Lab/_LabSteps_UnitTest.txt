@@ -1,0 +1,257 @@
+Lab: 以 Node.JS + Jest 進行單元測試
+
+
+
+
+1.  建立 Node.js 專案
+
+
+1.1 開啟 Terminal 終端機視窗
+
+
+1.2 輸入下列指令，以建立 Node.JS 專案:
+mkdir calculator
+cd calculator
+npm init -y
+
+
+1.3 繼續輸入下列指令，安裝本練習所需的套件:
+npm install express
+npm install body-parser
+
+	<Note>
+	完成後，在 Lab_AJAX_Node.js 的 node_modules 資料夾裏頭
+	應該會多出 express、 body-parser 等資料夾。
+
+
+
+
+2.  建立網站並且初步操作看看
+
+
+2.1 在 calculator 資料夾建立新檔案，檔名: app.js
+    內容如下:
+
+const calculator = require('./calculator')
+
+// 以 Express 建立 Web 伺服器
+var express = require("express");
+var app = express();
+
+// 以 body-parser 模組協助 Express 解析表單與JSON資料
+var bodyParser = require('body-parser');
+app.use( bodyParser.json() );
+app.use( bodyParser.urlencoded({extended: false}) );
+
+// 一切就緒，開始接受用戶端連線
+// app.listen(process.env.PORT);
+app.listen(3000);
+console.log("Web伺服器就緒，開始接受用戶端連線.");
+console.log("鍵盤「Ctrl + C」可結束伺服器程式.");
+
+// ---------------
+
+app.get("/", function (request, response) {
+    var html = `
+            <html>
+                <body>
+                    <form method="post" action="http://localhost:3000/add">Numbers: 
+                        <input type="text" name="numberList" />
+                        <input type="submit" value="Add Number List" />
+                    </form>
+                </body>
+            </html>`
+    response.writeHead(200, {'Content-Type': 'text/html'})
+    response.end(html)
+});
+
+app.post("/add", function (request, response) {
+    let numberList = request.body.numberList;
+    let result = calculator.add(numberList)
+    response.writeHead(200, {'Content-Type': 'text/html'})
+    response.end('Result: ' + result)
+});
+
+
+2.2 在 calculator 資料夾建立新檔案，檔名: calculator.js
+    內容如下:
+
+function add(numbers) {
+    var result = 0;
+    var dataList = numbers.split(',');
+    if (numbers.trim() == "") {
+        result = 0;
+        return result;
+    }
+
+    const numberList = dataList.map( x => parseInt(x) );
+    for (let num of numberList) {
+        result += num;
+    }
+
+    return result;
+}
+
+exports.add = add;
+
+
+2.3 修改 package.json 檔案，將下列內容:
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+  改成:
+
+  "scripts": {
+    "start": "node app.js",
+    "test": "jest"
+  },
+
+
+2.4 在端終機輸入下列指令以啟動 Web Server
+npm start
+
+
+2.5 以瀏覽器連接 http://localhost:3000
+    在文字輸入方塊輸入: 「1,2,3」
+    點按按鈕
+
+2.6 在終端機視窗按下 Ctrl + C，停止Web Server
+
+
+
+
+3.  撰寫單元測試程式
+
+
+3.1 在 calculator 資料夾建立新檔案，檔名: calculator.test.js
+    內容如下:
+
+const calculator = require('./calculator')
+
+test('normal list', () => {
+  expect(calculator.add('1,2,3')).toBe(6);
+});
+
+test('wrong format', () => {
+  expect(calculator.add('1,2,,4,')).toBe(7);
+});
+
+
+
+
+4.  開始單元測試
+
+
+4.1 在終端機視窗，輸入
+npm install jest --save-dev
+
+
+4.2 在終端機視窗，輸入
+npm test
+
+<Note>
+測試結果，一個過關，一個沒過
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 passed, 2 total
+
+
+4.3 修改 calculator.js，
+    新內容如下:
+function add(numbers) {
+    var result = 0;
+    var dataList = numbers.split(',');
+    if (numbers.trim() == "") {
+        result = 0;
+        return result;
+    }
+
+    const numberList = dataList.map( x => Number(x) );
+    for (let num of numberList) {
+        result += num;
+    }
+
+    return result;
+}
+
+exports.add = add;
+
+
+4.4 在終端機視窗，輸入
+npm test
+
+<Note>
+這回，全部過關
+Test Suites: 1 passed, 1 total                                                                                                      
+Tests:       2 passed, 2 total     
+
+
+
+
+5.  觀看 coverage 報告
+
+
+5.1 修改 package.json 檔案，將下列內容:
+
+  "scripts": {
+    "start": "node app.js",
+    "test": "jest"
+  },
+
+  改成:
+
+  "scripts": {
+    "start": "node app.js",
+    "test": "jest",
+    "report": "jest --coverage"
+  },
+
+
+5.2 在終端機視窗，輸入
+npm run report
+
+    <Note>
+    請想想看， % Lines 那項為何只有 81%
+
+
+5.3 修改 calculator.test.js，新內容如下:
+
+const calculator = require('./calculator')
+
+test('normal list', () => {
+  expect(calculator.add('1,2,3')).toBe(6);
+});
+
+test('wrong format', () => {
+  expect(calculator.add('1,2,,4,')).toBe(7);
+});
+
+test('empty list should be 0', () => {
+  expect(calculator.add('')).toBe(0);
+});
+
+
+5.4 在終端機視窗，輸入
+npm run report
+
+    <Note>
+    這次的 % Lines 就會是 100% 了
+
+
+PASS  ./calculator.test.js
+  √ normal list (2 ms)
+  √ wrong format
+  √ empty list should be 0
+
+---------------|---------|----------|---------|---------|-------------------
+File           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+---------------|---------|----------|---------|---------|-------------------
+All files      |     100 |      100 |     100 |     100 |                   
+ calculator.js |     100 |      100 |     100 |     100 |                   
+---------------|---------|----------|---------|---------|-------------------
+Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        0.29 s, estimated 1 s
+Ran all test suites.

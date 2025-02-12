@@ -1,0 +1,5 @@
+aggregation:人聚集在車子內。人可以坐進車子裡面，但彼此互不隸屬。
+composition:組成關係
+dependancy:協助工具
+generalization:普遍化/繼承
+舉例:person是抽象的/consultant是具象的

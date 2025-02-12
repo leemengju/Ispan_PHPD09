@@ -20,7 +20,7 @@ $result = $mysqli->query($sql);
 $row = $result->fetch_object();
 // 將查詢得到的總記錄數賦值給變數 $total。
 $total = $row->total;
-// ceil無條件進位法 vs floor
+// ceil無條件進位法 vs floor無條件捨去法
 $pages = ceil($total / $rpp);
 
 

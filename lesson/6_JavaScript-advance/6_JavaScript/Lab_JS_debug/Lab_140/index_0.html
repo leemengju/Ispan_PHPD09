@@ -44,8 +44,10 @@
     
 
     btnTest.onclick = function () {
+        // 更改: var x=6+number("2");
         var x = 6 + "2";
         var y = 6 - "2";
+        // 16進位的10;轉成實數為10。
         var z = 6 + parseInt("0xa");
         report.innerHTML = 
           '6 + "2"  ==> ' + x + "<br>" +

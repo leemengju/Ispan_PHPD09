@@ -1,0 +1,89 @@
+﻿use mysql;
+
+-- 請試著描述 user, db, tables_priv 等資料表的作用
+show tables;
+
+
+-- 檢視現在的使用者清單
+select user, host, password from user;
+select host, db, user, select_priv, insert_priv, update_priv from db;
+select host, db, user, table_name, table_priv from tables_priv;
+
+
+-- 新增一個新的使用者:
+grant usage on *.* to carl@'%' identified by 'Pa$$w0rd';
+
+
+-- 各個記錄安全權限的資料表有何變化?
+select user, host, password from user;
+select host, db, user, select_priv, insert_priv, update_priv from db;
+select host, db, user, table_name, table_priv from tables_priv;
+
+-- 新增一個新的使用者:
+create user jeter identified by 'Pa$$w0rd';
+
+
+-- 各個記錄安全權限的資料表有何變化?
+select user, host, password from user;
+select host, db, user, select_priv, insert_priv, update_priv from db;
+select host, db, user, table_name, table_priv from tables_priv;
+
+
+-- 下列指令可否成功執行:
+grant usage on *.* to jeremy identified by 'Pa$$w0rd';
+grant usage on *.* to white;
+grant usage on *.* to Carl@'%' identified by 'Pa$$w0rd';
+
+
+-- 另外開一個"命名提示字元", 以剛才的 carl 登入
+
+
+-- 幫 carl 重設密碼:
+set password for carl = password('Pa$$w0rd');
+
+
+-- 以 carl 的身份嘗試下列指令, 順利嗎? :(
+select customerID, companyName from northwind.customers;
+
+
+-- 授予 carl 可以查詢 northwind 資料庫的所有資料表
+-- 觀察各個記錄權限的資料表有何變化.
+grant select on northwind.* to carl;
+select host, db, user, select_priv, insert_priv, update_priv from db;
+select host, db, user, table_name, table_priv from tables_priv;
+
+
+-- 剛才的 carl, 再次試試下列指令, 順利嗎? :)
+select customerID, companyName from northwind.customers;
+
+
+-- 那... 以下的指令呢...
+use northwind;
+update customers set companyName = 'Lab Company' where customerID = 'ALFKI';
+
+
+-- 授予 carl 可以 update northwind 資料庫的 customers 資料表
+-- 觀察各權限的資料表有何變化.
+grant update on northwind.customers to carl;
+select host, db, user, select_priv, insert_priv, update_priv from db;
+select host, db, user, table_name, table_priv from tables_priv;
+
+
+-- 以 carl 的身份, 再次試試下列指令, 順利嗎? :)
+update customers set companyName = 'Lab Company' where customerID = 'ALFKI';
+
+
+-- 收回 carl 對於 customers 資料表的 update 權限
+revoke update on northwind.customers from carl;
+select user, host, password from mysql.user;
+select host, db, user, select_priv, insert_priv, update_priv from db;
+select host, db, user, table_name, table_priv from tables_priv;
+
+
+-- 連續動作...
+-- 建立登入使用者帳號, 同時一併授予 customers 資料表的 update 權限
+grant update on northwind.customers to cathy@winxp identified by 'Pa$$w0rd';
+select host, db, user, select_priv, insert_priv, update_priv from db;
+select host, db, user, table_name, table_priv from tables_priv;
+select user, host, password from user;
+

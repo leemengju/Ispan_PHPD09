@@ -1,0 +1,26 @@
+筆記可能用得到的指令、設定:
+
+
+<?php
+phpinfo();
+
+
+https://xdebug.org/wizard
+
+將phpinfo的內容全部貼上，並執行，跟著步驟執行
+
+編輯 C:\xampp\php\php.ini
+[Xdebug]
+zend_extension = "C:\xampp\php\ext\php_xdebug.dll"
+;zend_extension = xdebug
+xdebug.mode = debug
+xdebug.start_with_request = yes
+
+
+在 VS Code 安裝 PHP Debug 
+
+
+Run and Debug:
+create a launch.json
+選 PHP
+

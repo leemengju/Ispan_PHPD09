@@ -40,12 +40,14 @@
 
     <script>
     
-    function displayTime {
+    function displayTime() {
         report.innerHTML = Date();
-        setInterval(displayTime(), 1000);
+        setInterval(displayTime, 1000);// setInterval可以執行很多次。
+        // setTimeout(displayTime, 1000);// setTimeout，那只能做一次。
+        // setInterval(displayTime(), 1000);// 如果加了括號，那只能做一次。
     
-    
-    displayTime;
+    }
+displayTime();
     
     
     </script>
