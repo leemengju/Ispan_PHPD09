@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="report"></p>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        // <-------------------------------v1 基礎版------------------------>
+
+        // 定義陣列，使用複數名稱較為合適
+        let items = ['apple', 'banana', 'pear'];
+
+        // 取得頁面上 id 為 report 的元素
+        let report = document.getElementById("report");
+
+        // 準備一個空字串來累加內容
+        let output = "";
+
+        // 使用 for 迴圈遍歷陣列
+        for (let i = 0; i < items.length; i++) {
+            output += items[i] + "<br>";  // 加入 HTML 換行標籤
+        }
+
+        // 將累加好的字串設定為 report 元素的內容
+        report.innerHTML = output;
+
+        // <-------------------------------v2 forin也可以，會叫出index------------------------>
+        for (const i in items) {
+            console.log(i);
+        }
+        // <-------------------------------v3 forof也可以，會叫出內容------------------------>
+        for (const i of items) {
+            console.log(i);
+        }
+        // <-------------------------------v4 foreach也可以，分別會叫出value,index,array------------------------>
+        items.forEach(function (value, idx, array) {
+            console.log(value); //內容
+            console.log(idx); //index
+            console.log(array); //陣列本人
+        })
+        // <-------------------------------v5 arrow------------------------>
+        // <-------------------------------先參數，再箭頭指向功能------------------------>
+        items.forEach(value => { console.log(value) })
+        // <-------------------------------v6 jQuery------------------------>
+            $.each(items,function (value) {
+                report.innerHTML=value;
+            })
+
+    </script>
+</body>
+
+</html>

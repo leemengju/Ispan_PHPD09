@@ -1,0 +1,25 @@
+
+10. https://pokeapi.co/
+
+    * 取得寶可夢資訊：https://pokeapi.co/api/v2/pokemon/{id or name}
+    * 寶可夢API文件說明：https://pokeapi.co/docs/v2#pokemon
+
+
+20. https://jsonplaceholder.typicode.com
+
+    * 提供JSON資料
+        /posts  	100 posts
+        /comments	500 comments
+        /albums 	100 albums
+        /photos	    5000 photos
+        /todos	    200 todos
+        /users	    10 users
+
+30. https://data.gov.tw/
+
+    * 關於平臺：https://data.gov.tw/about
+
+
+50. https://reqres.in/
+
+    * 提供測試API

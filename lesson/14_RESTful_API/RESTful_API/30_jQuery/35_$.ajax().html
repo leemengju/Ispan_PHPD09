@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../_js/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+
+    <h4>取得資料測試平台</h4>
+    <p><a href='https://jsonplaceholder.typicode.com/'>https://jsonplaceholder.typicode.com/</a></p>
+    <h4>jQuery.ajax()</h4>
+    <p><a href='https://api.jquery.com/jQuery.ajax/'>https://api.jquery.com/jQuery.ajax/</a></p>
+    <hr>
+
+    <button id="btnAjax">$.ajax()</button>
+    <hr>
+
+    <p>按鈕點選後底下依序顯示 userid - id - completed - title</p>
+    <p>例如: 10 - 181 - false - ut cupiditate sequi aliquam fuga maiores</p>
+    <div id="divResult"> </div>
+    <hr>
+
+    <script>
+        // 10. 按鈕點選後，讀取使用者待辦項目清單
+        btnAjax.onclick = function () {
+
+             // 20. 觀察資料結構 https://jsonplaceholder.typicode.com/todos
+            //     試著將 使用者編號為10號的待辦事項 顯示在網頁上
+            const url = 'https://jsonplaceholder.typicode.com/todos';
+
+        }
+    </script>
+
+</body>
+
+</html>
