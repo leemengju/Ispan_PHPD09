@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <button id="btnGetFileT">讀取文字檔 async 參數設定為 true </button>
+    <button id="btnGetFileF" onclick="btn()">讀取文字檔 async 參數設定為 false </button>
+    <hr>
+    <main>
+        <div id="divLeft"></div>
+        <div id="divRight"></div>
+        <button id="E">123</button>
+        <button id="F">123</button>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+       
+        function btn() {
+            console.log("ok");
+
+        }
+        btnGetFileT.onclick = function () {
+            divLeft.innerHTML = "ok";
+        }
+        btnGetFileF.addEventListener("click", function () {
+            divRight.innerHTML = "ok2";
+        })
+        // 使用 jQuery 設定按鈕 E 的點擊事件，並修改按鈕 F 的內容
+        $('#E').on("click", function () {
+            // 這裡使用 jQuery 正確選取 ID 為 "F" 的元素
+            $("#F").html("ok3");
+        });
+
+
+
+        // 20. 先讀取 bigfile.txt ， 後讀取 smallfile.txt
+        //     測試 async 參數設定為 false
+        btnGetFileF.onclick = function () { }
+
+    </script>
+
+</body>
+
+</html>

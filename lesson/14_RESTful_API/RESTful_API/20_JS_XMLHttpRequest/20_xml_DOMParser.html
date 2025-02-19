@@ -8,14 +8,18 @@
 <body>
 
     <h4>DOMParser</h4>
-    <p><a href='https://developer.mozilla.org/zh-TW/docs/Web/API/DOMParser'>https://developer.mozilla.org/zh-TW/docs/Web/API/DOMParser</a></p>
+    <p><a
+            href='https://developer.mozilla.org/zh-TW/docs/Web/API/DOMParser'>https://developer.mozilla.org/zh-TW/docs/Web/API/DOMParser</a>
+    </p>
     <h4>DOMParser.parseFromString()</h4>
-    <p><a href='https://developer.mozilla.org/en-US/docs/Web/API/DOMParser/parseFromString'>https://developer.mozilla.org/en-US/docs/Web/API/DOMParser/parseFromString</a></p>
+    <p><a
+            href='https://developer.mozilla.org/en-US/docs/Web/API/DOMParser/parseFromString'>https://developer.mozilla.org/en-US/docs/Web/API/DOMParser/parseFromString</a>
+    </p>
     <h4>XML Parser</h4>
     <p><a href='https://www.w3schools.com/xml/xml_parser.asp'>https://www.w3schools.com/xml/xml_parser.asp</a></p>
     <h4>w3schools cd_catalog.xml</h4>
     <p><a href='https://www.w3schools.com/xml/cd_catalog.xml'>https://www.w3schools.com/xml/cd_catalog.xml</a></p>
-    
+
     <p id="demoV1"></p>
     <hr>
     <p id="demoV2"></p>
@@ -37,14 +41,47 @@
             </book>
         </bookstore>`;
 
+
+
         // 20. 透過 new DOMParser() 將上述文字轉成DOM文件
         //      * parseFromString
 
-        // 25. 解讀DOM文件
+        let xa = new DOMParser();
+        let xb = xa.parseFromString(temp, "text/xml");
+        console.log(xb);
+
+        //  <-------------------------------25. 解讀DOM文件------------------------>
         //      * getElementsByTagName()
         //      * Node.childNodes
         //      * HTMLElement.innerHTML
-        
+        let xc = xb.getElementsByTagName('author');
+        console.log(xc);
+
+
+        //  <------------------只印一個作者------------------------>
+        let x=xc[0].innerHTML;
+        let y=xc[0].textContent;
+        console.log(x);
+        console.log(y);
+       
+        //  <------------------逐一印出作者_V1------------------------>
+        // 遍歷 NodeList，每個元素都是一個 <author> 節點
+        for (let i = 0; i < xc.length; i++) {
+            // 在 XML 文件中，通常使用 textContent 取得文字內容
+            console.log(xc[i].textContent);
+        }
+
+        //  <------------------逐一印出作者_V2------------------------>
+        // 將第一個作者的內容設定到 id="demoV1" 的段落中
+        if (xc.length >= 1) {
+            document.getElementById("demoV1").textContent = xc[0].textContent;
+        }
+
+        // 將第二個作者的內容設定到 id="demoV2" 的段落中
+        if (xc.length >= 2) {
+            document.getElementById("demoV2").textContent = xc[1].textContent;
+        }
+
     </script>
 </body>
 

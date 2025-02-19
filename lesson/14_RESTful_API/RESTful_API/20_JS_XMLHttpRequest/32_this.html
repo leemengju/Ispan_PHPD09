@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>this</h1>
+    <button onclick="myfunction('lance')">測試A</button>
+</body>
+
+<script>
+console.log(this);
+
+    function myfunction(a) {
+        console.log(a);
+    }
+
+
+
+    let student={
+        chinese:100,
+        math:80,
+        getScore: function () {
+            console.log(this);
+        }
+    }
+    student.getScore();
+</script>
+</html>

@@ -7,15 +7,15 @@
 </head>
 
 <body>
-
+<!-- asynchronous，非同步，先跑回來的先呈現 -->
+<!-- synchronous，同步，要按順序回來 -->
     <button id="btnGetFileT">讀取文字檔 async 參數設定為 true </button>
-    <button id="btnGetFileF" onclick="btn()">讀取文字檔 async 參數設定為 false </button>
+    <button id="btnGetFileF">讀取文字檔 async 參數設定為 false </button>
     <hr>
     <main>
         <div id="divLeft"></div>
         <div id="divRight"></div>
-        <button id="E">123</button>
-        <button id="F">123</button>
+      
     </main>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -28,27 +28,67 @@
 
         // 10. 先讀取 bigfile.txt ， 後讀取 smallfile.txt
         //     測試 async 參數設定為 true 
-        function btn() {
-            console.log("ok");
 
-        }
-        btnGetFileT.onclick = function () {
-            divLeft.innerHTML = "ok";
-        }
-        btnGetFileF.addEventListener("click", function () {
-            divRight.innerHTML = "ok2";
-        })
-        // 使用 jQuery 設定按鈕 E 的點擊事件，並修改按鈕 F 的內容
-        $('#E').on("click", function () {
-            // 這裡使用 jQuery 正確選取 ID 為 "F" 的元素
-            $("#F").html("ok3");
-        });
+        //  <-------------------------------大檔案------------------------>
+        // "load"就是執行。當檔案資料完全載入後，觸發 "load" 事件，進而執行 reqListener，印出並更新資料。
+        // btnGetFileT.onclick = function () {
+        //     function reqListener() {
+        //     console.log(this.responseText);
+        //     divLeft.innerHTML=this.responseText;
+        //     // $('#divLeft').text(this.responseText);
+        // }
+
+
+        // var oReq = new XMLHttpRequest();
+        // oReq.addEventListener("load", reqListener);
+        // oReq.open("GET", "../_file/bigfile.txt");// 帶檔案回來
+        // oReq.send();
+        // }
+
+        // //  <-------------------------------小檔案------------------------>
+
+        // btnGetFileF.onclick = function () {
+        //     function reqListener2() {
+        //     console.log(this.responseText);
+        //     // divLeft.innerHTML=this.responseText;
+        //     // $('#divLeft').text(this.responseText);
+        // }
+
+
+        // var oReq2 = new XMLHttpRequest();
+        // oReq2.addEventListener("load", reqListener2);
+        // oReq2.open("GET", "../_file/smallfile.txt");
+        // oReq2.send();
+        // }
+
+
+
+
 
 
 
         // 20. 先讀取 bigfile.txt ， 後讀取 smallfile.txt
         //     測試 async 參數設定為 false
-        btnGetFileF.onclick = function () { }
+
+        btnGetFileT.onclick = function () {
+            //  reqListener("檔案位置", 要放在哪)
+            reqListener("../_file/bigfile.txt", divLeft);
+            reqListener("../_file/smallfile.txt", divRight);
+        }
+
+        // 建立並發送讀取大檔案的請求
+        function reqListener(filepath, element) {
+            console.log( element);
+
+            var Req = new XMLHttpRequest();
+            Req.addEventListener("load", function () {
+                element.innerHTML = this.responseText; 
+            });
+            Req.open("GET", filepath);
+            Req.send();
+
+        }
+
 
     </script>
 

@@ -27,59 +27,52 @@
     <script>
         
    // 1.全域變數，用以儲存解析後的 XML 文件
-   let globalXmlDoc = null;
-
+   let globalXmlDoc=null;
 // 2.封裝函式：從指定 URL 讀取 XML 並填入下拉選單
-function reqListener(url, targetSelect) {
+function reqListener(url,targetSelect) {
     // 對應到程式載入
-  var xhr = new XMLHttpRequest();
-  xhr.addEventListener("load", function() {
-    // 2.1將回傳的 XML 文字轉為 DOM 文件
-    var parser = new DOMParser();
-    var xmlDoc = parser.parseFromString(this.responseText, "text/xml");
-    console.log("Parsed XML:", xmlDoc);
+    var xhr= new XMLHttpRequest();
+    xhr.addEventListener("load",function () {
+       // 2.1將回傳的 XML 文字轉為 DOM 文件
+   var parser= new DOMParser();
+   var xmlDoc=parser.parseFromString(this.responseText,"text/xml");
+   console.log("Parse XML:",xmlDoc);
     // 2.2儲存全域 XML 文件，方便後續查詢天氣資料
-    globalXmlDoc = xmlDoc;
-
+  globalXmlDoc=xmlDoc;
     // 2.3取得所有 <locationName> 節點（依據實際 XML 結構調整）
-    var locations = xmlDoc.getElementsByTagName("locationName");
-    console.log("Locations:", locations);
+var locations=document.getElementByTagName("locationName");
+console.log("Locations:",locations);
+
 
     // 2.4清空下拉選單現有選項
-    targetSelect.innerHTML = "";
-
+  targetSelect.innerHTML="";
     // 2.5新增一個預設選項
-    var defaultOption = document.createElement("option");
-    defaultOption.textContent = "請選擇縣市";
-    defaultOption.value = "";
-    targetSelect.appendChild(defaultOption);
+  var defaultOption=document.createElement("option");
+  defaultOption.textContent="請選擇縣市";
+  defaultOption.value="";
+  targetSelect.appendChild(defaultOption);
 
     // 2.6依序建立 <option> 元素
-    for (var i = 0; i < locations.length; i++) {
-      var city = locations[i].textContent;
+   for (let i = 0; i < locations.length; i++) {
+    const city = location[i].textContent;
+    
+  
     //   2.6.1並加入下拉選單
-      var option = document.createElement("option");
-      option.value = city;
-      option.textContent = city;
-      targetSelect.appendChild(option);
-      console.log(option.value + " " + option.textContent);
-      
-    }
-  });
-  xhr.open("GET", url);
-  xhr.send();
+var option=document.createElement("option");
+option.value=city;
+option.textcotent=city;
+targetSelect.appendChild(option);
+    
 }
-
+    });
+   xhr.open("Get",url);
+xrl.send();
+    }
 // 3.0取得按鈕、下拉選單與結果顯示區的 DOM 物件
-var btnGetOpenData = document.getElementById("btnGetOpenData");
-var cityList = document.getElementById("cityList");
-var divResult = document.getElementById("divResult");
+
 
 // 3.1當按鈕點擊時，呼叫 reqListener 函式，取得 XML 並更新下拉選單
-btnGetOpenData.onclick = function() {
-  reqListener("../_file/F-C0032-001_20250218.xml", cityList);
 
-};
 
 // 4.當下拉選單變更時，依據所選縣市顯示天氣資訊，用change的function
 cityList.addEventListener("change", function() {
