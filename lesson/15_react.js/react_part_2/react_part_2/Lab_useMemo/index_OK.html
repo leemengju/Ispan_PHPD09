@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+      body {
+        font-family: "Microsoft JhengHei", "Microsoft YaHei", STHeiti,
+          sans-serif;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+      function longTimeWork(prev) {
+        for (let i = 1; i <= 100000000; i++) ;
+        document.title = `long time work - ${Math.floor(Math.random() * 100)}`;
+        return prev + 1;
+      }
+
+      function App(props) {
+        var [data1, setData1] = React.useState(1);
+        var [data2, setData2] = React.useState(1);
+
+        // var workResult = longTimeWork(data1);
+        var workResult = React.useMemo(() => {
+          return longTimeWork(data1)
+        }, [data1]);
+
+        let changeData1 = () => {
+          setData1( data1 + 1)
+        }
+
+        let changeData2 = () => {
+          setData2( data2 + 1)
+        }
+
+        return (
+          <React.Fragment>
+            <h3>workResult: {workResult}, data1: {data1}, data2: {data2}</h3>
+            <button class="btn btn-outline-success" onClick={changeData1}>change data1</button>
+            <button class="btn btn-outline-primary" onClick={changeData2}>change data2</button>
+          </React.Fragment>
+        );
+      }
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>

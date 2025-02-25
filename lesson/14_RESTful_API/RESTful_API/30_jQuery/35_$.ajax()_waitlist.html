@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../_js/jquery-3.6.0.js"></script>
+    <!-- 導入Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+</head>
+
+<body>
+
+    <h4>取得資料測試平台</h4>
+    <p><a href='https://jsonplaceholder.typicode.com/'>https://jsonplaceholder.typicode.com/</a></p>
+    <h4>jQuery.ajax()</h4>
+    <p><a href='https://api.jquery.com/jQuery.ajax/'>https://api.jquery.com/jQuery.ajax/</a></p>
+    <hr>
+
+    <button id="btnAjax">$.ajax()</button>
+    <hr>
+
+    <p>按鈕點選後底下依序顯示 userid - id - completed - title</p>
+    <p>例如: 10 - 181 - false - ut cupiditate sequi aliquam fuga maiores</p>
+    <div id="divResult"> </div>
+    <hr>
+    <style>
+        /* .waitList {
+            padding: ;
+            background-color: lightgreen;
+        } */
+    </style>
+    <script>
+        // 10. 按鈕點選後，讀取使用者待辦項目清單
+        btnAjax.onclick = function () {
+
+            // 20. 觀察資料結構 https://jsonplaceholder.typicode.com/todos
+            //     試著將 使用者編號為10號的待辦事項 顯示在網頁上
+            const url = 'https://jsonplaceholder.typicode.com/todos';
+
+            $.ajax({
+                method: "GET",
+                url: 'https://jsonplaceholder.typicode.com/todos',
+                data: { name: "John", location: "Boston" }
+            })
+                .done(function (msg) {
+                    // console.log(msg);
+                    let resultHTML = "";
+                    for (let i = 0; i < msg.length; i++) {
+                        if (msg[i].userId == 10) {
+                            console.log(msg[i]);
+                            if (`${msg[i].completed}` == "true") {
+                                resultHTML += `<div  class="waitList bg-secondary bg-opacity-25 px-2 py-3 rounded">`
+                                resultHTML += `<input type="checkbox" checked> `
+                                resultHTML += `<span style="text-decoration:line-through;">${msg[i].id}-${msg[i].title}</span>`;
+                                 resultHTML += `</div>`
+                            } else {
+                                 resultHTML += `<div  class="waitList bg-success bg-opacity-50 px-2 py-3 rounded">`
+                                resultHTML += `<input type="checkbox"> `
+                                resultHTML += `<span>${msg[i].id}-${msg[i].title}</span>`;
+                                resultHTML += `</div>`
+                            }
+                           
+                            resultHTML += `<br>`;
+                            $("#divResult").html(resultHTML);
+                        }
+                    }
+
+                })
+
+        }
+    </script>
+
+</body>
+
+</html>

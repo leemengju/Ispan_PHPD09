@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: 'Microsoft JhengHei', "Microsoft YaHei", STHeiti, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        class Toggle extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { isToggleOn: true };
+
+            }
+
+            render() {
+                return (
+                    <button
+                        className="btn btn-outline-success"
+                        onClick={this.doClick}
+                    >
+                        {this.state.isToggleOn ? 'ON' : 'OFF'}
+                    </button>
+                );
+            }
+
+            doClick = () => {
+                // alert(Date());
+                // 這行代碼直接對組件的 state 進行修改，將 isToggleOn 的值取反。也就是說，每次點擊會把 isToggleOn 從 true 變為 false 或從 false 變為 true。
+                this.state.isToggleOn = !this.state.isToggleOn;
+                // 使用 console.log 將新的 isToggleOn 值輸出到控制台，方便開發者檢查狀態變化的結果。
+                console.log("Lab:", this.state.isToggleOn);
+                // 這行調用 this.setState() 並傳入一個空對象。雖然沒有實際改變任何 state 屬性，但此調用依然會觸發組件的重新渲染，從而使得界面更新以反映 isToggleOn 的變化。
+                this.setState({});
+            }
+
+
+        }
+
+
+        ReactDOM.render(
+            <div className="container">
+                <Toggle />
+            </div>,
+            document.getElementById('root')
+        );
+
+
+
+    </script>
+
+</body>
+
+</html>

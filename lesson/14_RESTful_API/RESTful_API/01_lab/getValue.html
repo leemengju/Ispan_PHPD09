@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let student={
+        city:"台中",
+        phone:"123456"
+    }
+    // 陣列.key可以得到value
+    console.log("方法一");
+    console.log(student.city);
+    console.log(student.phone);
+
+ // 陣列[字串]可以得到value
+    console.log("方法二");
+    console.log(student['city']);
+    console.log(student['phone']);
+
+
+ // 陣列[字串]可以得到value
+    console.log("---------------------------");
+    let xa="city";
+    console.log(student[xa]);
+   
+    
+</script>
+</body>
+</html>

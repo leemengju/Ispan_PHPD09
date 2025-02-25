@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<div id="debug"></div>
+
+<script>
+
+    var a = 100;
+    var b = 200;
+    var person = { firstName: "Jermey" };
+    var dataList = [100, 200, 300];
+
+    var result = `
+        a: ${a} <br/>
+        firstName: ${person.firstName} <br/>
+        dataList[2]: ${dataList[2]}  <br/>
+        a + b: ${a + b}
+    `;
+
+    debug.innerHTML = result;
+</script>
+
+</body>
+
+</html>

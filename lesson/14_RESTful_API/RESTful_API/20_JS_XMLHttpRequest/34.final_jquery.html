@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../_js/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <button id="btnGetOpenData">取得天氣資料</button>
+    <hr>
+    <select id="cityList"></select>
+    <hr>
+    <div id="divResult"></div>
+
+</body>
+<script>
+    let globalXmlDoc=null;
+    let Clist=null;
+    let Wlist=null;
+
+    let btnClick = function () {
+        // console.log("btn");
+        let xhr = new XMLHttpRequest();
+        xhr.addEventListener('load', xhrLoad);
+        xhr.open('GET', "../_file/F-C0032-001_20250218.xml");
+        xhr.send();
+        // $("#btnGetOpenData").prop("disable",true);
+    }
+
+
+    //資料載入事件-->把資料種好放到變數 clist, Wlist
+let xhrLoad = function() {
+      console.log(this.responseText); // 印出原始 XML 字串以供除錯
+      let parser = new DOMParser();
+      let xmlDoc = parser.parseFromString(this.responseText, "text/xml");
+      console.log("Parsed XML:", xmlDoc);
+      // 儲存全域 XML 文件
+      globalXmlDoc = xmlDoc;
+      // 取得所有 <locationName> 節點，並存入 clist
+      clist = xmlDoc.getElementsByTagName("locationName");
+      console.log("City list:", clist);
+      Wlist = xmlDoc.getElementsByTagName("locationName+weatherElement");
+      console.log("Weather list:", Wlist);
+      // 呼叫函式動態建立下拉選單的選項
+      addCityListOption();
+}
+
+let addCityListOption=function(){
+    // console.log(5566);
+    $("#cityList").empty();
+    // console.log(5577);
+    $.each(clist,function(idx,val){
+        $("#cityList").append(`<option value=${idx}>${val.innerHTML}</option>`)
+    })
+}
+    
+let  selectChange=function(){
+      console.log("5566");
+    let idx=$("#cityList").index();
+    // console.log(idx);
+    $("#divResult").empty();
+    
+    
+    $(Wlist[idx])
+        .find('time')
+        .each(function (idx,elem) {
+            console.log(elem);
+            let st=$(elem).find('startTime').text();
+            let et=$(elem).find('endTime').text();
+            let pn=$(elem).find('parameterName').text();
+
+            $("#divResult").append(`<p>${st}</p>`);
+            $("#divResult").append(`<p>${et}</p>`);
+            $("#divResult").append(`<p>${pn}</p>`);
+        }) 
+}
+//             console.log(Wlist[0].childNodes[3].childNodes[1].innerHTML);
+//             console.log(Wlist[0].childNodes[3].childNodes[3].innerHTML);
+//             console.log(Wlist[0].childNodes[3].childNodes[5].childNodes[1].innerHTML);
+ 
+//             console.log(Wlist[0].childNodes[5].childNodes[1].innerHTML);
+//             console.log(Wlist[0].childNodes[5].childNodes[3].innerHTML);
+//             console.log(Wlist[0].childNodes[5].childNodes[5].childNodes[1].innerHTML);
+ 
+//             console.log(Wlist[0].childNodes[7].childNodes[1].innerHTML);
+//             console.log(Wlist[0].childNodes[7].childNodes[3].innerHTML);
+//             console.log(Wlist[0].childNodes[7].childNodes[5].childNodes[1].innerHTML);
+// }
+
+    $("#btnGetOpenData").on("click", btnClick);
+    $("#cityList").on("change", SelectChange);
+</script>
+
+</html>

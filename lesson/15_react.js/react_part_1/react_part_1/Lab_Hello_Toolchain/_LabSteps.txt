@@ -1,0 +1,182 @@
+Lab: React 入門 (包含開發環境安裝程序)
+
+
+1.  安裝 Node.js
+
+
+1.1 瀏覽器連接下列網址:
+    https://nodejs.org/
+
+
+1.2 下載並安裝 LTS 版
+
+
+
+
+2.  安裝 VS Code
+
+
+2.1 瀏覽器連接下列網址:
+    https://code.visualstudio.com/
+
+
+2.2 點按「Download」連結，下載安裝程式。
+    執行安裝程式時，請勾選「以 Code 開啟...」
+
+
+2.3 在 Visual Studio Code 安裝套件
+    Simple React Snippets
+    Live Server (ritwickdey.liveserver)
+
+    <Hint>
+    點按 VS Code 左邊側邊工具的第五個(方形那個)圖示，
+    輸入關鍵字，例如: Simple React
+
+
+
+
+3.  安裝 create-react-app
+
+3.1 啟動「命名提示字元」
+
+3.2 輸入下列指令:
+    npm install create-react-app -g
+
+
+
+
+4.  建立 React 應用程式
+
+
+4.1 啟動「命名提示字元」，切換到你習慣的工作目錄，例如 c:\lab 資料夾:
+    c:
+    cd \lab
+
+
+4.2 (承上) 繼續輸入下列指令:
+    create-react-app hello
+
+    <Note>
+    以本例來說，會建立一個新的資料夾: c:\lab\hello
+
+
+4.3 切換工作目錄到 hello 資料夾。繼續輸入:
+    cd hello
+
+
+4.4 啟動 Development Server。繼續輸入:
+    npm start
+
+    <Note>
+    一切順利的話，會自動啟動預設瀏覽器並連結到
+    http://localhost:3000
+
+
+4.5 回到「命令提示字元」，按下組合「Ctrl + C」結束 Development Server
+
+
+
+
+5.  編寫 Hello World 程式
+
+
+5.1 在檔案總管，以滑鼠右鍵點按 c:\lab\hello 資料夾，
+    從快捷功能表選擇: 以 Code 開啟
+
+
+5.2 將 src 資料夾的全部檔案都刪除
+
+
+5.3 在 src 資料夾新增檔案，檔名: index.js，內容如下:
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const element = <h1>Hello World</h1>;
+ReactDOM.render(element, document.getElementById("root"));
+
+
+5.4 組合鍵「Ctrl + `」啟動終端機，輸入
+    npm start
+
+    <Note>
+    一切順利的話，會自動啟動預設瀏覽器並連結到
+    http://localhost:3000
+    內容為 Hello World
+
+
+5.5 在終端機視窗，按下組合「Ctrl + C」結束 Development Server
+
+
+
+
+6.  安裝與使用 Bootstrap
+
+
+6.1 在終端機視窗，輸入:
+    npm install bootstrap@4.1.1
+
+
+6.2 修改 index.js，新內容如下:
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import "bootstrap/dist/css/bootstrap.css";
+
+const element = <h1 className="display-1">Hello World</h1>;
+ReactDOM.render(element, document.getElementById("root"));
+
+<Note>
+(A) 匯入什麼?
+(B) class 為何要寫成 className?
+
+
+6.3 在終端機，輸入
+    npm start
+    觀察 http://localhost:3000 文字的字體樣式。
+
+
+6.4 在終端機視窗，按下組合「Ctrl + C」結束 Development Server
+
+
+
+
+(Optional)
+7.  編譯與佈署 React 應用程式
+
+
+7.0 下列操作，假設你已將 XAMPP 按預設選項安裝到 c:\xampp
+
+
+7.1 在終端機視窗，輸入:
+    npm run build
+
+    <Note> Hello 專案資料夾，多出一個 build 資料夾
+
+
+7.2 將 build 資料夾複製到 c:\xampp\htdocs，
+    然後，將 c:\xampp\htdocs\build 更改名稱為:
+    c:\xampp\htdocs\hello
+
+
+7.3 以「記事本」，檔案 | 開啟舊檔，
+    檔名: C:\xampp\apache\conf\extra\httpd-vhosts.conf
+
+
+7.4 將下列內容，附加到檔案結尾處。
+LISTEN 8001
+<VirtualHost *:8001>
+    DocumentRoot "C:\xampp\htdocs\hello"
+</VirtualHost>
+
+
+7.5 透過 XAMPP Control Panel，啟動 apache
+
+
+7.6 啟動瀏覽器，連接: http://localhost:8001
+
+
+7.7 練習結束，
+    還原 C:\xampp\apache\conf\extra\httpd-vhosts.conf 檔案內容
+    刪除 hello 資料夾
+

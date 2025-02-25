@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<div id="debug"></div>
+
+<script>
+    var place = {
+        x: 100,
+        y: 200,
+        where() {
+            return `x = ${this.x}, y = ${this.y}`;
+        }
+    };
+
+    // var x = place.x;
+    // var y = place.y;
+    // debug.innerText = `x = ${x}, y = ${y}`;
+
+    var {x, y, where} = place;
+    // debug.innerText = `x = ${x}, y = ${y}`;
+    debug.innerText = where();
+
+
+</script>
+
+</body>
+
+</html>

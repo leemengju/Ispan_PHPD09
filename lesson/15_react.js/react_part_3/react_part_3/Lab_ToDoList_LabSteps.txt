@@ -1,0 +1,18 @@
+0.  啟動 MySQL，執行 setup_db.txt 的指令，建立範例資料庫。
+
+1.  滑鼠右鍵點按 Lab_ToDoList | Open in Integrated Terminal
+
+2.  npm install
+
+3.  開啟 app.js，針對 mysql.createConnection 
+    修改必要的項目，例如密碼，連接埠號。
+
+4.  node app.js
+
+5.  瀏覽器連接 http://localhost:8000
+
+6.  試用其中的新增、修改、刪除功能。
+
+7.  請參考上述 Lab_ToDoList 這個已完成的例子，
+    前端重新以 React.js 改寫。
+

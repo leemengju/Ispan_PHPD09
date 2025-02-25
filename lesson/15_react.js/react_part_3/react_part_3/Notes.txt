@@ -1,0 +1,43 @@
+【建議順序】
+
+1.  Lab_counter
+2.  Lab_AJAX_Node.js
+3.  Demo 資料夾
+4.  本 Notes.txt 的後續內容，例如:
+    How to create simple React Router to navigate multiple pages?
+5.  Lab_ToDoList (Lab_ToDoList_LabSteps.txt)
+
+
+
+你可能會用到下列指令/文件:
+
+npm install react-router-dom@5
+npm install bootstrap@4
+npm install axios
+
+
+Creating an App:
+https://create-react-app.dev/docs/getting-started/
+
+
+State and Lifecycle
+https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+
+How to create simple React Router to navigate multiple pages?
+https://www.golangprograms.com/how-to-create-simple-react-router-to-navigate-multiple-pages.html
+
+<Note> npm install react-router-dom@5
+
+
+React Router Pass Param to Component
+https://stackoverflow.com/questions/45898789/react-router-pass-param-to-component
+
+
+How to get the value of an input field using ReactJS?
+https://stackoverflow.com/questions/36683770/how-to-get-the-value-of-an-input-field-using-reactjs
+
+
+React Checkbox not sending onChange
+https://stackoverflow.com/questions/26615779/react-checkbox-not-sending-onchange
+

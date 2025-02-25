@@ -1,0 +1,11 @@
+<Note>
+務必先試過 useState，再試其他的練習。
+
+
+State and Lifecycle
+https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+
+How to create simple React Router to navigate multiple pages?
+https://www.golangprograms.com/how-to-create-simple-react-router-to-navigate-multiple-pages.html
+

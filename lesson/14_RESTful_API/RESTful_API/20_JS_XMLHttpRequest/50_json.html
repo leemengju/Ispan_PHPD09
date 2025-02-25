@@ -24,9 +24,16 @@
             pdiscount: 'N'
         }];
 
-        // 20. JSON.stringify 將 物件 變成 文字
-        
-        // 30. JSON.parse     將 文字 變成 物件
+        // 20. JSON.stringify 將 陣列 變成 字串
+        let xa = JSON.stringify(data);
+        console.log(xa);
+        console.log(typeof xa);
+
+        // 30. JSON.parse     將 字串 變成 陣列
+        let xb = JSON.parse(xa);
+        console.log(xb);
+      
+
 
     </script>
 </body>

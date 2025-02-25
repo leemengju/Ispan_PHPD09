@@ -1,0 +1,164 @@
+Lab: JSX 入門
+
+
+1.  以編輯器開啟並檢視 index_0.html 的內容
+
+
+
+
+2.  在 JSX 嵌入運算式
+
+
+2.1 在 <script type="text/babel"> 程式區塊，撰寫下列程式:
+
+        const element = <h3>南方燕藍灰蝶</h3>;
+        
+        ReactDOM.render(
+            element,
+            document.getElementById('root')
+        );
+
+
+2.2 存檔之後，在瀏覽器檢視作品。
+
+
+2.3 將 const 那行的程式改成:
+        const name = '南方燕藍灰蝶';
+        const element = <h3>{name}</h3>;
+
+
+2.4 存檔之後，在瀏覽器檢視作品。
+
+
+2.5 請試試看，{name} 改成 { 1 + 1} 會如何?
+
+
+
+
+3.  在 JSX 呼叫函式
+
+
+3.1 將 script 改成:
+
+    <script type="text/babel">
+        const dataItem = {
+            scientificName: "Everes lacturnus rileyi",
+            commonName: "南方燕藍灰蝶"
+        }
+
+        function formatName(species) {
+            return `${species.commonName} <br />
+            (${species.scientificName})`;
+        }
+
+        const element = <h3> {formatName(dataItem)} </h3> ;
+
+        ReactDOM.render(
+            element,
+            document.getElementById('root')
+        );
+
+
+    </script>
+
+
+3.2 存檔之後，在瀏覽器檢視作品。
+    <Note>
+    畫面顯示: 南方燕藍灰蝶 <br /> (Everes lacturnus rileyi)
+    沒有顯示成兩行，而是顯示 <br> 標籤
+
+
+3.3 閱讀程式，解說程式的作法
+
+
+3.4 Google 一下，如何顯示成兩行，而不是顯示 <br> 標籤?
+
+
+
+
+4.  JSX 呼叫函式，函式傳回 JSX
+
+
+4.1 將 formatName() 改成這樣:
+
+        function formatName(species) {
+            return <span>
+                {species.commonName}<br/>
+                {species.scientificName}
+            </span>;
+        }
+
+
+4.2 請問 formatName() 傳回什麼? 
+    與先前的步驟 3.1 有何差異？
+
+
+4.3 回到步驟 2.3 的進度，不看本練習步驟的現有程式，重新練習一遍。
+
+
+<Note>
+Augular 與 Vue.js 進行範本處理時，都有內建 if, for，
+就好像後端系統的php有 <?php if ..。
+React 可以呼叫函式並傳回 JSX，作法上與其他前端平台你覺得有何優劣?
+
+
+
+
+5.  JSX 如何設定元素的屬性值
+
+
+5.1 將 const element 那邊，改成:
+        const element = (
+            <div className="col-4">
+                <h3> {formatName(dataItem)} </h3>
+                <img src="images/rileyi.jpg" />
+            </div>
+        );
+
+
+5.2 存檔之後，在瀏覽器檢視作品。
+
+
+5.3 dataItem 物作加入 image 屬性，屬性值: "images/rileyi.jpg"
+
+
+5.4 將 <img src="images/rileyi.jpg" />
+    改成:
+    <img src={dataItem.image} />
+
+
+5.5 請問 <img ... /> 寫成 <img ... >，可以嗎? (少一個斜線)
+
+
+
+
+<Note>完整的 <script> 內容如下:
+
+    <script type="text/babel">
+        const dataItem = {
+            scientificName: "Everes lacturnus rileyi",
+            commonName: "南方燕藍灰蝶",
+            image: "images/rileyi.jpg"
+        }
+
+        function formatName(species) {
+            return <span>
+                {species.commonName}<br />
+                {species.scientificName}
+            </span>;
+        }
+
+        const element = (
+            <div className="col-4">
+                <h3> {formatName(dataItem)} </h3>
+                <img src={dataItem.image} />
+            </div>
+        );
+
+        ReactDOM.render(
+            element,
+            document.getElementById('root')
+        );
+
+
+    </script>

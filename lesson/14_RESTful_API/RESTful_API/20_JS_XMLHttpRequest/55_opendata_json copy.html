@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+<script src="../_js/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+
+    <h4>獨立音樂</h4>
+    <p><a href='https://data.gov.tw/dataset/6006'>https://data.gov.tw/dataset/6006</a></p>
+    <hr>
+    <button id="btnGetOpenData1">取得展覽資料(日期/名稱)</button>
+    <hr>
+    <button id="btnGetOpenData2">取得展覽資料(table/img)</button>
+    <hr>
+    <div id="divResult">
+        <table>
+            <tar>
+                <th>time: "2022/01/23 10:00:00</th>
+                <th>location: "臺北市中正區中山南路21-1號"</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tar>
+        </table>
+    </div>  
+<style>
+    img{
+        width:100px;
+        height:100px;
+        object-fit: cover;
+    }
+</style>
+
+    <script>
+
+        // 10. 按鈕點選時，取得展覽資料
+        //     並將 起訖日期、展覽名稱 顯示在畫面上
+        let globalJDoc = null;
+        let Etime = null;
+        let Etitle = null;
+
+        let btnClick=function(){
+          let xhr=new XMLHttpRequest();
+          xhr.addEventListener("load",xhrLoad);
+          xhr.open("GET","../_file/music.json");
+          xhr.send();
+        }
+        
+        let xhrLoad=function(){
+        console.log(5566);
+        let xa=JSON.parse(this.responseText);
+        console.log(xa);
+        
+        divResult.innerHTML="";
+        for (let i = 0; i < xa.length; i++) {
+            const xb = xa[i];
+            console.log(xb);
+            divResult.innerHTML+=`<p>${xb.startDate}~${xb.endDate}</p>`;
+            
+            divResult.innerHTML+=`<p>${xb.title}</p>`;
+            
+            divResult.innerHTML+=`<hr>`;
+            
+            
+        }
+        }
+       
+       
+       document.getElementById("btnGetOpenData1").addEventListener("click",btnClick);
+       document.getElementById("btnGetOpenData2").addEventListener("click",btnClick2);
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: 'Microsoft JhengHei', "Microsoft YaHei", STHeiti, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        class Clock extends React.Component {
+            // 定義了組件的構造函數，接收參數
+            constructor(props) {
+                //  繼承調用父類（React.Component）的構造函數，將參數傳遞過去。這是必須的，否則無法正確使用 this。
+                super(props);
+                this.state = { date: new Date() };
+            }
+
+            render() {
+                return (
+                    // 放置靜態畫面的位置。
+                    <div>
+                        <h1>Hello, world!</h1>
+                        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+                    </div>
+                );
+            }
+             // 元件已掛載:用componentDidMount去API抓資料。
+            componentDidMount() {
+                // 使用箭頭函數this才會改變。
+                // this.timerId = setInterval(..., 1000);: 使用 setInterval 設置一個定時器，每隔 1000 毫秒（1 秒）執行一次回調函數。
+                this.timerId = setInterval(() => {
+                    this.setState({ date: new Date() });
+                }, 1000);
+            }
+
+            // 當組件即將從 DOM 中移除時執行。
+            componentWillUnmount() {
+                clearInterval(this.timerId);
+            }
+
+        }
+
+    
+        ReactDOM.render(
+            <Clock />,
+            document.getElementById('root')
+        );
+
+    </script>
+
+</body>
+
+</html>

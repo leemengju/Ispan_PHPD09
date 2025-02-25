@@ -1,0 +1,123 @@
+Lab: React 入門第一例 (HTML版)
+
+
+1.  安裝/引用 React 
+
+
+1.1 在本資料夾建立新的 HTML 文件，檔名: index.html，內容如下:
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- 1.2 安裝/引用 React 的 JavaScript -->
+
+    <script>
+        // 2.1 渲染/動態產出網頁內容
+
+    </script>
+</body>
+
+</html>
+
+
+1.2 找到「<!-- 1.2 安裝/引用 React 的 JavaScript -->」，
+    加入下列內容:
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>    
+
+
+
+
+2.  渲染/動態產出網頁內容
+
+
+2.1 找到「2.1 渲染/動態產出網頁內容」，
+    加入下列內容:
+
+        ReactDOM.render(
+            React.createElement("h1", null, "Hello, world!"),
+            document.getElementById('root')
+        );
+
+
+2.2 存檔後，在瀏覽器檢視作品
+
+
+2.3 閱讀 2.1 的程式，說明一下你覺得程式是怎麼運作的。
+
+
+
+
+3.  使用 JSX
+JSX=JS+XML
+
+
+3.1 繼「<!-- 1.2 安裝/引用 React 的 JavaScript -->」之後，
+    再加入下列宣告，引用 Babel:
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+
+3.2 將最後一段 <script> 修改成:
+    <script type="text/babel">
+        ReactDOM.render(
+            <h1>Hello, world!</h1>,
+            document.getElementById('root')
+        );
+    </script>
+
+
+3.3 存檔後，在瀏覽器檢視作品。
+
+
+3.4 閱讀程式，並且回答以下問題:
+
+    (A) type="text/babel" 是必要的嗎?
+    (B) <h1>Hello, world!</h1> 為何不必使用引號包起來?
+
+
+<參考資料>
+Hello World
+https://reactjs.org/docs/hello-world.html
+
+Introducing JSX
+https://reactjs.org/docs/introducing-jsx.html
+
+
+
+
+4.  寫成元件
+
+
+4.1 將最後一段 <script> 修改成:
+
+    <script type="text/babel">
+
+        class App extends React.Component {
+            render() {
+                return <h1>Hello world!</h1>
+            }
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'))
+
+    </script>
+
+
+4.2 存檔後，在瀏覽器檢視作品。
+
+
+4.3 閱讀程式，並且回答以下問題:
+
+    (A) class App 是什麼?
+    (B) class App 有哪一個方法? 傳回什麼內容?
+    (C) class App 與 <App /> 的名稱必須匹配(相同)嗎?

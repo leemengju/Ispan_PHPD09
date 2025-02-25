@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+
+    <script src="../_js/jquery-3.6.0.js"></script>
 </head>
 
 <body>
@@ -10,14 +12,159 @@
     <h4>獨立音樂</h4>
     <p><a href='https://data.gov.tw/dataset/6006'>https://data.gov.tw/dataset/6006</a></p>
     <hr>
-    <button id="btnGetOpenData">取得展覽資料</button>
+    <button id="btnGetOpenData1">取得展覽資料(日期/名稱)</button>
     <hr>
-    <div id="divResult"></div>
+    <button id="btnGetOpenData2">取得展覽資料(table/img)</button>
+    <hr>
+    <div id="divResult">
+        <table>
+            <tar>
+                "time": "2022/11/17 11:00:00",
+                "location": "屏東縣屏東市民生路4-17號",
+                "locationName": "屏東演藝廳實驗劇場",
+                "onSales": "Y",
+                "price": "",
+                "latitude": "22.6633696",
+                "longitude": "120.5061328",
+                "endTime": "2023/02/11 09:30:00"
+                <th>time: "2022/01/23 10:00:00</th>
+                <th>location: "臺北市中正區中山南路21-1號"</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tar>
+        </table>
+    </div>
+    <style>
+        img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        table,
+        tr,
+        th,
+        td
+         {
+            border: black 1px solid;
+
+        }
+    </style>
 
     <script>
 
         // 10. 按鈕點選時，取得展覽資料
         //     並將 起訖日期、展覽名稱 顯示在畫面上
+        let globalJDoc = null;
+        let Etime = null;
+        let Etitle = null;
+
+        let btnClick = function () {
+            let xhr = new XMLHttpRequest();
+            xhr.addEventListener('load', xhrLoad);
+            xhr.open('GET', "../_file/music.json");
+            xhr.send();
+
+        }
+
+        // 資料載入事件-->把資料種好放到變數 clist, Wlist
+        let xhrLoad = function () {
+            console.log(this.responseText); // 印出原始 XML 字串以供除錯
+            //  將字串轉物件
+            let xa = JSON.parse(this.responseText);
+            console.log(xa);
+
+            // 觀察起日期/終止日期/展覽名稱
+            console.log(xa[0].title);
+            console.log(xa[0].startDate);
+            console.log(xa[0].endDate);
+
+
+            // 印出起日期/終止日期/展覽名稱
+            divResult.innerHTML = "";
+
+            for (let i = 0; i < xa.length; i++) {
+                let xb = xa[i];
+                console.log(xb);
+                divResult.innerHTML += `<p>期間:${xb.startDate}~${xb.startDate}</p>`;
+                divResult.innerHTML += `<p>名稱:${xb.title}</p>`;
+                divResult.innerHTML += `<hr>`;
+            }
+            // xa.forEach(function (xb) {
+            //     console.log(xb);
+            //     divResult1.innerHTML = `<p>期間:${xb.startDate}~${xb.startDate}</p>`
+            //     divResult2.innerHTML = `<p>名稱:${xb.title}</p>`
+            // })
+
+
+
+        }
+
+
+        let btnClick2 = function () {
+            let xhr = new XMLHttpRequest();
+            xhr.addEventListener('load', xhrLoad2);
+            xhr.open('GET', "../_file/music.json");
+            xhr.send();
+
+        }
+
+        let xhrLoad2 = function () {
+            console.log(this.responseText); // 印出原始 XML 字串以供除錯
+            //  將字串轉物件
+            let xc = JSON.parse(this.responseText);
+            console.log(xc);
+
+            let ExhiInfo = "";
+
+            // //<-------------------------------第一個迴圈:展覽資訊五個------------------------------->
+            xc.forEach(function (xd) {
+                // console.log(xd.showInfo);
+                ExhiInfo += `<p>期間:${xd.startDate}~${xd.startDate}</p>`
+                ExhiInfo += `<p>名稱:${xd.title}</p>`
+                if (xd.imageUrl) {
+                    ExhiInfo += `<p>圖片:<img src=${xd.imageUrl} width=80%>`
+                } else {
+                    ExhiInfo += `<p>圖片:無資料來源</p>`
+
+                }
+                //<-------------------------------第二個迴圈:展覽資訊下的showInfo------------------------------>
+                ExhiInfo += `<table>`
+                xd.showInfo.forEach(function (showDetail) {
+                     ExhiInfo+=`<tr>`
+                    // // 方法一:通過[物件.句點]去拿陣列的值
+                    // console.log("皮卡丘");
+                    // console.log(showDetail.time);
+                    // console.log(showDetail.location);
+                    // console.log(showDetail.locationName);
+                    // console.log(showDetail.onSales);
+                    // console.log(showDetail.price);
+                    // console.log(showDetail.latitude);
+                    // console.log(showDetail.longitude);
+                    // console.log(showDetail.endTime);
+                   
+
+                    // 方法二: 用forin迴圈把tableDetail印出來。全部資料都在畫面上。
+                    // console.log("皮卡丘");
+                    for (const key in showDetail) {
+                        console.log(key);
+                        console.log(showDetail[key]);
+                        ExhiInfo+=`<td>${key}:${showDetail[key]}<td>`
+                        
+                    }
+                    ExhiInfo+=`<tr>`
+                })
+                ExhiInfo += `<table>`
+                ExhiInfo += `<hr>`
+            })
+            document.getElementById("divResult").innerHTML = ExhiInfo;
+        }
+        document.getElementById("btnGetOpenData1").addEventListener("click", btnClick);
+        document.getElementById("btnGetOpenData2").addEventListener("click", btnClick2);
 
     </script>
 

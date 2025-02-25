@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="btnGetOpenData">取得天氣資料</button>
+    <hr>
+    <select id="cityList"></select>
+    <hr>
+    <div id="divResult"></div>
+
+    <script>
+
+// 1.定義全域變數
+    let globalXmlDoc=null;
+    let Clist=null;
+    let Wlist=null;
+
+// 2.定義btnClick的function。 為XMLHttpRequest 物件綁定一個 "load" 事件監聽器。當請求完成且資料成功載入時，會執行後面的匿名函式。   
+let btnClick=function(){
+    // console.log("btn");
+    let xhr= new XMLHttpRequest();
+    xhr.addEventListener('load',xhrLoad);
+    xhr.open('GET',"../_file/F-C0032-001_20250218.xml");
+    xhr.send();
+}
+// 資料載入事件-->把資料種好放到變數 clist, Wlist
+let xhrLoad = function() {
+      console.log(this.responseText); // 印出原始 XML 字串以供除錯
+      let parser = new DOMParser();
+      let xmlDoc = parser.parseFromString(this.responseText, "text/xml");
+      console.log("Parsed XML:", xmlDoc);
+      // 儲存全域 XML 文件
+      globalXmlDoc = xmlDoc;
+      // 取得所有 <locationName> 節點，並存入 clist
+      clist = xmlDoc.getElementsByTagName("locationName");
+      console.log("City list:", clist);
+      Wlist = xmlDoc.querySelectorAll("locationName+weatherElement");
+      console.log("Weather list:", Wlist);
+      // 呼叫函式動態建立下拉選單的選項
+      addCityListOption();
+}
+
+let addCityListOption=function(){
+    // console.log(5566);
+    
+    document.getElementById("cityList").innerText="";
+    // console.log(5577);
+    
+    for (var i = 0; i < clist.length; i++) {
+        // console.log(clist[1]);
+        
+       let opt=document.createElement('option');
+       opt.textContent=clist[i].innerHTML;
+       opt.value = clist[i].innerHTML;
+       cityList.appendChild(opt);
+    }
+}
+let  selectChange=function(){
+     console.log(5566);
+    let idx=document.getElementById("cityList").selectedIndex;
+    console.log(idx);
+    document.getElementById("divResult").innerHTML="";
+    let data="";
+    // <-------------------------------------------方法一:一個個列-------------------------------------------->
+    // console.log(Wlist);
+    //         console.log(Wlist[0].childNodes[3].childNodes[3].innerHTML);
+    //         console.log(Wlist[0].childNodes[3].childNodes[5].childNodes[1].innerHTML);
+ 
+    //         console.log(Wlist[0].childNodes[5].childNodes[1].innerHTML);
+    //         console.log(Wlist[0].childNodes[5].childNodes[3].innerHTML);
+    //         console.log(Wlist[0].childNodes[5].childNodes[5].childNodes[1].innerHTML);
+ 
+    //         console.log(Wlist[0].childNodes[7].childNodes[1].innerHTML);
+    //         console.log(Wlist[0].childNodes[7].childNodes[3].innerHTML);
+    //         console.log(Wlist[0].childNodes[7].childNodes[5].childNodes[1].innerHTML);
+    // <-------------------------------------------方法二:迴圈-------------------------------------------->
+    for (let k = 3; k <=7; k+=2) {
+       data+=`<P> ${Wlist[idx].childNodes[k].childNodes[1].innerHTML}</P>`;
+       data+=`<P> ${Wlist[idx].childNodes[k].childNodes[3].innerHTML}</P>`;
+       data+=`<P> ${Wlist[idx].childNodes[k].childNodes[5].childNodes[1].innerHTML}</P>`;
+    
+    }
+    document.getElementById("divResult").innerHTML=data;
+
+}        
+
+document.getElementById("btnGetOpenData").addEventListener("click",btnClick);
+document.getElementById("cityList").addEventListener("change",selectChange);
+        
+    </script>
+
+</body>
+</html>

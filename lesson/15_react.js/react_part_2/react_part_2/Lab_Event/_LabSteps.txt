@@ -1,0 +1,147 @@
+Lab: 如何綁定／寫作事件處理函式
+
+
+1.  檢視目前進度
+
+
+1.1 在瀏覽器檢視 index_0.html
+
+
+1.2 以編輯器開啟 index_0.html，閱讀其中的程式:
+
+    <script type="text/babel">
+
+        class Toggle extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { isToggleOn: true };
+
+            }
+
+            render() {
+                return (
+                    <button 
+                        className="btn btn-outline-success" 
+                    >
+                        {this.state.isToggleOn ? 'ON' : 'OFF'}
+                    </button>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <div className="container">
+                <Toggle />
+            </div>,
+            document.getElementById('root')
+        );
+
+    </script>
+
+
+
+
+2.  寫作事件處理函式
+
+
+2.1 將程式改寫成這樣：
+
+    <script type="text/babel">
+
+        class Toggle extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { isToggleOn: true };
+
+            }
+
+            doClick(e) {
+                alert("Button clicked.");
+            }
+
+            render() {
+                return (
+                    <button 
+                        onClick = { this.doClick }
+                        className="btn btn-outline-success" 
+                    >
+                        {this.state.isToggleOn ? 'ON' : 'OFF'}
+                    </button>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <div className="container">
+                <Toggle />
+            </div>,
+            document.getElementById('root')
+        );
+
+    </script>
+
+
+2.2 去掉 onClick = { this.doClick } 那行，再重新打字一次。
+
+    <Note>
+    onClick 可否拼字成 onclick （全小寫）?
+
+
+2.3 完成後，在瀏覽器檢視/試用作品
+
+
+
+
+3.  怎麼 this 不見了?
+
+
+3.1 將 doClick() 改成:
+
+    doClick(e) {
+        console.log(this);
+    }
+
+3.1 完成後，在瀏覽器檢視/試用作品
+
+    <Note>
+    undefined?! 怎麼沒有 this?
+
+
+3.2 在 constructor() 多加進這行:
+
+    this.doClick = this.doClick.bind(this);
+
+
+3.3 存檔之後，再試一次看看。
+
+
+
+
+4.  另一個寫法
+
+
+4.1 在 constructor()，註解或去除下列這行程式:
+    this.doClick = this.doClick.bind(this);
+
+
+4.2 將 doClick() 改寫成:
+
+    doClick = (e) => {
+        console.log(this);
+    }
+
+
+4.3 存檔之後，再試一次看看。
+
+
+
+
+5.  完成 doClick() 的程式:
+
+    doClick = (e) => {
+        // console.log(this);
+        this.setState( {
+            isToggleOn: !this.state.isToggleOn
+        });
+    }
+

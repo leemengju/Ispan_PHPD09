@@ -30,8 +30,9 @@
    let globalXmlDoc=null;
 // 2.封裝函式：從指定 URL 讀取 XML 並填入下拉選單
 function reqListener(url,targetSelect) {
-    // 對應到程式載入
+    // 對應到程式載入：建立一個 XMLHttpRequest 物件
     var xhr= new XMLHttpRequest();
+    // 為 XMLHttpRequest 物件綁定一個 "load" 事件監聽器。當請求完成且資料成功載入時，會執行後面的匿名函式。
     xhr.addEventListener("load",function () {
        // 2.1將回傳的 XML 文字轉為 DOM 文件
    var parser= new DOMParser();
@@ -47,6 +48,9 @@ console.log("Locations:",locations);
     // 2.4清空下拉選單現有選項
   targetSelect.innerHTML="";
     // 2.5新增一個預設選項
+//     建立一個新的 <option> 元素，作為預設提示選項。
+// 設定該選項的文字內容為「請選擇縣市」，value 設為空字串。
+// 將此預設選項加入到目標下拉選單中。
   var defaultOption=document.createElement("option");
   defaultOption.textContent="請選擇縣市";
   defaultOption.value="";
@@ -65,6 +69,7 @@ targetSelect.appendChild(option);
     
 }
     });
+    // 使用 XMLHttpRequest 的 open 方法設定 HTTP 請求，第一個參數是請求方法（建議改為大寫 "GET"），第二個參數為指定的 URL。
    xhr.open("Get",url);
 xrl.send();
     }

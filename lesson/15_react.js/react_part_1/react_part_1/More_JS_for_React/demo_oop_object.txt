@@ -1,0 +1,153 @@
+﻿// --------------------------------------------------
+// 010: Prepare
+
+<div id="debug"></div>
+
+
+
+
+// --------------------------------------------------
+// 110	物件（一）
+// A 與 B 的寫法都可以
+
+<script>
+
+    var obj = new Object();  // A
+    var obj = {};  // B
+    obj.firstName = "Wolfgang";
+    obj.lastName = "Chien";
+    obj.sayHello = function () {
+        debug.innerHTML += "Hello! ";	
+    };
+
+    obj.sayHello();
+
+    debug.innerHTML += obj.lastName + "<br>";
+
+</script>
+
+
+
+
+// --------------------------------------------------
+// 120	物件（二）
+
+<script>
+
+    var obj = {
+		"firstName": "Wolfgang",
+		lastName: "Chien",
+        sayHello: function () {
+            debug.innerHTML += "Hello! ";
+        }
+	};
+
+    obj.sayHello();
+
+    debug.innerHTML += obj.lastName + "<br>";
+
+</script>
+
+
+
+
+// --------------------------------------------------
+// 130	物件（三）
+
+<script>
+
+    var obj = {
+		"firstName": "Wolfgang",
+		lastName: "Chien",
+        sayHello: function () {
+            debug.innerHTML += "Hello! " + this.firstName;
+        }
+	};
+
+    obj.sayHello();
+
+</script>
+
+
+
+
+// --------------------------------------------------
+// 130	物件（三）
+
+<script>
+
+    var obj = {
+		"firstName": "Wolfgang",
+		lastName: "Chien",
+        sayHello() {
+            debug.innerHTML += "Hello! " + this.lastName;
+        }
+	};
+
+    obj.sayHello();
+
+</script>
+
+
+
+
+// --------------------------------------------------
+// 140	物件（四），請注意: this 是指向「外面」喔!
+
+<script>
+
+    var obj = {
+		"firstName": "Wolfgang",
+		lastName: "Chien",
+        sayHello: function () {
+            debug.innerHTML += "Hello! " + this.firstName;
+        }
+	};
+
+    obj.sayHello();
+
+</script>
+
+
+
+
+// --------------------------------------------------
+// 150	JSON （掃瞄記憶體內容，擷取出 JSON 格式的字串）
+// 請閱讀 A 段程式的寫法，試著在紙上畫出你對於該資料結構的想像。
+// 觀察程式的執行結果。
+
+<script>
+
+	// A. 物件陣列，用中括號框住一組以 JSON 格式表現的物件
+	var objArray = [
+		{"firstName":"Derek", "lastName":"Jeter"}, 
+		{"firstName":"Jeremy", "lastName":"Lin"}, 
+		{"firstName":"Lionel", "lastName":"Messi"}
+	];
+
+	debug.innerText = JSON.stringify(objArray);
+	// B: [{"firstName":"Derek","lastName":"Jeter"},{"firstName":"Jeremy","lastName":"Lin"},{"firstName":"Lionel","lastName":"Messi"}]
+
+</script>
+
+
+
+
+// --------------------------------------------------
+// 160	JSON （將JSON 格式的字串轉換成記憶體資料）
+// 請閱讀 s 字串的內容與格式
+// JSON.stringify() 與 JSON.parse() 的功能是什麼?
+
+<script>
+
+	var s = '[{"firstName":"Derek","lastName":"Jeter"},{"firstName":"Jeremy","lastName":"Lin"},{"firstName":"Lionel","lastName":"Messi"}]';
+	var objArray = JSON.parse(s);
+	debug.innerHTML = objArray[2].lastName + "<br>";
+
+</script>
+
+
+<Note>
+請留意: JSON 字串中的屬性名稱必須用引號框起來
+
+

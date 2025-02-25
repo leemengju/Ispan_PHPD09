@@ -12,9 +12,16 @@
     <h4>jQuery.post()</h4>
     <p><a href='https://api.jquery.com/jquery.post/'>https://api.jquery.com/jquery.post/</a></p>
     <hr>
-    <button id="btnPostData">寫入資料(測試)</button>
-    <div id="divResult"></div>
 
+    <label for="username">姓名:</label>
+    <input id=username type="text">
+    <br>
+    <label for="usertel">電話:</label>
+    <input id=usertel type="phone">
+    <br>
+    <button id="btnPostData">寫入資料(測試)</button>
+    <p>顯示測試資料</p>
+    <input id="divResult"></input>
     <script>
         // 10. 按鈕點選後，寫入使用者資料 (測試)
         btnPostData.onclick = function () {
@@ -22,7 +29,15 @@
             // 20. 試著將資料寫入到測試平台 https://reqres.in/api/users
             //   * 使用 $.post()
             const url = 'https://reqres.in/api/users';
-        
+            const data = {
+                "name": $("#username").val(),
+                "phone": $("#usertel").val(),
+            }
+            $.post(url, data, function (xa) {
+                console.log(xa);
+                $("#divResult").val(xa.name);
+            })
+
         }
 
     </script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../_js/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <h4>線上API測試平台 (點選網頁下方的 POST CREATE)</h4>
+    <p><a href='https://reqres.in/'>https://reqres.in/</a></p>
+    <h4>jQuery.post()</h4>
+    <p><a href='https://api.jquery.com/jquery.post/'>https://api.jquery.com/jquery.post/</a></p>
+    <hr>
+
+    <label for="username">姓名:</label>
+    <input id=username type="text">
+    <br>
+    <label for="usertel">電話:</label>
+    <input id=usertel type="phone">
+    <br>
+    <button id="btnPostData">寫入資料(測試)</button>
+    <p>顯示測試資料</p>
+    <div id="divResult"></div>
+    <input id="divResult2"></input>
+    <script>
+        // 10. 按鈕點選後，寫入使用者資料 (測試)
+        btnPostData.onclick = function () {
+
+            // 20. 試著將資料寫入到測試平台 https://reqres.in/api/users
+            //   * 使用 $.post()
+            let data={
+                "name": $("#username").val(),
+                "phone": $("#usertel").val(),
+              
+            }
+    $.post('https://reqres.in/api/users',data,function (msg) {
+      console.log(msg);
+    //   $("#divResult").val(msg.name);
+      divResult.innerHTML=msg.name;
+      divResult2.textContent=msg.name;
+    })
+        }
+
+    </script>
+</body>
+
+</html>

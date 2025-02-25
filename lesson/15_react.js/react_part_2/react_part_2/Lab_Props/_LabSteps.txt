@@ -1,0 +1,44 @@
+Lab: 使用 Props (屬性)
+
+
+1.  編寫元件與屬性
+
+
+1.1 以編輯器開啟 index_0.html
+
+
+1.2 找到「// Welcome 元件的程式寫在這:」，加入下列程式:
+
+        // Welcome 元件的程式寫在這:
+        class Welcome extends React.Component {
+            render() {
+                return <h1>Hello, {this.props.name}</h1>;
+            }
+        }
+
+
+1.3 存檔之後，在瀏覽器檢視作品。
+
+
+1.4 觀察程式與執行結果，並請回答下列問題:
+
+(A) Welcome 是否像是自訂元素?
+(B) class Welcome 的任務是什麼?
+(C) name 是 Props(屬件)，它可看成元件的「輸入」嗎?
+(D) 你覺得 Component(元件) 是什麼?
+
+
+
+
+2.  創作元件的第二種寫法
+
+
+2.1 找到「// Welcome 元件的程式寫在這」，將類別的程式，改寫成:
+
+        // Welcome 元件的程式寫在這:
+        function Welcome(props) {
+            return <h1>Hello, {props.name}</h1>;
+        }
+
+
+2.2 存檔之後，在瀏覽器檢視作品。

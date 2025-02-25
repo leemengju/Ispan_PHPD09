@@ -1,0 +1,49 @@
+Lab: 觀察 React 如何將 Virtual DOM 渲染到 Real DOM
+
+
+1.  以編輯器開啟並檢視 index_0.html 的內容
+
+
+2.  在瀏覽器檢視作品。
+
+
+3.  請修改程式，每秒更新時間一次。參考寫法:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        function displayTime() {
+            const element = (
+                <div>
+                    <h1>Hello, world!</h1>
+                    <h2>It is {new Date().toString()}.</h2>
+                </div>
+            );
+            ReactDOM.render(element, document.getElementById('root'));
+        }
+
+        setInterval(displayTime, 1000);
+
+
+4.  存檔之後，在瀏覽器檢視作品。
+
+
+5.  以滑鼠右鍵點按畫面中的日期時間 | 檢查
+    請問: 
+    整個 root 的內容每秒更新，還是只有日期時間那邊更新?
+
