@@ -133,7 +133,21 @@ Lab: 如何綁定／寫作事件處理函式
 
 4.3 存檔之後，再試一次看看。
 
+class YourComponent{
+    state={
 
+    }
+    render(){
+        return HTML;
+
+    }
+    youEventHandler=()=>{
+
+    }
+}
+ReactDOM.render(
+    element,document.getElementById("root");
+)
 
 
 5.  完成 doClick() 的程式:

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: 'Microsoft JhengHei', "Microsoft YaHei", STHeiti, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        // Welcome 元件的程式寫在這:
+        // " &nbsp;"，「不換行空格」（non-breaking space）
+        class Welcome extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <h1>
+                            {this.props.name}--{this.props.order} &nbsp;
+                            <button className="btn btn-outline-danger"
+                                onClick={() => { alert(this.props.id) }}
+                            >
+                                &times;
+                            </button></h1>
+                    </div>
+                )
+            }
+        }
+
+        //將陣列的體變成陣列的面
+        /*
+        使用 map() 方法遍歷 expertList 陣列，對陣列中每個 expert 物件執行箭頭函數。
+每次迭代，根據 expert 的 name 屬性創建一個 <Welcome> 元件，並傳遞 name 作為 prop。
+最終結果是一個包含三個 <Welcome> 元件的陣列，這些元件會依序插入到 <div> 中，依據陣列順序顯示各自的專家名稱。
+        */
+
+        class App extends React.Component {
+            state = {
+                expertList: [
+                    { id: 1, name: "Jeter" },
+                    { id: 2, name: "Messi" },
+                    { id: 3, name: "Jordan" }
+                ]
+            }
+            render() {
+                return (
+                    <React.Fragment>
+                        <button className="btn btn-outline-success"
+                            onClick={this.doClick}
+                        >
+                            Transfer first item to upper case
+                        </button>
+
+                        {this.state.expertList.map(
+                            (expert,order) =>
+                                <Welcome
+                                    name={expert.name}
+                                    key={expert.id}
+                                    id={expert.id}
+                                    onDelete={this.doDelete}
+                                    order={order}
+
+                                />
+                        )}
+                    </React.Fragment>
+                )
+            }
+            doClick = () => {
+                let newState = { ...this.state };
+                newState.expertList[0].name = newState.expertList[0].name.toUpperCase();
+                this.setState(newState);
+            }
+// 方法一:用filter篩選
+            doDelete = (id) => {
+                let newState={...this.state};
+                newState.expertList=this.state.expertList.filter(x=>x.id!=id);
+                this.setState(newState);
+            }
+// 方法二:用splice篩選
+            doDelete = (order) => {
+                let newState={...this.state};
+                newState.expertList=splice(order,1);
+                this.setState(newState);
+            }
+
+
+        }
+
+        ReactDOM.render(
+            <App />,
+            document.getElementById('root')
+        );
+
+    </script>
+
+</body>
+
+</html>
